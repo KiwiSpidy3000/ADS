@@ -15,3 +15,4 @@ class Personal(Base):
     Rol = Column(String(255))
     correo = Column(String(255))
     password = Column(String(255))
+    alta = Column(Integer)

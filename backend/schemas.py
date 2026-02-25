@@ -13,6 +13,7 @@ class PersonalCreate(BaseModel):
     Rol: str
     correo: EmailStr
     password: str
+    alta: int
 
 class PersonalResponse(PersonalCreate):
 
@@ -32,6 +33,7 @@ class PersonalUpdate(BaseModel):
     Rol: Optional[str] = None
     correo: Optional[EmailStr] = None
     password: Optional[str] = None
+    alta: Optional[int] = None
 
 
 class PersonalOut(BaseModel):
@@ -45,6 +47,7 @@ class PersonalOut(BaseModel):
     Tipo_empleado: str
     Rol: str
     correo: EmailStr
+    alta: int
 
     class Config:
         from_attributes = True

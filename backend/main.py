@@ -34,6 +34,7 @@ async def registrar_personal(
     if existente:
         raise HTTPException(status_code=400, detail="El correo ya está registrado")
 
+    personal.alta = 1 
     nuevo_personal = Personal(**personal.model_dump())
 
     db.add(nuevo_personal)
@@ -95,3 +96,28 @@ async def actualizar_personal(
     await db.refresh(personal)
 
     return personal
+
+
+from sqlalchemy import select
+
+@app.delete("/personal/{personal_id}")
+async def eliminar_personal(
+    personal_id: int,
+    db: AsyncSession = Depends(get_db)
+):
+    # Buscar registro
+    result = await db.execute(
+        select(Personal).where(Personal.id == personal_id)
+    )
+    personal = result.scalar_one_or_none()
+
+    if not personal:
+        raise HTTPException(
+            status_code=404,
+            detail="Personal no encontrado"
+        )
+
+    await db.delete(personal)
+    await db.commit()
+
+    return {"mensaje": "Personal eliminado correctamente"}

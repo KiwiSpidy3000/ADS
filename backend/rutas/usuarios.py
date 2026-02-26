@@ -1,5 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import selectinload
+
 from sqlalchemy import select
 from passlib.context import CryptContext
 from typing import List
@@ -17,14 +19,20 @@ async def get_db():
         yield session
 
 
-@router.get("/", response_model=List[UsuarioResponse])
-async def obtener_usuarios(
-    db: AsyncSession = Depends(get_db)
-):
-    result = await db.execute(select(Usuario))
+@router.get("/", response_model=list[UsuarioResponse])
+async def obtener_usuarios(db: AsyncSession = Depends(get_db)):
+
+    result = await db.execute(
+        select(Usuario)
+        .options(
+            selectinload(Usuario.rol),
+            selectinload(Usuario.estado),
+            selectinload(Usuario.tipo_vivienda)
+        )
+    )
+
     usuarios = result.scalars().all()
     return usuarios
-
 @router.post("/", response_model=UsuarioResponse)
 async def crear_usuario(
     usuario: UsuarioCreate,
@@ -68,3 +76,23 @@ async def crear_usuario(
     await db.refresh(nuevo_usuario)
 
     return nuevo_usuario
+
+
+@router.delete("/{usuario_id}")
+async def eliminar_usuario(
+    usuario_id: int,
+    db: AsyncSession = Depends(get_db)
+):
+
+    result = await db.execute(
+        select(Usuario).where(Usuario.id == usuario_id)
+    )
+    usuario = result.scalar_one_or_none()
+
+    if not usuario:
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
+
+    await db.delete(usuario)
+    await db.commit()
+
+    return {"message": "Usuario eliminado correctamente"}

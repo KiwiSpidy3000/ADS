@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, Date, Boolean, ForeignKey, TIMESTAMP, func
+from sqlalchemy.orm import relationship
 from database import Base
 class Usuario(Base):
     __tablename__ = "usuarios"
@@ -28,8 +29,9 @@ class Usuario(Base):
 
     activo = Column(Boolean, default=True)
     fecha_registro = Column(TIMESTAMP, server_default=func.now())
-
-
+    rol = relationship("Rol")
+    estado = relationship("Estado")
+    tipo_vivienda = relationship("TipoVivienda")
 class Rol(Base):
     __tablename__ = "roles"
 

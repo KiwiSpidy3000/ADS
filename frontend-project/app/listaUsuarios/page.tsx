@@ -6,6 +6,34 @@ import Link from "next/link";
 export default function Home() {
   const [usuarios, setUsuarios] = useState([]);
 
+  const eliminarUsuario = async (id: number) => {
+  const confirmar = confirm("¿Está seguro que desea eliminar este usuario?");
+
+  if (!confirmar) return;
+
+  try {
+    const response = await fetch(`http://localhost:8000/usuarios/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error("Error al eliminar");
+    }
+
+    alert("Usuario eliminado correctamente");
+
+    // 🔥 Opción 1: volver a cargar datos
+    window.location.reload();
+
+    // 🔥 Opción 2 (mejor si usas router):
+    // router.refresh();
+
+  } catch (error) {
+    console.error(error);
+    alert("Hubo un error al eliminar");
+  }
+};
+
   useEffect(() => {
     const obtenerUsuarios = async () => {
       try {
@@ -45,6 +73,7 @@ export default function Home() {
               <th className="py-3 px-4 text-left border">Rol</th>
               <th className="py-3 px-4 text-left border">Estatus</th>
               <th className="py-3 px-4 text-center border">Acciones</th>
+              <th className="py-3 px-4 text-center border">Administracion</th>
             </tr>
           </thead>
           <tbody>
@@ -89,6 +118,17 @@ export default function Home() {
                           Activar
                         </span>
                       )}
+
+
+                    </div>
+                  </td>
+                  <td className="py-2 px-4 border text-center">
+                    <div className="flex justify-center items-center gap-4">
+                      <button
+                        onClick={() => eliminarUsuario(usuario.id)}
+                        className="text-red-700 hover:text-red cursor-pointer hover:underline">
+                        Eliminar
+                      </button>
 
                     </div>
                   </td>

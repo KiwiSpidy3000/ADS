@@ -75,8 +75,19 @@ async def crear_usuario(
     await db.commit()
     await db.refresh(nuevo_usuario)
 
-    return nuevo_usuario
+    result = await db.execute(
+        select(Usuario)
+        .options(
+            selectinload(Usuario.rol),
+            selectinload(Usuario.estado),
+            selectinload(Usuario.tipo_vivienda),
+        )
+        .where(Usuario.id == nuevo_usuario.id)
+    )
 
+    usuario_creado = result.scalar_one()
+
+    return usuario_creado
 @router.put("/{usuario_id}", response_model=UsuarioResponse)
 async def actualizar_usuario(
     usuario_id: int,

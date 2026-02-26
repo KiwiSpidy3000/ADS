@@ -79,8 +79,15 @@ export default function Home() {
           <tbody>
             {usuarios.map((usuario: any) => (
               <tr key={usuario.id}>
+
+
                 <td className="py-2 px-4 border">
-                  {usuario.nombre} {usuario.primer_apellido}
+                 
+                  <Link href={`/perfilUsuario/${usuario.id}`}>
+                    <span className="text-blue-600 cursor-pointer hover:underline">
+                        {usuario.nombre} {usuario.primer_apellido} {usuario.segundo_apellido}
+                    </span>
+                </Link>
                 </td>
 
                 <td className="py-2 px-4 border">

@@ -62,7 +62,7 @@ export default function NuevoRegistro() {
       body: JSON.stringify(formData),
     });
 
-    window.location.href = "/listausuarios";
+    window.location.href = "/listaUsuarios";
   };
 
   return (

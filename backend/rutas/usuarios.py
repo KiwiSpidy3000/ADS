@@ -33,6 +33,29 @@ async def obtener_usuarios(db: AsyncSession = Depends(get_db)):
 
     usuarios = result.scalars().all()
     return usuarios
+
+@router.get("/por_id/{id}", response_model=UsuarioResponse)
+async def obtener_usuario_por_id(
+    id: int,
+    db: AsyncSession = Depends(get_db)
+):
+    result = await db.execute(
+        select(Usuario)
+        .where(Usuario.id == id)
+        .options(
+            selectinload(Usuario.rol),
+            selectinload(Usuario.estado),
+            selectinload(Usuario.tipo_vivienda)
+        )
+    )
+
+    usuario = result.scalar_one_or_none()
+
+    if not usuario:
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
+
+    return usuario
+
 @router.post("/", response_model=UsuarioResponse)
 async def crear_usuario(
     usuario: UsuarioCreate,

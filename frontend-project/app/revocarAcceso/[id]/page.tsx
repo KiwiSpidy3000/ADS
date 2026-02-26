@@ -1,6 +1,44 @@
-import Image from "next/image";
 
-export default function Home() {
+"use client";
+import Image from "next/image";
+import { useParams } from "next/navigation";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+export default function AdminAcceso() {
+  const { id } = useParams();
+  const router = useRouter();
+
+  const [loading, setLoading] = useState(false);
+
+  const revocarAcceso = async () => {
+    setLoading(true);
+
+    try {
+      const response = await fetch(`http://localhost:8000/usuarios/${id}/revocar`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          activo: false
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al actualizar");
+      }
+
+      alert("Acceso revocado correctamente");
+      router.push("/listaUsuarios");
+
+    } catch (error) {
+      console.error(error);
+      alert("Hubo un error");
+    }
+
+    setLoading(false);
+  };
+
   return (
 
 <body className="bg-gray-100">
@@ -47,7 +85,7 @@ export default function Home() {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
                 </svg>
-                  <a href="listausuarios.html">       REVOCAR ACCESO</a>
+                  <button  onClick={revocarAcceso}>       REVOCAR ACCESO</button>
          
             </button>
         </div>

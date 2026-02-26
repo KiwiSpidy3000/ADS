@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [usuarios, setUsuarios] = useState([]);
@@ -54,7 +55,7 @@ export default function Home() {
                 </td>
 
                 <td className="py-2 px-4 border">
-                  {usuario.rol?.nombre || "Sin rol"}
+                  {usuario.rol?.nombre_rol || "Sin rol"}
                 </td>
 
                 <td className="py-2 px-4 border">
@@ -68,20 +69,29 @@ export default function Home() {
                     </span>
                   )}
                 </td>
+                  <td className="py-2 px-4 border text-center">
+                    <div className="flex justify-center items-center gap-4">
+                      
+                        <Link href={`/modificarUsuario/${usuario.id}`}>
+                          <span className="text-blue-600 cursor-pointer hover:underline">
+                            Modificar
+                          </span>
+                        </Link>
 
-                <td className="py-2 px-4 border text-center">
-                  <button className="text-blue-600 mr-2">Modificar</button>
+                      {usuario.activo ? (
+                        <Link href={`/revocarAcceso/${usuario.id}`}>
+                          <span className="text-red-600 cursor-pointer hover:underline">
+                            Revocar
+                          </span>
+                        </Link>
+                      ) : (
+                        <span className="text-green-600 cursor-pointer hover:underline">
+                          Activar
+                        </span>
+                      )}
 
-                  {usuario.activo ? (
-                    <a className="text-red-600" href="#">
-                      Revocar
-                    </a>
-                  ) : (
-                    <a className="text-green-600" href="#">
-                      Activar
-                    </a>
-                  )}
-                </td>
+                    </div>
+                  </td>
               </tr>
             ))}
           </tbody>

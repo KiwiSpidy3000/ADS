@@ -96,3 +96,25 @@ class UsuarioUpdate(BaseModel):
     estado_id: Optional[int] = None
     tipo_vivienda_id: Optional[int] = None
     activo: Optional[bool] = None
+
+
+class CatalogoBaseRol(BaseModel):
+    id: int
+    nombre_rol: str
+
+    class Config:
+        from_attributes = True
+
+class CatalogoBaseEstado(BaseModel):
+    id: int
+    nombre: str
+
+    class Config:
+        from_attributes = True
+
+class CatalogoBaseTipoVivienda(BaseModel):
+    id: int
+    descripcion: str
+
+    class Config:
+        from_attributes = True

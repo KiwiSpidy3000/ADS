@@ -7,7 +7,7 @@ from passlib.context import CryptContext
 from typing import List
 
 from models import Usuario
-from schemas import UsuarioCreate, UsuarioResponse
+from schemas import UsuarioCreate, UsuarioResponse, UsuarioUpdate
 from database import AsyncSessionLocal
 
 router = APIRouter(prefix="/usuarios", tags=["Usuarios"])
@@ -77,6 +77,44 @@ async def crear_usuario(
 
     return nuevo_usuario
 
+@router.put("/{usuario_id}", response_model=UsuarioResponse)
+async def actualizar_usuario(
+    usuario_id: int,
+    datos: UsuarioUpdate,
+    db: AsyncSession = Depends(get_db)
+):
+
+    result = await db.execute(
+        select(Usuario).where(Usuario.id == usuario_id)
+    )
+    usuario = result.scalar_one_or_none()
+
+    if not usuario:
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
+
+    update_data = datos.model_dump(exclude_unset=True)
+
+
+    if "password" in update_data:
+        update_data["password_hash"] = update_data.pop("password")
+
+    for key, value in update_data.items():
+        setattr(usuario, key, value)
+
+    await db.commit()
+
+    result = await db.execute(
+        select(Usuario)
+        .options(
+            selectinload(Usuario.rol),
+            selectinload(Usuario.estado),
+            selectinload(Usuario.tipo_vivienda)
+        )
+        .where(Usuario.id == usuario_id)
+    )
+    usuario_actualizado = result.scalar_one()
+
+    return usuario_actualizado
 
 @router.delete("/{usuario_id}")
 async def eliminar_usuario(
@@ -96,3 +134,36 @@ async def eliminar_usuario(
     await db.commit()
 
     return {"message": "Usuario eliminado correctamente"}
+
+@router.patch("/{usuario_id}/revocar", response_model=UsuarioResponse)
+async def revocar_acceso(
+    usuario_id: int,
+    db: AsyncSession = Depends(get_db)
+):
+    result = await db.execute(
+        select(Usuario)
+        .where(Usuario.id == usuario_id)
+    )
+    usuario = result.scalar_one_or_none()
+
+    if not usuario:
+        raise HTTPException(status_code=404, detail="Usuario no encontrado")
+
+    usuario.activo = False
+
+    await db.commit()
+
+    # 🔥 recargar con relaciones
+    result = await db.execute(
+        select(Usuario)
+        .options(
+            selectinload(Usuario.rol),
+            selectinload(Usuario.estado),
+            selectinload(Usuario.tipo_vivienda)
+        )
+        .where(Usuario.id == usuario_id)
+    )
+
+    usuario_actualizado = result.scalar_one()
+
+    return usuario_actualizado

@@ -32,6 +32,7 @@ class Usuario(Base):
     rol = relationship("Rol")
     estado = relationship("Estado")
     tipo_vivienda = relationship("TipoVivienda")
+
 class Rol(Base):
     __tablename__ = "roles"
 

@@ -22,11 +22,9 @@ export default function Home() {
 
     alert("Usuario eliminado correctamente");
 
-    // 🔥 Opción 1: volver a cargar datos
+
     window.location.reload();
 
-    // 🔥 Opción 2 (mejor si usas router):
-    // router.refresh();
 
   } catch (error) {
     console.error(error);

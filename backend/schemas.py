@@ -1,5 +1,5 @@
 from pydantic import BaseModel, EmailStr
-from datetime import date
+from datetime import date, datetime
 from typing import Optional
 
 
@@ -71,7 +71,8 @@ class UsuarioResponse(BaseModel):
     estado: Optional[EstadoResponse]
     tipo_vivienda: Optional[TipoViviendaResponse]
     activo: Optional[bool] 
-
+    fecha_registro: datetime
+    
     class Config:
         from_attributes = True
 

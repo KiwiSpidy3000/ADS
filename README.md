@@ -1,4 +1,4 @@
-# PROYECTO SICORRE Full Stack — FastAPI + Next.js
+# PROYECTO SICORRE README Full Stack — FastAPI + Next.js
 
 Repositorio con estructura monorepo que contiene el backend (FastAPI) y el frontend (Next.js).
 

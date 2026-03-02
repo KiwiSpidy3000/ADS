@@ -4,10 +4,23 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import {format} from "date-fns"
+import { es } from "date-fns/locale";
 export default function PerfilUsuario() {
+
+  
   const { id } = useParams();
   const router = useRouter();
   const [usuario, setUsuario] = useState<any>(null);
+
+const fechaFormateada = usuario?.fecha_registro
+  ? format(
+      new Date(usuario.fecha_registro),
+      "dd/MM/yyyy HH:mm",
+      { locale: es }
+    )
+  : "";
+  
 
   const eliminarUsuario = async (id: number) => {
   const confirmar = confirm("¿Está seguro que desea eliminar este usuario?");
@@ -36,11 +49,13 @@ export default function PerfilUsuario() {
 };
 
 
+
   useEffect(() => {
     const obtenerUsuario = async () => {
       try {
         const response = await fetch(`http://localhost:8000/usuarios/por_id/${id}`);
         const data = await response.json();
+        
         setUsuario(Array.isArray(data) ? data[0] : data);
       } catch (error) {
         console.error(error);
@@ -48,6 +63,8 @@ export default function PerfilUsuario() {
     };
 
     if (id) obtenerUsuario();
+
+
   }, [id]);
 
   if (!usuario) {
@@ -56,11 +73,12 @@ export default function PerfilUsuario() {
         <p className="text-gray-500 text-lg">Cargando perfil...</p>
       </div>
     );
+    
   }
 
   return (
     <body className="bg-gray-100 min-h-screen">
-
+      {}
       {/* NAV */}
       <nav className="bg-blue-600 p-4 text-white flex justify-between">
         <h1 className="font-bold text-xl">!Null - Sistema SIGERD</h1>
@@ -141,13 +159,16 @@ export default function PerfilUsuario() {
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
-                <p><span className="font-semibold">Rol:</span> {usuario.rol?.nombre}</p>
+                <p><span className="font-semibold">Rol:</span> {usuario.rol?.nombre_rol}</p>
                 <p>
                   <span className="font-semibold">Estado de cuenta:</span>{" "}
                   <span className={usuario.activo ? "text-green-600 font-semibold" : "text-red-600 font-semibold"}>
                     {usuario.activo ? "Activo" : "Inactivo"}
                   </span>
+
                 </p>
+                <p><span className="font-semibold">Fecha de Registro:</span> {fechaFormateada}</p>
+
               </div>
             </div>
 

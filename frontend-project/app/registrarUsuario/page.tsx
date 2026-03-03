@@ -7,6 +7,9 @@ export default function NuevoRegistro() {
   const [roles, setRoles] = useState([]);
   const [estados, setEstados] = useState([]);
   const [tiposVivienda, setTiposVivienda] = useState([]);
+  const [colonias, setColonias] = useState([]);
+  const [codigosPostales, setCodigosPostales] = useState([]);
+  const [municipios, setMunicipios] = useState([]);
 
   const [formData, setFormData] = useState({
     nombre: "",
@@ -17,6 +20,7 @@ export default function NuevoRegistro() {
     fecha_nacimiento: "",
     correo: "",
     password: "",
+    sexo: "",
     calle: "",
     num_exterior: "",
     num_interior: "",
@@ -30,15 +34,22 @@ export default function NuevoRegistro() {
 
   useEffect(() => {
     const cargarCatalogos = async () => {
-      const [rolesRes, estadosRes, viviendaRes] = await Promise.all([
-        fetch("http://localhost:8000/catalogos/roles"),
-        fetch("http://localhost:8000/catalogos/estados"),
-        fetch("http://localhost:8000/catalogos/tipos-vivienda"),
-      ]);
+      const [rolesRes, estadosRes, viviendaRes, coloniasRes, cpRes, municipiosRes] =
+        await Promise.all([
+          fetch("http://localhost:8000/catalogos/roles"),
+          fetch("http://localhost:8000/catalogos/estados"),
+          fetch("http://localhost:8000/catalogos/tipos-vivienda"),
+          fetch("http://localhost:8000/catalogos/colonias"),
+          fetch("http://localhost:8000/catalogos/codigos-postales"),
+          fetch("http://localhost:8000/catalogos/municipios"),
+        ]);
 
       setRoles(await rolesRes.json());
       setEstados(await estadosRes.json());
       setTiposVivienda(await viviendaRes.json());
+      setColonias(await coloniasRes.json());
+      setCodigosPostales(await cpRes.json());
+      setMunicipios(await municipiosRes.json());
     };
 
     cargarCatalogos();
@@ -59,7 +70,15 @@ export default function NuevoRegistro() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({
+        ...formData,
+        colonia: Number(formData.colonia),
+        codigo_postal: Number(formData.codigo_postal),
+        municipio_alcaldia: Number(formData.municipio_alcaldia),
+        rol_id: Number(formData.rol_id),
+        estado_id: Number(formData.estado_id),
+        tipo_vivienda_id: Number(formData.tipo_vivienda_id),
+      }),
     });
 
     window.location.href = "/listaUsuarios";
@@ -81,6 +100,13 @@ export default function NuevoRegistro() {
             <input name="curp" placeholder="CURP" className="w-full border p-2 rounded" onChange={handleChange} />
             <input name="rfc" placeholder="RFC" className="w-full border p-2 rounded" onChange={handleChange} />
             <input type="date" name="fecha_nacimiento" className="w-full border p-2 rounded" onChange={handleChange} />
+
+            {/* ✔ AGREGADO: Sexo */}
+            <select name="sexo" className="w-full border p-2 rounded" onChange={handleChange}>
+              <option value="">Seleccionar Sexo</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+            </select>
           </div>
 
           {/* Dirección */}
@@ -88,9 +114,36 @@ export default function NuevoRegistro() {
             <input name="calle" placeholder="Calle" className="w-full border p-2 rounded" onChange={handleChange} />
             <input name="num_exterior" placeholder="Número Exterior" className="w-full border p-2 rounded" onChange={handleChange} />
             <input name="num_interior" placeholder="Número Interior" className="w-full border p-2 rounded" onChange={handleChange} />
-            <input name="colonia" placeholder="Colonia" className="w-full border p-2 rounded" onChange={handleChange} />
-            <input name="codigo_postal" placeholder="Código Postal" className="w-full border p-2 rounded" onChange={handleChange} />
-            <input name="municipio_alcaldia" placeholder="Municipio / Alcaldía" className="w-full border p-2 rounded" onChange={handleChange} />
+
+            {/* ✔ CORREGIDO: Colonia como select desde catálogo */}
+            <select name="colonia" className="w-full border p-2 rounded" onChange={handleChange}>
+              <option value="">Seleccionar Colonia</option>
+              {colonias.map((colonia: any) => (
+                <option key={colonia.id} value={colonia.id}>
+                  {colonia.nombre_colonia}
+                </option>
+              ))}
+            </select>
+
+            {/* ✔ CORREGIDO: Código Postal como select desde catálogo */}
+            <select name="codigo_postal" className="w-full border p-2 rounded" onChange={handleChange}>
+              <option value="">Seleccionar Código Postal</option>
+              {codigosPostales.map((cp: any) => (
+                <option key={cp.id} value={cp.id}>
+                  {cp.numero}
+                </option>
+              ))}
+            </select>
+
+            {/* ✔ CORREGIDO: Municipio como select desde catálogo */}
+            <select name="municipio_alcaldia" className="w-full border p-2 rounded" onChange={handleChange}>
+              <option value="">Seleccionar Municipio / Alcaldía</option>
+              {municipios.map((municipio: any) => (
+                <option key={municipio.id} value={municipio.id}>
+                  {municipio.nombre_municipio}
+                </option>
+              ))}
+            </select>
 
             <select name="estado_id" className="w-full border p-2 rounded" onChange={handleChange}>
               <option value="">Seleccionar Estado</option>

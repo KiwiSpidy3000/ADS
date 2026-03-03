@@ -21,14 +21,17 @@ async def get_db():
 
 @router.get("/", response_model=list[UsuarioResponse])
 async def obtener_usuarios(db: AsyncSession = Depends(get_db)):
-
     result = await db.execute(
         select(Usuario)
         .options(
             selectinload(Usuario.rol),
             selectinload(Usuario.estado),
-            selectinload(Usuario.tipo_vivienda)
+            selectinload(Usuario.tipo_vivienda),
+            selectinload(Usuario.cat_colonia),
+            selectinload(Usuario.cat_municipio),
+            selectinload(Usuario.cat_codigo_postal),
         )
+        
     )
 
     usuarios = result.scalars().all()
@@ -41,12 +44,15 @@ async def obtener_usuario_por_id(
 ):
     result = await db.execute(
         select(Usuario)
-        .where(Usuario.id == id)
         .options(
             selectinload(Usuario.rol),
             selectinload(Usuario.estado),
-            selectinload(Usuario.tipo_vivienda)
+            selectinload(Usuario.tipo_vivienda),
+            selectinload(Usuario.cat_colonia),
+            selectinload(Usuario.cat_municipio),
+            selectinload(Usuario.cat_codigo_postal),
         )
+        .where(Usuario.id == id)
     )
 
     usuario = result.scalar_one_or_none()
@@ -104,10 +110,12 @@ async def crear_usuario(
             selectinload(Usuario.rol),
             selectinload(Usuario.estado),
             selectinload(Usuario.tipo_vivienda),
+            selectinload(Usuario.cat_colonia),
+            selectinload(Usuario.cat_municipio),
+            selectinload(Usuario.cat_codigo_postal),
         )
         .where(Usuario.id == nuevo_usuario.id)
     )
-
     usuario_creado = result.scalar_one()
 
     return usuario_creado
@@ -142,7 +150,10 @@ async def actualizar_usuario(
         .options(
             selectinload(Usuario.rol),
             selectinload(Usuario.estado),
-            selectinload(Usuario.tipo_vivienda)
+            selectinload(Usuario.tipo_vivienda),
+            selectinload(Usuario.cat_colonia),
+            selectinload(Usuario.cat_municipio),
+            selectinload(Usuario.cat_codigo_postal),
         )
         .where(Usuario.id == usuario_id)
     )
@@ -187,17 +198,19 @@ async def revocar_acceso(
 
     await db.commit()
 
-    # 🔥 recargar con relaciones
+    
     result = await db.execute(
         select(Usuario)
         .options(
             selectinload(Usuario.rol),
             selectinload(Usuario.estado),
-            selectinload(Usuario.tipo_vivienda)
+            selectinload(Usuario.tipo_vivienda),
+            selectinload(Usuario.cat_colonia),
+            selectinload(Usuario.cat_municipio),
+            selectinload(Usuario.cat_codigo_postal),
         )
         .where(Usuario.id == usuario_id)
     )
-
     usuario_actualizado = result.scalar_one()
 
     return usuario_actualizado

@@ -4,58 +4,42 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import {format} from "date-fns"
+import { format } from "date-fns";
 import { es } from "date-fns/locale";
-export default function PerfilUsuario() {
 
-  
+export default function PerfilUsuario() {
   const { id } = useParams();
   const router = useRouter();
   const [usuario, setUsuario] = useState<any>(null);
 
-const fechaFormateada = usuario?.fecha_registro
-  ? format(
-      new Date(usuario.fecha_registro),
-      "dd/MM/yyyy HH:mm",
-      { locale: es }
-    )
-  : "";
-  
+  const fechaFormateada = usuario?.fecha_registro
+    ? format(new Date(usuario.fecha_registro), "dd/MM/yyyy HH:mm", { locale: es })
+    : "";
 
   const eliminarUsuario = async (id: number) => {
-  const confirmar = confirm("¿Está seguro que desea eliminar este usuario?");
+    const confirmar = confirm("¿Está seguro que desea eliminar este usuario?");
+    if (!confirmar) return;
 
-  if (!confirmar) return;
+    try {
+      const response = await fetch(`http://localhost:8000/usuarios/${id}`, {
+        method: "DELETE",
+      });
 
-  try {
-    const response = await fetch(`http://localhost:8000/usuarios/${id}`, {
-      method: "DELETE",
-    });
+      if (!response.ok) throw new Error("Error al eliminar");
 
-    if (!response.ok) {
-      throw new Error("Error al eliminar");
+      alert("Usuario eliminado correctamente");
+      window.location.href = "/listaUsuarios";
+    } catch (error) {
+      console.error(error);
+      alert("Hubo un error al eliminar");
     }
-
-    alert("Usuario eliminado correctamente");
-
-
-    window.location.href = "/listaUsuarios";
-
-
-  } catch (error) {
-    console.error(error);
-    alert("Hubo un error al eliminar");
-  }
-};
-
-
+  };
 
   useEffect(() => {
     const obtenerUsuario = async () => {
       try {
         const response = await fetch(`http://localhost:8000/usuarios/por_id/${id}`);
         const data = await response.json();
-        
         setUsuario(Array.isArray(data) ? data[0] : data);
       } catch (error) {
         console.error(error);
@@ -63,8 +47,6 @@ const fechaFormateada = usuario?.fecha_registro
     };
 
     if (id) obtenerUsuario();
-
-
   }, [id]);
 
   if (!usuario) {
@@ -73,12 +55,10 @@ const fechaFormateada = usuario?.fecha_registro
         <p className="text-gray-500 text-lg">Cargando perfil...</p>
       </div>
     );
-    
   }
 
   return (
     <body className="bg-gray-100 min-h-screen">
-      {}
       {/* NAV */}
       <nav className="bg-blue-600 p-4 text-white flex justify-between">
         <h1 className="font-bold text-xl">!Null - Sistema SIGERD</h1>
@@ -95,84 +75,96 @@ const fechaFormateada = usuario?.fecha_registro
 
           <div className="flex flex-col md:flex-row items-center md:items-start gap-16">
 
-            {/* FOTO GRANDE */}
+            {/* FOTO */}
             <div className="flex flex-col items-center">
-            <Image
+              <Image
                 src="/resources/foto.jpg"
                 alt="Foto de perfil"
                 width={256}
                 height={256}
                 className="rounded-full object-cover border-4 border-blue-500 shadow-lg"
-            />
-            <p className="mt-6 text-gray-500 text-sm">
-                Imagen de perfil
-            </p>
+              />
+              <p className="mt-6 text-gray-500 text-sm">Imagen de perfil</p>
             </div>
 
-            {/* DATOS GRANDES */}
-         <div className="flex-1 space-y-10">
-            {/* NOMBRE GRANDE */}
-            <div>
-              <h2 className="text-3xl font-semibold text-gray-900">
-                {usuario.nombre} {usuario.primer_apellido} {usuario.segundo_apellido}
-              </h2>
-              <p className="text-xl text-gray-600 mt-2">
-                {usuario.correo}
-              </p>
-            </div>
+            {/* DATOS */}
+            <div className="flex-1 space-y-10">
 
-            {/* INFORMACIÓN PERSONAL */}
-            <div className="border-t pt-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">
-                Información Personal
-              </h3>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
-                <p><span className="font-semibold">Fecha de nacimiento:</span> {usuario.fecha_nacimiento}</p>
-                <p><span className="font-semibold">CURP:</span> {usuario.curp}</p>
-                <p><span className="font-semibold">RFC:</span> {usuario.rfc}</p>
+              {/* NOMBRE */}
+              <div>
+                <h2 className="text-3xl font-semibold text-gray-900">
+                  {usuario.nombre} {usuario.primer_apellido} {usuario.segundo_apellido}
+                </h2>
+                <p className="text-xl text-gray-600 mt-2">{usuario.correo}</p>
               </div>
-            </div>
 
-            {/* DIRECCIÓN */}
-            <div className="border-t pt-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">
-                Dirección
-              </h3>
+              {/* INFORMACIÓN PERSONAL */}
+              <div className="border-t pt-8">
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                  Información Personal
+                </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
-                <p><span className="font-semibold">Calle:</span> {usuario.calle}</p>
-                <p><span className="font-semibold">No. Exterior:</span> {usuario.num_exterior}</p>
-                <p><span className="font-semibold">No. Interior:</span> {usuario.num_interior || "N/A"}</p>
-                <p><span className="font-semibold">Colonia:</span> {usuario.colonia}</p>
-                <p><span className="font-semibold">Código Postal:</span> {usuario.codigo_postal}</p>
-                <p><span className="font-semibold">Municipio / Alcaldía:</span> {usuario.municipio_alcaldia}</p>
-                <p><span className="font-semibold">Estado:</span> {usuario.estado?.nombre}</p>
-                <p><span className="font-semibold">Tipo de vivienda:</span> {usuario.tipo_vivienda?.nombre}</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
+                  <p><span className="font-semibold">Fecha de nacimiento:</span> {usuario.fecha_nacimiento}</p>
+                  <p><span className="font-semibold">CURP:</span> {usuario.curp}</p>
+                  <p><span className="font-semibold">RFC:</span> {usuario.rfc}</p>
+                  {/* ✔ AGREGADO: Sexo */}
+                  <p>
+                    <span className="font-semibold">Sexo:</span>{" "}
+                    {usuario.sexo || "No especificado"}
+                  </p>
+                </div>
               </div>
-            </div>
 
-            {/* INFORMACIÓN DEL SISTEMA */}
-            <div className="border-t pt-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">
-                Información del Sistema
-              </h3>
+              {/* DIRECCIÓN */}
+              <div className="border-t pt-8">
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                  Dirección
+                </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
-                <p><span className="font-semibold">Rol:</span> {usuario.rol?.nombre_rol}</p>
-                <p>
-                  <span className="font-semibold">Estado de cuenta:</span>{" "}
-                  <span className={usuario.activo ? "text-green-600 font-semibold" : "text-red-600 font-semibold"}>
-                    {usuario.activo ? "Activo" : "Inactivo"}
-                  </span>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
+                  <p><span className="font-semibold">Calle:</span> {usuario.calle}</p>
+                  <p><span className="font-semibold">No. Exterior:</span> {usuario.num_exterior}</p>
+                  <p><span className="font-semibold">No. Interior:</span> {usuario.num_interior || "N/A"}</p>
 
-                </p>
-                <p><span className="font-semibold">Fecha de Registro:</span> {fechaFormateada}</p>
+                  {/* ✔ CORREGIDO: mostrar nombre del catálogo en lugar del ID */}
+                  <p>
+                    <span className="font-semibold">Colonia:</span>{" "}
+                    {usuario.cat_colonia?.nombre_colonia || "No especificado"}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Código Postal:</span>{" "}
+                    {usuario.cat_codigo_postal?.numero || "No especificado"}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Municipio / Alcaldía:</span>{" "}
+                    {usuario.cat_municipio?.nombre_municipio || "No especificado"}
+                  </p>
 
+                  <p><span className="font-semibold">Estado:</span> {usuario.estado?.nombre || "No especificado"}</p>
+                  <p><span className="font-semibold">Tipo de vivienda:</span> {usuario.tipo_vivienda?.descripcion || "No especificado"}</p>
+                </div>
               </div>
-            </div>
 
-          </div>
+              {/* INFORMACIÓN DEL SISTEMA */}
+              <div className="border-t pt-8">
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                  Información del Sistema
+                </h3>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg">
+                  <p><span className="font-semibold">Rol:</span> {usuario.rol?.nombre_rol || "No asignado"}</p>
+                  <p>
+                    <span className="font-semibold">Estado de cuenta:</span>{" "}
+                    <span className={usuario.activo ? "text-green-600 font-semibold" : "text-red-600 font-semibold"}>
+                      {usuario.activo ? "Activo" : "Inactivo"}
+                    </span>
+                  </p>
+                  <p><span className="font-semibold">Fecha de Registro:</span> {fechaFormateada}</p>
+                </div>
+              </div>
+
+            </div>
           </div>
 
           {/* BOTONES */}
@@ -198,18 +190,19 @@ const fechaFormateada = usuario?.fecha_registro
 
             <button
               onClick={() => eliminarUsuario(usuario.id)}
-               className="bg-red-600 text-white px-8 py-3 rounded-xl text-lg hover:bg-green-700 transition">
+              className="bg-red-600 text-white px-8 py-3 rounded-xl text-lg hover:bg-green-700 transition"
+            >
               Eliminar
-              </button>
-          
+            </button>
+
             <button
               onClick={() => router.back()}
               className="bg-gray-600 text-white px-8 py-3 rounded-xl text-lg hover:bg-gray-700 transition"
             >
               Volver
             </button>
-          </div>
 
+          </div>
         </div>
       </div>
     </body>

@@ -12,19 +12,24 @@ export default function EditarUsuario() {
   const [roles, setRoles] = useState<any[]>([]);
   const [estados, setEstados] = useState<any[]>([]);
   const [tiposVivienda, setTiposVivienda] = useState<any[]>([]);
+  const [colonias, setColonias] = useState<any[]>([]);
+  const [codigosPostales, setCodigosPostales] = useState<any[]>([]);
+  const [municipios, setMunicipios] = useState<any[]>([]);
 
   const [formData, setFormData] = useState<any>(null);
 
-  // 🔥 Cargar usuario + catálogos
   useEffect(() => {
     const cargarDatos = async () => {
       try {
-        const [usuarioRes, rolesRes, estadosRes, viviendaRes] =
+        const [usuarioRes, rolesRes, estadosRes, viviendaRes, coloniasRes, cpRes, municipiosRes] =
           await Promise.all([
             fetch(`http://localhost:8000/usuarios/por_id/${id}`),
             fetch("http://localhost:8000/catalogos/roles"),
             fetch("http://localhost:8000/catalogos/estados"),
             fetch("http://localhost:8000/catalogos/tipos-vivienda"),
+            fetch("http://localhost:8000/catalogos/colonias"),
+            fetch("http://localhost:8000/catalogos/codigos-postales"),
+            fetch("http://localhost:8000/catalogos/municipios"),
           ]);
 
         const usuario = await usuarioRes.json();
@@ -34,11 +39,18 @@ export default function EditarUsuario() {
           rol_id: usuario.rol_id ?? "",
           estado_id: usuario.estado_id ?? "",
           tipo_vivienda_id: usuario.tipo_vivienda_id ?? "",
+          colonia: usuario.colonia ?? "",
+          codigo_postal: usuario.codigo_postal ?? "",
+          municipio_alcaldia: usuario.municipio_alcaldia ?? "",
+          sexo: usuario.sexo ?? "",
         });
 
         setRoles(await rolesRes.json());
         setEstados(await estadosRes.json());
         setTiposVivienda(await viviendaRes.json());
+        setColonias(await coloniasRes.json());
+        setCodigosPostales(await cpRes.json());
+        setMunicipios(await municipiosRes.json());
 
       } catch (error) {
         console.error("Error cargando datos:", error);
@@ -63,7 +75,15 @@ export default function EditarUsuario() {
     await fetch(`http://localhost:8000/usuarios/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({
+        ...formData,
+        colonia: Number(formData.colonia),
+        codigo_postal: Number(formData.codigo_postal),
+        municipio_alcaldia: Number(formData.municipio_alcaldia),
+        rol_id: Number(formData.rol_id),
+        estado_id: Number(formData.estado_id),
+        tipo_vivienda_id: Number(formData.tipo_vivienda_id),
+      }),
     });
 
     router.push("/listaUsuarios");
@@ -86,10 +106,10 @@ export default function EditarUsuario() {
         </h2>
 
         <form onSubmit={handleUpdate} className="space-y-6">
-         {/* Datos personales */}
+
+          {/* Datos personales */}
           <div className="grid md:grid-cols-2 gap-4">
 
-            {/* Nombre */}
             <div className="flex items-center gap-4">
               <label htmlFor="nombre" className="w-44 text-sm font-medium text-gray-700">
                 Nombre(s):
@@ -103,7 +123,6 @@ export default function EditarUsuario() {
               />
             </div>
 
-            {/* Apellido Paterno */}
             <div className="flex items-center gap-4">
               <label htmlFor="primer_apellido" className="w-44 text-sm font-medium text-gray-700">
                 Apellido Paterno:
@@ -117,7 +136,6 @@ export default function EditarUsuario() {
               />
             </div>
 
-            {/* Apellido Materno */}
             <div className="flex items-center gap-4">
               <label htmlFor="segundo_apellido" className="w-44 text-sm font-medium text-gray-700">
                 Apellido Materno:
@@ -131,7 +149,6 @@ export default function EditarUsuario() {
               />
             </div>
 
-            {/* CURP */}
             <div className="flex items-center gap-4">
               <label htmlFor="curp" className="w-44 text-sm font-medium text-gray-700">
                 CURP:
@@ -145,7 +162,6 @@ export default function EditarUsuario() {
               />
             </div>
 
-            {/* RFC */}
             <div className="flex items-center gap-4">
               <label htmlFor="rfc" className="w-44 text-sm font-medium text-gray-700">
                 RFC:
@@ -159,7 +175,6 @@ export default function EditarUsuario() {
               />
             </div>
 
-            {/* Fecha de nacimiento */}
             <div className="flex items-center gap-4">
               <label htmlFor="fecha_nacimiento" className="w-44 text-sm font-medium text-gray-700">
                 Fecha de Nacimiento:
@@ -173,8 +188,26 @@ export default function EditarUsuario() {
                 className="flex-1 border p-2 rounded"
               />
             </div>
-          </div>
 
+            {/* ✔ AGREGADO: Sexo */}
+            <div className="flex items-center gap-4">
+              <label htmlFor="sexo" className="w-44 text-sm font-medium text-gray-700">
+                Sexo:
+              </label>
+              <select
+                id="sexo"
+                name="sexo"
+                value={formData.sexo || ""}
+                onChange={handleChange}
+                className="flex-1 border p-2 rounded"
+              >
+                <option value="">Seleccionar Sexo</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+              </select>
+            </div>
+
+          </div>
 
           {/* Dirección */}
           <div className="grid md:grid-cols-2 gap-4 mt-6">
@@ -218,43 +251,67 @@ export default function EditarUsuario() {
               />
             </div>
 
+            {/* ✔ CORREGIDO: Colonia como select desde catálogo */}
             <div className="flex items-center gap-4">
               <label htmlFor="colonia" className="w-44 text-sm font-medium text-gray-700">
                 Colonia:
               </label>
-              <input
+              <select
                 id="colonia"
                 name="colonia"
-                value={formData.colonia || ""}
+                value={formData.colonia}
                 onChange={handleChange}
                 className="flex-1 border p-2 rounded"
-              />
+              >
+                <option value="">Seleccionar Colonia</option>
+                {colonias.map((colonia) => (
+                  <option key={colonia.id} value={colonia.id}>
+                    {colonia.nombre_colonia}
+                  </option>
+                ))}
+              </select>
             </div>
 
+            {/* ✔ CORREGIDO: Código Postal como select desde catálogo */}
             <div className="flex items-center gap-4">
               <label htmlFor="codigo_postal" className="w-44 text-sm font-medium text-gray-700">
                 Código Postal:
               </label>
-              <input
+              <select
                 id="codigo_postal"
                 name="codigo_postal"
-                value={formData.codigo_postal || ""}
+                value={formData.codigo_postal}
                 onChange={handleChange}
                 className="flex-1 border p-2 rounded"
-              />
+              >
+                <option value="">Seleccionar Código Postal</option>
+                {codigosPostales.map((cp) => (
+                  <option key={cp.id} value={cp.id}>
+                    {cp.numero}
+                  </option>
+                ))}
+              </select>
             </div>
 
+            {/* ✔ CORREGIDO: Municipio como select desde catálogo */}
             <div className="flex items-center gap-4">
               <label htmlFor="municipio_alcaldia" className="w-44 text-sm font-medium text-gray-700">
                 Municipio / Alcaldía:
               </label>
-              <input
+              <select
                 id="municipio_alcaldia"
                 name="municipio_alcaldia"
-                value={formData.municipio_alcaldia || ""}
+                value={formData.municipio_alcaldia}
                 onChange={handleChange}
                 className="flex-1 border p-2 rounded"
-              />
+              >
+                <option value="">Seleccionar Municipio / Alcaldía</option>
+                {municipios.map((municipio) => (
+                  <option key={municipio.id} value={municipio.id}>
+                    {municipio.nombre_municipio}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <div className="flex items-center gap-4">
@@ -296,8 +353,8 @@ export default function EditarUsuario() {
                 ))}
               </select>
             </div>
-          </div>
 
+          </div>
 
           {/* Rol y acceso */}
           <div className="grid md:grid-cols-2 gap-4 mt-6">
@@ -337,6 +394,7 @@ export default function EditarUsuario() {
             </div>
 
           </div>
+
           {/* Botones */}
           <div className="flex justify-end gap-4">
             <Link
@@ -353,6 +411,7 @@ export default function EditarUsuario() {
               Guardar Cambios
             </button>
           </div>
+
         </form>
       </div>
     </div>

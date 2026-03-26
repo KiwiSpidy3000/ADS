@@ -1,11 +1,13 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function Home() {
   const [usuarios, setUsuarios] = useState([]);
-
+  const router = useRouter();
   const eliminarUsuario = async (id: number) => {
   const confirmar = confirm("¿Está seguro que desea eliminar este usuario?");
 
@@ -49,13 +51,18 @@ export default function Home() {
   return (
     <body className="bg-gray-100">
       <nav className="bg-blue-600 p-4 text-white flex justify-between">
+        <a href="/admin"
+            className=" text-white px-4 py-2 rounded hover:bg-blue-600">
         <h1 className="font-bold text-xl">!Null - Sistema SIGERD</h1>
+          </a>
         <span>Bienvenido, Administrador</span>
+
       </nav>
 
       <div className="container mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
         <div className="flex justify-between mb-6">
           <h2 className="text-2xl font-semibold text-gray-800">Personal</h2>
+          
           <a
             href="/registrarUsuario"
             className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"

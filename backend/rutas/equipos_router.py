@@ -59,6 +59,10 @@ class EquipoResponse(BaseModel):
         from_attributes = True
 
 
+class EquipoUpdate(BaseModel):
+    nombre_equipo: str
+
+
 class EquipoCreate(BaseModel):
     nombre_equipo: str
     activo: Optional[bool] = True
@@ -73,7 +77,6 @@ class AgregarIntegranteRequest(BaseModel):
 # ──────────────────────────────────────────
 # HELPER
 # ──────────────────────────────────────────
-
 async def _get_equipo_completo(equipo_id: int, db: AsyncSession):
     result = await db.execute(
         select(EquipoMultidisciplinario)
@@ -83,16 +86,43 @@ async def _get_equipo_completo(equipo_id: int, db: AsyncSession):
         )
         .where(EquipoMultidisciplinario.id == equipo_id)
     )
-    return result.scalar_one_or_none()
 
+    equipo = result.scalar_one_or_none()
+
+    if not equipo:
+        return None
+
+    #FILTRAR SOLO LOS ACTIVOS
+    equipo.integrantes = [
+        i for i in equipo.integrantes
+        if i.fecha_salida is None
+    ]
+
+    return equipo
 
 # ──────────────────────────────────────────
 # GET / — Todos los equipos
 # ──────────────────────────────────────────
 
+@router.get("/usuarios-sin-equipo")
+async def usuarios_sin_equipo(db: AsyncSession = Depends(get_db)):
+
+    subquery = select(IntegranteEquipo.usuario_id).where(
+        IntegranteEquipo.fecha_salida.is_(None)
+    )
+
+    result = await db.execute(
+        select(Usuario).where(Usuario.id.not_in(subquery))
+    )
+
+    usuarios = result.scalars().all()
+    return usuarios
+
+
 @router.get("/", response_model=List[EquipoResponse])
 async def obtener_equipos(db: AsyncSession = Depends(get_db)):
-    """Retorna todos los equipos con sus integrantes y datos de usuario."""
+    """Retorna todos los equipos con sus integrantes activos."""
+
     result = await db.execute(
         select(EquipoMultidisciplinario)
         .options(
@@ -101,8 +131,17 @@ async def obtener_equipos(db: AsyncSession = Depends(get_db)):
         )
         .order_by(EquipoMultidisciplinario.fecha_creacion.desc())
     )
-    return result.scalars().all()
 
+    equipos = result.scalars().all()
+
+    #  FILTRAR SOLO INTEGRANTES ACTIVOS
+    for equipo in equipos:
+        equipo.integrantes = [
+            i for i in equipo.integrantes
+            if i.fecha_salida is None
+        ]
+
+    return equipos
 
 # ──────────────────────────────────────────
 # GET /{equipo_id} — Equipo por ID
@@ -136,6 +175,53 @@ async def crear_equipo(
 
     return await _get_equipo_completo(nuevo_equipo.id, db)
 
+# ──────────────────────────────────────────
+# POST / — Actualizar Equipo
+# ──────────────────────────────────────────
+
+@router.put("/{equipo_id}", response_model=EquipoResponse)
+async def actualizar_equipo(
+    equipo_id: int,
+    datos: EquipoUpdate,
+    db: AsyncSession = Depends(get_db)
+):
+    res = await db.execute(
+        select(EquipoMultidisciplinario)
+        .where(EquipoMultidisciplinario.id == equipo_id)
+    )
+    equipo = res.scalar_one_or_none()
+
+    if not equipo:
+        raise HTTPException(status_code=404, detail="Equipo no encontrado")
+
+    equipo.nombre_equipo = datos.nombre_equipo
+
+    await db.commit()
+
+    return await _get_equipo_completo(equipo_id, db)
+
+@router.delete("/integrantes/{integrante_id}", response_model=EquipoResponse)
+async def eliminar_integrante(
+    integrante_id: int,
+    db: AsyncSession = Depends(get_db)
+):
+    res = await db.execute(
+        select(IntegranteEquipo)
+        .where(IntegranteEquipo.id == integrante_id)
+    )
+    integrante = res.scalar_one_or_none()
+
+    if not integrante:
+        raise HTTPException(status_code=404, detail="Integrante no encontrado")
+
+    # SOFT DELETE COMPLETO
+    integrante.fecha_salida = datetime.utcnow()
+    integrante.estatus_integrante = "Inactivo"
+    integrante.motivo_cambio = "Eliminado del equipo"
+
+    await db.commit()
+
+    return await _get_equipo_completo(integrante.equipo_id, db)
 
 # ──────────────────────────────────────────
 # POST /{equipo_id}/integrantes — Agregar usuario al equipo
@@ -188,3 +274,30 @@ async def agregar_integrante(
     await db.commit()
 
     return await _get_equipo_completo(equipo_id, db)
+
+
+@router.delete("/{equipo_id}/")
+async def eliminar_equipo(
+    equipo_id: int,
+    db: AsyncSession = Depends(get_db)
+):
+    """
+    Elimina un equipo dado su id
+    """
+
+    # Buscar equipo
+    res_equipo = await db.execute(
+        select(EquipoMultidisciplinario).where(EquipoMultidisciplinario.id == equipo_id)
+    )
+    equipo = res_equipo.scalar_one_or_none()
+
+    if not equipo:
+        raise HTTPException(status_code=404, detail="Equipo no encontrado")
+
+    # Eliminar
+    await db.delete(equipo)
+    await db.commit()
+
+    return {"mensaje": "Equipo eliminado correctamente"}
+
+

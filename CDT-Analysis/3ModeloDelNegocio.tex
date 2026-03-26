@@ -324,41 +324,123 @@ de la Fundación Futuro con Derecho y su personal directivo.
 \section{Términos del Negocio}
 \label{sec:terminosDeNegocio}
 
-\cdtInstrucciones{En esta sección describa todos los términos del negocio que aparecen en la especificación del sistema.}
+\cdtInstrucciones{A continuación se definen los términos propios del dominio que aparecen en la especificación del sistema SICORRE.}
 	
 \begin{description}
-	% Ejemplo de un término literal.
-	\item[\hypertarget{tAutomovil}{Automóvil:}] ({\em es un tipo de \hyperlink{tVehiculo}{Vehículo}}) De cuatro ruedas con capacidad de 5 a 9 personas. 
-	% Ejemplo de un término de entidad
-	\item[\hypertarget{tCliente}{Cliente:}] Se refiere a todas las personas físicas y morales que \hyperlink{tRenta}{rentan} o han rentado un \hyperlink{tVehiculo}{vehículo}.
-	
-	\item[\hypertarget{tDirector}{Director:}] ({\em es un tipo de \hyperlink{tEmpleado}{Empleado}}) Es el empleado que tiene mayor rango de todos y no tiene superior, a diferencia de los demás.	
-	\item[\hypertarget{tEmpleado}{Empleado:}] Se refiere a cualquier persona que labore en la empresa.
-	
-	\item[\hypertarget{tChecador}{Checador:}] ({\em Reloj asociado al atributo:} Hora de entrada y salida de un \hyperlink{tEmpleado}{empleado}. {\em Frecuencia de lectura:} Una vez al día para la entrada y otra para la salida durante los días laborales.
-	
-	\item[\hypertarget{tMotocicleta}{Motocicleta:}] ({\em es un tipo de {tVehiculo}{Vehículo}}) De dos ruedas con capacidad para una personas. 
-
-	\item[\hypertarget{tRenta}{Renta:}] Se refiere al servicio que ofrece la empresa para prestar \hyperlink{tVehiculo}{vehículos} a los \hyperlink{tCliente}{clientes} por un tiempo definido.
-	
-	\item[\hypertarget{tVehiculo}{Vehiculo:}] Se refiere a los automóviles y motocicletas que la empresa usa para dar el servicio de renta a los \hyperlink{tCliente}{clientes}.
-	
-%	\brTermSensor{tVelocimetro}{Velocímetro:}{Velocidad de un Vehículo.}{Kilometros/hora.}{Constantemente siempre que el \cdtRef{tVehiculo}{vehículo} esté encendido.}
+	\item[\textbf{NNA.}]
+    Niña, Niño o Adolescente. Persona menor de 18 años beneficiaria
+    directa de los servicios de la fundación. Es la entidad central del
+    sistema y cada NNA posee un único expediente identificado por su
+    CURP.
+ 
+  \item[\textbf{CURP.}]
+    Clave Única de Registro de Población. Identificador alfanumérico
+    de 18 caracteres asignado por el gobierno mexicano a cada persona.
+    Actúa como llave única para el registro de NNA's y usuarios en
+    SICORRE, impidiendo la creación de expedientes duplicados.
+ 
+  \item[\textbf{FUD (Formato Único de Declaración).}]
+    Formato oficial empleado por la Comisión Ejecutiva de Atención a
+    Víctimas para registrar a personas en situación de víctima. Sus
+    secciones (datos de la víctima, hecho victimizante, datos del tutor,
+    tipo de daño, etc.) definen la estructura del módulo de registro de
+    NNA en SICORRE.
+ 
+  \item[\textbf{Caja de Herramientas.}]
+    Guía práctica para la restitución de derechos de niñas, niños y
+    adolescentes emitida por la autoridad competente. Complementa al
+    FUD y define los campos de vulnerabilidad, discapacidad, migración y
+    pertenencia a comunidades indígenas que el sistema debe capturar.
+ 
+  \item[\textbf{Expediente.}]
+    Conjunto de información que documenta el historial completo de un
+    caso de restitución de derechos de un NNA. Incluye el folio FUD,
+    el estatus del proceso, la prioridad, las valoraciones
+    multidisciplinarias y los derechos vulnerados identificados.
+ 
+  \item[\textbf{Hecho Victimal.}]
+    Evento delictivo (feminicidio) que origina el estado de orfandad
+    del NNA. El registro del hecho victimal incluye el nombre de la
+    víctima madre, la fecha del hecho, los datos del expediente jurídico
+    y la descripción del delito.
+ 
+  \item[\textbf{Tutor.}]
+    Persona adulta — familiar o responsable designado — que tiene a su
+    cargo el cuidado y representación legal del NNA ante la fundación.
+    Sus datos, domicilio, idioma y padecimientos se registran en el
+    sistema.
+ 
+  \item[\textbf{Equipo Multidisciplinario.}]
+    Grupo de especialistas (trabajador/a social, abogado/a, psicólogo/a
+    y médico/a) que atienden de forma coordinada un mismo conjunto de
+    casos. Un NNA se asigna a un equipo, y todos sus integrantes pueden
+    visualizar y actualizar el expediente compartido.
+ 
+  \item[\textbf{Valoración.}]
+    Registro narrativo que un especialista elabora sobre el expediente
+    de un NNA, incluyendo el área de evaluación, los hallazgos y
+    dictámenes, las medidas sugeridas y la fecha de la valoración.
+ 
+  \item[\textbf{Derecho Vulnerado.}]
+    Derecho específico (a la salud, a la educación, a la identidad,
+    etc.) que ha sido transgredido en el caso de un NNA. El sistema
+    permite registrar si cada derecho está activamente vulnerado y añadir
+    observaciones del equipo.
+ 
+  \item[\textbf{Actor en Materia de Derechos.}]
+    Organización gubernamental, no gubernamental o persona física con
+    capacidad de participar en la restitución de derechos de los NNA's.
+    El catálogo de actores se mantiene actualizado con datos de contacto,
+    servicios, costos, horarios y ubicación.
+ 
+  \item[\textbf{SEPOMEX.}]
+    Servicio Postal Mexicano. Catálogo oficial de códigos postales
+    utilizado en SICORRE para normalizar los domicilios de NNA's,
+    tutores, usuarios y actores, garantizando la correcta asociación de
+    colonia, municipio y entidad federativa.
+ 
+  \item[\textbf{INALI.}]
+    Instituto Nacional de Lenguas Indígenas. Organismo cuyo catálogo
+    oficial de idiomas y variantes dialectales utiliza SICORRE para
+    registrar las lenguas maternas del NNA y su tutor.
+ 
+  \item[\textbf{JWT (JSON Web Token).}]
+    Mecanismo de autenticación empleado por SICORRE para verificar la
+    identidad del usuario en cada petición al servidor, garantizando que
+    únicamente el personal autorizado acceda a la información sensible
+    de los NNA's.
+ 
+  \item[\textbf{Folio FUD.}]
+    Número de referencia único asignado a cada expediente dentro del
+    sistema, derivado del Formato Único de Declaración oficial. Permite
+    relacionar el expediente digital con el trámite físico o
+    institucional correspondiente.
+ 
+  \item[\textbf{Rol.}]
+    Perfil de permisos asignado a cada usuario del sistema. SICORRE
+    define dos roles: \textit{Administrador} (directora y coordinadora,
+    con capacidad de gestionar usuarios, equipos y catálogos) y
+    \textit{Especialista} (trabajador/a social, abogado/a, psicólogo/a
+    y médico/a, con capacidad de registrar y consultar expedientes y
+    valoraciones).
 \end{description}
 
 %----------------------------------------------------------
 \section{Modelo del dominio del problema}
 \label{sec:hechosDeNegocio}
 
-\cdtInstrucciones{En esta sección describa todas las entidades del negocio y sus relaciones.}
+\cdtInstrucciones{En esta sección se describen todas las entidades del negocio y sus relaciones.}
 
-	El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDominio}, a continuación se describen cada una de las entidades y sus relaciones.
+	El modelo del dominio de SICORRE representa las entidades del negocio y sus
+relaciones tal como existen en la operación de la Fundación Futuro con
+Derecho. La figura~\ref{fig:diagramabd} muestra el diagrama entidad-relación
+del sistema.
 	
 \begin{figure}[htpb!]
 	\begin{center}
-		\includegraphics[angle=90,width=.95\textwidth]{images/modeloDelDominioDelProblema}
+		\includegraphics[angle=90,width=.95\textwidth]{images/diagramabd}
 		\caption{Modelo del dominio del problema}
-		\label{fig:modeloDeDominio}
+		\label{fig:diagramabd}
 	\end{center}
 \end{figure}
 

@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from database import engine, Base
-from rutas import usuarios, catalogos
+from rutas import usuarios, catalogos, equipos_router
 
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -21,3 +21,4 @@ app.add_middleware(
 
 app.include_router(usuarios.router)
 app.include_router(catalogos.router)
+app.include_router(equipos_router.router)

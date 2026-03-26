@@ -27,7 +27,7 @@ export default function DashboardAdmin() {
 
     <Link href="/listaNnas"
       className="bg-blue-600 text-white py-6 rounded-xl hover:bg-blue-700 text-center font-semibold text-lg shadow-md transition transform hover:scale-105">
-      Consultar NNAs
+      Consultar NNAs y Tutores
     </Link>
 
     <Link href="/listActores"

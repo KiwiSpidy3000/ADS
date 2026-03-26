@@ -23,7 +23,7 @@ export default function Home() {
                     className="bg-gray-400 text-white px-6 py-2 rounded">
                     Cancelar
                 </a>
-                <a href="/listaUsuarios" className="bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800 transition">
+                <a href="/admin" className="bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800 transition">
                     Ingresar
                 </a>
  

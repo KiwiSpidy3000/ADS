@@ -5,7 +5,7 @@ from sqlalchemy.orm import selectinload
 from sqlalchemy import select
 from typing import List
 
-from models import CatRol, CatTipoVivienda, CatEstado, CatColonia, CatMunicipio
+from models import CatRol, CatTipoVivienda, CatEstado, CatColonia, CatMunicipio, CatEstatusEscolar, CatViviendaNNA
 # from schemas import CatalogoBaseEstado, CatalogoBaseRol,CatalogoBaseTipoVivienda
 
 # from schemas import ColoniaResponse, CodigoPostalResponse, MunicipioResponse
@@ -86,6 +86,37 @@ async def obtener_tipo_vivienda(tipo_id: int, db: AsyncSession = Depends(get_db)
     if not tipo:
         raise HTTPException(status_code=404, detail="Tipo de vivienda no encontrado")
     return {"id": tipo.id, "descripcion": tipo.descripcion}
+
+
+from pydantic import BaseModel
+
+class CatEstatusEscolarResponse(BaseModel):
+    id: int
+    descripcion: str
+
+    class Config:
+        from_attributes = True
+
+@router.get("/estatus-escolar", response_model=list[CatEstatusEscolarResponse])
+async def obtener_estatus_escolar(db: AsyncSession = Depends(get_db)):
+    result = await db.execute(
+        select(CatEstatusEscolar).order_by(CatEstatusEscolar.descripcion)
+    )
+    return result.scalars().all()
+
+class CatViviendaNNAResponse(BaseModel):
+    id: int
+    descripcion: str
+
+    class Config:
+        from_attributes = True
+
+@router.get("/tipos-vivienda-nna", response_model=list[CatViviendaNNAResponse])
+async def obtener_tipos_vivienda(db: AsyncSession = Depends(get_db)):
+    result = await db.execute(
+        select(CatViviendaNNA).order_by(CatViviendaNNA.descripcion)
+    )
+    return result.scalars().all()
 
 
 # @router.get("/roles", response_model=List[CatalogoBaseRol])

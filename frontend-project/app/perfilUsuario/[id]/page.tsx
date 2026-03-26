@@ -188,7 +188,7 @@ export default function PerfilUsuario() {
                   <p><span className="font-semibold">RFC:</span> {usuario.rfc}</p>
                   <p>
                     <span className="font-semibold">Sexo:</span>{" "}
-                    {usuario.sexo || "No especificado"}
+                    {usuario.sexo}
                   </p>
                 </div>
               </div>
@@ -230,7 +230,7 @@ export default function PerfilUsuario() {
                   </p>
                   <p>
                     <span className="font-semibold">Tipo de personal:</span>{" "}
-                    {usuario.tipo_personal ? "Interno" : "Externo"}
+                    {usuario.tipo_personal ? "Voluntario" : "Empleado"}
                   </p>
                   <p>
                     <span className="font-semibold">Fecha de Registro:</span> {fechaRegistro}

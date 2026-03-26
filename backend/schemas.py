@@ -104,7 +104,9 @@ class UsuarioCreate(BaseModel):
     correo: EmailStr
     password: str
     rol_id: int
-    sexo: Optional[str] = None       
+    sexo: Optional[str] = None   
+    activo: bool
+    tipo_personal: bool    
 
     # Dirección (opcional)
     calle: Optional[str] = None

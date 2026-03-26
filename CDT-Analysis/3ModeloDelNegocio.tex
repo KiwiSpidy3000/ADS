@@ -1,0 +1,411 @@
+% !TeX root = proyecto.tex
+
+%=========================================================
+\chapter{Modelo del Negocio}	
+\label{cap:reqSist}
+
+
+%----------------------------------------------------------
+Este capítulo describe a los actores que interactúan con el sistema SICORRE, detallando 
+sus responsabilidades, perfil profesional, procesos en los que participan y condiciones 
+de uso del sistema. Los actores identificados corresponden al equipo multidisciplinario 
+de la Fundación Futuro con Derecho y su personal directivo.
+
+%----------------------------------------------------------
+\section{Actores del sistema}
+
+%---------------------------------------------------------
+\begin{Usuario}{\hypertarget{A.Directora}{\subsection{Directora}}}{
+		Responsable de la supervisión general de la fundación y de la 
+		administración del acceso al sistema SICORRE. Actúa como administradora 
+		principal en colaboración con la coordinadora.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+		\item Supervisar la operación general de la Fundación Futuro con Derecho.
+		\item Autorizar el alta y baja de usuarios en el sistema en colaboración 
+		con la coordinadora.
+		\item Revisar y validar el estatus de los expedientes activos de NNA's.
+		\item Tomar decisiones ejecutivas sobre los casos de restitución de 
+		derechos de mayor complejidad o prioridad.
+		\item Garantizar el cumplimiento de la normativa de protección de datos 
+		de menores (LGDNNA y LGPDPPSO) en el uso del sistema.
+		\item Supervisar el trabajo del equipo multidisciplinario y los avances 
+		en cada caso.
+	\end{itemize}
+	
+	\item[Perfil:] \cdtEmpty
+	\begin{itemize}
+		\item Licenciatura en Trabajo Social, Derecho, Psicología o área afín.
+		\item Experiencia mínima de 3 años en gestión de organizaciones sociales 
+		o fundaciones de atención a menores.
+		\item Conocimiento de la normativa mexicana de protección de derechos 
+		de niñas, niños y adolescentes (LGDNNA).
+		\item Habilidades de liderazgo, toma de decisiones y gestión de equipos 
+		multidisciplinarios.
+		\item Manejo básico de herramientas digitales y navegadores web.
+	\end{itemize}
+	
+	\item[Procesos en los que participa:] \cdtEmpty
+	\begin{itemize}
+		\item PR-01 Control de acceso y autenticación.
+		\item PR-02 Gestión de usuarios y roles.
+		\item PR-03 Gestión de equipos multidisciplinarios.
+		\item PR-12 Consulta y búsqueda de información.
+		\item PR-13 Control de fechas y calendario de expedientes.
+	\end{itemize}
+	
+	\item[Área:] Dirección General, Fundación Futuro con Derecho.
+	\item[Cantidad aproximada:] 1 persona.
+	\item[Horario de actividad:] Lunes a viernes de 9:00 a 18:00 horas.
+\end{Usuario}
+
+%---------------------------------------------------------
+\begin{Usuario}{\hypertarget{A.Coordinadora}{\subsection{Coordinadora}}}{
+		Colabora directamente con la directora en la administración del acceso 
+		al sistema y en la supervisión operativa del equipo multidisciplinario. 
+		Tiene permisos de administración compartidos con la directora.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+		\item Apoyar a la directora en el control de accesos del personal 
+		al sistema.
+		\item Coordinar las actividades del equipo multidisciplinario y el 
+		seguimiento de los casos activos.
+		\item Gestionar la asignación de NNA's a los equipos 
+		multidisciplinarios correspondientes.
+		\item Supervisar el correcto registro de expedientes y valoraciones 
+		en el sistema.
+		\item Mantener actualizado el catálogo de actores en materia de 
+		derechos.
+		\item Apoyar en la generación de reportes de avance para la dirección.
+	\end{itemize}
+	
+	\item[Perfil:] \cdtEmpty
+	\begin{itemize}
+		\item Licenciatura en Trabajo Social, Administración o área afín.
+		\item Experiencia mínima de 2 años en coordinación de equipos en 
+		organizaciones sociales.
+		\item Conocimiento operativo de los procesos de restitución de 
+		derechos de NNA's.
+		\item Habilidades organizativas, comunicación efectiva y manejo 
+		de equipos de trabajo.
+		\item Manejo intermedio de herramientas digitales y navegadores web.
+	\end{itemize}
+	
+	\item[Procesos en los que participa:] \cdtEmpty
+	\begin{itemize}
+		\item PR-01 Control de acceso y autenticación.
+		\item PR-02 Gestión de usuarios y roles.
+		\item PR-03 Gestión de equipos multidisciplinarios.
+		\item PR-11 Vinculación de NNA con equipo multidisciplinario.
+		\item PR-12 Consulta y búsqueda de información.
+		\item PR-13 Control de fechas y calendario de expedientes.
+		\item PR-14 Gestión del catálogo de actores en materia de derechos.
+	\end{itemize}
+	
+	\item[Área:] Coordinación Operativa, Fundación Futuro con Derecho.
+	\item[Cantidad aproximada:] 1 persona.
+	\item[Horario de actividad:] Lunes a viernes de 9:00 a 18:00 horas.
+\end{Usuario}
+
+%---------------------------------------------------------
+\begin{Usuario}{\hypertarget{A.TrabajadorSocial}{\subsection{Trabajador(a) Social}}}{
+		Especialista responsable del primer contacto con el NNA y su entorno 
+		familiar. Es el actor principal en el registro inicial de casos, 
+		captura de datos del NNA, hecho victimal y tutor, y elaboración 
+		de valoraciones sociales.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+		\item Registrar los datos personales, de ubicación y de 
+		vulnerabilidad del NNA conforme al FUD y la caja de herramientas.
+		\item Documentar los datos del hecho victimal asociado al caso.
+		\item Capturar y mantener actualizados los datos del tutor legal 
+		o responsable del NNA.
+		\item Abrir y gestionar los expedientes de seguimiento de cada caso.
+		\item Registrar sus valoraciones sociales sobre el expediente del NNA.
+		\item Identificar y documentar los derechos vulnerados del NNA.
+		\item Consultar el catálogo de actores en materia de derechos para 
+		articular apoyos disponibles en el municipio del NNA.
+		\item Dar seguimiento al calendario de actividades de sus casos activos.
+	\end{itemize}
+	
+	\item[Perfil:] \cdtEmpty
+	\begin{itemize}
+		\item Licenciatura en Trabajo Social.
+		\item Experiencia en atención a poblaciones vulnerables, 
+		preferentemente menores de edad.
+		\item Conocimiento del FUD y la caja de herramientas para la 
+		restitución de derechos de NNA's.
+		\item Habilidades de empatía, comunicación asertiva y manejo 
+		de situaciones de crisis.
+		\item Manejo básico de herramientas digitales y formularios en 
+		línea.
+	\end{itemize}
+	
+	\item[Procesos en los que participa:] \cdtEmpty
+	\begin{itemize}
+		\item PR-01 Control de acceso y autenticación.
+		\item PR-04 Registro de datos del NNA.
+		\item PR-05 Registro del hecho victimal.
+		\item PR-06 Registro y gestión del tutor del NNA.
+		\item PR-07 Detección de duplicados.
+		\item PR-08 Apertura y gestión de expedientes.
+		\item PR-09 Registro de valoraciones multidisciplinarias.
+		\item PR-10 Registro de derechos vulnerados.
+		\item PR-11 Vinculación de NNA con equipo multidisciplinario.
+		\item PR-12 Consulta y búsqueda de información.
+		\item PR-13 Control de fechas y calendario de expedientes.
+		\item PR-15 Vinculación de actores con derechos vulnerados.
+	\end{itemize}
+	
+	\item[Área:] Área Social, Fundación Futuro con Derecho.
+	\item[Cantidad aproximada:] 1 persona.
+	\item[Horario de actividad:] Lunes a viernes de 9:00 a 18:00 horas, 
+	con posibilidad de registro en campo mediante dispositivo móvil 
+	con acceso a internet.
+\end{Usuario}
+
+%---------------------------------------------------------
+\begin{Usuario}{\hypertarget{A.Abogado}{\subsection{Abogado(a)}}}{
+		Especialista legal responsable de documentar el estatus jurídico 
+		de cada caso, registrar dictámenes legales y dar seguimiento a los 
+		derechos vulnerados desde el ámbito del derecho dentro del expediente 
+		compartido del equipo multidisciplinario.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+		\item Registrar valoraciones y dictámenes legales sobre el 
+		expediente del NNA.
+		\item Documentar las medidas jurídicas sugeridas para la 
+		restitución de derechos.
+		\item Identificar y registrar los derechos vulnerados desde 
+		la perspectiva legal.
+		\item Consultar el historial legal de los expedientes activos 
+		a su cargo.
+		\item Articular con actores en materia de derechos del ámbito 
+		jurídico (Procuraduría, DIF, etc.) para la atención de los casos.
+		\item Dar seguimiento a las fechas clave de los procesos legales 
+		de cada caso.
+	\end{itemize}
+	
+	\item[Perfil:] \cdtEmpty
+	\begin{itemize}
+		\item Licenciatura en Derecho, con cédula profesional.
+		\item Conocimiento de la LGDNNA, Ley General de Víctimas y 
+		normativa aplicable a menores de edad en México.
+		\item Experiencia en derecho familiar o derechos humanos.
+		\item Habilidades analíticas, redacción jurídica y atención 
+		al detalle.
+		\item Manejo básico de herramientas digitales y navegadores web.
+	\end{itemize}
+	
+	\item[Procesos en los que participa:] \cdtEmpty
+	\begin{itemize}
+		\item PR-01 Control de acceso y autenticación.
+		\item PR-08 Apertura y gestión de expedientes.
+		\item PR-09 Registro de valoraciones multidisciplinarias.
+		\item PR-10 Registro de derechos vulnerados.
+		\item PR-12 Consulta y búsqueda de información.
+		\item PR-13 Control de fechas y calendario de expedientes.
+		\item PR-15 Vinculación de actores con derechos vulnerados.
+	\end{itemize}
+	
+	\item[Área:] Área Legal, Fundación Futuro con Derecho.
+	\item[Cantidad aproximada:] 1 persona.
+	\item[Horario de actividad:] Lunes a viernes de 9:00 a 18:00 horas.
+\end{Usuario}
+
+%---------------------------------------------------------
+\begin{Usuario}{\hypertarget{A.Psicologo}{\subsection{Psicólogo(a)}}}{
+		Especialista en salud mental responsable de registrar diagnósticos 
+		psicológicos, hallazgos emocionales y medidas de intervención 
+		terapéutica para cada NNA dentro del expediente compartido del 
+		equipo multidisciplinario.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+		\item Registrar valoraciones psicológicas, diagnósticos y 
+		hallazgos emocionales sobre el expediente del NNA.
+		\item Documentar las medidas de intervención terapéutica 
+		sugeridas para cada caso.
+		\item Identificar y registrar los derechos vulnerados desde 
+		la perspectiva de la salud mental.
+		\item Consultar el historial psicológico de los expedientes 
+		activos a su cargo.
+		\item Articular con actores en materia de derechos del ámbito 
+		de salud mental disponibles en el municipio del NNA.
+		\item Dar seguimiento al calendario de sesiones y actividades 
+		terapéuticas programadas.
+	\end{itemize}
+	
+	\item[Perfil:] \cdtEmpty
+	\begin{itemize}
+		\item Licenciatura en Psicología, con cédula profesional.
+		\item Experiencia en psicología clínica infantil o atención 
+		a víctimas de violencia.
+		\item Conocimiento de técnicas de intervención en crisis y 
+		atención a menores en situación de vulnerabilidad.
+		\item Habilidades de empatía, escucha activa y redacción 
+		de informes clínicos.
+		\item Manejo básico de herramientas digitales y navegadores web.
+	\end{itemize}
+	
+	\item[Procesos en los que participa:] \cdtEmpty
+	\begin{itemize}
+		\item PR-01 Control de acceso y autenticación.
+		\item PR-08 Apertura y gestión de expedientes.
+		\item PR-09 Registro de valoraciones multidisciplinarias.
+		\item PR-10 Registro de derechos vulnerados.
+		\item PR-12 Consulta y búsqueda de información.
+		\item PR-13 Control de fechas y calendario de expedientes.
+		\item PR-15 Vinculación de actores con derechos vulnerados.
+	\end{itemize}
+	
+	\item[Área:] Área de Salud Mental, Fundación Futuro con Derecho.
+	\item[Cantidad aproximada:] 1 persona.
+	\item[Horario de actividad:] Lunes a viernes de 9:00 a 18:00 horas.
+\end{Usuario}
+
+%---------------------------------------------------------
+\begin{Usuario}{\hypertarget{A.Medico}{\subsection{Médico(a)}}}{
+		Especialista en salud física responsable de documentar el estado 
+		de salud del NNA, registrar diagnósticos médicos, enfermedades 
+		y actualizar la información de derecho a la salud dentro del 
+		expediente compartido del equipo multidisciplinario.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+		\item Registrar el estado de salud general, diagnósticos médicos 
+		y padecimientos del NNA en su expediente.
+		\item Documentar las enfermedades crónicas o agudas del NNA y 
+		su tutor, indicando si están controladas y el tratamiento en curso.
+		\item Registrar las medidas médicas sugeridas para la atención 
+		y seguimiento de la salud del NNA.
+		\item Identificar y documentar la vulneración del derecho a la 
+		salud en los casos que corresponda.
+		\item Articular con actores en materia de derechos del ámbito 
+		de salud (clínicas, hospitales, ópticas, etc.) disponibles en 
+		el municipio del NNA.
+		\item Dar seguimiento al calendario de citas y revisiones médicas 
+		programadas para cada caso.
+	\end{itemize}
+	
+	\item[Perfil:] \cdtEmpty
+	\begin{itemize}
+		\item Licenciatura en Medicina, con cédula profesional.
+		\item Experiencia en medicina general o pediatría.
+		\item Conocimiento de los catálogos de enfermedades (CIE-10 
+		o equivalente) y atención a población vulnerable.
+		\item Habilidades de diagnóstico clínico, redacción de informes 
+		médicos y trabajo interdisciplinario.
+		\item Manejo básico de herramientas digitales y navegadores web.
+	\end{itemize}
+	
+	\item[Procesos en los que participa:] \cdtEmpty
+	\begin{itemize}
+		\item PR-01 Control de acceso y autenticación.
+		\item PR-08 Apertura y gestión de expedientes.
+		\item PR-09 Registro de valoraciones multidisciplinarias.
+		\item PR-10 Registro de derechos vulnerados.
+		\item PR-12 Consulta y búsqueda de información.
+		\item PR-13 Control de fechas y calendario de expedientes.
+		\item PR-15 Vinculación de actores con derechos vulnerados.
+		\item PR-16 Gestión de catálogos del sistema.
+	\end{itemize}
+	
+	\item[Área:] Área Médica, Fundación Futuro con Derecho.
+	\item[Cantidad aproximada:] 1 persona.
+	\item[Horario de actividad:] Lunes a viernes de 9:00 a 18:00 horas.
+\end{Usuario}
+	
+%---------------------------------------------------------
+\section{Términos del Negocio}
+\label{sec:terminosDeNegocio}
+
+\cdtInstrucciones{En esta sección describa todos los términos del negocio que aparecen en la especificación del sistema.}
+	
+\begin{description}
+	% Ejemplo de un término literal.
+	\item[\hypertarget{tAutomovil}{Automóvil:}] ({\em es un tipo de \hyperlink{tVehiculo}{Vehículo}}) De cuatro ruedas con capacidad de 5 a 9 personas. 
+	% Ejemplo de un término de entidad
+	\item[\hypertarget{tCliente}{Cliente:}] Se refiere a todas las personas físicas y morales que \hyperlink{tRenta}{rentan} o han rentado un \hyperlink{tVehiculo}{vehículo}.
+	
+	\item[\hypertarget{tDirector}{Director:}] ({\em es un tipo de \hyperlink{tEmpleado}{Empleado}}) Es el empleado que tiene mayor rango de todos y no tiene superior, a diferencia de los demás.	
+	\item[\hypertarget{tEmpleado}{Empleado:}] Se refiere a cualquier persona que labore en la empresa.
+	
+	\item[\hypertarget{tChecador}{Checador:}] ({\em Reloj asociado al atributo:} Hora de entrada y salida de un \hyperlink{tEmpleado}{empleado}. {\em Frecuencia de lectura:} Una vez al día para la entrada y otra para la salida durante los días laborales.
+	
+	\item[\hypertarget{tMotocicleta}{Motocicleta:}] ({\em es un tipo de {tVehiculo}{Vehículo}}) De dos ruedas con capacidad para una personas. 
+
+	\item[\hypertarget{tRenta}{Renta:}] Se refiere al servicio que ofrece la empresa para prestar \hyperlink{tVehiculo}{vehículos} a los \hyperlink{tCliente}{clientes} por un tiempo definido.
+	
+	\item[\hypertarget{tVehiculo}{Vehiculo:}] Se refiere a los automóviles y motocicletas que la empresa usa para dar el servicio de renta a los \hyperlink{tCliente}{clientes}.
+	
+%	\brTermSensor{tVelocimetro}{Velocímetro:}{Velocidad de un Vehículo.}{Kilometros/hora.}{Constantemente siempre que el \cdtRef{tVehiculo}{vehículo} esté encendido.}
+\end{description}
+
+%----------------------------------------------------------
+\section{Modelo del dominio del problema}
+\label{sec:hechosDeNegocio}
+
+\cdtInstrucciones{En esta sección describa todas las entidades del negocio y sus relaciones.}
+
+	El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDominio}, a continuación se describen cada una de las entidades y sus relaciones.
+	
+\begin{figure}[htpb!]
+	\begin{center}
+		\includegraphics[angle=90,width=.95\textwidth]{images/modeloDelDominioDelProblema}
+		\caption{Modelo del dominio del problema}
+		\label{fig:modeloDeDominio}
+	\end{center}
+\end{figure}
+
+\begin{cdtEntidad}{Alumno}{Alumno}
+	\brAttr{registro}{Registro}{Id}{Número de registro utilizado para identificar un alumno}{Sí}
+	\brAttr{nombre}{Nombre}{Palabra Corta}
+		{Nombre o nombres del alumno.}{Sí}
+	\brAttr{primerApellido}{Primer apellido}{Palabra Corta}
+		{Primer apellido del alumno.}{Sí}
+	\brAttr{segundoApellido}{Segundo apellido}{Palabra Corta}
+		{Segundo apellido del alumno.}{No}
+	\brAttr{CURP}{CURP}{CURP}
+		{CURP del alumno.}{Sí}
+	\brAttr{nacimiento}{Nacimiento}{Fecha}
+		{Fecha de nacimiento del alumno.}{Sí}
+	\brAttr{genero}{Género}{Domicilio}
+		{Género del alumno.}{No}
+	\brAttr{telefono}{Teléfono}{Telefono}
+		{Teléfono para contactar al alumno.}{Sí}
+	\brAttr{correo}{Correo}{Correo}
+		{Correo del alumno para enviar información académica y escolar y para recuperación de clave de acceso.}{Sí}
+	\cdtEntityRelSection
+	\brRel{\brRelComposition}{Domicilio}{Un \hyperlink{Alumno}{Alumno} reside en un \hyperlink{Domicilio}{Domicilio}}	
+	\brRel{\brRelAgregation}{Grupo}{Un \hyperlink{Alumno}{Alumno} toma un \hyperlink{Curso}{Curso}}	
+\end{cdtEntidad}
+
+%- - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+\begin{cdtEntidad}{AlumnoExtranjero}{Alumno Extranjero}%{}
+	\brAttr{numeroResidente}{Numero de residente}{Id}{Número de registro dado por la Secretaría de Relaciones Exteriores a los extranjeros.}{Si}
+	\brAttr{paisOrigen}{Pais origen}{\hyperlink{Pais}{País}}
+		{País de origen del alumno extranjero.}{Sí}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{País}{Un \hyperlink{Alumno}{Alumno} es originario de un \hyperlink{Pais}{Pais}}	
+	\brRel{\brRelGeneralization}{Alumno}{Un \hyperlink{AlumnoExtranjero}{Alumno Extranjero} es un  \hyperlink{Alumno}{Alumno}}	
+	\brRel{\brRelParticipation}{Alumno}{Un \hyperlink{AlumnoExtranjero}{Alumno Extranjero} es un  \hyperlink{Alumno}{Alumno}}	
+\end{cdtEntidad}
+
+%---------------------------------------------------------
+\section{Modelado de Reglas de negocio}
+
+
+\input{3-1-reglas}
+
+
+\section{Máquinas de estado}
+
+\input{3-2-estados.tex}
+
+
+

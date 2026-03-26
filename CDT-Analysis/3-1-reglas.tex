@@ -1,0 +1,30 @@
+% !TeX root = proyecto.tex
+
+
+\cdtInstrucciones{En esta sección describa todas las reglas de negocio identificadas.}
+
+
+% Tipo: \btDerivation (no aplica Clase), \btEnabler, \btTimer, \btExecutive
+% Clase: \bcCondition, \bcIntegrity, \bcAutorization.
+% Cumplimiento: \blStrict \blDeferred \blPreAutorized \blPostJustified \blOverride \blGuideline
+\begin{BussinesRule}[%
+	\brClassification{\btEnabler}{\bcCondition}{\blStrict}
+	]{BR-001}{Nombre de la regla de negocio}
+	
+				% Opciones para nivel: \blControlling, \blInfluencing
+	\BRitem[Descripción:] Descripción de la regla. Forma coloquial a manera de reglamento.
+	\BRitem[Motivación:] Describa por que es importante la regla.
+	\BRitem[Sentencia:] Sentencia formal de la regla.
+	\BRitem[Ejemplo positivo:] Indique uno o varios ejemplos en donde la regla se cumple.
+        \begin{itemize}
+        	\item ...
+        \end{itemize}
+	
+	\BRitem[Ejemplo negativo:] Indique uno o varios ejemplos en dónde la regla no se cumple.
+		\begin{itemize}
+        	\item ...
+        \end{itemize}
+	
+	\BRitem[Referenciado por:] Liste los casos de uso en donde la regla no se cumple. por ejemplo \hyperlink{CUCE3.2}{CUCE3.2}, \hyperlink{CUCE3.3}{CUCE3.3}.
+\end{BussinesRule}
+

@@ -58,14 +58,12 @@ class TutorResumenResponse(BaseModel):
             nombre_completo=f"{obj.nombre} {obj.primer_apellido} {obj.segundo_apellido}"
         )
 
-@router.get("/", response_model=list[TutorResumenResponse])
+@router.get("/", response_model=list[TutorResponse])
 async def obtener_tutores(db: AsyncSession = Depends(get_db)):
     result = await db.execute(
         select(Tutor).order_by(Tutor.nombre)
     )
     return result.scalars().all()
-
-
 @router.post("/", response_model=TutorResponse)
 async def crear_tutor(
     datos: TutorCreate,

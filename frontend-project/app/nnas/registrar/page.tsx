@@ -114,7 +114,7 @@ export default function RegistrarNNA() {
     });
 
     setEnviando(false);
-    if (res.ok) window.location.href = "/admin/nnas";
+    if (res.ok) window.location.href = "/listaNnas";
   };
 
   // ── Render ──────────────────────────────────────────────────
@@ -131,7 +131,8 @@ export default function RegistrarNNA() {
         <div className="flex justify-between mb-6">
           <h2 className="text-2xl font-semibold text-gray-800">Registrar NNA</h2>
           <Link
-            href="/admin/nnas"
+            href="/listaNnnas
+            "
             className="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
           >
             Cancelar
@@ -278,7 +279,7 @@ export default function RegistrarNNA() {
 
           {/* Botones */}
           <div className="flex justify-end gap-3">
-            <Link href="/admin/nnas"
+            <Link href="/listaNnas"
               className="bg-gray-400 text-white px-6 py-2 rounded hover:bg-gray-500">
               Cancelar
             </Link>

@@ -6,16 +6,31 @@ import Link from "next/link";
 export default function ConsultarNNAs() {
   const [nnas, setNnas] = useState([]);
   const [cargando, setCargando] = useState(true);
+  const [tutores, setTutores] = useState<any[]>([]);
 
-  useEffect(() => {
-    const cargar = async () => {
-      const res = await fetch("http://localhost:8000/nnas/");
-      setNnas(await res.json());
+useEffect(() => {
+  const cargar = async () => {
+    try {
+      const [nnasRes, tutoresRes] = await Promise.all([
+        fetch("http://localhost:8000/nnas/"),
+        fetch("http://localhost:8000/tutores/"),
+      ]);
+
+      const nnasData = await nnasRes.json();
+      const tutoresData = await tutoresRes.json();
+
+      setNnas(nnasData);
+      setTutores(tutoresData);
+
+    } catch (error) {
+      console.error(error);
+    } finally {
       setCargando(false);
-    };
-    cargar();
-  }, []);
+    }
+  };
 
+  cargar();
+}, []);
   const eliminarNNA = async (id: number) => {
   const confirmar = confirm("¿Eliminar NNA definitivamente?");
   if (!confirmar) return;
@@ -29,7 +44,7 @@ export default function ConsultarNNAs() {
 
     alert("NNA eliminado");
 
-    // 🔥 Recargar página
+    //  Recargar página
     window.location.reload();
 
   } catch (error) {
@@ -128,6 +143,63 @@ export default function ConsultarNNAs() {
           </table>
         )}
       </div>
+
+   <div className="container mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
+
+  {/* HEADER */}
+  <div className="flex justify-between items-center mb-6">
+    <h2 className="text-2xl font-semibold text-gray-800">
+      Tutores registrados
+    </h2>
+
+    <Link
+      href="/tutores/registrar"
+      className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+    >
+      + Registrar tutor
+    </Link>
+  </div>
+
+  {/* CONTENIDO */}
+  {tutores.length === 0 ? (
+    <p className="text-gray-500">No hay tutores registrados.</p>
+  ) : (
+    <table className="min-w-full bg-white border">
+      <thead>
+        <tr className="bg-gray-200 text-gray-700">
+          <th className="py-3 px-4 text-left border">Nombre</th>
+          <th className="py-3 px-4 text-left border">CURP</th>
+          <th className="py-3 px-4 text-left border">Parentesco</th>
+          <th className="py-3 px-4 text-left border">Sexo</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {tutores.map((tutor) => (
+          <tr key={tutor.id} className="hover:bg-gray-50">
+            <td className="py-2 px-4 border">
+              {tutor.nombre} {tutor.primer_apellido} {tutor.segundo_apellido}
+            </td>
+
+            <td className="py-2 px-4 border">
+              {tutor.curp || "—"}
+            </td>
+
+            <td className="py-2 px-4 border">
+              {tutor.parentesco || "—"}
+            </td>
+
+            <td className="py-2 px-4 border">
+              {tutor.sexo || "—"}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )}
+
+</div>
+      
     </body>
   );
 }

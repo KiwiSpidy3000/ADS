@@ -314,3 +314,85 @@ async def eliminar_nna(
     await db.commit()
 
     return {"mensaje": "NNA eliminado correctamente"}
+
+class NNAUpdateRequest(BaseModel):
+    nombre: str
+    primer_apellido: str
+    segundo_apellido: str
+    fecha_nacimiento: date
+    sexo: str
+    curp: Optional[str]
+    nacionalidad: Optional[str]
+    es_migrante: bool
+    activo: bool
+    estatus_escolar_id: Optional[int]
+    tutor_id: Optional[int]
+    equipo_asignado_id: Optional[int]
+
+    # Dirección
+    calle: Optional[str]
+    num_exterior: Optional[str]
+    num_interior: Optional[str]
+    colonia_id: Optional[int]
+    pueblo_comunidad: Optional[str]
+    vivienda_nna_id: Optional[int]
+
+
+@router.put("/{nna_id}", response_model=NNAResponse)
+async def actualizar_nna(
+    nna_id: int,
+    datos: NNAUpdateRequest,
+    db: AsyncSession = Depends(get_db)
+):
+    # ── Buscar NNA ─────────────────────────────
+    result = await db.execute(
+        select(NNA)
+        .options(selectinload(NNA.direccion))
+        .where(NNA.id == nna_id)
+    )
+    nna = result.scalar_one_or_none()
+
+    if not nna:
+        raise HTTPException(status_code=404, detail="NNA no encontrado")
+
+    # ── Actualizar datos básicos ───────────────
+    nna.nombre = datos.nombre
+    nna.primer_apellido = datos.primer_apellido
+    nna.segundo_apellido = datos.segundo_apellido
+    nna.fecha_nacimiento = datos.fecha_nacimiento
+    nna.sexo = datos.sexo
+    nna.curp = datos.curp
+    nna.nacionalidad = datos.nacionalidad
+    nna.es_migrante = datos.es_migrante
+    nna.activo = datos.activo
+
+    nna.estatus_escolar_id = datos.estatus_escolar_id
+    nna.tutor_id = datos.tutor_id
+    nna.equipo_asignado_id = datos.equipo_asignado_id
+
+    # ── Dirección ──────────────────────────────
+    if nna.direccion:
+        direccion = nna.direccion
+        direccion.calle = datos.calle
+        direccion.num_exterior = datos.num_exterior
+        direccion.num_interior = datos.num_interior
+        direccion.colonia_id = datos.colonia_id
+        direccion.pueblo_comunidad = datos.pueblo_comunidad
+        direccion.vivienda_nna_id = datos.vivienda_nna_id
+    else:
+        nueva_dir = DireccionNNA(
+            calle=datos.calle,
+            num_exterior=datos.num_exterior,
+            num_interior=datos.num_interior,
+            colonia_id=datos.colonia_id,
+            pueblo_comunidad=datos.pueblo_comunidad,
+            vivienda_nna_id=datos.vivienda_nna_id
+        )
+        db.add(nueva_dir)
+        await db.flush()
+        nna.direccion_id = nueva_dir.id
+
+    await db.commit()
+
+    # ── Retornar completo ──────────────────────
+    return True

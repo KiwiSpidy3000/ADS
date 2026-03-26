@@ -1,8 +1,10 @@
 from fastapi import FastAPI
 from database import engine, Base
-from rutas import usuarios, catalogos, equipos_router,nna_router, tutores
+from rutas import usuarios, catalogos, equipos_router,nna_router, tutores, catalogos_router
+
 
 from fastapi.middleware.cors import CORSMiddleware
+
 
 
 app = FastAPI()
@@ -19,8 +21,31 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+
+from rutas.catalogos_router import (
+    router_tipo_vivienda,
+    router_vivienda_nna,
+    router_estatus_escolar,
+    router_idioma,
+    router_enfermedad,
+    router_discapacidad,
+)
+
+app.include_router(router_tipo_vivienda)
+app.include_router(router_vivienda_nna)
+app.include_router(router_estatus_escolar)
+app.include_router(router_idioma)
+app.include_router(router_enfermedad)
+app.include_router(router_discapacidad)
+
+
 app.include_router(usuarios.router)
 app.include_router(catalogos.router)
 app.include_router(equipos_router.router)
 app.include_router(nna_router.router)
 app.include_router(tutores.router)
+
+
+
+

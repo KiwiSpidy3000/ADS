@@ -10,6 +10,7 @@ from models import CatRol, CatTipoVivienda, CatEstado, CatColonia, CatMunicipio,
 
 # from schemas import ColoniaResponse, CodigoPostalResponse, MunicipioResponse
 
+
 from database import AsyncSessionLocal
 
 
@@ -148,3 +149,5 @@ async def obtener_tipos_vivienda(db: AsyncSession = Depends(get_db)):
 # async def obtener_municipios(db: AsyncSession = Depends(get_db)):
 #     result = await db.execute(select(CatMunicipio))
 #     return result.scalars().all()
+
+

@@ -324,76 +324,492 @@ de la Fundación Futuro con Derecho y su personal directivo.
 \section{Términos del Negocio}
 \label{sec:terminosDeNegocio}
 
-\cdtInstrucciones{En esta sección describa todos los términos del negocio que aparecen en la especificación del sistema.}
+\cdtInstrucciones{A continuación se definen los términos propios del dominio que aparecen en la especificación del sistema SICORRE.}
 	
 \begin{description}
-	% Ejemplo de un término literal.
-	\item[\hypertarget{tAutomovil}{Automóvil:}] ({\em es un tipo de \hyperlink{tVehiculo}{Vehículo}}) De cuatro ruedas con capacidad de 5 a 9 personas. 
-	% Ejemplo de un término de entidad
-	\item[\hypertarget{tCliente}{Cliente:}] Se refiere a todas las personas físicas y morales que \hyperlink{tRenta}{rentan} o han rentado un \hyperlink{tVehiculo}{vehículo}.
-	
-	\item[\hypertarget{tDirector}{Director:}] ({\em es un tipo de \hyperlink{tEmpleado}{Empleado}}) Es el empleado que tiene mayor rango de todos y no tiene superior, a diferencia de los demás.	
-	\item[\hypertarget{tEmpleado}{Empleado:}] Se refiere a cualquier persona que labore en la empresa.
-	
-	\item[\hypertarget{tChecador}{Checador:}] ({\em Reloj asociado al atributo:} Hora de entrada y salida de un \hyperlink{tEmpleado}{empleado}. {\em Frecuencia de lectura:} Una vez al día para la entrada y otra para la salida durante los días laborales.
-	
-	\item[\hypertarget{tMotocicleta}{Motocicleta:}] ({\em es un tipo de {tVehiculo}{Vehículo}}) De dos ruedas con capacidad para una personas. 
-
-	\item[\hypertarget{tRenta}{Renta:}] Se refiere al servicio que ofrece la empresa para prestar \hyperlink{tVehiculo}{vehículos} a los \hyperlink{tCliente}{clientes} por un tiempo definido.
-	
-	\item[\hypertarget{tVehiculo}{Vehiculo:}] Se refiere a los automóviles y motocicletas que la empresa usa para dar el servicio de renta a los \hyperlink{tCliente}{clientes}.
-	
-%	\brTermSensor{tVelocimetro}{Velocímetro:}{Velocidad de un Vehículo.}{Kilometros/hora.}{Constantemente siempre que el \cdtRef{tVehiculo}{vehículo} esté encendido.}
+	\item[\textbf{NNA.}]
+    Niña, Niño o Adolescente. Persona menor de 18 años beneficiaria
+    directa de los servicios de la fundación. Es la entidad central del
+    sistema y cada NNA posee un único expediente identificado por su
+    CURP.
+ 
+  \item[\textbf{CURP.}]
+    Clave Única de Registro de Población. Identificador alfanumérico
+    de 18 caracteres asignado por el gobierno mexicano a cada persona.
+    Actúa como llave única para el registro de NNA's y usuarios en
+    SICORRE, impidiendo la creación de expedientes duplicados.
+ 
+  \item[\textbf{FUD (Formato Único de Declaración).}]
+    Formato oficial empleado por la Comisión Ejecutiva de Atención a
+    Víctimas para registrar a personas en situación de víctima. Sus
+    secciones (datos de la víctima, hecho victimizante, datos del tutor,
+    tipo de daño, etc.) definen la estructura del módulo de registro de
+    NNA en SICORRE.
+ 
+  \item[\textbf{Caja de Herramientas.}]
+    Guía práctica para la restitución de derechos de niñas, niños y
+    adolescentes emitida por la autoridad competente. Complementa al
+    FUD y define los campos de vulnerabilidad, discapacidad, migración y
+    pertenencia a comunidades indígenas que el sistema debe capturar.
+ 
+  \item[\textbf{Expediente.}]
+    Conjunto de información que documenta el historial completo de un
+    caso de restitución de derechos de un NNA. Incluye el folio FUD,
+    el estatus del proceso, la prioridad, las valoraciones
+    multidisciplinarias y los derechos vulnerados identificados.
+ 
+  \item[\textbf{Hecho Victimal.}]
+    Evento delictivo (feminicidio) que origina el estado de orfandad
+    del NNA. El registro del hecho victimal incluye el nombre de la
+    víctima madre, la fecha del hecho, los datos del expediente jurídico
+    y la descripción del delito.
+ 
+  \item[\textbf{Tutor.}]
+    Persona adulta — familiar o responsable designado — que tiene a su
+    cargo el cuidado y representación legal del NNA ante la fundación.
+    Sus datos, domicilio, idioma y padecimientos se registran en el
+    sistema.
+ 
+  \item[\textbf{Equipo Multidisciplinario.}]
+    Grupo de especialistas (trabajador/a social, abogado/a, psicólogo/a
+    y médico/a) que atienden de forma coordinada un mismo conjunto de
+    casos. Un NNA se asigna a un equipo, y todos sus integrantes pueden
+    visualizar y actualizar el expediente compartido.
+ 
+  \item[\textbf{Valoración.}]
+    Registro narrativo que un especialista elabora sobre el expediente
+    de un NNA, incluyendo el área de evaluación, los hallazgos y
+    dictámenes, las medidas sugeridas y la fecha de la valoración.
+ 
+  \item[\textbf{Derecho Vulnerado.}]
+    Derecho específico (a la salud, a la educación, a la identidad,
+    etc.) que ha sido transgredido en el caso de un NNA. El sistema
+    permite registrar si cada derecho está activamente vulnerado y añadir
+    observaciones del equipo.
+ 
+  \item[\textbf{Actor en Materia de Derechos.}]
+    Organización gubernamental, no gubernamental o persona física con
+    capacidad de participar en la restitución de derechos de los NNA's.
+    El catálogo de actores se mantiene actualizado con datos de contacto,
+    servicios, costos, horarios y ubicación.
+ 
+  \item[\textbf{SEPOMEX.}]
+    Servicio Postal Mexicano. Catálogo oficial de códigos postales
+    utilizado en SICORRE para normalizar los domicilios de NNA's,
+    tutores, usuarios y actores, garantizando la correcta asociación de
+    colonia, municipio y entidad federativa.
+ 
+  \item[\textbf{INALI.}]
+    Instituto Nacional de Lenguas Indígenas. Organismo cuyo catálogo
+    oficial de idiomas y variantes dialectales utiliza SICORRE para
+    registrar las lenguas maternas del NNA y su tutor.
+ 
+  \item[\textbf{JWT (JSON Web Token).}]
+    Mecanismo de autenticación empleado por SICORRE para verificar la
+    identidad del usuario en cada petición al servidor, garantizando que
+    únicamente el personal autorizado acceda a la información sensible
+    de los NNA's.
+ 
+  \item[\textbf{Folio FUD.}]
+    Número de referencia único asignado a cada expediente dentro del
+    sistema, derivado del Formato Único de Declaración oficial. Permite
+    relacionar el expediente digital con el trámite físico o
+    institucional correspondiente.
+ 
+  \item[\textbf{Rol.}]
+    Perfil de permisos asignado a cada usuario del sistema. SICORRE
+    define dos roles: \textit{Administrador} (directora y coordinadora,
+    con capacidad de gestionar usuarios, equipos y catálogos) y
+    \textit{Especialista} (trabajador/a social, abogado/a, psicólogo/a
+    y médico/a, con capacidad de registrar y consultar expedientes y
+    valoraciones).
 \end{description}
 
 %----------------------------------------------------------
 \section{Modelo del dominio del problema}
 \label{sec:hechosDeNegocio}
 
-\cdtInstrucciones{En esta sección describa todas las entidades del negocio y sus relaciones.}
-
-	El modelo del dominio del problema se muestra en la figura~\ref{fig:modeloDeDominio}, a continuación se describen cada una de las entidades y sus relaciones.
+	El modelo del dominio de SICORRE representa las entidades del negocio y sus
+relaciones tal como existen en la operación de la Fundación Futuro con
+Derecho. La figura~\ref{fig:diagramaBDproyecto3} muestra el diagrama entidad-relación
+del sistema.
 	
 \begin{figure}[htpb!]
 	\begin{center}
-		\includegraphics[angle=90,width=.95\textwidth]{images/modeloDelDominioDelProblema}
+		\includegraphics[angle=90,width=.80\textwidth]{images/diagramaDBproyecto3.png}
 		\caption{Modelo del dominio del problema}
-		\label{fig:modeloDeDominio}
+		\label{fig:diagramaDBproyecto3}
 	\end{center}
 \end{figure}
 
-\begin{cdtEntidad}{Alumno}{Alumno}
-	\brAttr{registro}{Registro}{Id}{Número de registro utilizado para identificar un alumno}{Sí}
-	\brAttr{nombre}{Nombre}{Palabra Corta}
-		{Nombre o nombres del alumno.}{Sí}
-	\brAttr{primerApellido}{Primer apellido}{Palabra Corta}
-		{Primer apellido del alumno.}{Sí}
-	\brAttr{segundoApellido}{Segundo apellido}{Palabra Corta}
-		{Segundo apellido del alumno.}{No}
-	\brAttr{CURP}{CURP}{CURP}
-		{CURP del alumno.}{Sí}
-	\brAttr{nacimiento}{Nacimiento}{Fecha}
-		{Fecha de nacimiento del alumno.}{Sí}
-	\brAttr{genero}{Género}{Domicilio}
-		{Género del alumno.}{No}
-	\brAttr{telefono}{Teléfono}{Telefono}
-		{Teléfono para contactar al alumno.}{Sí}
-	\brAttr{correo}{Correo}{Correo}
-		{Correo del alumno para enviar información académica y escolar y para recuperación de clave de acceso.}{Sí}
+\clearpage
+
+\begin{cdtEntidad}{CatEstados}{Cat\_Estados}
+	\brAttr{id}{Id}{Id}{Identificador único del estado.}{Sí}
+	\brAttr{nombre}{Nombre}{Palabra Corta}{Nombre del estado. Debe ser único.}{Sí}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{CatMunicipios}{Cat\_Municipios}
+	\brAttr{id}{Id}{Id}{Identificador único del municipio.}{Sí}
+	\brAttr{nombre}{Nombre}{Palabra Corta}{Nombre del municipio.}{Sí}
+	\brAttr{estadoId}{Estado}{Referencia}{Estado al que pertenece el municipio.}{Sí}
 	\cdtEntityRelSection
-	\brRel{\brRelComposition}{Domicilio}{Un \hyperlink{Alumno}{Alumno} reside en un \hyperlink{Domicilio}{Domicilio}}	
-	\brRel{\brRelAgregation}{Grupo}{Un \hyperlink{Alumno}{Alumno} toma un \hyperlink{Curso}{Curso}}	
+	\brRel{\brRelAgregation}{CatEstados}{Un \hyperlink{CatMunicipios}{Municipio} pertenece a un \hyperlink{CatEstados}{Estado}}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{CatColonias}{Cat\_Colonias}
+	\brAttr{id}{Id}{Id}{Identificador único de la colonia.}{Sí}
+	\brAttr{nombre}{Nombre}{Palabra Corta}{Nombre de la colonia.}{Sí}
+	\brAttr{codigoPostal}{Código Postal}{Palabra Corta}{Código postal de la colonia (5 dígitos).}{Sí}
+	\brAttr{municipioId}{Municipio}{Referencia}{Municipio al que pertenece la colonia.}{Sí}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{CatMunicipios}{Una \hyperlink{CatColonias}{Colonia} pertenece a un \hyperlink{CatMunicipios}{Municipio}}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{CatTipoVivienda}{Cat\_Tipo\_Vivienda}
+	\brAttr{id}{Id}{Id}{Identificador único del tipo de vivienda.}{Sí}
+	\brAttr{descripcion}{Descripción}{Palabra Corta}{Descripción del tipo de vivienda. Debe ser única.}{Sí}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{CatViviendaNNA}{Cat\_Vivienda\_NNA}
+	\brAttr{id}{Id}{Id}{Identificador único del tipo de vivienda para NNA.}{Sí}
+	\brAttr{descripcion}{Descripción}{Palabra Corta}{Descripción del tipo de vivienda para NNA. Debe ser única.}{No}
+\end{cdtEntidad}
+ 
+% =============================================================
+% OTROS CATÁLOGOS
+% =============================================================
+ 
+\begin{cdtEntidad}{CatEstatusEscolar}{Cat\_Estatus\_Escolar}
+	\brAttr{id}{Id}{Id}{Identificador único del estatus escolar.}{Sí}
+	\brAttr{descripcion}{Descripción}{Palabra Corta}{Descripción del estatus escolar. Debe ser única.}{Sí}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{CatIdiomas}{Cat\_Idiomas}
+	\brAttr{id}{Id}{Id}{Identificador único del idioma.}{Sí}
+	\brAttr{nombre}{Nombre}{Palabra Corta}{Nombre del idioma.}{Sí}
+	\brAttr{variante}{Variante}{Palabra Corta}{Variante o dialecto del idioma.}{No}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{CatEnfermedades}{Cat\_Enfermedades}
+	\brAttr{id}{Id}{Id}{Identificador único de la enfermedad.}{Sí}
+	\brAttr{nombre}{Nombre}{Palabra Corta}{Nombre de la enfermedad.}{Sí}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{CatDiscapacidades}{Cat\_Discapacidades}
+	\brAttr{id}{Id}{Id}{Identificador único de la discapacidad.}{Sí}
+	\brAttr{nombre}{Nombre}{Palabra Corta}{Nombre de la discapacidad.}{Sí}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{CatRoles}{Cat\_Roles}
+	\brAttr{id}{Id}{Id}{Identificador único del rol.}{Sí}
+	\brAttr{nombreRol}{Nombre del Rol}{Palabra Corta}{Nombre del rol de usuario. Debe ser único.}{Sí}
+\end{cdtEntidad}
+ 
+% =============================================================
+% TABLAS DE DIRECCIÓN
+% =============================================================
+ 
+\begin{cdtEntidad}{DireccionesUsuarios}{Direcciones\_Usuarios}
+	\brAttr{id}{Id}{Id}{Identificador único de la dirección del usuario.}{Sí}
+	\brAttr{calle}{Calle}{Palabra Corta}{Nombre de la calle.}{No}
+	\brAttr{numExterior}{Número Exterior}{Palabra Corta}{Número exterior del domicilio.}{No}
+	\brAttr{numInterior}{Número Interior}{Palabra Corta}{Número interior del domicilio.}{No}
+	\brAttr{coloniaId}{Colonia}{Referencia}{Colonia a la que pertenece la dirección.}{No}
+	\brAttr{tipoViviendaId}{Tipo de Vivienda}{Referencia}{Tipo de vivienda del usuario.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{CatColonias}{Una \hyperlink{DireccionesUsuarios}{Dirección de Usuario} se ubica en una \hyperlink{CatColonias}{Colonia}}
+	\brRel{\brRelAgregation}{CatTipoVivienda}{Una \hyperlink{DireccionesUsuarios}{Dirección de Usuario} corresponde a un \hyperlink{CatTipoVivienda}{Tipo de Vivienda}}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{DireccionesNNA}{Direcciones\_NNA}
+	\brAttr{id}{Id}{Id}{Identificador único de la dirección del NNA.}{Sí}
+	\brAttr{calle}{Calle}{Palabra Corta}{Nombre de la calle.}{No}
+	\brAttr{numExterior}{Número Exterior}{Palabra Corta}{Número exterior del domicilio.}{No}
+	\brAttr{numInterior}{Número Interior}{Palabra Corta}{Número interior del domicilio.}{No}
+	\brAttr{coloniaId}{Colonia}{Referencia}{Colonia a la que pertenece la dirección.}{No}
+	\brAttr{puebloComunidad}{Pueblo o Comunidad}{Palabra Corta}{Nombre del pueblo o comunidad donde reside el NNA.}{No}
+	\brAttr{viviendaNnaId}{Tipo de Vivienda NNA}{Referencia}{Tipo de vivienda correspondiente al NNA.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{CatColonias}{Una \hyperlink{DireccionesNNA}{Dirección de NNA} se ubica en una \hyperlink{CatColonias}{Colonia}}
+	\brRel{\brRelAgregation}{CatViviendaNNA}{Una \hyperlink{DireccionesNNA}{Dirección de NNA} corresponde a un \hyperlink{CatViviendaNNA}{Tipo de Vivienda NNA}}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{DireccionesActores}{Direcciones\_Actores}
+	\brAttr{id}{Id}{Id}{Identificador único de la dirección del actor.}{Sí}
+	\brAttr{calle}{Calle}{Palabra Corta}{Nombre de la calle.}{No}
+	\brAttr{numExterior}{Número Exterior}{Palabra Corta}{Número exterior del domicilio.}{No}
+	\brAttr{numInterior}{Número Interior}{Palabra Corta}{Número interior del domicilio.}{No}
+	\brAttr{referenciaUbicacion}{Referencia de Ubicación}{Texto}{Referencia adicional para ubicar el domicilio. Ej: Frente al parque central.}{No}
+	\brAttr{coloniaId}{Colonia}{Referencia}{Colonia a la que pertenece la dirección.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{CatColonias}{Una \hyperlink{DireccionesActores}{Dirección de Actor} se ubica en una \hyperlink{CatColonias}{Colonia}}
+\end{cdtEntidad}
+ 
+% =============================================================
+% ADMINISTRACIÓN Y PERSONAL
+% =============================================================
+ 
+\begin{cdtEntidad}{Usuarios}{Usuarios}
+	\brAttr{id}{Id}{Id}{Identificador único del usuario.}{Sí}
+	\brAttr{nombre}{Nombre}{Palabra Corta}{Nombre o nombres del usuario.}{Sí}
+	\brAttr{primerApellido}{Primer Apellido}{Palabra Corta}{Primer apellido del usuario.}{Sí}
+	\brAttr{segundoApellido}{Segundo Apellido}{Palabra Corta}{Segundo apellido del usuario.}{Sí}
+	\brAttr{fechaNacimiento}{Fecha de Nacimiento}{Fecha}{Fecha de nacimiento del usuario.}{Sí}
+	\brAttr{sexo}{Sexo}{Palabra Corta}{Sexo del usuario.}{No}
+	\brAttr{curp}{CURP}{CURP}{CURP del usuario. Debe ser único.}{Sí}
+	\brAttr{rfc}{RFC}{Palabra Corta}{RFC del usuario. Debe ser único.}{Sí}
+	\brAttr{correo}{Correo}{Correo}{Correo electrónico del usuario. Debe ser único.}{Sí}
+	\brAttr{passwordHash}{Contraseña}{Palabra Larga}{Hash de la contraseña del usuario.}{Sí}
+	\brAttr{tipoPersonal}{Tipo de Personal}{Booleano}{Indica el tipo de personal al que pertenece el usuario.}{No}
+	\brAttr{activo}{Activo}{Booleano}{Indica si el usuario se encuentra activo en el sistema.}{Sí}
+	\brAttr{fechaRegistro}{Fecha de Registro}{Fecha}{Fecha y hora en que fue registrado el usuario.}{Sí}
+	\brAttr{direccionId}{Dirección}{Referencia}{Dirección del domicilio del usuario.}{No}
+	\brAttr{rolId}{Rol}{Referencia}{Rol asignado al usuario dentro del sistema.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelComposition}{Direcciones
+    Usuarios}{Un \hyperlink{Usuarios}{Usuario} reside en una \hyperlink{DireccionesUsuarios}{Dirección}}
+	\brRel{\brRelAgregation}{CatRoles}{Un \hyperlink{Usuarios}{Usuario} tiene asignado un \hyperlink{CatRoles}{Rol}}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{EquiposMultidisciplinarios}{Equipos\_Multidisciplinarios}
+	\brAttr{id}{Id}{Id}{Identificador único del equipo multidisciplinario.}{Sí}
+	\brAttr{nombreEquipo}{Nombre del Equipo}{Palabra Corta}{Nombre del equipo multidisciplinario.}{Sí}
+	\brAttr{activo}{Activo}{Booleano}{Indica si el equipo se encuentra activo.}{Sí}
+	\brAttr{fechaCreacion}{Fecha de Creación}{Fecha}{Fecha y hora en que fue creado el equipo.}{Sí}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{IntegrantesEquipo}{Integrantes\_Equipo}
+	\brAttr{id}{Id}{Id}{Identificador único del registro de integrante.}{Sí}
+	\brAttr{equipoId}{Equipo}{Referencia}{Equipo multidisciplinario al que pertenece el integrante.}{Sí}
+	\brAttr{usuarioId}{Usuario}{Referencia}{Usuario que forma parte del equipo.}{Sí}
+	\brAttr{fechaIngreso}{Fecha de Ingreso}{Fecha}{Fecha y hora en que el usuario ingresó al equipo.}{Sí}
+	\brAttr{fechaSalida}{Fecha de Salida}{Fecha}{Fecha y hora en que el usuario salió del equipo.}{No}
+	\brAttr{motivoCambio}{Motivo de Cambio}{Texto}{Descripción del motivo por el cual se realizó un cambio en el equipo.}{No}
+	\brAttr{estatusIntegrante}{Estatus del Integrante}{Palabra Corta}{Estatus actual del integrante dentro del equipo.}{Sí}
+	\brAttr{esMomentaneo}{Es Momentáneo}{Booleano}{Indica si la participación del integrante es de carácter temporal.}{Sí}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{Equipos
+    Multidisciplinarios}{Un \hyperlink{IntegrantesEquipo}{Integrante} pertenece a un \hyperlink{EquiposMultidisciplinarios}{Equipo Multidisciplinario}}
+	\brRel{\brRelAgregation}{Usuarios}{Un \hyperlink{IntegrantesEquipo}{Integrante} corresponde a un \hyperlink{Usuarios}{Usuario}}
+\end{cdtEntidad}
+ 
+% =============================================================
+% MÓDULO DE TUTORES Y NNA
+% =============================================================
+ 
+\begin{cdtEntidad}{Tutores}{Tutores}
+	\brAttr{id}{Id}{Id}{Identificador único del tutor.}{Sí}
+	\brAttr{nombre}{Nombre}{Palabra Corta}{Nombre o nombres del tutor.}{Sí}
+	\brAttr{primerApellido}{Primer Apellido}{Palabra Corta}{Primer apellido del tutor.}{Sí}
+	\brAttr{segundoApellido}{Segundo Apellido}{Palabra Corta}{Segundo apellido del tutor.}{Sí}
+	\brAttr{fechaNacimiento}{Fecha de Nacimiento}{Fecha}{Fecha de nacimiento del tutor.}{Sí}
+	\brAttr{sexo}{Sexo}{Palabra Corta}{Sexo del tutor.}{No}
+	\brAttr{curp}{CURP}{CURP}{CURP del tutor. Debe ser único.}{No}
+	\brAttr{nacionalidad}{Nacionalidad}{Palabra Corta}{Nacionalidad del tutor.}{No}
+	\brAttr{parentesco}{Parentesco}{Palabra Corta}{Parentesco del tutor con el NNA.}{No}
+	\brAttr{direccionId}{Dirección}{Referencia}{Dirección del domicilio del tutor.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelComposition}{Direcciones
+    Usuarios}{Un \hyperlink{Tutores}{Tutor} reside en una \hyperlink{DireccionesUsuarios}{Dirección}}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{NNA}{NNA}
+	\brAttr{id}{Id}{Id}{Identificador único del NNA.}{Sí}
+	\brAttr{nombre}{Nombre}{Palabra Corta}{Nombre o nombres del NNA.}{Sí}
+	\brAttr{primerApellido}{Primer Apellido}{Palabra Corta}{Primer apellido del NNA.}{Sí}
+	\brAttr{segundoApellido}{Segundo Apellido}{Palabra Corta}{Segundo apellido del NNA.}{Sí}
+	\brAttr{fechaNacimiento}{Fecha de Nacimiento}{Fecha}{Fecha de nacimiento del NNA.}{Sí}
+	\brAttr{sexo}{Sexo}{Palabra Corta}{Sexo del NNA.}{No}
+	\brAttr{curp}{CURP}{CURP}{CURP del NNA. Debe ser único.}{No}
+	\brAttr{nacionalidad}{Nacionalidad}{Palabra Corta}{Nacionalidad del NNA.}{No}
+	\brAttr{esMigrante}{Es Migrante}{Booleano}{Indica si el NNA es migrante.}{Sí}
+	\brAttr{creadoPor}{Creado Por}{Referencia}{Usuario que registró al NNA en el sistema.}{No}
+	\brAttr{activo}{Activo}{Booleano}{Indica si el NNA se encuentra activo en el sistema.}{Sí}
+	\brAttr{fechaRegistro}{Fecha de Registro}{Fecha}{Fecha y hora en que fue registrado el NNA.}{Sí}
+	\brAttr{estatusEscolarId}{Estatus Escolar}{Referencia}{Estatus escolar actual del NNA.}{No}
+	\brAttr{tutorId}{Tutor}{Referencia}{Tutor responsable del NNA.}{No}
+	\brAttr{direccionId}{Dirección}{Referencia}{Dirección del domicilio del NNA.}{No}
+	\brAttr{equipoAsignadoId}{Equipo Asignado}{Referencia}{Equipo multidisciplinario asignado para la atención del NNA.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelComposition}{DireccionesNNA}{Un \hyperlink{NNA}{NNA} reside en una \hyperlink{DireccionesNNA}{Dirección}}
+	\brRel{\brRelAgregation}{Tutores}{Un \hyperlink{NNA}{NNA} tiene a cargo un \hyperlink{Tutores}{Tutor}}
+	\brRel{\brRelAgregation}{CatEstatus
+    Escolar}{Un \hyperlink{NNA}{NNA} tiene un \hyperlink{CatEstatusEscolar}{Estatus Escolar}}
+	\brRel{\brRelAgregation}{Equipos
+    Multidisciplinarios}{Un \hyperlink{NNA}{NNA} es atendido por un \hyperlink{EquiposMultidisciplinarios}{Equipo Multidisciplinario}}
+	\brRel{\brRelAgregation}{Usuarios}{Un \hyperlink{NNA}{NNA} fue registrado por un \hyperlink{Usuarios}{Usuario}}
+\end{cdtEntidad}
+ 
+% =============================================================
+% SALUD DE LOS TUTORES
+% =============================================================
+ 
+\begin{cdtEntidad}{TutorEnfermedades}{Tutor\_Enfermedades}
+	\brAttr{id}{Id}{Id}{Identificador único del registro de enfermedad del tutor.}{Sí}
+	\brAttr{tutorId}{Tutor}{Referencia}{Tutor al que corresponde el registro de enfermedad.}{Sí}
+	\brAttr{enfermedadId}{Enfermedad}{Referencia}{Enfermedad registrada para el tutor.}{Sí}
+	\brAttr{esCronica}{Es Crónica}{Booleano}{Indica si la enfermedad es de carácter crónico.}{Sí}
+	\brAttr{estaControlada}{Está Controlada}{Booleano}{Indica si la enfermedad se encuentra controlada.}{Sí}
+	\brAttr{requiereMedicamento}{Requiere Medicamento}{Booleano}{Indica si la enfermedad requiere medicamento.}{Sí}
+	\brAttr{nombreMedicamento}{Nombre del Medicamento}{Palabra Corta}{Nombre del medicamento utilizado para tratar la enfermedad.}{No}
+	\brAttr{observaciones}{Observaciones}{Texto}{Observaciones adicionales sobre la enfermedad del tutor.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{Tutores}{Un \hyperlink{TutorEnfermedades}{Registro de Enfermedad} corresponde a un \hyperlink{Tutores}{Tutor}}
+	\brRel{\brRelAgregation}{CatEnfermedades}{Un \hyperlink{TutorEnfermedades}{Registro de Enfermedad} hace referencia a una \hyperlink{CatEnfermedades}{Enfermedad}}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{TutorIdiomas}{Tutor\_Idiomas}
+	\brAttr{id}{Id}{Id}{Identificador único del registro de idioma del tutor.}{Sí}
+	\brAttr{tutoresId}{Tutor}{Referencia}{Tutor al que corresponde el registro de idioma.}{Sí}
+	\brAttr{idiomaId}{Idioma}{Referencia}{Idioma registrado para el tutor.}{Sí}
+	\brAttr{habla}{Habla}{Booleano}{Indica si el tutor habla el idioma.}{Sí}
+	\brAttr{entiende}{Entiende}{Booleano}{Indica si el tutor entiende el idioma.}{Sí}
+	\brAttr{escribe}{Escribe}{Booleano}{Indica si el tutor escribe el idioma.}{Sí}
+	\brAttr{requiereTradUctor}{Requiere Traductor}{Booleano}{Indica si el tutor requiere traductor para el idioma.}{Sí}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{Tutores}{Un \hyperlink{TutorIdiomas}{Registro de Idioma} corresponde a un \hyperlink{Tutores}{Tutor}}
+	\brRel{\brRelAgregation}{CatIdiomas}{Un \hyperlink{TutorIdiomas}{Registro de Idioma} hace referencia a un \hyperlink{CatIdiomas}{Idioma}}
+\end{cdtEntidad}
+ 
+% =============================================================
+% SALUD E IDIOMAS DEL NNA
+% =============================================================
+ 
+\begin{cdtEntidad}{NNAEnfermedades}{NNA\_Enfermedades}
+	\brAttr{id}{Id}{Id}{Identificador único del registro de enfermedad del NNA.}{Sí}
+	\brAttr{nnaId}{NNA}{Referencia}{NNA al que corresponde el registro de enfermedad.}{Sí}
+	\brAttr{enfermedadId}{Enfermedad}{Referencia}{Enfermedad registrada para el NNA.}{Sí}
+	\brAttr{esCronica}{Es Crónica}{Booleano}{Indica si la enfermedad es de carácter crónico.}{Sí}
+	\brAttr{estaControlada}{Está Controlada}{Booleano}{Indica si la enfermedad se encuentra controlada.}{Sí}
+	\brAttr{requiereMedicamento}{Requiere Medicamento}{Booleano}{Indica si la enfermedad requiere medicamento.}{Sí}
+	\brAttr{nombreMedicamento}{Nombre del Medicamento}{Palabra Corta}{Nombre del medicamento utilizado para tratar la enfermedad.}{No}
+	\brAttr{observaciones}{Observaciones}{Texto}{Observaciones adicionales sobre la enfermedad del NNA.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{NNA}{Un \hyperlink{NNAEnfermedades}{Registro de Enfermedad} corresponde a un \hyperlink{NNA}{NNA}}
+	\brRel{\brRelAgregation}{CatEnfermedades}{Un \hyperlink{NNAEnfermedades}{Registro de Enfermedad} hace referencia a una \hyperlink{CatEnfermedades}{Enfermedad}}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{NNADiscapacidades}{NNA\_Discapacidades}
+	\brAttr{id}{Id}{Id}{Identificador único del registro de discapacidad del NNA.}{Sí}
+	\brAttr{nnaId}{NNA}{Referencia}{NNA al que corresponde el registro de discapacidad.}{Sí}
+	\brAttr{discapacidadId}{Discapacidad}{Referencia}{Discapacidad registrada para el NNA.}{Sí}
+	\brAttr{tipoDiscapacidad}{Tipo de Discapacidad}{Palabra Corta}{Tipo específico de la discapacidad del NNA.}{No}
+	\brAttr{gradoDependencia}{Grado de Dependencia}{Palabra Corta}{Grado de dependencia derivado de la discapacidad del NNA.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{NNA}{Un \hyperlink{NNADiscapacidades}{Registro de Discapacidad} corresponde a un \hyperlink{NNA}{NNA}}
+	\brRel{\brRelAgregation}{Cat
+    Discapacidades}{Un \hyperlink{NNADiscapacidades}{Registro de Discapacidad} hace referencia a una \hyperlink{CatDiscapacidades}{Discapacidad}}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{NNAIdiomas}{NNA\_Idiomas}
+	\brAttr{id}{Id}{Id}{Identificador único del registro de idioma del NNA.}{Sí}
+	\brAttr{nnaId}{NNA}{Referencia}{NNA al que corresponde el registro de idioma.}{Sí}
+	\brAttr{idiomaId}{Idioma}{Referencia}{Idioma registrado para el NNA.}{Sí}
+	\brAttr{habla}{Habla}{Booleano}{Indica si el NNA habla el idioma.}{Sí}
+	\brAttr{entiende}{Entiende}{Booleano}{Indica si el NNA entiende el idioma.}{Sí}
+	\brAttr{escribe}{Escribe}{Booleano}{Indica si el NNA escribe el idioma.}{Sí}
+	\brAttr{requiereTraductor}{Requiere Traductor}{Booleano}{Indica si el NNA requiere traductor para el idioma.}{Sí}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{NNA}{Un \hyperlink{NNAIdiomas}{Registro de Idioma} corresponde a un \hyperlink{NNA}{NNA}}
+	\brRel{\brRelAgregation}{CatIdiomas}{Un \hyperlink{NNAIdiomas}{Registro de Idioma} hace referencia a un \hyperlink{CatIdiomas}{Idioma}}
+\end{cdtEntidad}
+ 
+% =============================================================
+% APOYOS EXTERNOS (ACTORES)
+% =============================================================
+ 
+\begin{cdtEntidad}{ActoresDerechos}{Actores\_Derechos}
+	\brAttr{id}{Id}{Id}{Identificador único del actor de derechos.}{Sí}
+	\brAttr{nombre}{Nombre}{Palabra Corta}{Nombre del actor de derechos.}{Sí}
+	\brAttr{esInstitucionPublica}{Es Institución Pública}{Booleano}{Indica si el actor es una institución pública.}{Sí}
+	\brAttr{esOrganizacionPrivada}{Es Organización Privada}{Booleano}{Indica si el actor es una organización privada.}{Sí}
+	\brAttr{esPersonaFisica}{Es Persona Física}{Booleano}{Indica si el actor es una persona física.}{Sí}
+	\brAttr{direccionId}{Dirección}{Referencia}{Dirección del actor de derechos.}{No}
+	\brAttr{paginaWeb}{Página Web}{Palabra Larga}{URL de la página web del actor.}{No}
+	\brAttr{telefonos}{Teléfonos}{Palabra Corta}{Números telefónicos de contacto del actor.}{No}
+	\brAttr{redesSociales}{Redes Sociales}{Palabra Larga}{Redes sociales del actor.}{No}
+	\brAttr{correos}{Correos}{Palabra Larga}{Correos electrónicos de contacto del actor.}{No}
+	\brAttr{horariosAtencion}{Horarios de Atención}{Palabra Corta}{Horarios de atención del actor.}{No}
+	\brAttr{responsableContacto}{Responsable de Contacto}{Palabra Corta}{Nombre del responsable de contacto del actor.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelComposition}{Direcciones
+    Actores}{Un \hyperlink{ActoresDerechos}{Actor de Derechos} se ubica en una \hyperlink{DireccionesActores}{Dirección}}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{ServiciosActores}{Servicios\_Actores}
+	\brAttr{id}{Id}{Id}{Identificador único del servicio del actor.}{Sí}
+	\brAttr{actorId}{Actor}{Referencia}{Actor de derechos que ofrece el servicio.}{Sí}
+	\brAttr{nombreServicio}{Nombre del Servicio}{Palabra Corta}{Nombre del servicio ofrecido por el actor.}{No}
+	\brAttr{esServicioMedico}{Es Servicio Médico}{Booleano}{Indica si el servicio es de tipo médico.}{Sí}
+	\brAttr{esServicioPsicologico}{Es Servicio Psicológico}{Booleano}{Indica si el servicio es de tipo psicológico.}{Sí}
+	\brAttr{esServicioLegal}{Es Servicio Legal}{Booleano}{Indica si el servicio es de tipo legal.}{Sí}
+	\brAttr{esGratuito}{Es Gratuito}{Booleano}{Indica si el servicio es gratuito.}{Sí}
+	\brAttr{costo}{Costo}{Decimal}{Costo del servicio en caso de no ser gratuito.}{No}
+	\brAttr{duracion}{Duración}{Palabra Corta}{Duración estimada del servicio.}{No}
+	\brAttr{disponibilidad}{Disponibilidad}{Palabra Corta}{Disponibilidad del servicio.}{No}
+	\brAttr{requisitosTramites}{Requisitos y Trámites}{Texto}{Descripción de los requisitos y trámites necesarios para acceder al servicio.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{ActoresDerechos}{Un \hyperlink{ServiciosActores}{Servicio} es ofrecido por un \hyperlink{ActoresDerechos}{Actor de Derechos}}
+\end{cdtEntidad}
+ 
+% =============================================================
+% EXPEDIENTES Y HECHOS
+% =============================================================
+ 
+\begin{cdtEntidad}{HechosVictimales}{Hechos\_Victimales}
+	\brAttr{id}{Id}{Id}{Identificador único del hecho victimal.}{Sí}
+	\brAttr{nnaId}{NNA}{Referencia}{NNA al que corresponde el hecho victimal.}{Sí}
+	\brAttr{nombreVictimaDirecta}{Nombre de la Víctima Directa}{Palabra Corta}{Nombre de la víctima directa del hecho.}{No}
+	\brAttr{fechaHecho}{Fecha del Hecho}{Fecha}{Fecha en que ocurrió el hecho victimal.}{No}
+	\brAttr{descripcionDelito}{Descripción del Delito}{Texto}{Descripción del delito o hecho victimal ocurrido.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{NNA}{Un \hyperlink{HechosVictimales}{Hecho Victimal} corresponde a un \hyperlink{NNA}{NNA}}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{Expedientes}{Expedientes}
+	\brAttr{id}{Id}{Id}{Identificador único del expediente.}{Sí}
+	\brAttr{folioFud}{Folio FUD}{Palabra Corta}{Folio único de identificación del expediente. Debe ser único.}{No}
+	\brAttr{nnaId}{NNA}{Referencia}{NNA al que pertenece el expediente.}{Sí}
+	\brAttr{estatusProceso}{Estatus del Proceso}{Palabra Corta}{Estatus actual del proceso del expediente.}{Sí}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{NNA}{Un \hyperlink{Expedientes}{Expediente} pertenece a un \hyperlink{NNA}{NNA}}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{Valoraciones}{Valoraciones}
+	\brAttr{id}{Id}{Id}{Identificador único de la valoración.}{Sí}
+	\brAttr{expedienteId}{Expediente}{Referencia}{Expediente al que corresponde la valoración.}{Sí}
+	\brAttr{especialistaId}{Especialista}{Referencia}{Usuario especialista que realizó la valoración.}{Sí}
+	\brAttr{areaEvaluacion}{Área de Evaluación}{Palabra Corta}{Área en la que se realizó la evaluación.}{Sí}
+	\brAttr{hallazgosDictamen}{Hallazgos y Dictamen}{Texto}{Descripción de los hallazgos y dictamen de la valoración.}{Sí}
+	\brAttr{medidasSugeridas}{Medidas Sugeridas}{Texto}{Medidas sugeridas a partir de la valoración.}{No}
+	\brAttr{fechaValoracion}{Fecha de Valoración}{Fecha}{Fecha y hora en que se realizó la valoración.}{Sí}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{Expedientes}{Una \hyperlink{Valoraciones}{Valoración} corresponde a un \hyperlink{Expedientes}{Expediente}}
+	\brRel{\brRelAgregation}{Usuarios}{Una \hyperlink{Valoraciones}{Valoración} es realizada por un \hyperlink{Usuarios}{Usuario} especialista}
+\end{cdtEntidad}
+ 
+\begin{cdtEntidad}{DerechosVulnerados}{Derechos\_Vulnerados}
+	\brAttr{id}{Id}{Id}{Identificador único del derecho vulnerado.}{Sí}
+	\brAttr{expedienteId}{Expediente}{Referencia}{Expediente al que corresponde el derecho vulnerado.}{Sí}
+	\brAttr{derechoNombre}{Nombre del Derecho}{Palabra Corta}{Nombre del derecho que fue vulnerado.}{No}
+	\brAttr{estaVulnerado}{Está Vulnerado}{Booleano}{Indica si el derecho se encuentra vulnerado.}{Sí}
+	\brAttr{observaciones}{Observaciones}{Texto}{Observaciones sobre el derecho vulnerado.}{No}
+	\brAttr{creadoPor}{Creado Por}{Referencia}{Usuario que registró el derecho vulnerado.}{No}
+	\brAttr{fechaRegistro}{Fecha de Registro}{Fecha}{Fecha y hora en que fue registrado el derecho vulnerado.}{Sí}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{Expedientes}{Un \hyperlink{DerechosVulnerados}{Derecho Vulnerado} corresponde a un \hyperlink{Expedientes}{Expediente}}
+	\brRel{\brRelAgregation}{Usuarios}{Un \hyperlink{DerechosVulnerados}{Derecho Vulnerado} fue registrado por un \hyperlink{Usuarios}{Usuario}}
 \end{cdtEntidad}
 
-%- - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-\begin{cdtEntidad}{AlumnoExtranjero}{Alumno Extranjero}%{}
-	\brAttr{numeroResidente}{Numero de residente}{Id}{Número de registro dado por la Secretaría de Relaciones Exteriores a los extranjeros.}{Si}
-	\brAttr{paisOrigen}{Pais origen}{\hyperlink{Pais}{País}}
-		{País de origen del alumno extranjero.}{Sí}
+\begin{cdtEntidad}{ExpedienteVinculacionServicios}{Expediente\_Vinculacion\_Servicios}
+	\brAttr{id}{Id}{Id}{Identificador único del registro de vinculación.}{Sí}
+	\brAttr{expedienteId}{Expediente}{Referencia}{Expediente vinculado al servicio.}{Sí}
+	\brAttr{servicioActorId}{Servicio del Actor}{Referencia}{Servicio del actor de derechos al que se vincula el expediente.}{Sí}
+	\brAttr{fechaVinculacion}{Fecha de Vinculación}{Fecha}{Fecha y hora en que se realizó la vinculación.}{Sí}
 	\cdtEntityRelSection
-	\brRel{\brRelAgregation}{País}{Un \hyperlink{Alumno}{Alumno} es originario de un \hyperlink{Pais}{Pais}}	
-	\brRel{\brRelGeneralization}{Alumno}{Un \hyperlink{AlumnoExtranjero}{Alumno Extranjero} es un  \hyperlink{Alumno}{Alumno}}	
-	\brRel{\brRelParticipation}{Alumno}{Un \hyperlink{AlumnoExtranjero}{Alumno Extranjero} es un  \hyperlink{Alumno}{Alumno}}	
+	\brRel{\brRelAgregation}{Expedientes}{Una \hyperlink{ExpedienteVinculacionServicios}{Vinculación} corresponde a un \hyperlink{Expedientes}{Expediente}}
+	\brRel{\brRelAgregation}{ServiciosActores}{Una \hyperlink{ExpedienteVinculacionServicios}{Vinculación} hace referencia a un \hyperlink{ServiciosActores}{Servicio del Actor}}
 \end{cdtEntidad}
 
 %---------------------------------------------------------

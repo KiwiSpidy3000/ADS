@@ -22,7 +22,7 @@ export default function DashboardAdmin() {
       Consultar Catalogos (Discapacidades, Enfermedades, Domicilios)
     </Link>
 
-    <Link href="/listaActores"
+    <Link href="/#"
       className="bg-blue-600 text-white py-6 rounded-xl hover:bg-blue-700 text-center font-semibold text-lg shadow-md transition transform hover:scale-105">
       Consultar Actores en Materia de Derechos
     </Link>

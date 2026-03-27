@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
@@ -9,49 +8,101 @@ export default function EditarUsuario() {
   const router = useRouter();
 
   const [loading, setLoading] = useState(true);
+  const [guardando, setGuardando] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [roles, setRoles] = useState<any[]>([]);
-  const [estados, setEstados] = useState<any[]>([]);
   const [tiposVivienda, setTiposVivienda] = useState<any[]>([]);
-  const [colonias, setColonias] = useState<any[]>([]);
-  const [codigosPostales, setCodigosPostales] = useState<any[]>([]);
-  const [municipios, setMunicipios] = useState<any[]>([]);
+
+  // Colonias dinámicas por CP
+  const [colonias, setColonias] = useState<{ id: number; nombre: string }[]>([]);
+  const [cpBuscado, setCpBuscado] = useState("");
+  const [cpLoading, setCpLoading] = useState(false);
+  const [cpError, setCpError] = useState("");
 
   const [formData, setFormData] = useState<any>(null);
 
+  // ── Carga inicial ──────────────────────────────────────────
   useEffect(() => {
+    if (!id) return;
+
     const cargarDatos = async () => {
       try {
-        const [usuarioRes, rolesRes, estadosRes, viviendaRes, coloniasRes, cpRes, municipiosRes] =
-          await Promise.all([
-            fetch(`http://localhost:8000/usuarios/por_id/${id}`),
-            fetch("http://localhost:8000/catalogos/roles"),
-            fetch("http://localhost:8000/catalogos/estados"),
-            fetch("http://localhost:8000/catalogos/tipos-vivienda"),
-            fetch("http://localhost:8000/catalogos/colonias"),
-            fetch("http://localhost:8000/catalogos/codigos-postales"),
-            fetch("http://localhost:8000/catalogos/municipios"),
-          ]);
+        const [usuarioRes, rolesRes, viviendaRes] = await Promise.all([
+          fetch(`http://localhost:8000/usuarios/${id}`),
+          fetch("http://localhost:8000/catalogos/roles"),
+          fetch("http://localhost:8000/catalogos/tipos-vivienda"),
+        ]);
+
+        if (!usuarioRes.ok) throw new Error("Usuario no encontrado");
 
         const usuario = await usuarioRes.json();
+        const dir = usuario.direccion;
 
-        setFormData({
-          ...usuario,
-          rol_id: usuario.rol_id ?? "",
-          estado_id: usuario.estado_id ?? "",
-          tipo_vivienda_id: usuario.tipo_vivienda_id ?? "",
-          colonia: usuario.colonia ?? "",
-          codigo_postal: usuario.codigo_postal ?? "",
-          municipio_alcaldia: usuario.municipio_alcaldia ?? "",
-          sexo: usuario.sexo ?? "",
-        });
+        // Si tiene colonia, precargamos las colonias del CP correspondiente
+        if (dir?.colonia?.codigo_postal) {
+          setCpBuscado(dir.colonia.codigo_postal);
+          try {
+            const cpRes = await fetch(
+              `http://localhost:8000/catalogos/por-codigo-postal/${dir.colonia.codigo_postal}`
+            );
+            if (cpRes.ok) {
+              const cpData = await cpRes.json();
+              setColonias(cpData.colonias);
+              // Autocompletar nombres de municipio y estado
+              setFormData({
+                nombre: usuario.nombre ?? "",
+                primer_apellido: usuario.primer_apellido ?? "",
+                segundo_apellido: usuario.segundo_apellido ?? "",
+                curp: usuario.curp ?? "",
+                rfc: usuario.rfc ?? "",
+                fecha_nacimiento: usuario.fecha_nacimiento ?? "",
+                correo: usuario.correo ?? "",
+                sexo: usuario.sexo ?? "",
+                activo: usuario.activo ?? true,
+                tipo_personal: usuario.tipo_personal ?? false,
+                rol_id: usuario.rol_id ?? "",
+                // Dirección
+                calle: dir?.calle ?? "",
+                num_exterior: dir?.num_exterior ?? "",
+                num_interior: dir?.num_interior ?? "",
+                colonia_id: dir?.colonia_id ?? "",
+                tipo_vivienda_id: dir?.tipo_vivienda_id ?? "",
+                // Solo visualización
+                estado_nombre: cpData.estado.nombre,
+                municipio_nombre: cpData.municipio.nombre,
+              });
+            }
+          } catch {
+            // Si falla el CP, igual cargamos el form sin esos datos
+          }
+        }
+
+        // Fallback si no había colonia o falló la búsqueda de CP
+        if (!formData) {
+          setFormData({
+            nombre: usuario.nombre ?? "",
+            primer_apellido: usuario.primer_apellido ?? "",
+            segundo_apellido: usuario.segundo_apellido ?? "",
+            curp: usuario.curp ?? "",
+            rfc: usuario.rfc ?? "",
+            fecha_nacimiento: usuario.fecha_nacimiento ?? "",
+            correo: usuario.correo ?? "",
+            sexo: usuario.sexo ?? "",
+            activo: usuario.activo ?? true,
+            tipo_personal: usuario.tipo_personal ?? false,
+            rol_id: usuario.rol_id ?? "",
+            calle: dir?.calle ?? "",
+            num_exterior: dir?.num_exterior ?? "",
+            num_interior: dir?.num_interior ?? "",
+            colonia_id: dir?.colonia_id ?? "",
+            tipo_vivienda_id: dir?.tipo_vivienda_id ?? "",
+            estado_nombre: "",
+            municipio_nombre: "",
+          });
+        }
 
         setRoles(await rolesRes.json());
-        setEstados(await estadosRes.json());
         setTiposVivienda(await viviendaRes.json());
-        setColonias(await coloniasRes.json());
-        setCodigosPostales(await cpRes.json());
-        setMunicipios(await municipiosRes.json());
-
       } catch (error) {
         console.error("Error cargando datos:", error);
       } finally {
@@ -59,39 +110,105 @@ export default function EditarUsuario() {
       }
     };
 
-    if (id) cargarDatos();
+    cargarDatos();
   }, [id]);
 
+  // ── Búsqueda por código postal ────────────────────────────
+  const buscarPorCodigoPostal = async () => {
+    if (!cpBuscado.trim()) {
+      setCpError("Ingresa un código postal");
+      return;
+    }
+    setCpLoading(true);
+    setCpError("");
+    setColonias([]);
+
+    try {
+      const res = await fetch(
+        `http://localhost:8000/catalogos/por-codigo-postal/${cpBuscado.trim()}`
+      );
+      if (!res.ok) {
+        setCpError("No se encontraron datos para ese código postal");
+        setFormData((prev: any) => ({
+          ...prev,
+          estado_nombre: "",
+          municipio_nombre: "",
+          colonia_id: "",
+        }));
+        return;
+      }
+      const data = await res.json();
+      setColonias(data.colonias);
+      setFormData((prev: any) => ({
+        ...prev,
+        municipio_nombre: data.municipio.nombre,
+        estado_nombre: data.estado.nombre,
+        colonia_id: "",
+      }));
+    } catch {
+      setCpError("Error al conectar con el servidor");
+    } finally {
+      setCpLoading(false);
+    }
+  };
+
+  // ── Handlers ──────────────────────────────────────────────
   const handleChange = (e: any) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value, type, checked } = e.target;
+    setFormData((prev: any) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
   };
 
   const handleUpdate = async (e: any) => {
     e.preventDefault();
+    setSubmitError("");
+    setGuardando(true);
 
-    await fetch(`http://localhost:8000/usuarios/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...formData,
-        colonia: Number(formData.colonia),
-        codigo_postal: Number(formData.codigo_postal),
-        municipio_alcaldia: Number(formData.municipio_alcaldia),
-        rol_id: Number(formData.rol_id),
-        estado_id: Number(formData.estado_id),
-        tipo_vivienda_id: Number(formData.tipo_vivienda_id),
-      }),
-    });
+    try {
+      const response = await fetch(`http://localhost:8000/usuarios/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nombre: formData.nombre,
+          primer_apellido: formData.primer_apellido,
+          segundo_apellido: formData.segundo_apellido,
+          curp: formData.curp,
+          rfc: formData.rfc,
+          fecha_nacimiento: formData.fecha_nacimiento,
+          correo: formData.correo,
+          sexo: formData.sexo || null,
+          activo: formData.activo,
+          tipo_personal: formData.tipo_personal,
+          rol_id: formData.rol_id ? Number(formData.rol_id) : null,
+          // Dirección
+          calle: formData.calle || null,
+          num_exterior: formData.num_exterior || null,
+          num_interior: formData.num_interior || null,
+          colonia_id: formData.colonia_id ? Number(formData.colonia_id) : null,
+          tipo_vivienda_id: formData.tipo_vivienda_id ? Number(formData.tipo_vivienda_id) : null,
+        }),
+      });
 
-    router.push("/listaUsuarios");
+      if (!response.ok) {
+        const error = await response.json();
+        setSubmitError(error.detail || "Error al actualizar el usuario");
+        return;
+      }
+
+      router.push("/listaUsuarios");
+    } catch {
+      setSubmitError("Error al conectar con el servidor");
+    } finally {
+      setGuardando(false);
+    }
   };
 
+  // ── Estado de carga ───────────────────────────────────────
   if (loading || !formData) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
+      <div className="flex justify-center items-center min-h-screen bg-gray-100">
         <span className="text-gray-600 text-lg">Cargando usuario...</span>
       </div>
     );
@@ -100,7 +217,6 @@ export default function EditarUsuario() {
   return (
     <div className="bg-gray-100 min-h-screen py-10">
       <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-xl p-8">
-
         <h2 className="text-2xl font-bold text-blue-800 mb-6 border-b pb-2">
           Editar Usuario #{id}
         </h2>
@@ -109,71 +225,26 @@ export default function EditarUsuario() {
 
           {/* Datos personales */}
           <div className="grid md:grid-cols-2 gap-4">
-
-            <div className="flex items-center gap-4">
-              <label htmlFor="nombre" className="w-44 text-sm font-medium text-gray-700">
-                Nombre(s):
-              </label>
-              <input
-                id="nombre"
-                name="nombre"
-                value={formData.nombre || ""}
-                onChange={handleChange}
-                className="flex-1 border p-2 rounded focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              />
-            </div>
-
-            <div className="flex items-center gap-4">
-              <label htmlFor="primer_apellido" className="w-44 text-sm font-medium text-gray-700">
-                Apellido Paterno:
-              </label>
-              <input
-                id="primer_apellido"
-                name="primer_apellido"
-                value={formData.primer_apellido || ""}
-                onChange={handleChange}
-                className="flex-1 border p-2 rounded"
-              />
-            </div>
-
-            <div className="flex items-center gap-4">
-              <label htmlFor="segundo_apellido" className="w-44 text-sm font-medium text-gray-700">
-                Apellido Materno:
-              </label>
-              <input
-                id="segundo_apellido"
-                name="segundo_apellido"
-                value={formData.segundo_apellido || ""}
-                onChange={handleChange}
-                className="flex-1 border p-2 rounded"
-              />
-            </div>
-
-            <div className="flex items-center gap-4">
-              <label htmlFor="curp" className="w-44 text-sm font-medium text-gray-700">
-                CURP:
-              </label>
-              <input
-                id="curp"
-                name="curp"
-                value={formData.curp || ""}
-                onChange={handleChange}
-                className="flex-1 border p-2 rounded"
-              />
-            </div>
-
-            <div className="flex items-center gap-4">
-              <label htmlFor="rfc" className="w-44 text-sm font-medium text-gray-700">
-                RFC:
-              </label>
-              <input
-                id="rfc"
-                name="rfc"
-                value={formData.rfc || ""}
-                onChange={handleChange}
-                className="flex-1 border p-2 rounded"
-              />
-            </div>
+            {[
+              { id: "nombre", label: "Nombre(s)" },
+              { id: "primer_apellido", label: "Apellido Paterno" },
+              { id: "segundo_apellido", label: "Apellido Materno" },
+              { id: "curp", label: "CURP" },
+              { id: "rfc", label: "RFC" },
+            ].map(({ id: field, label }) => (
+              <div key={field} className="flex items-center gap-4">
+                <label htmlFor={field} className="w-44 text-sm font-medium text-gray-700">
+                  {label}:
+                </label>
+                <input
+                  id={field}
+                  name={field}
+                  value={formData[field] ?? ""}
+                  onChange={handleChange}
+                  className="flex-1 border p-2 rounded focus:ring-2 focus:ring-blue-500 focus:outline-none uppercase"
+                />
+              </div>
+            ))}
 
             <div className="flex items-center gap-4">
               <label htmlFor="fecha_nacimiento" className="w-44 text-sm font-medium text-gray-700">
@@ -183,232 +254,208 @@ export default function EditarUsuario() {
                 id="fecha_nacimiento"
                 type="date"
                 name="fecha_nacimiento"
-                value={formData.fecha_nacimiento || ""}
+                value={formData.fecha_nacimiento ?? ""}
                 onChange={handleChange}
                 className="flex-1 border p-2 rounded"
               />
             </div>
 
-            {/* ✔ AGREGADO: Sexo */}
             <div className="flex items-center gap-4">
-              <label htmlFor="sexo" className="w-44 text-sm font-medium text-gray-700">
-                Sexo:
-              </label>
+              <label htmlFor="sexo" className="w-44 text-sm font-medium text-gray-700">Sexo:</label>
               <select
-                id="sexo"
-                name="sexo"
-                value={formData.sexo || ""}
+                id="sexo" name="sexo"
+                value={formData.sexo ?? ""}
                 onChange={handleChange}
                 className="flex-1 border p-2 rounded"
               >
                 <option value="">Seleccionar Sexo</option>
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
+                <option value="Prefiero no decirlo">Prefiero no decirlo</option>
               </select>
             </div>
+          </div>
 
+          {/* Tipo de personal y estado de cuenta */}
+          <div className="bg-yellow-50 p-4 rounded grid md:grid-cols-2 gap-4">
+            <div className="flex items-center gap-4">
+              <label htmlFor="tipo_personal" className="w-44 text-sm font-medium text-gray-700">
+                Tipo de personal:
+              </label>
+              <select
+                id="tipo_personal" name="tipo_personal"
+                value={String(formData.tipo_personal)}
+                onChange={handleChange}
+                className="flex-1 border p-2 rounded"
+              >
+                <option value="false">Empleado</option>
+                <option value="true">Voluntario</option>
+              </select>
+            </div>
+            <div className="flex items-center gap-4">
+              <label htmlFor="activo" className="w-44 text-sm font-medium text-gray-700">
+                Estado de cuenta:
+              </label>
+              <select
+                id="activo" name="activo"
+                value={String(formData.activo)}
+                onChange={handleChange}
+                className="flex-1 border p-2 rounded"
+              >
+                <option value="true">Activo</option>
+                <option value="false">Inactivo</option>
+              </select>
+            </div>
           </div>
 
           {/* Dirección */}
-          <div className="grid md:grid-cols-2 gap-4 mt-6">
+          <div className="bg-gray-50 p-4 rounded space-y-4">
+            <h3 className="font-semibold text-gray-700">Dirección</h3>
 
-            <div className="flex items-center gap-4">
-              <label htmlFor="calle" className="w-44 text-sm font-medium text-gray-700">
-                Calle:
-              </label>
-              <input
-                id="calle"
-                name="calle"
-                value={formData.calle || ""}
-                onChange={handleChange}
-                className="flex-1 border p-2 rounded"
-              />
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                { id: "calle", label: "Calle" },
+                { id: "num_exterior", label: "Número Exterior" },
+                { id: "num_interior", label: "Número Interior" },
+              ].map(({ id: field, label }) => (
+                <div key={field} className="flex items-center gap-4">
+                  <label htmlFor={field} className="w-44 text-sm font-medium text-gray-700">
+                    {label}:
+                  </label>
+                  <input
+                    id={field} name={field}
+                    value={formData[field] ?? ""}
+                    onChange={handleChange}
+                    className="flex-1 border p-2 rounded"
+                  />
+                </div>
+              ))}
             </div>
 
-            <div className="flex items-center gap-4">
-              <label htmlFor="num_exterior" className="w-44 text-sm font-medium text-gray-700">
-                Número Exterior:
-              </label>
-              <input
-                id="num_exterior"
-                name="num_exterior"
-                value={formData.num_exterior || ""}
-                onChange={handleChange}
-                className="flex-1 border p-2 rounded"
-              />
+            {/* Búsqueda por CP */}
+            <div>
+              <label className="block text-sm font-medium text-gray-600 mb-1">Código Postal</label>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder="Ej. 06600"
+                  value={cpBuscado}
+                  onChange={(e) => setCpBuscado(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && (e.preventDefault(), buscarPorCodigoPostal())}
+                  className="flex-1 border p-2 rounded"
+                  maxLength={5}
+                />
+                <button
+                  type="button"
+                  onClick={buscarPorCodigoPostal}
+                  disabled={cpLoading}
+                  className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50 transition"
+                >
+                  {cpLoading ? "Buscando..." : "Buscar"}
+                </button>
+              </div>
+              {cpError && <p className="text-red-500 text-sm mt-1">{cpError}</p>}
             </div>
 
-            <div className="flex items-center gap-4">
-              <label htmlFor="num_interior" className="w-44 text-sm font-medium text-gray-700">
-                Número Interior:
-              </label>
-              <input
-                id="num_interior"
-                name="num_interior"
-                value={formData.num_interior || ""}
-                onChange={handleChange}
-                className="flex-1 border p-2 rounded"
-              />
-            </div>
+            {/* Campos autocompletados */}
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-600 mb-1">Estado</label>
+                <input
+                  type="text" value={formData.estado_nombre ?? ""} readOnly
+                  placeholder="Se autocompleta con el CP"
+                  className="w-full border p-2 rounded bg-gray-100 text-gray-700 cursor-not-allowed"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-600 mb-1">Municipio / Alcaldía</label>
+                <input
+                  type="text" value={formData.municipio_nombre ?? ""} readOnly
+                  placeholder="Se autocompleta con el CP"
+                  className="w-full border p-2 rounded bg-gray-100 text-gray-700 cursor-not-allowed"
+                />
+              </div>
 
-            {/* ✔ CORREGIDO: Colonia como select desde catálogo */}
-            <div className="flex items-center gap-4">
-              <label htmlFor="colonia" className="w-44 text-sm font-medium text-gray-700">
-                Colonia:
-              </label>
-              <select
-                id="colonia"
-                name="colonia"
-                value={formData.colonia}
-                onChange={handleChange}
-                className="flex-1 border p-2 rounded"
-              >
-                <option value="">Seleccionar Colonia</option>
-                {colonias.map((colonia) => (
-                  <option key={colonia.id} value={colonia.id}>
-                    {colonia.nombre_colonia}
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium text-gray-600 mb-1">Colonia</label>
+                <select
+                  name="colonia_id"
+                  value={formData.colonia_id ?? ""}
+                  onChange={handleChange}
+                  disabled={colonias.length === 0}
+                  className="w-full border p-2 rounded disabled:bg-gray-100"
+                >
+                  <option value="">
+                    {colonias.length === 0 ? "Busca un código postal primero" : "Seleccionar Colonia"}
                   </option>
-                ))}
-              </select>
-            </div>
+                  {colonias.map((c) => (
+                    <option key={c.id} value={c.id}>{c.nombre}</option>
+                  ))}
+                </select>
+              </div>
 
-            {/* ✔ CORREGIDO: Código Postal como select desde catálogo */}
-            <div className="flex items-center gap-4">
-              <label htmlFor="codigo_postal" className="w-44 text-sm font-medium text-gray-700">
-                Código Postal:
-              </label>
-              <select
-                id="codigo_postal"
-                name="codigo_postal"
-                value={formData.codigo_postal}
-                onChange={handleChange}
-                className="flex-1 border p-2 rounded"
-              >
-                <option value="">Seleccionar Código Postal</option>
-                {codigosPostales.map((cp) => (
-                  <option key={cp.id} value={cp.id}>
-                    {cp.numero}
-                  </option>
-                ))}
-              </select>
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium text-gray-600 mb-1">Tipo de Vivienda</label>
+                <select
+                  name="tipo_vivienda_id"
+                  value={formData.tipo_vivienda_id ?? ""}
+                  onChange={handleChange}
+                  className="w-full border p-2 rounded"
+                >
+                  <option value="">Seleccionar tipo de vivienda</option>
+                  {tiposVivienda.map((tipo) => (
+                    <option key={tipo.id} value={tipo.id}>{tipo.descripcion}</option>
+                  ))}
+                </select>
+              </div>
             </div>
-
-            {/* ✔ CORREGIDO: Municipio como select desde catálogo */}
-            <div className="flex items-center gap-4">
-              <label htmlFor="municipio_alcaldia" className="w-44 text-sm font-medium text-gray-700">
-                Municipio / Alcaldía:
-              </label>
-              <select
-                id="municipio_alcaldia"
-                name="municipio_alcaldia"
-                value={formData.municipio_alcaldia}
-                onChange={handleChange}
-                className="flex-1 border p-2 rounded"
-              >
-                <option value="">Seleccionar Municipio / Alcaldía</option>
-                {municipios.map((municipio) => (
-                  <option key={municipio.id} value={municipio.id}>
-                    {municipio.nombre_municipio}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <label htmlFor="estado_id" className="w-44 text-sm font-medium text-gray-700">
-                Estado:
-              </label>
-              <select
-                id="estado_id"
-                name="estado_id"
-                value={formData.estado_id}
-                onChange={handleChange}
-                className="flex-1 border p-2 rounded"
-              >
-                <option value="">Seleccionar Estado</option>
-                {estados.map((estado) => (
-                  <option key={estado.id} value={estado.id}>
-                    {estado.nombre}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <label htmlFor="tipo_vivienda_id" className="w-44 text-sm font-medium text-gray-700">
-                Tipo de Vivienda:
-              </label>
-              <select
-                id="tipo_vivienda_id"
-                name="tipo_vivienda_id"
-                value={formData.tipo_vivienda_id}
-                onChange={handleChange}
-                className="flex-1 border p-2 rounded"
-              >
-                <option value="">Seleccionar Tipo</option>
-                {tiposVivienda.map((tipo) => (
-                  <option key={tipo.id} value={tipo.id}>
-                    {tipo.descripcion}
-                  </option>
-                ))}
-              </select>
-            </div>
-
           </div>
 
-          {/* Rol y acceso */}
-          <div className="grid md:grid-cols-2 gap-4 mt-6">
-
+          {/* Rol y correo */}
+          <div className="grid md:grid-cols-2 gap-4">
             <div className="flex items-center gap-4">
-              <label htmlFor="rol_id" className="w-44 text-sm font-medium text-gray-700">
-                Rol:
-              </label>
+              <label htmlFor="rol_id" className="w-44 text-sm font-medium text-gray-700">Rol:</label>
               <select
-                id="rol_id"
-                name="rol_id"
-                value={formData.rol_id}
+                id="rol_id" name="rol_id"
+                value={formData.rol_id ?? ""}
                 onChange={handleChange}
                 className="flex-1 border p-2 rounded"
               >
                 <option value="">Seleccionar Rol</option>
                 {roles.map((rol) => (
-                  <option key={rol.id} value={rol.id}>
-                    {rol.nombre_rol}
-                  </option>
+                  <option key={rol.id} value={rol.id}>{rol.nombre_rol}</option>
                 ))}
               </select>
             </div>
-
             <div className="flex items-center gap-4">
-              <label htmlFor="correo" className="w-44 text-sm font-medium text-gray-700">
-                Correo Electrónico:
-              </label>
+              <label htmlFor="correo" className="w-44 text-sm font-medium text-gray-700">Correo:</label>
               <input
-                id="correo"
-                type="email"
-                name="correo"
-                value={formData.correo || ""}
+                id="correo" type="email" name="correo"
+                value={formData.correo ?? ""}
                 onChange={handleChange}
                 className="flex-1 border p-2 rounded"
               />
             </div>
-
           </div>
+
+          {/* Error de submit */}
+          {submitError && (
+            <div className="bg-red-50 border border-red-300 text-red-700 px-4 py-3 rounded">
+              ⚠ {submitError}
+            </div>
+          )}
 
           {/* Botones */}
           <div className="flex justify-end gap-4">
-            <Link
-              href="/listaUsuarios"
-              className="bg-gray-400 text-white px-6 py-2 rounded"
-            >
+            <Link href="/listaUsuarios" className="bg-gray-400 text-white px-6 py-2 rounded hover:bg-gray-500 transition">
               Cancelar
             </Link>
-
             <button
               type="submit"
-              className="bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800"
+              disabled={guardando}
+              className="bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800 disabled:opacity-50 transition"
             >
-              Guardar Cambios
+              {guardando ? "Guardando..." : "Guardar Cambios"}
             </button>
           </div>
 

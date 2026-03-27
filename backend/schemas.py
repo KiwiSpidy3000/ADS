@@ -4,13 +4,12 @@ from typing import Optional
 
 
 # ============================================================
-# Catálogos de dirección
+# Catálogos geográficos
 # ============================================================
 
-
-class ColoniaResponse(BaseModel):
+class EstadoResponse(BaseModel):
     id: int
-    nombre_colonia: str
+    nombre: str
 
     class Config:
         from_attributes = True
@@ -18,15 +17,18 @@ class ColoniaResponse(BaseModel):
 
 class MunicipioResponse(BaseModel):
     id: int
-    nombre_municipio: str
+    nombre: str
+    estado_id: Optional[int] = None
 
     class Config:
         from_attributes = True
 
 
-class CodigoPostalResponse(BaseModel):
+class ColoniaResponse(BaseModel):
     id: int
-    numero: str
+    nombre: str
+    codigo_postal: str
+    municipio_id: Optional[int] = None
 
     class Config:
         from_attributes = True
@@ -44,14 +46,6 @@ class RolResponse(BaseModel):
         from_attributes = True
 
 
-class EstadoResponse(BaseModel):
-    id: int
-    nombre: str
-
-    class Config:
-        from_attributes = True
-
-
 class TipoViviendaResponse(BaseModel):
     id: int
     descripcion: str
@@ -60,28 +54,40 @@ class TipoViviendaResponse(BaseModel):
         from_attributes = True
 
 
-class CatalogoBaseRol(BaseModel):
+# ============================================================
+# Dirección
+# ============================================================
+
+class DireccionUsuarioResponse(BaseModel):
     id: int
-    nombre_rol: str
+    calle: Optional[str] = None
+    num_exterior: Optional[str] = None
+    num_interior: Optional[str] = None
+    colonia_id: Optional[int] = None
+    tipo_vivienda_id: Optional[int] = None
+
+    # Relaciones anidadas
+    colonia: Optional[ColoniaResponse] = None
+    tipo_vivienda: Optional[TipoViviendaResponse] = None
 
     class Config:
         from_attributes = True
 
 
-class CatalogoBaseEstado(BaseModel):
-    id: int
-    nombre: str
+class DireccionUsuarioCreate(BaseModel):
+    calle: Optional[str] = None
+    num_exterior: Optional[str] = None
+    num_interior: Optional[str] = None
+    colonia_id: Optional[int] = None
+    tipo_vivienda_id: Optional[int] = None
 
-    class Config:
-        from_attributes = True
 
-
-class CatalogoBaseTipoVivienda(BaseModel):
-    id: int
-    descripcion: str
-
-    class Config:
-        from_attributes = True
+class DireccionUsuarioUpdate(BaseModel):
+    calle: Optional[str] = None
+    num_exterior: Optional[str] = None
+    num_interior: Optional[str] = None
+    colonia_id: Optional[int] = None
+    tipo_vivienda_id: Optional[int] = None
 
 
 # ============================================================
@@ -97,20 +103,17 @@ class UsuarioCreate(BaseModel):
     fecha_nacimiento: date
     correo: EmailStr
     password: str
+    rol_id: int
+    sexo: Optional[str] = None   
+    activo: bool
+    tipo_personal: bool    
 
-    # Domicilio
+    # Dirección (opcional)
     calle: Optional[str] = None
     num_exterior: Optional[str] = None
     num_interior: Optional[str] = None
-
-    # CORREGIDO: FK enteras a catálogos (antes eran str)
-    colonia: Optional[int] = None           # FK → cat_colonia.id
-    codigo_postal: Optional[int] = None     # FK → cat_codigoPostal.id
-    municipio_alcaldia: Optional[int] = None  # FK → cat_municipio.id
-
-    rol_id: int
-    estado_id: int
-    tipo_vivienda_id: int
+    colonia_id: Optional[int] = None        # FK → cat_colonias.id
+    tipo_vivienda_id: Optional[int] = None  # FK → cat_tipo_vivienda.id
 
 
 class UsuarioResponse(BaseModel):
@@ -122,34 +125,28 @@ class UsuarioResponse(BaseModel):
     rfc: str
     fecha_nacimiento: date
     correo: EmailStr
+    activo: Optional[bool] = None
+    fecha_registro: datetime
+    tipo_personal: Optional[bool] = None
+    sexo: Optional[str] = None       
 
-    # Domicilio
-    calle: Optional[str] = None
-    num_exterior: Optional[str] = None
-    num_interior: Optional[str] = None
-
-    # CORREGIDO: IDs de FK + objetos de relación anidados
-    colonia: Optional[int] = None
-    codigo_postal: Optional[int] = None
-    municipio_alcaldia: Optional[int] = None
-
+    # FKs planas
     rol_id: Optional[int] = None
-    estado_id: Optional[int] = None
-    tipo_vivienda_id: Optional[int] = None
+    direccion_id: Optional[int] = None
 
     # Relaciones anidadas
     rol: Optional[RolResponse] = None
-    estado: Optional[EstadoResponse] = None
-    tipo_vivienda: Optional[TipoViviendaResponse] = None
-    cat_colonia: Optional[ColoniaResponse] = None
-    cat_municipio: Optional[MunicipioResponse] = None
-    cat_codigo_postal: Optional[CodigoPostalResponse] = None
-
-    activo: Optional[bool] = None
-    fecha_registro: datetime
+    direccion: Optional[DireccionUsuarioResponse] = None
 
     class Config:
         from_attributes = True
+
+
+# ──────────────────────────────────────────
+# SCHEMA DE ACTUALIZACIÓN
+# ──────────────────────────────────────────
+ 
+
 
 
 class UsuarioUpdate(BaseModel):
@@ -161,18 +158,13 @@ class UsuarioUpdate(BaseModel):
     fecha_nacimiento: Optional[date] = None
     correo: Optional[EmailStr] = None
     password: Optional[str] = None
+    rol_id: Optional[int] = None
+    tipo_personal: Optional[bool] = None
+    activo: Optional[bool] = None
 
-    # Domicilio
+    # Dirección
     calle: Optional[str] = None
     num_exterior: Optional[str] = None
     num_interior: Optional[str] = None
-
-    # CORREGIDO: FK enteras a catálogos (antes eran str)
-    colonia: Optional[int] = None           # FK → cat_colonia.id
-    codigo_postal: Optional[int] = None     # FK → cat_codigoPostal.id
-    municipio_alcaldia: Optional[int] = None  # FK → cat_municipio.id
-
-    rol_id: Optional[int] = None
-    estado_id: Optional[int] = None
+    colonia_id: Optional[int] = None
     tipo_vivienda_id: Optional[int] = None
-    activo: Optional[bool] = None

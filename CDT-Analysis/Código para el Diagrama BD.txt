@@ -34,7 +34,7 @@ Table cat_tipo_lugar {
   aplica_actor   boolean [default: false]
 }
 
-// --- Catálogos de Contacto --
+// --- Catálogos de Contacto ---
 
 Table cat_plataforma_red_social {
   id     serial  [pk]
@@ -84,7 +84,6 @@ Table cat_tratamientos {
   id            serial  [pk]
   nombre        varchar [not null]
   descripcion   text
-  enfermedad_id integer
 }
 
 Table cat_discapacidades {
@@ -106,12 +105,12 @@ Table cat_categoria_servicio {
   descripcion   varchar
 }
 
-// --- Catálogo de Derechos (LGDNNA Art. 13) ---
+// --- Catálogo de Derechos ---
 Table cat_derecho_lgdnna {
   id_derecho      serial     [pk]
   fraccion_art13  varchar(5) [not null, unique]
   nom_derecho     varchar    [not null, unique]
-  capitulo_lgdnna varchar
+  capitulo_lgdnna varchar2
   articulo_ref    varchar
   descripcion     text
 }
@@ -123,7 +122,6 @@ Table cat_tipo_tutela {
   descripcion                  varchar [not null, unique]
   requiere_resolucion_judicial boolean [default: false]
 }
-
 
 // =============================================================
 // SECCIÓN 2: TABLAS PRINCIPALES
@@ -142,7 +140,7 @@ Table direcciones {
   referencia_ubicacion text
 }
 
-// --- Contactos ---
+// --- Contactos  ---
 
 Table contactos {
   id                 serial       [pk]
@@ -151,6 +149,7 @@ Table contactos {
   correo             varchar(150)
   pagina_web         varchar(255)
   red_social_id      integer
+  // FK → cat_plataforma_red_social
   tutor_id           integer
   actor_id           integer
   enlace_id          integer
@@ -186,7 +185,6 @@ Table equipos_multidisciplinarios {
 }
 
 // --- Tutores ---
-
 Table tutores {
   id                      serial      [pk]
   nombre                  varchar     [not null]
@@ -433,7 +431,7 @@ Table expediente_vinculacion_servicios {
 
 
 // =============================================================
-// SECCIÓN 4: REFERENCIAS 
+// SECCIÓN 4: REFERENCIAS (relaciones entre tablas)
 // =============================================================
 
 // --- Geográficas ---
@@ -443,9 +441,6 @@ Ref: cat_colonias.municipio_id       > cat_municipios.id
 // --- Direcciones ---
 Ref: direcciones.colonia_id          > cat_colonias.id
 Ref: direcciones.tipo_lugar_id       > cat_tipo_lugar.id
-
-// --- Salud (catálogos) ---
-Ref: cat_tratamientos.enfermedad_id  > cat_enfermedades.id
 
 // --- Usuarios ---
 Ref: usuarios.direccion_id           - direcciones.id
@@ -525,3 +520,7 @@ Ref: servicio_derecho.derecho_id           > cat_derecho_lgdnna.id_derecho
 // --- Vinculación Expediente ↔ Servicios ---
 Ref: expediente_vinculacion_servicios.expediente_id     > expedientes.id
 Ref: expediente_vinculacion_servicios.servicio_actor_id > servicios_actores.id
+
+Ref: "personas_idiomas"."idioma_id" < "personas_idiomas"."id"
+
+Ref: "usuarios"."id" < "cat_estatus_escolar"."descripcion"

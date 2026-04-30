@@ -4,6 +4,7 @@
 \chapter{Modelo dinámico}	
 \label{cap:modDinamico}
 
+<<<<<<< HEAD
 Este capítulo describe el modelo dinámico del sistema SICORRE. En él se detallan 
 los escenarios de ejecución correspondientes a las dos primeras iteraciones de 
 desarrollo. La figura~\ref{fig:casosDeUso} muestra el diagrama general del sistema 
@@ -16,6 +17,22 @@ correspondiente al registro y consulta de NNAs y tutores.
 \begin{figure}[htbp]
 	\begin{center}
 		\fbox{\includegraphics[width=.8\textwidth]{images/casosUso}}
+=======
+Este capítulo describe el modelo dinámico del sistema SICORRE. En él se detallan todos los escenarios de ejecución que componen la solución tecnológica para la Fundación. La figura~\ref{fig:casosDeUso} muestra el diagrama general del sistema, indicando los diferentes actores que interactúan con sus módulos principales. Asimismo, la figura~\ref{fig:casosDeUsoDetalle} muestra todos los casos de uso específicos del sistema. En este documento detallamos de forma exhaustiva los casos de uso de cada uno de los subsistemas y módulos identificados, asegurando la trazabilidad de los procesos operativos.
+
+La solución se compone integralmente del sistema \textbf{SICORRE}, dividido conceptualmente en los siguientes módulos o subsistemas principales:
+\begin{itemize}
+    \item \textbf{Módulo de Control de Acceso y Usuarios:} Define los casos de uso para la autenticación y administración de las cuentas del personal.
+    \item \textbf{Módulo de Equipos Multidisciplinarios:} Funciones sobre la organización del personal (especialistas) y la asignación de la carga de casos.
+    \item \textbf{Módulo de Gestión de NNA y Tutores:} Permite el registro exhaustivo demográfico, de salud y el hecho victimal de los menores y sus tutores.
+    \item \textbf{Módulo de Expedientes y Seguimiento:} Centraliza la creación del expediente, registro de valoraciones por cada área y los derechos vulnerados.
+    \item \textbf{Módulo de Vinculación y Actores:} Administra el catálogo de instituciones (o actores de derechos) de apoyo externas.
+\end{itemize}
+	
+\begin{figure}[htbp]
+	\begin{center}
+		\fbox{\includegraphics[width=.8\textwidth]{images/casosDeUsoSistemas}}
+>>>>>>> 356b30eec7983d183407a4493790ea7909444b27
 		\caption{Diagrama de casos de uso del sistema.}
 		\label{fig:casosDeUso}
 	\end{center}
@@ -24,7 +41,11 @@ correspondiente al registro y consulta de NNAs y tutores.
 
 \begin{figure}[p]
 	\begin{center}
+<<<<<<< HEAD
 		\includegraphics[angle=90, width=.9\textwidth]{images/casosUsoDetalle}
+=======
+		\includegraphics[angle=90, width=.7\textwidth]{images/diagramaCasosUso}
+>>>>>>> 356b30eec7983d183407a4493790ea7909444b27
 		\caption{Diagrama detallado del sistema.}
 		\label{fig:casosDeUsoDetalle}
 	\end{center}

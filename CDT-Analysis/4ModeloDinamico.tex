@@ -4,35 +4,130 @@
 \chapter{Modelo dinámico}	
 \label{cap:modDinamico}
 
-\cdtInstrucciones{Presente la solución indicando el si esta se compone de varios sistemas, los subsistemas del sistema y si aplica, los módulos de los subsistemas.}
-
-	Este capítulo describe en modelo dinámico del sistema. en el se detallan todos los escenarios de ejecución del sistema. La figura~\ref{fig:casosDeUso} muestra el diagrama general del sistema y sus subsistemas, y la figura~\ref{fig:casosDeUsoDetalle} muestra todos los casos de uso del sistema. En este documento solo detallamos los casos de uso del subsistema de gestión de cursos.
+Este capítulo describe el modelo dinámico del sistema SICORRE. En él se detallan 
+los escenarios de ejecución correspondientes a las dos primeras iteraciones de 
+desarrollo. La figura~\ref{fig:casosDeUso} muestra el diagrama general del sistema 
+y sus subsistemas, mientras que la figura~\ref{fig:casosDeUsoDetalle} presenta el 
+diagrama detallado con todos los casos de uso identificados. En este documento se 
+describen los casos de uso desarrollados durante la iteración 1, correspondiente 
+a la gestión de usuarios y equipos multidisciplinarios, y la iteración 2, 
+correspondiente al registro y consulta de NNAs y tutores.
 	
 \begin{figure}[htbp]
 	\begin{center}
-		\fbox{\includegraphics[width=.8\textwidth]{images/casosDeUso}}
+		\fbox{\includegraphics[width=.8\textwidth]{images/casosUso}}
 		\caption{Diagrama de casos de uso del sistema.}
 		\label{fig:casosDeUso}
 	\end{center}
 \end{figure}
+\newpage
 
-\begin{figure}[htbp]
+\begin{figure}[p]
 	\begin{center}
-		\includegraphics[angle=90, width=.7\textwidth]{images/casosDeUsoDetalle}
+		\includegraphics[angle=90, width=.9\textwidth]{images/casosUsoDetalle}
 		\caption{Diagrama detallado del sistema.}
 		\label{fig:casosDeUsoDetalle}
 	\end{center}
 \end{figure}
 
+\newpage
 %---------------------------------------------------------
 \section{Descripción de casos de uso}
 
+La siguiente tabla presenta la lista completa de los 40 casos de uso 
+identificados para el sistema SICORRE, organizados por módulo funcional 
+e indicando el estado de avance de cada uno. La siguiente sección solo considera
+la documentación necesaria para las iteraciones 1 y 2. 
 
-
-A continuación se detallan los casos de uso.
-
-%---------------------------------------------------------
-% CASOS DE USO
+\begin{center}
+	\begin{longtable}{|c|p{.55\textwidth}|c|}
+		\caption{Lista de casos de uso del sistema SICORRE.}
+		\label{tab:casosDeUso} \\
+		
+		\hline
+		\textbf{Clave} & \textbf{Nombre} & \textbf{Estado} \\
+		\hline
+		\endfirsthead
+		
+		\hline
+		\textbf{Clave} & \textbf{Nombre} & \textbf{Estado} \\
+		\hline
+		\endhead
+		
+		\hline
+		\multicolumn{3}{|r|}{\small Continúa en la siguiente página...} \\
+		\hline
+		\endfoot
+		
+		\hline
+		\endlastfoot
+		
+		\multicolumn{3}{|c|}{\textbf{Módulo de Control de Acceso}} \\
+		\hline
+		CU-01 & Iniciar sesión            & Iteración 1 \\
+		CU-02 & Cerrar sesión             & Iteración 1 \\
+		CU-03 & Recuperar contraseña      & Siguiente iteración \\
+		\hline
+		\multicolumn{3}{|c|}{\textbf{Módulo de Gestión de Usuarios}} \\
+		\hline
+		CU-04 & Registrar usuario         & Iteración 1 \\
+		CU-05 & Consultar usuario         & Iteración 1 \\
+		CU-06 & Modificar usuario         & Iteración 1 \\
+		CU-07 & Revocar acceso a usuario  & Iteración 1 \\
+		CU-08 & Eliminar usuario          & Iteración 1 \\
+		\hline
+		\multicolumn{3}{|c|}{\textbf{Módulo de Equipos Multidisciplinarios}} \\
+		\hline
+		CU-09 & Registrar equipo multidisciplinario        & Iteración 2 \\
+		CU-10 & Consultar equipo multidisciplinario        & Iteración 2 \\
+		CU-11 & Modificar equipo multidisciplinario        & Iteración 2 \\
+		CU-12 & Asignar NNA a equipo multidisciplinario    & Iteración 2 \\
+		\hline
+		\multicolumn{3}{|c|}{\textbf{Módulo del NNA}} \\
+		\hline
+		CU-13 & Registrar NNA                 & Iteración 2 \\
+		CU-14 & Consultar NNA                 & Iteración 2 \\
+		CU-15 & Modificar datos del NNA       & Iteración 2 \\
+		CU-16 & Registrar hecho victimal      & Siguiente iteración \\
+		CU-17 & Modificar hecho victimal      & Siguiente iteración \\
+		CU-18 & Registrar tutor del NNA       & Iteración 2 \\
+		CU-19 & Modificar datos del tutor     & Iteración 2 \\
+		\hline
+		\multicolumn{3}{|c|}{\textbf{Módulo de Expedientes}} \\
+		\hline
+		CU-20 & Abrir expediente                          & Siguiente iteración \\
+		CU-21 & Consultar expediente                      & Siguiente iteración \\
+		CU-22 & Registrar valoración multidisciplinaria   & Siguiente iteración \\
+		CU-23 & Modificar valoración multidisciplinaria   & Siguiente iteración \\
+		CU-24 & Registrar derecho vulnerado               & Siguiente iteración \\
+		CU-25 & Modificar derecho vulnerado               & Siguiente iteración \\
+		\hline
+		\multicolumn{3}{|c|}{\textbf{Módulo de Actores en Materia de Derechos}} \\
+		\hline
+		CU-26 & Registrar actor en materia de derechos                & Siguiente iteración \\
+		CU-27 & Consultar actor en materia de derechos                & Siguiente iteración \\
+		CU-28 & Modificar actor en materia de derechos                & Siguiente iteración \\
+		CU-29 & Eliminar actor en materia de derechos                 & Siguiente iteración \\
+		CU-30 & Registrar servicio de actor                           & Siguiente iteración \\
+		CU-31 & Consultar actores por municipio y tipo de servicio    & Siguiente iteración \\
+		\hline
+		\multicolumn{3}{|c|}{\textbf{Módulo de Catálogos}} \\
+		\hline
+		CU-32 & Consultar catálogo de domicilios (SEPOMEX)    & Iteración 2 \\
+		CU-33 & Consultar catálogo de idiomas (INALI)         & Iteración 2 \\
+		CU-34 & Registrar discapacidad de NNA o tutor         & Iteración 2 \\
+		CU-35 & Modificar discapacidad de NNA o tutor         & Siguiente iteración \\
+		CU-36 & Registrar enfermedad de NNA o tutor           & Iteración 2 \\
+		CU-37 & Modificar enfermedad de NNA o tutor           & Siguiente iteración \\
+		\hline
+		\multicolumn{3}{|c|}{\textbf{Módulo de Calendario}} \\
+		\hline
+		CU-38 & Consultar calendario de expedientes   & Siguiente iteración \\
+		CU-39 & Registrar evento en calendario        & Siguiente iteración \\
+		CU-40 & Modificar evento en calendario        & Siguiente iteración \\
+		
+	\end{longtable}
+\end{center}
 
 %-------------------------------------- COMIENZA CU-01
 \begin{UseCase}{CU-01}{Iniciar sesión}{
@@ -132,65 +227,7 @@ A continuación se detallan los casos de uso.
 %-------------------------------------- TERMINA CU-02
 
 %-------------------------------------- COMIENZA CU-03
-\begin{UseCase}{CU-03}{Recuperar contraseña}{
-	El usuario del sistema ha olvidado su contraseña y solicita restablecerla. El sistema verifica la identidad del usuario mediante su correo electrónico registrado y, si es válido, envía un correo con instrucciones para crear una nueva contraseña.
-}
-	\UCitem{Versión}{1.0}
-	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
-	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
-	\UCitem{Actor}{\hyperlink{Actor.Usuario}{Usuario (Administrador / Especialista)}}
-	\UCitem{Propósito}{\begin{Titemize}
-		\Titem Permitir al usuario recuperar el acceso al sistema cuando ha olvidado su contraseña.
-		\Titem Garantizar que únicamente el propietario legítimo del correo registrado pueda restablecer la contraseña.
-	\end{Titemize}
-	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{usuarios.correo}{Correo electrónico del usuario}.
-	\end{Titemize}
-	}\UCitem{Origen}{\begin{Titemize}
-		\Titem Se introduce desde el teclado en la pantalla de recuperación de contraseña.
-	\end{Titemize}
-	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem Mensaje de confirmación indicando que se ha enviado el correo de recuperación.
-		\Titem Correo electrónico con enlace temporal para restablecer la contraseña.
-		\Titem Mensaje de error en caso de que el correo no esté registrado.
-	\end{Titemize}
-	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Se muestra en la pantalla \IUref{IU-03}{Recuperar contraseña}.
-		\Titem Se envía al correo electrónico registrado del usuario.
-	\end{Titemize}
-	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem El usuario debe tener una cuenta registrada en el sistema con correo electrónico válido.
-		\Titem El usuario debe estar en la pantalla de inicio de sesión.
-		\Titem La cuenta del usuario debe estar activa en el sistema.
-	\end{Titemize}
-	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Se genera un token temporal único vinculado al usuario en la base de datos.
-		\Titem Se envía un correo electrónico al usuario con el enlace de restablecimiento.
-		\Titem La contraseña anterior permanece vigente hasta que el usuario establezca una nueva.
-	\end{Titemize}
-	}\UCitem{Errores}{\begin{Titemize}
-		\Titem {\bf \hypertarget{CU-03.E1}{E1}}: El correo electrónico ingresado no está registrado en el sistema; el sistema muestra el mensaje ``El correo ingresado no está asociado a ninguna cuenta'' y regresa al paso \ref{CU-03.ingresaCorreo}.
-		\Titem {\bf \hypertarget{CU-03.E2}{E2}}: La cuenta asociada al correo se encuentra inactiva (revocada); el sistema muestra el mensaje ``El acceso ha sido revocado. Contacte al administrador'' y termina el caso de uso.
-		\Titem {\bf \hypertarget{CU-03.E3}{E3}}: El campo de correo electrónico se envía vacío; el sistema muestra el mensaje ``El campo Correo electrónico es requerido'' y regresa al paso \ref{CU-03.ingresaCorreo}.
-	\end{Titemize}
-	}\UCitem{Tipo}{
-		Caso de uso primario.
-	}\UCitem{Observaciones}{
-		El enlace de recuperación debe tener una vigencia máxima de 24 horas por razones de seguridad. Dado que el sistema maneja datos sensibles de menores, el proceso de recuperación debe registrarse en la bitácora del sistema.
-	}
-\end{UseCase}
-
-\begin{UCtrayectoria}
-	\UCpaso[\UCactor] Solicita recuperar su contraseña seleccionando la opción ``¿Olvidé mi contraseña?'' en la pantalla \IUref{IU-01}{Iniciar sesión}.
-	\UCpaso Muestra la pantalla \IUref{IU-03}{Recuperar contraseña} con un campo para ingresar el correo electrónico.
-	\UCpaso[\UCactor] \label{CU-03.ingresaCorreo} Ingresa su correo electrónico registrado y presiona el botón \IUbutton{Enviar}.
-	\UCpaso Valida que el campo no esté vacío. \ErrorRef{CU-03}{E3}{Campo vacío}
-	\UCpaso Busca el correo ingresado en la tabla \hyperlink{usuarios}{usuarios}. \ErrorRef{CU-03}{E1}{Correo no registrado}
-	\UCpaso Verifica que la cuenta asociada al correo se encuentre activa. \ErrorRef{CU-03}{E2}{Cuenta inactiva}
-	\UCpaso Genera un token temporal de recuperación y lo almacena en el sistema con su fecha de expiración.
-	\UCpaso Envía un correo electrónico al usuario con el enlace de recuperación y las instrucciones para restablecer su contraseña.
-	\UCpaso Muestra en pantalla el mensaje ``Se ha enviado un correo de recuperación a la dirección indicada. Revise su bandeja de entrada.''
-\end{UCtrayectoria}
+% siguiente iteracion
 %-------------------------------------- TERMINA CU-03
 
 %-------------------------------------- COMIENZA CU-04
@@ -269,6 +306,7 @@ A continuación se detallan los casos de uso.
 	}\UCitem{Precondiciones}{\begin{Titemize}
 		\Titem El administrador ha iniciado sesión.
 	\end{Titemize}
+	
 	}\UCitem{Postcondiciones}{\begin{Titemize}
 		\Titem Ninguna (sólo lectura).
 	\end{Titemize}
@@ -863,100 +901,9 @@ A continuación se detallan los casos de uso.
 %-------------------------------------- TERMINA CU-15
 
 %-------------------------------------- COMIENZA CU-16
-\begin{UseCase}{CU-16}{Registrar hecho victimal}{
-	El especialista documenta la narración, circunstancias y afectaciones derivadas de un evento donde el NNA fue víctima de vulneración a sus derechos humanos (SIGUIENTE ITERACIÓN).
-}
-	\UCitem{Versión}{1.0}
-	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
-	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
-	\UCitem{Actor}{\hyperlink{Actor.Especialista}{Especialista (Abogado/a / Psicólogo/a)}}
-	\UCitem{Propósito}{\begin{Titemize}
-		\Titem Integrar al expediente los acontecimientos clave que motivan la atención del caso.
-	\end{Titemize}
-	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem Fecha del evento, descripción de los hechos, posibles responsables.
-	\end{Titemize}
-	}\UCitem{Origen}{\begin{Titemize}
-		\Titem Relato obtenido en las entrevistas con el NNA o tutor.
-	\end{Titemize}
-	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem Conformación del bloque del hecho victimal en el historial.
-	\end{Titemize}
-	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Módulo de expediente de NNA.
-	\end{Titemize}
-	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem NNA registrado, expediente abierto.
-	\end{Titemize}
-	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Se vincula el hecho victimal al legajo de información sobre violencias.
-	\end{Titemize}
-	}\UCitem{Errores}{\begin{Titemize}
-		\Titem {\bf \hypertarget{CU-16.E1}{E1}}: Descripción y fecha ausente en la captura inicial.
-	\end{Titemize}
-	}\UCitem{Tipo}{
-		Caso de uso primario.
-	}\UCitem{Observaciones}{
-		Este módulo será ampliado en la siguiente iteración de desarrollo.
-	}
-\end{UseCase}
-
-\begin{UCtrayectoria}
-	\UCpaso[\UCactor] Navega a la sección de Hechos Victimales dentro del expediente y opta por uno nuevo.
-	\UCpaso Muestra \IUref{IU-16}{Registrar hecho victimal}.
-	\UCpaso[\UCactor] Cumplimenta los pormenores del suceso y oprime el botón \IUbutton{Guardar}.
-	\UCpaso Valida campos indispensables de la relatoria. \ErrorRef{CU-16}{E1}{Omisión de datos vitales}
-	\UCpaso Adiciona el registro al marco del expediente del menor.
-	\UCpaso Retroalimenta confirmando el añadido exitoso.
-\end{UCtrayectoria}
-%-------------------------------------- TERMINA CU-16
 
 %-------------------------------------- COMIENZA CU-17
-\begin{UseCase}{CU-17}{Modificar hecho victimal}{
-	El especialista actualiza o corrige precisiones dentro de la descripción de un hecho victimal anotado, conforme avanzan las averiguaciones o surgen testimonios (SIGUIENTE ITERACIÓN).
-}
-	\UCitem{Versión}{1.0}
-	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
-	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
-	\UCitem{Actor}{\hyperlink{Actor.Especialista}{Especialista}}
-	\UCitem{Propósito}{\begin{Titemize}
-		\Titem Mantener la veracidad de lo narrado conforme a los hallazgos de las pruebas presentadas.
-	\end{Titemize}
-	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem Nombres actualizados, nuevas aclaraciones de fechas o contextos.
-	\end{Titemize}
-	}\UCitem{Origen}{\begin{Titemize}
-		\Titem Pantalla de edición del hecho victimal.
-	\end{Titemize}
-	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem Texto de antecedente actualizado.
-	\end{Titemize}
-	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Expediente y tabla correspondiente al hecho victimal.
-	\end{Titemize}
-	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem Haber un hecho victimal salvado previamente.
-	\end{Titemize}
-	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Persisten los cambios en la descripción del evento perjudicial.
-	\end{Titemize}
-	}\UCitem{Errores}{\begin{Titemize}
-		\Titem Ninguno.
-	\end{Titemize}
-	}\UCitem{Tipo}{
-		Caso de uso primario.
-	}\UCitem{Observaciones}{
-		Siguiente iteración.
-	}
-\end{UseCase}
 
-\begin{UCtrayectoria}
-	\UCpaso[\UCactor] Elige la opción de modificar en el detalle del suceso registrado.
-	\UCpaso Llena el formulario trayendo sobre la pantalla los últimos detalles guardados.
-	\UCpaso[\UCactor] Retoca las líneas narrativas o ajusta las variables de fecha y le da a \IUbutton{Actualizar}.
-	\UCpaso Conserva la nueva versión en la base de datos dejando posiblemente registro de la fecha de edición.
-	\UCpaso Expide la notificación confirmatoria de que la declaración fue rectificada.
-\end{UCtrayectoria}
 %-------------------------------------- TERMINA CU-17
 
 %-------------------------------------- COMIENZA CU-18
@@ -1087,660 +1034,6 @@ A continuación se detallan los casos de uso.
 \end{UCtrayectoria}
 %-------------------------------------- TERMINA CU-19
 
-%-------------------------------------- COMIENZA CU-20
-\begin{UseCase}{CU-20}{Abrir expediente}{
-	Inicia formalmente el expediente unificado de protección para un NNA permitiendo entrelazar sus datos médicos, vulneraciones, valoraciones y seguimientos en una sola entidad principal (SIGUIENTE ITERACIÓN).
-}
-	\UCitem{Versión}{1.0}
-	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
-	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
-	\UCitem{Actor}{\hyperlink{Actor.Especialista}{Especialista / Administrador}}
-	\UCitem{Propósito}{\begin{Titemize}
-		\Titem Dar comienzo al proceso formal de defensa y protección de los derechos vulnerados y llevar el caso paso a paso.
-	\end{Titemize}
-	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem Folio o serie, identificador del NNA, comentarios de apertura.
-	\end{Titemize}
-	}\UCitem{Origen}{\begin{Titemize}
-		\Titem Comando de creación manual cuando el NNA y tutor ya constan en el registro.
-	\end{Titemize}
-	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem Expediente único creado.
-	\end{Titemize}
-	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Entidad \hyperlink{expedientes}{expedientes} de la base de datos.
-	\end{Titemize}
-	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem Datos del menor y tutor llenados completamente.
-	\end{Titemize}
-	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Generación de ID de expediente y vinculación total en el sistema de ese menor para las restantes herramientas.
-	\end{Titemize}
-	}\UCitem{Errores}{\begin{Titemize}
-		\Titem {\bf \hypertarget{CU-20.E1}{E1}}: El NNA ya dispone de un caso abierto activo; el sistema reitera tal y prohíbe multiplicidad arbitraria de carpetas.
-	\end{Titemize}
-	}\UCitem{Tipo}{
-		Caso de uso mayor (core).
-	}\UCitem{Observaciones}{
-		Desarrollo a ser detallado profundamente en subsiguiente iteración.
-	}
-\end{UseCase}
-
-\begin{UCtrayectoria}
-	\UCpaso[\UCactor] Dispone la apertura del caso tras verificar los perfiles y clica en ``Generar Expediente de Protección''.
-	\UCpaso Despliega \IUref{IU-20}{Abrir expediente} e inicia el enlazamiento.
-	\UCpaso[\UCactor] Llena los metadatos contextuales obligatorios y pulsa en \IUbutton{Abrir Expediente}.
-	\UCpaso Checa que el usuario objetivo carezca de procesos continuos. \ErrorRef{CU-20}{E1}{Expediente paralelo abierto}
-	\UCpaso Genera la carpeta virtual y el folio del sistema.
-	\UCpaso Devuelve con el reenvío inminente al caso formal creado.
-\end{UCtrayectoria}
-%-------------------------------------- TERMINA CU-20
-
-%-------------------------------------- COMIENZA CU-21
-\begin{UseCase}{CU-21}{Consultar expediente}{
-	Acceso comprensivo de todas las ramas disciplinarias referidas a un expediente incluyendo bitácora y dictámenes acumulados hasta la fecha (SIGUIENTE ITERACIÓN).
-}
-	\UCitem{Versión}{1.0}
-	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
-	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
-	\UCitem{Actor}{\hyperlink{Actor.Usuario}{Usuario}}
-	\UCitem{Propósito}{\begin{Titemize}
-		\Titem Observar transparentemente el estatus logístico y jurídico del muchacho dentro de la institución.
-	\end{Titemize}
-	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem Folio o curp de NNA para búsqueda.
-	\end{Titemize}
-	}\UCitem{Origen}{\begin{Titemize}
-		\Titem Panel global de búsqueda de resoluciones o casos.
-	\end{Titemize}
-	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem Panel integral conglomerando toda manifestación y estado del proceso.
-	\end{Titemize}
-	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Pantalla \IUref{IU-21}{Consultar expediente}.
-	\end{Titemize}
-	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem Expediente previamente aperturado (\UCref{CU-20}{Abrir expediente}).
-	\end{Titemize}
-	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Ninguna (interacción de visibilidad).
-	\end{Titemize}
-	}\UCitem{Errores}{\begin{Titemize}
-		\Titem {\bf \hypertarget{CU-21.E1}{E1}}: El término de búsqueda es llanamente infructuoso. 
-	\end{Titemize}
-	}\UCitem{Tipo}{
-		Caso de uso primario.
-	}\UCitem{Observaciones}{
-		En futura iteración se estipularán las vistas relativas al progreso de esto.
-	}
-\end{UseCase}
-
-\begin{UCtrayectoria}
-	\UCpaso[\UCactor] En el panel de casos busca algún expediente digitando el NNA o Folio.
-	\UCpaso Devuelve resultados análogos. \ErrorRef{CU-21}{E1}{Sin coincidencias}
-	\UCpaso[\UCactor] Elige el folio concreto deseado.
-	\UCpaso Obtiene todas las ramificaciones subyacentes referidas a ese legajo en bases de datos relacionales.
-	\UCpaso Compone visualmente \IUref{IU-21}{Consultar expediente} con la integralidad de datos, valoraciones y resoluciones documentadas.
-\end{UCtrayectoria}
-%-------------------------------------- TERMINA CU-21
-
-%-------------------------------------- COMIENZA CU-22
-\begin{UseCase}{CU-22}{Registrar valoración multidisciplinaria}{
-	El especialista del sistema accede al expediente de un NNA y registra una valoración en su área de competencia (psicológica, médica, legal o social), indicando los hallazgos del dictamen y las medidas sugeridas. El sistema valida la información y la almacena vinculada al expediente.
-}
-	\UCitem{Versión}{1.0}
-	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
-	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
-	\UCitem{Actor}{\hyperlink{Actor.Especialista}{Especialista (Psicólogo/a / Trabajador/a Social / Abogado/a / Médico/a)}}
-	\UCitem{Propósito}{\begin{Titemize}
-		\Titem Registrar el dictamen profesional del especialista sobre el estado del NNA en su área de competencia.
-		\Titem Documentar las medidas sugeridas para la restitución de los derechos del NNA.
-	\end{Titemize}
-	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{valoraciones.expediente_id}{Expediente al que pertenece la valoración}.
-		\Titem \hyperlink{valoraciones.area_evaluacion}{Área de evaluación} (Psicológica, Médica, Legal, Social).
-		\Titem \hyperlink{valoraciones.hallazgos_dictamen}{Hallazgos y dictamen} (texto narrativo).
-		\Titem \hyperlink{valoraciones.medidas_sugeridas}{Medidas sugeridas} (texto narrativo, opcional).
-	\end{Titemize}
-	}\UCitem{Origen}{\begin{Titemize}
-		\Titem Se introducen desde el teclado en la pantalla de registro de valoración.
-	\end{Titemize}
-	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem Mensaje de confirmación de registro exitoso.
-		\Titem La valoración aparece en el historial del expediente con la fecha y el especialista que la realizó.
-		\Titem Mensajes de error en caso de datos faltantes.
-	\end{Titemize}
-	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Se muestra en la pantalla \IUref{IU-22}{Registrar valoración multidisciplinaria}.
-		\Titem Se almacena en la tabla \hyperlink{valoraciones}{valoraciones} de la base de datos.
-	\end{Titemize}
-	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem El especialista debe haber iniciado sesión (\UCref{CU-01}{Iniciar sesión}).
-		\Titem Debe existir un expediente abierto para el NNA al que se realizará la valoración.
-		\Titem El especialista debe ser integrante del equipo asignado al NNA o tener permisos del administrador.
-	\end{Titemize}
-	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Se crea un nuevo registro en la tabla \hyperlink{valoraciones}{valoraciones} vinculado al expediente y al especialista.
-		\Titem Se registra automáticamente la fecha y hora de la valoración.
-	\end{Titemize}
-	}\UCitem{Errores}{\begin{Titemize}
-		\Titem {\bf \hypertarget{CU-22.E1}{E1}}: El campo de área de evaluación está vacío; el sistema muestra el mensaje ``El campo Área de evaluación es requerido'' y regresa al paso \ref{CU-22.ingresaDatos}.
-		\Titem {\bf \hypertarget{CU-22.E2}{E2}}: El campo de hallazgos y dictamen está vacío; el sistema muestra el mensaje ``El campo Hallazgos y dictamen es requerido'' y regresa al paso \ref{CU-22.ingresaDatos}.
-	\end{Titemize}
-	}\UCitem{Tipo}{
-		Caso de uso primario.
-	}\UCitem{Observaciones}{
-		Cada especialista sólo puede registrar valoraciones correspondientes a su área de competencia según el rol asignado en el sistema.
-	}
-\end{UseCase}
-
-\begin{UCtrayectoria}
-	\UCpaso[\UCactor] Accede al expediente del NNA y selecciona la opción ``Agregar valoración''.
-	\UCpaso Muestra la pantalla \IUref{IU-22}{Registrar valoración multidisciplinaria} con el formulario de captura.
-	\UCpaso[\UCactor] \label{CU-22.ingresaDatos} Selecciona el área de evaluación, redacta los hallazgos y dictamen, opcionalmente las medidas sugeridas, y presiona el botón \IUbutton{Guardar valoración}.
-	\UCpaso Valida que el campo área de evaluación no esté vacío. \ErrorRef{CU-22}{E1}{Área requerida}
-	\UCpaso Valida que el campo hallazgos y dictamen no esté vacío. \ErrorRef{CU-22}{E2}{Hallazgos requeridos}
-	\UCpaso Registra la valoración en la tabla \hyperlink{valoraciones}{valoraciones} vinculando el expediente y el ID del especialista autenticado, con la fecha y hora actuales.
-	\UCpaso Muestra el mensaje ``La valoración ha sido registrada exitosamente'' y actualiza el historial del expediente.
-\end{UCtrayectoria}
-%-------------------------------------- TERMINA CU-22
-
-
-%-------------------------------------- COMIENZA CU-23
-\begin{UseCase}{CU-23}{Modificar valoración multidisciplinaria}{
-	El especialista que realizó una valoración accede al expediente del NNA y edita el contenido de una valoración previamente registrada por él mismo. El sistema valida los cambios y los persiste en la base de datos.
-}
-	\UCitem{Versión}{1.0}
-	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
-	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
-	\UCitem{Actor}{\hyperlink{Actor.Especialista}{Especialista (autor de la valoración)}}
-	\UCitem{Propósito}{\begin{Titemize}
-		\Titem Permitir la corrección o actualización de una valoración previamente registrada.
-	\end{Titemize}
-	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{valoraciones.hallazgos_dictamen}{Hallazgos y dictamen} (texto actualizado).
-		\Titem \hyperlink{valoraciones.medidas_sugeridas}{Medidas sugeridas} (texto actualizado, opcional).
-	\end{Titemize}
-	}\UCitem{Origen}{\begin{Titemize}
-		\Titem Se modifican desde la pantalla de edición de valoración, con datos precargados.
-	\end{Titemize}
-	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem Mensaje de confirmación de actualización exitosa.
-		\Titem Valoración actualizada en el historial del expediente.
-	\end{Titemize}
-	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Se muestra en la pantalla \IUref{IU-23}{Modificar valoración multidisciplinaria}.
-		\Titem Los cambios se persisten en la tabla \hyperlink{valoraciones}{valoraciones}.
-	\end{Titemize}
-	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem El especialista debe haber iniciado sesión (\UCref{CU-01}{Iniciar sesión}).
-		\Titem La valoración a modificar debe haber sido creada por el mismo especialista autenticado.
-	\end{Titemize}
-	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Se actualizan los campos \hyperlink{valoraciones.hallazgos_dictamen}{hallazgos\_dictamen} y \hyperlink{valoraciones.medidas_sugeridas}{medidas\_sugeridas} en la tabla \hyperlink{valoraciones}{valoraciones}.
-	\end{Titemize}
-	}\UCitem{Errores}{\begin{Titemize}
-		\Titem {\bf \hypertarget{CU-23.E1}{E1}}: El campo hallazgos y dictamen se deja vacío; el sistema muestra el mensaje ``El campo Hallazgos y dictamen es requerido'' y regresa al paso \ref{CU-23.modifica}.
-		\Titem {\bf \hypertarget{CU-23.E2}{E2}}: El especialista intenta modificar una valoración que no le pertenece; el sistema muestra el mensaje ``No tiene permisos para modificar esta valoración'' y termina el caso de uso.
-	\end{Titemize}
-	}\UCitem{Tipo}{
-		Caso de uso primario.
-	}\UCitem{Observaciones}{
-		Por seguridad, únicamente el especialista que creó la valoración puede modificarla. El administrador puede editar cualquier valoración.
-	}
-\end{UseCase}
-
-\begin{UCtrayectoria}
-	\UCpaso[\UCactor] Selecciona la valoración que desea modificar desde el historial del expediente y presiona la opción ``Editar''. \ErrorRef{CU-23}{E2}{Sin permisos}
-	\UCpaso Muestra la pantalla \IUref{IU-23}{Modificar valoración multidisciplinaria} con los datos actuales de la valoración precargados.
-	\UCpaso[\UCactor] \label{CU-23.modifica} Actualiza el texto de hallazgos, dictamen o medidas sugeridas y presiona el botón \IUbutton{Guardar cambios}.
-	\UCpaso Valida que el campo hallazgos y dictamen no esté vacío. \ErrorRef{CU-23}{E1}{Hallazgos requeridos}
-	\UCpaso Persiste los cambios en la tabla \hyperlink{valoraciones}{valoraciones}.
-	\UCpaso Muestra el mensaje ``La valoración ha sido actualizada exitosamente.''
-\end{UCtrayectoria}
-%-------------------------------------- TERMINA CU-23
-
-
-%-------------------------------------- COMIENZA CU-24
-\begin{UseCase}{CU-24}{Registrar derecho vulnerado}{
-	El especialista accede al expediente de un NNA y registra uno o más derechos que han sido vulnerados, indicando el nombre del derecho, si está actualmente vulnerado y las observaciones pertinentes. El sistema almacena la información vinculada al expediente.
-}
-	\UCitem{Versión}{1.0}
-	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
-	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
-	\UCitem{Actor}{\hyperlink{Actor.Especialista}{Especialista (Trabajador/a Social / Abogado/a)}}
-	\UCitem{Propósito}{\begin{Titemize}
-		\Titem Documentar de forma estructurada los derechos vulnerados del NNA como parte de su expediente.
-		\Titem Servir como base para la elaboración del plan de restitución de derechos.
-	\end{Titemize}
-	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{derechos_vulnerados.derecho_nombre}{Nombre del derecho vulnerado}.
-		\Titem \hyperlink{derechos_vulnerados.esta_vulnerado}{Indicador de si el derecho está vulnerado} (Sí / No).
-		\Titem \hyperlink{derechos_vulnerados.observaciones}{Observaciones} (texto libre, opcional).
-	\end{Titemize}
-	}\UCitem{Origen}{\begin{Titemize}
-		\Titem Se introducen desde el teclado o se seleccionan de listas en la pantalla de derechos vulnerados.
-	\end{Titemize}
-	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem Mensaje de confirmación de registro exitoso.
-		\Titem El derecho registrado aparece en el listado de derechos del expediente.
-		\Titem Mensajes de error en caso de datos faltantes.
-	\end{Titemize}
-	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Se muestra en la pantalla \IUref{IU-24}{Registrar derecho vulnerado}.
-		\Titem Se almacena en la tabla \hyperlink{derechos_vulnerados}{derechos\_vulnerados}.
-	\end{Titemize}
-	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem El especialista debe haber iniciado sesión (\UCref{CU-01}{Iniciar sesión}).
-		\Titem Debe existir un expediente abierto para el NNA.
-	\end{Titemize}
-	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Se crea un nuevo registro en la tabla \hyperlink{derechos_vulnerados}{derechos\_vulnerados} vinculado al expediente.
-		\Titem Se registra el usuario que realizó el registro y la fecha y hora del mismo.
-	\end{Titemize}
-	}\UCitem{Errores}{\begin{Titemize}
-		\Titem {\bf \hypertarget{CU-24.E1}{E1}}: El campo nombre del derecho está vacío; el sistema muestra el mensaje ``El campo Nombre del derecho es requerido'' y regresa al paso \ref{CU-24.ingresaDatos}.
-	\end{Titemize}
-	}\UCitem{Tipo}{
-		Caso de uso primario.
-	}\UCitem{Observaciones}{
-		Los derechos vulnerados se basan en el catálogo de la LGDNNA. El sistema puede precargar una lista de derechos comunes para facilitar la captura.
-	}
-\end{UseCase}
-
-\begin{UCtrayectoria}
-	\UCpaso[\UCactor] Accede a la sección de derechos vulnerados dentro del expediente del NNA y selecciona ``Agregar derecho''.
-	\UCpaso Muestra la pantalla \IUref{IU-24}{Registrar derecho vulnerado} con el formulario de captura.
-	\UCpaso[\UCactor] \label{CU-24.ingresaDatos} Ingresa el nombre del derecho, indica si está vulnerado y agrega observaciones opcionales, luego presiona el botón \IUbutton{Guardar}.
-	\UCpaso Valida que el campo nombre del derecho no esté vacío. \ErrorRef{CU-24}{E1}{Campo requerido}
-	\UCpaso Registra el derecho vulnerado en la tabla \hyperlink{derechos_vulnerados}{derechos\_vulnerados}, vinculando el expediente y el usuario autenticado, con la fecha y hora actuales.
-	\UCpaso Muestra el mensaje ``El derecho vulnerado ha sido registrado exitosamente'' y actualiza el listado del expediente.
-\end{UCtrayectoria}
-%-------------------------------------- TERMINA CU-24
-
-
-%-------------------------------------- COMIENZA CU-25
-\begin{UseCase}{CU-25}{Modificar derecho vulnerado}{
-	El especialista que registró un derecho vulnerado accede al expediente del NNA y edita la información de dicho derecho. El sistema valida los cambios y los persiste en la base de datos.
-}
-	\UCitem{Versión}{1.0}
-	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
-	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
-	\UCitem{Actor}{\hyperlink{Actor.Especialista}{Especialista (Trabajador/a Social / Abogado/a)}}
-	\UCitem{Propósito}{\begin{Titemize}
-		\Titem Permitir la corrección o actualización del estado de un derecho vulnerado registrado.
-	\end{Titemize}
-	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{derechos_vulnerados.derecho_nombre}{Nombre del derecho} (modificable).
-		\Titem \hyperlink{derechos_vulnerados.esta_vulnerado}{Indicador de vulneración} (actualizable).
-		\Titem \hyperlink{derechos_vulnerados.observaciones}{Observaciones} (texto actualizado).
-	\end{Titemize}
-	}\UCitem{Origen}{\begin{Titemize}
-		\Titem Se modifican desde la pantalla de edición del derecho vulnerado con datos precargados.
-	\end{Titemize}
-	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem Mensaje de confirmación de actualización exitosa.
-		\Titem Derecho actualizado en el listado del expediente.
-	\end{Titemize}
-	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Se muestra en la pantalla \IUref{IU-25}{Modificar derecho vulnerado}.
-		\Titem Los cambios se persisten en la tabla \hyperlink{derechos_vulnerados}{derechos\_vulnerados}.
-	\end{Titemize}
-	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem El especialista debe haber iniciado sesión (\UCref{CU-01}{Iniciar sesión}).
-		\Titem El derecho vulnerado a modificar debe existir en el expediente.
-	\end{Titemize}
-	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Se actualizan los campos correspondientes en la tabla \hyperlink{derechos_vulnerados}{derechos\_vulnerados}.
-	\end{Titemize}
-	}\UCitem{Errores}{\begin{Titemize}
-		\Titem {\bf \hypertarget{CU-25.E1}{E1}}: El campo nombre del derecho se deja vacío; el sistema muestra el mensaje ``El campo Nombre del derecho es requerido'' y regresa al paso \ref{CU-25.modifica}.
-	\end{Titemize}
-	}\UCitem{Tipo}{
-		Caso de uso primario.
-	}\UCitem{Observaciones}{
-		Ninguna.
-	}
-\end{UseCase}
-
-\begin{UCtrayectoria}
-	\UCpaso[\UCactor] Selecciona el derecho vulnerado que desea modificar desde el listado del expediente y presiona la opción ``Editar''.
-	\UCpaso Muestra la pantalla \IUref{IU-25}{Modificar derecho vulnerado} con los datos actuales precargados.
-	\UCpaso[\UCactor] \label{CU-25.modifica} Realiza las modificaciones necesarias y presiona el botón \IUbutton{Guardar cambios}.
-	\UCpaso Valida que el campo nombre del derecho no esté vacío. \ErrorRef{CU-25}{E1}{Campo requerido}
-	\UCpaso Persiste los cambios en la tabla \hyperlink{derechos_vulnerados}{derechos\_vulnerados}.
-	\UCpaso Muestra el mensaje ``El derecho vulnerado ha sido actualizado exitosamente.''
-\end{UCtrayectoria}
-%-------------------------------------- TERMINA CU-25
-%-------------------------------------- COMIENZA CU-26
-\begin{UseCase}{CU-26}{Registrar actor en materia de derechos}{
-	El usuario administrador accede al módulo de actores y captura la información de una institución pública, organización privada o persona física que puede brindar apoyo externo a los NNA atendidos. El sistema valida los datos y registra al actor en la base de datos.
-}
-	\UCitem{Versión}{1.0}
-	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
-	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
-	\UCitem{Actor}{\hyperlink{Actor.Administrador}{Administrador}}
-	\UCitem{Propósito}{\begin{Titemize}
-		\Titem Construir un directorio de actores de apoyo externo disponibles para la canalización de NNA.
-		\Titem Facilitar la vinculación rápida de NNA con los servicios disponibles en su área geográfica.
-	\end{Titemize}
-	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{actores_derechos.nombre}{Nombre del actor}.
-		\Titem \hyperlink{actores_derechos.es_institucion_publica}{Tipo de actor} (Institución pública / Organización privada / Persona física).
-		\Titem \hyperlink{actores_derechos.telefonos}{Teléfonos de contacto}.
-		\Titem \hyperlink{actores_derechos.correos}{Correos electrónicos}.
-		\Titem \hyperlink{actores_derechos.pagina_web}{Página web} (opcional).
-		\Titem \hyperlink{actores_derechos.redes_sociales}{Redes sociales} (opcional).
-		\Titem \hyperlink{actores_derechos.horarios_atencion}{Horarios de atención}.
-		\Titem \hyperlink{actores_derechos.responsable_contacto}{Responsable de contacto}.
-		\Titem \hyperlink{direcciones_actores.calle}{Calle}, \hyperlink{direcciones_actores.num_exterior}{número exterior}, \hyperlink{direcciones_actores.num_interior}{número interior}.
-		\Titem \hyperlink{direcciones_actores.colonia_id}{Colonia} (del catálogo SEPOMEX, \UCref{CU-32}{Consultar catálogo de domicilios}).
-		\Titem \hyperlink{direcciones_actores.referencia_ubicacion}{Referencia de ubicación} (opcional).
-	\end{Titemize}
-	}\UCitem{Origen}{\begin{Titemize}
-		\Titem Se introducen desde el teclado o se seleccionan de listas desplegables en la pantalla de registro.
-	\end{Titemize}
-	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem Mensaje de confirmación de registro exitoso.
-		\Titem El actor aparece en el directorio del sistema.
-		\Titem Mensajes de error en caso de datos faltantes.
-	\end{Titemize}
-	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Se muestra en la pantalla \IUref{IU-26}{Registrar actor en materia de derechos}.
-		\Titem Se almacena en las tablas \hyperlink{actores_derechos}{actores\_derechos} y \hyperlink{direcciones_actores}{direcciones\_actores}.
-	\end{Titemize}
-	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem El administrador debe haber iniciado sesión (\UCref{CU-01}{Iniciar sesión}).
-	\end{Titemize}
-	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Se crea un nuevo registro en la tabla \hyperlink{actores_derechos}{actores\_derechos}.
-		\Titem Se crea el registro de domicilio correspondiente en \hyperlink{direcciones_actores}{direcciones\_actores}.
-		\Titem El actor queda disponible para la vinculación de servicios.
-	\end{Titemize}
-	}\UCitem{Errores}{\begin{Titemize}
-		\Titem {\bf \hypertarget{CU-26.E1}{E1}}: El campo nombre del actor está vacío; el sistema muestra el mensaje ``El campo Nombre es requerido'' y regresa al paso \ref{CU-26.ingresaDatos}.
-		\Titem {\bf \hypertarget{CU-26.E2}{E2}}: No se selecciona ningún tipo de actor; el sistema muestra el mensaje ``Debe seleccionar el tipo de actor'' y regresa al paso \ref{CU-26.ingresaDatos}.
-	\end{Titemize}
-	}\UCitem{Tipo}{
-		Caso de uso primario.
-	}\UCitem{Observaciones}{
-		El campo \textit{telefonos}, \textit{correos} y \textit{redes\_sociales} se almacenan como texto libre para permitir múltiples valores separados por comas.
-	}
-\end{UseCase}
-
-\begin{UCtrayectoria}
-	\UCpaso[\UCactor] Accede al módulo de actores en materia de derechos y selecciona la opción ``Registrar actor''.
-	\UCpaso Muestra la pantalla \IUref{IU-26}{Registrar actor en materia de derechos} con el formulario de captura.
-	\UCpaso[\UCactor] \label{CU-26.ingresaDatos} Completa los datos del actor y presiona el botón \IUbutton{Guardar}.
-	\UCpaso Valida que el campo nombre no esté vacío. \ErrorRef{CU-26}{E1}{Nombre requerido}
-	\UCpaso Valida que se haya seleccionado el tipo de actor. \ErrorRef{CU-26}{E2}{Tipo requerido}
-	\UCpaso Crea el registro de domicilio en la tabla \hyperlink{direcciones_actores}{direcciones\_actores}.
-	\UCpaso Registra al actor en la tabla \hyperlink{actores_derechos}{actores\_derechos} vinculando el domicilio creado.
-	\UCpaso Muestra el mensaje ``El actor ha sido registrado exitosamente en el directorio.''
-\end{UCtrayectoria}
-%-------------------------------------- TERMINA CU-26
-
-
-%-------------------------------------- COMIENZA CU-27
-\begin{UseCase}{CU-27}{Consultar actor en materia de derechos}{
-	El usuario del sistema accede al directorio de actores y localiza la información completa de un actor, incluyendo sus datos de contacto, domicilio y los servicios que ofrece.
-}
-	\UCitem{Versión}{1.0}
-	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
-	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
-	\UCitem{Actor}{\hyperlink{Actor.Usuario}{Usuario (Administrador / Especialista)}}
-	\UCitem{Propósito}{\begin{Titemize}
-		\Titem Consultar el directorio de actores de apoyo para identificar opciones de canalización para un NNA.
-	\end{Titemize}
-	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{actores_derechos.nombre}{Nombre del actor} o tipo de actor (criterio de búsqueda).
-	\end{Titemize}
-	}\UCitem{Origen}{\begin{Titemize}
-		\Titem Se introduce desde el teclado o se selecciona desde el listado del directorio.
-	\end{Titemize}
-	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem Datos completos del actor (nombre, tipo, contacto, domicilio, horarios).
-		\Titem Listado de servicios que ofrece el actor.
-		\Titem Mensaje de error si no se encuentran resultados.
-	\end{Titemize}
-	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Se muestra en la pantalla \IUref{IU-27}{Consultar actor en materia de derechos}.
-	\end{Titemize}
-	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem El usuario debe haber iniciado sesión (\UCref{CU-01}{Iniciar sesión}).
-		\Titem Debe existir al menos un actor registrado en el sistema.
-	\end{Titemize}
-	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem No se realizan modificaciones en la base de datos (operación de sólo lectura).
-	\end{Titemize}
-	}\UCitem{Errores}{\begin{Titemize}
-		\Titem {\bf \hypertarget{CU-27.E1}{E1}}: El criterio de búsqueda no coincide con ningún actor; el sistema muestra el mensaje ``No se encontraron actores con el criterio ingresado'' y regresa al paso \ref{CU-27.busca}.
-	\end{Titemize}
-	}\UCitem{Tipo}{
-		Caso de uso primario.
-	}\UCitem{Observaciones}{
-		Ninguna.
-	}
-\end{UseCase}
-
-\begin{UCtrayectoria}
-	\UCpaso[\UCactor] Accede al módulo de actores en materia de derechos desde el menú principal.
-	\UCpaso Muestra la pantalla \IUref{IU-27}{Consultar actor en materia de derechos} con el listado completo de actores registrados.
-	\UCpaso[\UCactor] \label{CU-27.busca} Selecciona un actor del listado o ingresa un criterio de búsqueda y presiona \IUbutton{Buscar}. \ErrorRef{CU-27}{E1}{Sin resultados}
-	\UCpaso Recupera de las tablas \hyperlink{actores_derechos}{actores\_derechos}, \hyperlink{direcciones_actores}{direcciones\_actores} y \hyperlink{servicios_actores}{servicios\_actores} la información completa del actor seleccionado.
-	\UCpaso Muestra la información completa del actor en pantalla.
-\end{UCtrayectoria}
-%-------------------------------------- TERMINA CU-27
-
-%-------------------------------------- COMIENZA CU-28
-\begin{UseCase}{CU-28}{Modificar actor en materia de derechos}{
-	El administrador del sistema localiza el registro de un actor en materia de derechos y actualiza su información general, de contacto o de domicilio. El sistema valida los cambios y los persiste en la base de datos.
-}
-	\UCitem{Versión}{1.0}
-	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
-	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
-	\UCitem{Actor}{\hyperlink{Actor.Administrador}{Administrador}}
-	\UCitem{Propósito}{\begin{Titemize}
-		\Titem Mantener actualizada la información de contacto y ubicación de los actores de apoyo externo.
-	\end{Titemize}
-	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{actores_derechos.nombre}{Nombre del actor} (modificable).
-		\Titem \hyperlink{actores_derechos.telefonos}{Teléfonos}, \hyperlink{actores_derechos.correos}{Correos}, \hyperlink{actores_derechos.horarios_atencion}{Horarios de atención} (modificables).
-		\Titem Campos de dirección en \hyperlink{direcciones_actores}{direcciones\_actores} (modificables).
-	\end{Titemize}
-	}\UCitem{Origen}{\begin{Titemize}
-		\Titem Se modifican desde la pantalla de edición del actor, con datos precargados.
-	\end{Titemize}
-	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem Mensaje de confirmación de actualización exitosa.
-		\Titem Datos actualizados del actor reflejados en el directorio.
-	\end{Titemize}
-	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Se muestra en la pantalla \IUref{IU-28}{Modificar actor en materia de derechos}.
-		\Titem Los cambios se persisten en las tablas \hyperlink{actores_derechos}{actores\_derechos} y \hyperlink{direcciones_actores}{direcciones\_actores}.
-	\end{Titemize}
-	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem El administrador debe haber iniciado sesión (\UCref{CU-01}{Iniciar sesión}).
-		\Titem El actor debe estar registrado en el sistema.
-	\end{Titemize}
-	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Se actualizan los datos del actor en las tablas correspondientes de la base de datos.
-	\end{Titemize}
-	}\UCitem{Errores}{\begin{Titemize}
-		\Titem {\bf \hypertarget{CU-28.E1}{E1}}: El campo nombre se deja vacío; el sistema muestra el mensaje ``El campo Nombre es requerido'' y regresa al paso \ref{CU-28.modifica}.
-	\end{Titemize}
-	}\UCitem{Tipo}{
-		Caso de uso primario.
-	}\UCitem{Observaciones}{
-		Ninguna.
-	}
-\end{UseCase}
-
-\begin{UCtrayectoria}
-	\UCpaso[\UCactor] Selecciona la opción ``Modificar actor'' desde la pantalla de consulta de actores.
-	\UCpaso Muestra la pantalla \IUref{IU-28}{Modificar actor en materia de derechos} con los datos actuales precargados.
-	\UCpaso[\UCactor] \label{CU-28.modifica} Realiza las modificaciones sobre el contacto o domicilio y presiona el botón \IUbutton{Guardar cambios}.
-	\UCpaso Valida que el campo nombre no esté vacío. \ErrorRef{CU-28}{E1}{Campo requerido}
-	\UCpaso Persiste los cambios en las tablas \hyperlink{actores_derechos}{actores\_derechos} y \hyperlink{direcciones_actores}{direcciones\_actores}.
-	\UCpaso Muestra el mensaje ``Los datos del actor han sido actualizados exitosamente.''
-\end{UCtrayectoria}
-%-------------------------------------- TERMINA CU-28
-
-%-------------------------------------- COMIENZA CU-29
-\begin{UseCase}{CU-29}{Eliminar actor en materia de derechos}{
-	El administrador del sistema selecciona un actor en materia de derechos del directorio y procede a eliminarlo o desactivarlo. El sistema verifica que no existan dependencias activas y marca el registro como inactivo.
-}
-	\UCitem{Versión}{1.0}
-	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
-	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
-	\UCitem{Actor}{\hyperlink{Actor.Administrador}{Administrador}}
-	\UCitem{Propósito}{\begin{Titemize}
-		\Titem Retirar del directorio a aquellos actores que ya no prestan servicio o apoyo al sistema.
-	\end{Titemize}
-	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem Ninguna (se basa en la selección del registro a eliminar).
-	\end{Titemize}
-	}\UCitem{Origen}{\begin{Titemize}
-		\Titem Selección del actor desde el listado del directorio.
-	\end{Titemize}
-	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem Mensaje de confirmación para proceder con la eliminación.
-		\Titem Mensaje de éxito tras la eliminación (desactivación).
-	\end{Titemize}
-	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Se muestra en la pantalla \IUref{IU-29}{Eliminar actor en materia de derechos}.
-		\Titem Persistencia en la tabla \hyperlink{actores_derechos}{actores\_derechos}.
-	\end{Titemize}
-	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem El administrador debe haber iniciado sesión (\UCref{CU-01}{Iniciar sesión}).
-		\Titem El actor a eliminar debe existir.
-	\end{Titemize}
-	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem El actor cambia su estado a inactivo en la base de datos (borrado lógico).
-		\Titem El actor ya no aparece en las búsquedas activas del directorio.
-	\end{Titemize}
-	}\UCitem{Errores}{\begin{Titemize}
-		\Titem {\bf \hypertarget{CU-29.E1}{E1}}: El actor seleccionado tiene servicios activos o casos recientes vinculados; el sistema advierte ``No se puede eliminar un actor con casos activos asignados'' y cancela la operación.
-	\end{Titemize}
-	}\UCitem{Tipo}{
-		Caso de uso primario.
-	}\UCitem{Observaciones}{
-		La eliminación es lógica para mantener la integridad del historial de casos cerrados en los que participó el actor.
-	}
-\end{UseCase}
-
-\begin{UCtrayectoria}
-	\UCpaso[\UCactor] Selecciona un actor desde el directorio y presiona el botón \IUbutton{Eliminar}.
-	\UCpaso Muestra un mensaje de advertencia pidiendo confirmación: ``¿Está seguro de que desea eliminar este actor del directorio?''.
-	\UCpaso[\UCactor] Selecciona la opción \IUbutton{Confirmar}.
-	\UCpaso Verifica que el actor no tenga servicios o casos activos vinculados. \ErrorRef{CU-29}{E1}{Actor con casos activos}
-	\UCpaso Cambia el estatus del actor a inactivo en la tabla \hyperlink{actores_derechos}{actores\_derechos}.
-	\UCpaso Muestra el mensaje ``El actor ha sido eliminado exitosamente del directorio.''
-\end{UCtrayectoria}
-%-------------------------------------- TERMINA CU-29
-
-%-------------------------------------- COMIENZA CU-30
-\begin{UseCase}{CU-30}{Registrar servicio de actor}{
-	El administrador del sistema añade un nuevo servicio ofrecido por un actor en materia de derechos en el directorio. El sistema almacena la descripción del servicio vinculado al actor seleccionado.
-}
-	\UCitem{Versión}{1.0}
-	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
-	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
-	\UCitem{Actor}{\hyperlink{Actor.Administrador}{Administrador}}
-	\UCitem{Propósito}{\begin{Titemize}
-		\Titem Mantener un inventario detallado de los servicios individuales que puede brindar cada actor institucional o privado, facilitando la canalización.
-	\end{Titemize}
-	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{servicios_actores.actor_id}{Identificador del actor}.
-		\Titem \hyperlink{servicios_actores.nombre_servicio}{Nombre del servicio}.
-		\Titem \hyperlink{servicios_actores.descripcion}{Descripción del servicio}.
-	\end{Titemize}
-	}\UCitem{Origen}{\begin{Titemize}
-		\Titem Se introducen desde el teclado en la pantalla de registro de servicio para un actor específico.
-	\end{Titemize}
-	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem Mensaje de confirmación de registro exitoso.
-		\Titem El nuevo servicio se muestra en el perfil del actor.
-	\end{Titemize}
-	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Se muestra en la pantalla \IUref{IU-30}{Registrar servicio de actor}.
-		\Titem Se almacena en la tabla \hyperlink{servicios_actores}{servicios\_actores}.
-	\end{Titemize}
-	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem El administrador debe haber iniciado sesión (\UCref{CU-01}{Iniciar sesión}).
-		\Titem El actor al que se vinculará el servicio debe estar registrado.
-	\end{Titemize}
-	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Se crea un nuevo registro en la tabla \hyperlink{servicios_actores}{servicios\_actores} con el detalle proporcionado.
-	\end{Titemize}
-	}\UCitem{Errores}{\begin{Titemize}
-		\Titem {\bf \hypertarget{CU-30.E1}{E1}}: El campo de nombre del servicio está vacío; el sistema muestra el mensaje ``El campo Nombre del servicio es requerido'' y regresa al paso \ref{CU-30.ingresaDatos}.
-	\end{Titemize}
-	}\UCitem{Tipo}{
-		Caso de uso primario.
-	}\UCitem{Observaciones}{
-		Un actor puede tener múltiples servicios registrados de forma independiente.
-	}
-\end{UseCase}
-
-\begin{UCtrayectoria}
-	\UCpaso[\UCactor] Accede al perfil del actor en el directorio y selecciona la opción ``Agregar servicio''.
-	\UCpaso Muestra la pantalla \IUref{IU-30}{Registrar servicio de actor} con el formulario de captura.
-	\UCpaso[\UCactor] \label{CU-30.ingresaDatos} Ingresa el nombre y la descripción del servicio, y presiona el botón \IUbutton{Guardar}.
-	\UCpaso Valida que el campo nombre del servicio no esté vacío. \ErrorRef{CU-30}{E1}{Campo requerido}
-	\UCpaso Registra el servicio en la tabla \hyperlink{servicios_actores}{servicios\_actores} vinculado id del actor correspondiente.
-	\UCpaso Muestra el mensaje ``El servicio ha sido registrado exitosamente.''
-\end{UCtrayectoria}
-%-------------------------------------- TERMINA CU-30
-
-%-------------------------------------- COMIENZA CU-31
-\begin{UseCase}{CU-31}{Consultar actores por municipio y tipo de servicio}{
-	El usuario del sistema consulta el directorio de actores filtrando los resultados según una ubicación geográfica específica (municipio) y el tipo de servicio requerido, permitiendo localizar rápidamente la ayuda más adecuada para un NNA.
-}
-	\UCitem{Versión}{1.0}
-	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
-	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
-	\UCitem{Actor}{\hyperlink{Actor.Usuario}{Usuario (Administrador / Especialista)}}
-	\UCitem{Propósito}{\begin{Titemize}
-		\Titem Optimizar el proceso de canalización encontrando actores cercanos y capaces de resolver la necesidad del momento.
-	\end{Titemize}
-	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem Municipio (filtro de búsqueda geográfica).
-		\Titem Tipo de servicio o nombre de servicio (filtro de búsqueda descriptivo).
-	\end{Titemize}
-	}\UCitem{Origen}{\begin{Titemize}
-		\Titem Se seleccionan de listas desplegables o se teclean en el buscador de la pantalla de consulta de actores.
-	\end{Titemize}
-	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem Lista de actores que coinciden con los filtros aplicados, mostrando nombre, dirección, y contacto.
-		\Titem Mensaje informando si no hubo coincidencias.
-	\end{Titemize}
-	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Se muestra en la pantalla \IUref{IU-31}{Consultar actores por municipio y tipo de servicio}.
-	\end{Titemize}
-	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem El usuario debe haber iniciado sesión (\UCref{CU-01}{Iniciar sesión}).
-	\end{Titemize}
-	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Ninguna (interacción de solo lectura).
-	\end{Titemize}
-	}\UCitem{Errores}{\begin{Titemize}
-		\Titem {\bf \hypertarget{CU-31.E1}{E1}}: No se encuentran registros con los parámetros indicados; el sistema muestra ``No se encontraron actores para el municipio y servicio indicados'' y los resultados aparecen vacíos.
-	\end{Titemize}
-	}\UCitem{Tipo}{
-		Caso de uso primario.
-	}\UCitem{Observaciones}{
-		El sistema puede autocompletar el filtro del municipio usando el catálogo previamente registrado para evitar problemas de escritura.
-	}
-\end{UseCase}
-
-\begin{UCtrayectoria}
-	\UCpaso[\UCactor] Ingresa a la sección de búsqueda avanzada en el directorio de actores.
-	\UCpaso Muestra la pantalla \IUref{IU-31}{Consultar actores por municipio y tipo de servicio} con los campos de filtro.
-	\UCpaso[\UCactor] Selecciona el municipio deseado, ingresa el tipo de servicio y presiona \IUbutton{Buscar}.
-	\UCpaso Cruza la información geográfica de \hyperlink{direcciones_actores}{direcciones\_actores} con los datos de \hyperlink{servicios_actores}{servicios\_actores}.
-	\UCpaso Muestra el listado de actores resultantes ordenados alfabéticamente. \ErrorRef{CU-31}{E1}{Sin resultados}
-\end{UCtrayectoria}
 %-------------------------------------- TERMINA CU-31
 
 %-------------------------------------- COMIENZA CU-32
@@ -1891,52 +1184,7 @@ A continuación se detallan los casos de uso.
 \end{UCtrayectoria}
 %-------------------------------------- TERMINA CU-34
 
-%-------------------------------------- COMIENZA CU-35
-\begin{UseCase}{CU-35}{Modificar discapacidad de NNA o tutor}{
-	El especialista actualiza la información referida a una discapacidad o condición especial previamente registrada para un NNA o tutor, modificando las anotaciones clínicas o corrigiendo selecciones erróneas.
-}
-	\UCitem{Versión}{1.0}
-	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
-	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
-	\UCitem{Actor}{\hyperlink{Actor.Especialista}{Especialista}}
-	\UCitem{Propósito}{\begin{Titemize}
-		\Titem Mantener precisos y vigentes los datos de vulnerabilidad física o mental del NNA/tutor.
-	\end{Titemize}
-	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{nna_discapacidades.observaciones}{Observaciones} u otros datos de la ficha descriptiva (modificable).
-	\end{Titemize}
-	}\UCitem{Origen}{\begin{Titemize}
-		\Titem Modificado directamente en la sección de salud individual del afectado.
-	\end{Titemize}
-	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem Confirmación de cambios guardados.
-	\end{Titemize}
-	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Persistencia en los registros clínicos del afectado.
-	\end{Titemize}
-	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem Debe existir un registro previo de la discapacidad para ese individuo.
-	\end{Titemize}
-	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Se actualizan los apuntes u observaciones asociados a la discapacidad.
-	\end{Titemize}
-	}\UCitem{Errores}{\begin{Titemize}
-		\Titem Ninguno significativo (validación base aplica de la misma forma que en el CU-34).
-	\end{Titemize}
-	}\UCitem{Tipo}{
-		Caso de uso primario.
-	}\UCitem{Observaciones}{
-		Si el individuo superó la discapacidad (por ejemplo, mediante rehabilitación en algunos casos muy específicos), el administrador o especialista preferentemente indica su resolución sin borrar el registro para conservar el historial.
-	}
-\end{UseCase}
 
-\begin{UCtrayectoria}
-	\UCpaso[\UCactor] Se dirige a la sección de salud del NNA/tutor y selecciona ``Editar'' en la fila de la discapacidad específica.
-	\UCpaso Despliega el panel de edición con las observaciones guardadas previamente.
-	\UCpaso[\UCactor] Edita la nota y presiona el botón \IUbutton{Actualizar}.
-	\UCpaso Registra los cambios sobre la tabla de vinculación en la base de datos.
-	\UCpaso Emite la notificación ``El registro ha sido actualizado correctamente.''
-\end{UCtrayectoria}
 %-------------------------------------- TERMINA CU-35
 
 %-------------------------------------- COMIENZA CU-36
@@ -1989,52 +1237,5 @@ A continuación se detallan los casos de uso.
 \end{UCtrayectoria}
 %-------------------------------------- TERMINA CU-36
 
-%-------------------------------------- COMIENZA CU-37
-\begin{UseCase}{CU-37}{Modificar enfermedad de NNA o tutor}{
-	El especialista actualiza el estatus o los detalles del tratamiento médico sobre una enfermedad ya registrada de un NNA o tutor a medida que progresa el diagnóstico o remite la afección.
-}
-	\UCitem{Versión}{1.0}
-	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
-	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
-	\UCitem{Actor}{\hyperlink{Actor.Especialista}{Especialista}}
-	\UCitem{Propósito}{\begin{Titemize}
-		\Titem Garantizar que las pautas médicas referenciadas dentro del sistema SICORRE coincidan con el estado de salud actual.
-	\end{Titemize}
-	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem Nuevas observaciones médicas, notas sobre medicación o cambio en la severidad.
-	\end{Titemize}
-	}\UCitem{Origen}{\begin{Titemize}
-		\Titem Se actualizan directamente desde el módulo de salud del individuo.
-	\end{Titemize}
-	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem Pantalla validando la modificación exitosa.
-	\end{Titemize}
-	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Panel informativo de salud actualizado y la base de datos subyacente.
-	\end{Titemize}
-	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem La enfermedad debe encontrarse previamente listada en el expediente.
-	\end{Titemize}
-	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Sobrescritura de la nota médica en los datos del paciente asegurando que este cuente con información verídica al día.
-	\end{Titemize}
-	}\UCitem{Errores}{\begin{Titemize}
-		\Titem Similar a CU-36, verificándose que las actualizaciones no eliminen el registro si aún sigue vigente, sino que sólo actualicen los detalles.
-	\end{Titemize}
-	}\UCitem{Tipo}{
-		Caso de uso primario.
-	}\UCitem{Observaciones}{
-		Para este caso también se considera que si la enfermedad fue un cuadro temporal ya sanado, el usuario pueda marcar un estatus de remisión.
-	}
-\end{UseCase}
-
-\begin{UCtrayectoria}
-	\UCpaso[\UCactor] Sitúa la lista de enfermedades en la vista del NNA/tutor y hace click en ``Editar'' sobre el ítem a actualizar.
-	\UCpaso El sistema carga la descripción y estatus guardados en el modal de edición.
-	\UCpaso[\UCactor] Cambia el texto en el apartado de pautas, observaciones o estatus, y finaliza con \IUbutton{Actualizar}.
-	\UCpaso Almacena el campo modificado en la tabla sin alterar el histórico o ID del mapeo de la dolencia.
-	\UCpaso Muestra el mensaje confirmando la persistencia de las correcciones médicas.
-\end{UCtrayectoria}
-%-------------------------------------- TERMINA CU-37
 
 

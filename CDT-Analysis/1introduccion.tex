@@ -5,31 +5,64 @@
 
 
 
-	Este documento contiene el análisis de requerimientos del proyecto ``{\em Sistema de control de Registros para la Restitución de Derechios de niños niñas ya adolescentes: (SICORRE)}'' que servirá como base para el análisis, diseño, construcción, pruebas y aceptación del proyecto.
+Este documento contiene el análisis de requerimientos del proyecto ``{\em Sistema de control de Registros para la Restitución de Derechos de niños, niñas y adolescentes: (SICORRE)}'' que servirá como base para el análisis, diseño, construcción, pruebas y aceptación del proyecto.
 
 %---------------------------------------------------------
 \section{Presentación}
 
-Como contexto la empresa fundación de restitución de derechos de niños niñas o adolescentes en estado de orfandad debido al feminicidio en México Nuevo León ha solicitado una propuesta de proyecto la cual tiene la finalidad de darle solución y estructura definida a procesos mecanizados que actualmente se realizan en papel, dichos procesos se definen como archivos, expedientes, diagnósticos, registro de fechas. Para lo cual en este documento se detalla el analisis del sitema propuesto. 
+Como contexto la empresa Fundación de Restitución de Derechos de Niños, Niñas y Adolescentes en estado de orfandad debido al feminicidio en México ha solicitado una propuesta de proyecto la cual tiene la finalidad de darle solución y estructura definida a procesos mecanizados que actualmente se realizan en papel, dichos procesos se definen como archivos, expedientes, diagnósticos, registro de fechas. Para lo cual en este documento se detalla el análisis del sistema propuesto. 
 
-Este documento contiene la especificacion de los requerimientos del usuario y del sistema a desarrollar. Tiene como 
-objetivo establecer la naturaleza y funciones del sistema para su evaluación y aprobación por la fundación interesada asi como futuras pruebas
-Este documento corresponde al entregable C2-DT Documentacion de Analisis del proyecto.
-	
+Este documento contiene la especificación de los requerimientos del usuario y del sistema a desarrollar. Tiene como 
+objetivo establecer la naturaleza y funciones del sistema para su evaluación y aprobación por la Fundación interesada, así como futuras pruebas.
+Este documento corresponde al entregable C2-DT Documentación de Análisis del proyecto.
+
 %---------------------------------------------------------
 \section{Organización del contenido}
 
 \cdtInstrucciones{
 	Indique el contenido y organización del documento.
 }
-	En el capítulo \ref{cap:reqUsr} ...
-	
-	En el capítulo \ref{cap:reqSist} ...
+En el capítulo \ref{cap:alcance} se describe el alcance del sistema, presentando los usuarios y áreas involucradas, los requerimientos del usuario y la arquitectura general del sistema.
+En el capítulo \ref{cap:reqSist} se describen los elementos del negocio que debe contemplar el sistema, este incluye un glosario de términos y los procesos actuales a considerar.
+
+En el capítulo \ref{cap:modDinamico} se describen todos los requerimientos funcionales del sistema a detalle.
+
+En el capítulo \ref{cap:modInteraccion} se proporciona un modelado de todas las interfaces que tendrá el sistema.
 
 %---------------------------------------------------------
 \section{Notación, símbolos y convenciones utilizadas}
 
 \cdtInstrucciones{
-	Indique la notacion utilizada así como nórmas o estándares de documentación utilizados en el documento.
+	Indique la notación utilizada así como normas o estándares de documentación utilizados en el documento.
 }	
 
+Los requerimientos de usuario se identifican de la forma RUX donde:
+
+\textbf{X} Es un número consecutivo: 1, 2, 3, ...
+
+\textbf{RU} Lo identifica como \textbf{R}equerimiento de \textbf{U}suario.
+
+
+Los casos de uso se identifican de la forma CUX, donde:
+
+\textbf{X} Es un número consecutivo: 1, 2, 3, ...
+
+\textbf{CU} Lo identifica como \textbf{C}aso de \textbf{U}so.
+
+Las interfaces de usuario se identifican de la forma IUX, donde:
+
+\textbf{X} Es un número consecutivo: 1, 2, 3, ...
+
+\textbf{IU} La identifica como \textbf{I}nterfaz de \textbf{U}suario.
+
+Los mensajes en pantalla se identifican de la forma MSGX, donde:
+
+\textbf{X} Es un número consecutivo: 1, 2, 3, ...
+
+\textbf{MSG} Lo identifica como mensaje abreviando la palabra en inglés \textbf{M}e\textbf{S}sa\textbf{G}e.
+
+Para modelar el sistema este documento utiliza los siguientes estándares:
+
+\textbf{UML} El Lenguaje Unificado de Modelado versión 2.5, ver \url{https://www.uml.org/}
+
+\textbf{BPMN} Business Process Modeling Notation versión 2.

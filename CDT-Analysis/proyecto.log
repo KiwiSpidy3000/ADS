@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.25)  25 MAR 2026 18:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.25)  27 MAR 2026 22:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -735,11 +735,7 @@ LaTeX Info: Redefining \% on input line 11.
 Package babel Info: 'spanish' activates 'spanish' shorthands.
 (babel)             Reported on input line 11.
  (projectCharter.aux) (1introduccion.aux) (2ModeloDelAlcance.aux)
-(3ModeloDelNegocio.aux) (4ModeloDinamico.aux
-
-LaTeX Warning: Label `UCX.introduceDatos' multiply defined.
-
-) (5ModeloDeInteraccion.aux))
+(3ModeloDelNegocio.aux) (4ModeloDinamico.aux) (5ModeloDeInteraccion.aux))
 \openout1 = `proyecto.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 19.
@@ -886,7 +882,7 @@ LaTeX Font Info:    Trying to load font information for U+txsyc on input line 2
 (C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
-<theme/bannerAzul.png, id=210, 711.1368pt x 336.7782pt>
+<theme/bannerAzul.png, id=990, 711.1368pt x 336.7782pt>
 File: theme/bannerAzul.png Graphic file (type png)
 <use theme/bannerAzul.png>
 Package pdftex.def Info: theme/bannerAzul.png  used on input line 24.
@@ -907,47 +903,247 @@ LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    Font shape `OT1/txss/b/n' will be
 (Font)              scaled to size 9.49997pt on input line 2.
 LaTeX Font Info:    Font shape `OT1/txss/m/sc' will be
-(Font)              scaled to size 9.49997pt on input line 33.
+(Font)              scaled to size 9.49997pt on input line 32.
  [1
 
-])
+]
+<theme/headerPar.png, id=1087, 1204.5pt x 200.75pt>
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 79.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
+(Font)              scaled to size 7.59998pt on input line 79.
+LaTeX Font Info:    Font shape `OT1/txss/m/sc' will be
+(Font)              scaled to size 7.59998pt on input line 79.
+LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
+(Font)              scaled to size 4.74998pt on input line 79.
+LaTeX Font Info:    Font shape `OT1/txss/m/it' in size <5> not available
+(Font)              Font shape `OT1/txss/m/sl' tried instead on input line 79.
+LaTeX Font Info:    Font shape `OT1/txss/m/sl' will be
+(Font)              scaled to size 4.74998pt on input line 79.
+LaTeX Font Info:    Trying to load font information for U+mvs on input line 79.
+
+
+(C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/marvosym\umvs.fd) [2 <./the
+me/headerPar.png>]
+<theme/headerInp.png, id=1142, 1204.5pt x 200.75pt>
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 126.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+ [3 <./theme/headerInp.png>]
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 173.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+ [4]
+Overfull \hbox (3.93289pt too wide) detected at line 203
+\OT1/txss/m/n/10 5.10.10. 
+ []
+
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 220.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+[5]
+Overfull \hbox (1.12093pt too wide) detected at line 227
+ []\OT1/txss/m/n/10 100
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 228
+ []\OT1/txss/m/n/10 100
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 229
+ []\OT1/txss/m/n/10 100
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 230
+ []\OT1/txss/m/n/10 100
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 231
+ []\OT1/txss/m/n/10 100
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 232
+ []\OT1/txss/m/n/10 100
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 233
+ []\OT1/txss/m/n/10 101
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 234
+ []\OT1/txss/m/n/10 101
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 235
+ []\OT1/txss/m/n/10 101
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 236
+ []\OT1/txss/m/n/10 101
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 237
+ []\OT1/txss/m/n/10 101
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 238
+ []\OT1/txss/m/n/10 102
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 239
+ []\OT1/txss/m/n/10 102
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 240
+ []\OT1/txss/m/n/10 102
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 241
+ []\OT1/txss/m/n/10 102
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 242
+ []\OT1/txss/m/n/10 102
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 243
+ []\OT1/txss/m/n/10 102
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 244
+ []\OT1/txss/m/n/10 102
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 245
+ []\OT1/txss/m/n/10 102
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 246
+ []\OT1/txss/m/n/10 103
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 247
+ []\OT1/txss/m/n/10 103
+ []
+
+)
 \tf@toc=\write4
 \openout4 = `proyecto.toc'.
 
-<theme/headerPar.png, id=281, 1204.5pt x 200.75pt>
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
 Package pdftex.def Info: theme/headerPar.png  used on input line 28.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
-LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 28.
-LaTeX Font Info:    Font shape `OT1/txss/m/sc' will be
-(Font)              scaled to size 7.59998pt on input line 28.
-LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 4.74998pt on input line 28.
-LaTeX Font Info:    Font shape `OT1/txss/m/it' in size <5> not available
-(Font)              Font shape `OT1/txss/m/sl' tried instead on input line 28.
-LaTeX Font Info:    Font shape `OT1/txss/m/sl' will be
-(Font)              scaled to size 4.74998pt on input line 28.
-LaTeX Font Info:    Trying to load font information for U+mvs on input line 28.
-
-
-(C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/marvosym\umvs.fd) [2 <./the
-me/headerPar.png>] (proyecto.lof
+ [6] (proyecto.lof
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
+
+Overfull \hbox (1.12093pt too wide) detected at line 17
+ []\OT1/txss/m/n/10 108
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 18
+ []\OT1/txss/m/n/10 109
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 19
+ []\OT1/txss/m/n/10 110
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 20
+ []\OT1/txss/m/n/10 110
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 21
+ []\OT1/txss/m/n/10 111
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 22
+ []\OT1/txss/m/n/10 111
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 23
+ []\OT1/txss/m/n/10 111
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 24
+ []\OT1/txss/m/n/10 112
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 25
+ []\OT1/txss/m/n/10 112
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 26
+ []\OT1/txss/m/n/10 113
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 27
+ []\OT1/txss/m/n/10 114
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 28
+ []\OT1/txss/m/n/10 115
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 29
+ []\OT1/txss/m/n/10 115
+ []
+
+
+Overfull \hbox (1.12093pt too wide) detected at line 30
+ []\OT1/txss/m/n/10 116
+ []
+
 )
 \tf@lof=\write5
 \openout5 = `proyecto.lof'.
 
- [3
+ [7
 
 ]
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
 Package pdftex.def Info: theme/headerPar.png  used on input line 29.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
- [4
+ [8
 
 ] (proyecto.lot
 LaTeX Info: Redefining \. on input line 1.
@@ -956,16 +1152,15 @@ LaTeX Info: Redefining \% on input line 1.
 \tf@lot=\write6
 \openout6 = `proyecto.lot'.
 
- [5]
+ [9]
 \openout2 = `projectCharter.aux'.
 
-
-(projectCharter.tex
+ (projectCharter.tex
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
 Package pdftex.def Info: theme/headerPar.png  used on input line 11.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
- [6
+ [10
 
 
 ]
@@ -982,29 +1177,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--23
  []
 
 LaTeX Font Info:    Trying to load font information for TS1+txss on input line 
-27.
+38.
 (C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\ts1txss.fd
 File: ts1txss.fd 2000/12/15 v3.1
 )
 LaTeX Font Info:    Font shape `TS1/txss/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 27.
+(Font)              scaled to size 9.49997pt on input line 38.
 
 Underfull \hbox (badness 6961) in paragraph at lines 73--73
 []|\OT1/txss/b/n/10 Restricciones y de-
  []
 
 )
-<theme/headerInp.png, id=328, 1204.5pt x 200.75pt>
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
 Package pdftex.def Info: theme/headerInp.png  used on input line 31.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
- [7 <./theme/headerInp.png>]
+ [11]
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
 Package pdftex.def Info: theme/headerPar.png  used on input line 33.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
- [8
+ [12
 
 
 
@@ -1018,48 +1212,45 @@ LaTeX Font Info:    Font shape `OT1/txss/m/it' in size <10> not available
 LaTeX Font Info:    Font shape `OT1/txss/m/sl' will be
 (Font)              scaled to size 9.49997pt on input line 8.
 
-LaTeX Warning: Reference `cap:reqUsr' on page 1 undefined on input line 25.
-
-)
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.39 \include{1introduccion}
-                            
-<theme/pleca.png, id=344, 1638.12pt x 231.264pt>
+l.41 \textbf{X}
+                Es un número consecutivo: 1, 2, 3, ...
+<theme/pleca.png, id=1371, 1638.12pt x 231.264pt>
 File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 39.
+Package pdftex.def Info: theme/pleca.png  used on input line 41.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
  [1
 
 
  <./theme/pleca.png>]
-\openout2 = `2ModeloDelAlcance.aux'.
-
- (2ModeloDelAlcance.tex
+LaTeX Font Info:    Trying to load font information for OT1+txtt on input line 
+66.
+(C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\ot1txtt.fd
+File: ot1txtt.fd 2000/12/15 v3.1
+))
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
-Package pdftex.def Info: theme/headerPar.png  used on input line 4.
+Package pdftex.def Info: theme/headerPar.png  used on input line 39.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.4 \chapter
-            {Modelo del alcance}
+l.39 \include{1introduccion}
+                            
 File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 4.
+Package pdftex.def Info: theme/pleca.png  used on input line 39.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [2
+ [2]
+\openout2 = `2ModeloDelAlcance.aux'.
 
-
-
-
-]
+ (2ModeloDelAlcance.tex
 Cap\'{\i }tulo 2.
 LaTeX Font Info:    Font shape `OT1/txss/b/n' will be
 (Font)              scaled to size 11.39996pt on input line 21.
@@ -1067,7 +1258,12 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 46.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[3]
+[3
+
+
+
+
+]
 LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
 (Font)              scaled to size 6.64998pt on input line 48.
 LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
@@ -1100,7 +1296,7 @@ File: theme/pleca.png Graphic file (type png)
 Package pdftex.def Info: theme/pleca.png  used on input line 185.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
  [5]
-<images/DiagraUsuarios.png, id=368, 563.10374pt x 261.97874pt>
+<images/DiagraUsuarios.png, id=1397, 563.10374pt x 261.97874pt>
 File: images/DiagraUsuarios.png Graphic file (type png)
 <use images/DiagraUsuarios.png>
 Package pdftex.def Info: images/DiagraUsuarios.png  used on input line 252.
@@ -1114,29 +1310,29 @@ File: theme/pleca.png Graphic file (type png)
 Package pdftex.def Info: theme/pleca.png  used on input line 261.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
  [6]
-<images/mapa.jpg, id=373, 640.3925pt x 480.79625pt>
-File: images/mapa.jpg Graphic file (type jpg)
-<use images/mapa.jpg>
-Package pdftex.def Info: images/mapa.jpg  used on input line 270.
-(pdftex.def)             Requested size: 400.38872pt x 300.60695pt.
+<images/flujo.png, id=1402, 855.195pt x 503.8825pt>
+File: images/flujo.png Graphic file (type png)
+<use images/flujo.png>
+Package pdftex.def Info: images/flujo.png  used on input line 270.
+(pdftex.def)             Requested size: 400.38872pt x 235.90987pt.
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
-Package pdftex.def Info: theme/headerInp.png  used on input line 317.
+Package pdftex.def Info: theme/headerInp.png  used on input line 281.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
 File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 317.
+Package pdftex.def Info: theme/pleca.png  used on input line 281.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [7 <./images/DiagraUsuarios.png>]
+ [7 <./images/DiagraUsuarios.png> <./images/flujo.png>]
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
-Package pdftex.def Info: theme/headerPar.png  used on input line 317.
+Package pdftex.def Info: theme/headerPar.png  used on input line 355.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
 File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 317.
+Package pdftex.def Info: theme/pleca.png  used on input line 355.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [8 <./images/mapa.jpg>]
+ [8]
 LaTeX Font Info:    Font shape `OT1/txss/b/n' will be
 (Font)              scaled to size 7.59998pt on input line 377.
 
@@ -1349,6 +1545,7 @@ Overfull \hbox (2.03964pt too wide) in paragraph at lines 543--543
 []|\OT1/txss/b/n/10 TODO[]| 
  []
 
+ignored error: Infinite glue shrinkage found in box being split
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
 Package pdftex.def Info: theme/headerInp.png  used on input line 545.
@@ -1357,7 +1554,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 545.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[9]
+ [9]
 ignored error: Infinite glue shrinkage found in box being split
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
@@ -1368,33 +1565,26 @@ File: theme/pleca.png Graphic file (type png)
 Package pdftex.def Info: theme/pleca.png  used on input line 545.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
  [10]
-ignored error: Infinite glue shrinkage found in box being split
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
-Package pdftex.def Info: theme/headerInp.png  used on input line 545.
+Package pdftex.def Info: theme/headerInp.png  used on input line 564.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
 File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 545.
+Package pdftex.def Info: theme/pleca.png  used on input line 564.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
  [11]
-LaTeX Font Info:    Trying to load font information for OT1+txtt on input line 
-568.
-
-(C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\ot1txtt.fd
-File: ot1txtt.fd 2000/12/15 v3.1
-)
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
-Package pdftex.def Info: theme/headerPar.png  used on input line 596.
+Package pdftex.def Info: theme/headerPar.png  used on input line 644.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
 File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 596.
+Package pdftex.def Info: theme/pleca.png  used on input line 644.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
 
 [12]
-<images/arquitectura.png, id=404, 563.10374pt x 458.71375pt>
+<images/arquitectura.png, id=1433, 563.10374pt x 458.71375pt>
 File: images/arquitectura.png Graphic file (type png)
 <use images/arquitectura.png>
 Package pdftex.def Info: images/arquitectura.png  used on input line 648.
@@ -1408,21 +1598,26 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 42.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [13]
-File: theme/headerPar.png Graphic file (type png)
-<use theme/headerPar.png>
-Package pdftex.def Info: theme/headerPar.png  used on input line 42.
-(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
-File: theme/pleca.png Graphic file (type png)
-<use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 42.
-(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [14 <./images/arquitectura.png>]
+ [13 <./images/arquitectura.png>]
 \openout2 = `3ModeloDelNegocio.aux'.
 
  (3ModeloDelNegocio.tex
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 4.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 4.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [14
+
+
+
+
+]
 Cap\'{\i }tulo 3.
-<cdt/images/actorRule.png, id=414, 1401.0744pt x 130.086pt>
+<cdt/images/actorRule.png, id=1443, 1401.0744pt x 130.086pt>
 File: cdt/images/actorRule.png Graphic file (type png)
 <use cdt/images/actorRule.png>
 Package pdftex.def Info: cdt/images/actorRule.png  used on input line 22.
@@ -1431,12 +1626,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 46.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[15
-
-
-
-
- <./cdt/images/actorRule.png>]
+[15 <./cdt/images/actorRule.png>]
 File: cdt/images/actorRule.png Graphic file (type png)
 <use cdt/images/actorRule.png>
 Package pdftex.def Info: cdt/images/actorRule.png  used on input line 68.
@@ -1502,431 +1692,1808 @@ File: theme/pleca.png Graphic file (type png)
 Package pdftex.def Info: theme/pleca.png  used on input line 324.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
  [20]
-<images/modeloDelDominioDelProblema.png, id=461, 1762.4244pt x 1340.8494pt>
-File: images/modeloDelDominioDelProblema.png Graphic file (type png)
-<use images/modeloDelDominioDelProblema.png>
-Package pdftex.def Info: images/modeloDelDominioDelProblema.png  used on input 
-line 359.
-(pdftex.def)             Requested size: 1762.42012pt x 1340.84613pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 418.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 418.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [21]
 
+LaTeX Warning: Reference `fig:diagramaBDproyecto3' on page 22 undefined on inpu
+t line 434.
 
-LaTeX Warning: Float too large for page by 63.71478pt on input line 363.
+<images/diagramaDBproyecto3.png, id=1480, 3537.215pt x 2468.22125pt>
+File: images/diagramaDBproyecto3.png Graphic file (type png)
+<use images/diagramaDBproyecto3.png>
+Package pdftex.def Info: images/diagramaDBproyecto3.png  used on input line 439
+.
+(pdftex.def)             Requested size: 3537.20642pt x 2468.21526pt.
 
-<cdt/images/classRule.png, id=462, 1930.5726pt x 130.086pt>
+LaTeX Warning: Float too large for page by 12.5814pt on input line 443.
+
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 445.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 445.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[22]
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 445.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 445.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [23 <./images/diagramaDBproyecto3.png>]
+<cdt/images/classRule.png, id=1491, 1930.5726pt x 130.086pt>
 File: cdt/images/classRule.png Graphic file (type png)
 <use cdt/images/classRule.png>
-Package pdftex.def Info: cdt/images/classRule.png  used on input line 365.
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 447.
 (pdftex.def)             Requested size: 500.484pt x 33.7223pt.
 
-Overfull \hbox (3.92613pt too wide) in paragraph at lines 365--365
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 447--447
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 452.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 452--452
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 460.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 460--460
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+ignored error: Infinite glue shrinkage found in box being split
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 467.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 467.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [24
+
+ <./cdt/images/classRule.png>]
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 469.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 469--469
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 474.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 474--474
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 483.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 483--483
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 488.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 488--488
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 492.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 492.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[25]
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 494.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 494--494
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 499.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 499--499
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 504.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 504--504
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 513.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 513.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 513.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[26]
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 513--513
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 525.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 525--525
 []|\OT1/txss/m/n/10 Requerido| 
  []
 
 ignored error: Infinite glue shrinkage found in box being split
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
-Package pdftex.def Info: theme/headerInp.png  used on input line 386.
+Package pdftex.def Info: theme/headerInp.png  used on input line 536.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
 File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 386.
+Package pdftex.def Info: theme/pleca.png  used on input line 536.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [21 <./cdt/images/classRule.png>]
+ [27]
 File: cdt/images/classRule.png Graphic file (type png)
 <use cdt/images/classRule.png>
-Package pdftex.def Info: cdt/images/classRule.png  used on input line 389.
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 538.
 (pdftex.def)             Requested size: 500.484pt x 33.7223pt.
 
-Overfull \hbox (3.92613pt too wide) in paragraph at lines 389--389
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 538--538
 []|\OT1/txss/m/n/10 Requerido| 
  []
 
-(3-1-reglas.tex
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on i
-nput line 12.
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 553.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
 
-(C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontawesomefr
-ee2.fd)
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree1 on i
-nput line 12.
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 553--553
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
 
-(C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontawesomefr
-ee1.fd)
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on i
-nput line 12.
 
-(C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontawesomefr
-ee0.fd)
-Overfull \hbox (2.5624pt too wide) in paragraph at lines 12--12
-[] 
+Underfull \hbox (badness 10000) in paragraph at lines 571--571
+[]|\OT1/txss/b/n/10 Direcciones
+ []
+
+ignored error: Infinite glue shrinkage found in box being split
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 573.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 573.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [28]
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 575.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 575--575
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 582.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 582--582
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 593--593
+[]|\OT1/txss/b/n/10 Equipos Mul-ti-
+ []
+
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 595.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 595.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[29]
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 601.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 601--601
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 614--614
+[]|\OT1/txss/b/n/10 Direcciones
+ []
+
+ignored error: Infinite glue shrinkage found in box being split
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 615.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 615.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [30]
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 617.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 617--617
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 638--638
+[]|\OT1/txss/b/n/10 CatEstatus
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 640--640
+[]|\OT1/txss/b/n/10 Equipos Mul-ti-
+ []
+
+ignored error: Infinite glue shrinkage found in box being split
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 642.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 642.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [31]
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 648.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 648--648
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+
+Underfull \hbox (badness 3019) in paragraph at lines 655--655
+[]|\OT1/txss/b/n/10 Nombre del Me-di-ca-
+ []
+
+
+Overfull \hbox (5.60403pt too wide) in paragraph at lines 659--659
+[]|\OT1/txss/b/n/10 CatEnfermedades| 
+ []
+
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 662.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 662.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 662.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[32]
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 662--662
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 679.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 679--679
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+
+Underfull \hbox (badness 3019) in paragraph at lines 686--686
+[]|\OT1/txss/b/n/10 Nombre del Me-di-ca-
+ []
+
+
+Overfull \hbox (5.60403pt too wide) in paragraph at lines 690--690
+[]|\OT1/txss/b/n/10 CatEnfermedades| 
+ []
+
+ignored error: Infinite glue shrinkage found in box being split
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 691.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 691.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [33]
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 693.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 693--693
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 702--702
+[]|\OT1/txss/b/n/10 Cat Dis-ca-pa-ci-
+ []
+
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 705.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 705--705
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 716.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 716.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[34]
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 722.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 722--722
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 726--726
+[]|\OT1/txss/b/n/10 Es Or-ga-ni-za-ci[]on Pri-
+ []
+
+ignored error: Infinite glue shrinkage found in box being split
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 738.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 738.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [35]
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 740.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 740--740
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+
+Overfull \hbox (3.49504pt too wide) in paragraph at lines 753--753
+[]|\OT1/txss/b/n/10 ActoresDerechos| 
+ []
+
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 760.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 760--760
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 768.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 768.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[36]
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 770.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 770--770
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 779.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 779--779
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 790.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 790.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[37]
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 792.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 792--792
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+File: cdt/images/classRule.png Graphic file (type png)
+<use cdt/images/classRule.png>
+Package pdftex.def Info: cdt/images/classRule.png  used on input line 805.
+(pdftex.def)             Requested size: 500.484pt x 33.7223pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 805.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 805.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[38]
+Overfull \hbox (3.92613pt too wide) in paragraph at lines 805--805
+[]|\OT1/txss/m/n/10 Requerido| 
+ []
+
+
+Overfull \hbox (2.64003pt too wide) in paragraph at lines 812--812
+[]|\OT1/txss/b/n/10 ServiciosActores| 
  []
 
 )
-File: theme/headerPar.png Graphic file (type png)
-<use theme/headerPar.png>
-Package pdftex.def Info: theme/headerPar.png  used on input line 406.
-(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
-File: theme/pleca.png Graphic file (type png)
-<use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 406.
-(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [22{C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5f
-ree2.enc}{C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5
-/fa5free1.enc}{C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawe
-some5/fa5free0.enc}]
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
-Package pdftex.def Info: theme/headerInp.png  used on input line 406.
-(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
-File: theme/pleca.png Graphic file (type png)
-<use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 406.
-(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [23 <./images/modeloDelDominioDelProblema.png>]
-(3-2-estados.tex
-<images/edoPrestamo.png, id=526, 408.52625pt x 226.8475pt>
-File: images/edoPrestamo.png Graphic file (type png)
-<use images/edoPrestamo.png>
-Package pdftex.def Info: images/edoPrestamo.png  used on input line 12.
-(pdftex.def)             Requested size: 350.33727pt x 194.54506pt.
-))
-File: theme/headerPar.png Graphic file (type png)
-<use theme/headerPar.png>
-Package pdftex.def Info: theme/headerPar.png  used on input line 45.
+Package pdftex.def Info: theme/headerInp.png  used on input line 45.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
 File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 45.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [24 <./images/edoPrestamo.png>]
+ [39]
 \openout2 = `4ModeloDinamico.aux'.
 
  (4ModeloDinamico.tex
-Cap\'{\i }tulo 4.
-<images/casosDeUso.png, id=536, 726.5544pt x 370.0224pt>
-File: images/casosDeUso.png Graphic file (type png)
-<use images/casosDeUso.png>
-Package pdftex.def Info: images/casosDeUso.png  used on input line 13.
-(pdftex.def)             Requested size: 400.38872pt x 203.9138pt.
-<images/casosDeUsoDetalle.png, id=537, 1653.0558pt x 995.3988pt>
-File: images/casosDeUsoDetalle.png Graphic file (type png)
-<use images/casosDeUsoDetalle.png>
-Package pdftex.def Info: images/casosDeUsoDetalle.png  used on input line 21.
-(pdftex.def)             Requested size: 1653.05179pt x 995.39638pt.
-
-LaTeX Warning: Float too large for page by 20.5961pt on input line 25.
-
-(cu/cu-template-corto.tex
-File: theme/pleca.png Graphic file (type png)
-<use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 10.
-(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [25
-
-
-
-
- <./images/casosDeUso.png>]
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
-Package pdftex.def Info: theme/headerPar.png  used on input line 10.
+Package pdftex.def Info: theme/headerPar.png  used on input line 4.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
 File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 10.
+Package pdftex.def Info: theme/pleca.png  used on input line 4.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [26 <./images/casosDeUsoDetalle.png>]
+ [40
+
+
+
+
+]
+Cap\'{\i }tulo 4.
+<images/casosUso.jpeg, id=1882, 682.55pt x 561.09625pt>
+File: images/casosUso.jpeg Graphic file (type jpg)
+<use images/casosUso.jpeg>
+Package pdftex.def Info: images/casosUso.jpeg  used on input line 18.
+(pdftex.def)             Requested size: 400.38872pt x 329.14323pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 23.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[41]
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 23.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 23.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [42 <./images/casosUso.jpeg>]
+<images/casosUsoDetalle.png, id=1892, 423.5825pt x 1606.0pt>
+File: images/casosUsoDetalle.png Graphic file (type png)
+<use images/casosUsoDetalle.png>
+Package pdftex.def Info: images/casosUsoDetalle.png  used on input line 27.
+(pdftex.def)             Requested size: 423.58147pt x 1605.99611pt.
+LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
+(Font)              scaled to size 8.54997pt on input line 58.
+
+ignored error: Infinite glue shrinkage found in box being split
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
-Package pdftex.def Info: theme/headerInp.png  used on input line 10.
+Package pdftex.def Info: theme/headerInp.png  used on input line 129.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
 File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 10.
+Package pdftex.def Info: theme/pleca.png  used on input line 129.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [27]
-<cdt/images/cuRule.png, id=553, 926.46124pt x 57.21375pt>
+ [43]
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 135.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 135.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [44]
+<cdt/images/cuRule.png, id=1901, 926.46124pt x 57.21375pt>
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
-Package pdftex.def Info: cdt/images/cuRule.png  used on input line 10.
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 135.
 (pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
 
-Overfull \hbox (50.05145pt too wide) in paragraph at lines 10--10
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 135--135
 [][] 
  []
 
-<cdt/images/iu.png, id=558, 61.22874pt x 55.20625pt>
+<cdt/images/iu.png, id=1905, 61.22874pt x 55.20625pt>
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
-Package pdftex.def Info: cdt/images/iu.png  used on input line 45.
+Package pdftex.def Info: cdt/images/iu.png  used on input line 157.
 (pdftex.def)             Requested size: 11.09076pt x 10.0pt.
 
-LaTeX Warning: Reference `UC1.etiqueta' on page 28 undefined on input line 68.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 86--86
+Underfull \hbox (badness 10000) in paragraph at lines 173--173
 
  []
 
-<cdt/images/actor.png, id=560, 96.36pt x 74.2775pt>
+<cdt/images/actor.png, id=1908, 96.36pt x 74.2775pt>
 File: cdt/images/actor.png Graphic file (type png)
 <use cdt/images/actor.png>
-Package pdftex.def Info: cdt/images/actor.png  used on input line 91.
+Package pdftex.def Info: cdt/images/actor.png  used on input line 174.
 (pdftex.def)             Requested size: 14.26958pt x 11.0pt.
-<cdt/images/usecase.png, id=561, 91.34125pt x 61.22874pt>
+<cdt/images/usecase.png, id=1909, 91.34125pt x 61.22874pt>
 File: cdt/images/usecase.png Graphic file (type png)
 <use cdt/images/usecase.png>
-Package pdftex.def Info: cdt/images/usecase.png  used on input line 91.
-(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
-File: cdt/images/actor.png Graphic file (type png)
-<use cdt/images/actor.png>
-Package pdftex.def Info: cdt/images/actor.png  used on input line 92.
-(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
-File: cdt/images/usecase.png Graphic file (type png)
-<use cdt/images/usecase.png>
-Package pdftex.def Info: cdt/images/usecase.png  used on input line 94.
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 175.
 (pdftex.def)             Requested size: 16.40865pt x 11.0pt.
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
-Package pdftex.def Info: cdt/images/iu.png  used on input line 94.
+Package pdftex.def Info: cdt/images/iu.png  used on input line 175.
 (pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-File: theme/headerPar.png Graphic file (type png)
-<use theme/headerPar.png>
-Package pdftex.def Info: theme/headerPar.png  used on input line 96.
-(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
-File: theme/pleca.png Graphic file (type png)
-<use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 96.
-(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[28 <./cdt/images/cuRule.png> <./cdt/images/iu.png> <./cdt/images/actor.png> <.
-/cdt/images/usecase.png>]
-File: cdt/images/actor.png Graphic file (type png)
-<use cdt/images/actor.png>
-Package pdftex.def Info: cdt/images/actor.png  used on input line 96.
-(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
-File: cdt/images/actor.png Graphic file (type png)
-<use cdt/images/actor.png>
-Package pdftex.def Info: cdt/images/actor.png  used on input line 98.
-(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
-File: cdt/images/usecase.png Graphic file (type png)
-<use cdt/images/usecase.png>
-Package pdftex.def Info: cdt/images/usecase.png  used on input line 100.
-(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
-LaTeX Font Info:    Trying to load font information for U+fontawesomefree3 on i
-nput line 100.
-
-(C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontawesomefr
-ee3.fd)
-File: cdt/images/usecase.png Graphic file (type png)
-<use cdt/images/usecase.png>
-Package pdftex.def Info: cdt/images/usecase.png  used on input line 102.
-(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
-File: cdt/images/usecase.png Graphic file (type png)
-<use cdt/images/usecase.png>
-Package pdftex.def Info: cdt/images/usecase.png  used on input line 104.
-(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
-File: cdt/images/usecase.png Graphic file (type png)
-<use cdt/images/usecase.png>
-Package pdftex.def Info: cdt/images/usecase.png  used on input line 108.
-(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
-File: cdt/images/iu.png Graphic file (type png)
-<use cdt/images/iu.png>
-Package pdftex.def Info: cdt/images/iu.png  used on input line 108.
-(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-LaTeX Font Info:    Font shape `OT1/txss/m/n' will be
-(Font)              scaled to size 8.54997pt on input line 114.
-LaTeX Font Info:    Font shape `OT1/txss/b/n' will be
-(Font)              scaled to size 8.54997pt on input line 114.
-File: cdt/images/usecase.png Graphic file (type png)
-<use cdt/images/usecase.png>
-Package pdftex.def Info: cdt/images/usecase.png  used on input line 115.
-(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
-
-
-LaTeX Warning: Reference `CUX.etiqueta' on page 29 undefined on input line 137.
-
-
-
-LaTeX Warning: Reference `CUX.etiqueta' on page 29 undefined on input line 137.
-
-
-) (cu/cu-template-largo.tex
-File: theme/headerInp.png Graphic file (type png)
-<use theme/headerInp.png>
-Package pdftex.def Info: theme/headerInp.png  used on input line 10.
-(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
-File: theme/pleca.png Graphic file (type png)
-<use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 10.
-(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [29{C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5f
-ree3.enc} <C:/Users/d/AppData/Local/Programs/MiKTeX/tex/latex/keystroke/keystro
-ke_left.pdf> <C:/Users/d/AppData/Local/Programs/MiKTeX/tex/latex/keystroke/keys
-troke_middle.pdf> <C:/Users/d/AppData/Local/Programs/MiKTeX/tex/latex/keystroke
-/keystroke_right.pdf>]
-pdfTeX warning (ext4): destination with the same identifier (name{CUX}) has bee
-n already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.10 }
-      
-File: cdt/images/cuRule.png Graphic file (type png)
-<use cdt/images/cuRule.png>
-Package pdftex.def Info: cdt/images/cuRule.png  used on input line 10.
-(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
-
-Overfull \hbox (50.05145pt too wide) in paragraph at lines 10--10
-[] 
- []
-
-File: cdt/images/iu.png Graphic file (type png)
-<use cdt/images/iu.png>
-Package pdftex.def Info: cdt/images/iu.png  used on input line 82.
-(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
-[]|\OT1/txss/b/n/10 Condici[]on de
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 109--109
-[]|\OT1/txss/b/n/10 Efectos co-la-te-ra-
- []
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{CUX.E1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.128 	}
-        
-
-LaTeX Warning: Reference `UC1.etiqueta' on page 30 undefined on input line 128.
-
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{CUX.E2}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.128 	}
-        
-pdfTeX warning (ext4): destination with the same identifier (name{CUX.E1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.140 	}
-        
-
-LaTeX Warning: Reference `UC1.etiqueta' on page 30 undefined on input line 140.
-
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{CUX.E2}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.140 	}
-        
-Underfull \hbox (badness 10000) in paragraph at lines 146--146
-[]|\OT1/txss/b/n/10 Consideraciones
- []
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{CUX.E1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.152 	}
-        \UCitem{Preguntas}{
-
-LaTeX Warning: Reference `UC1.etiqueta' on page 30 undefined on input line 152.
-
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{CUX.E2}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.152 	}
-        \UCitem{Preguntas}{
-ignored error: Infinite glue shrinkage found in box being split
-File: theme/headerPar.png Graphic file (type png)
-<use theme/headerPar.png>
-Package pdftex.def Info: theme/headerPar.png  used on input line 168.
-(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
-File: theme/pleca.png Graphic file (type png)
-<use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 168.
-(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [30]
-Underfull \hbox (badness 10000) in paragraph at lines 171--171
-
- []
-
 File: cdt/images/actor.png Graphic file (type png)
 <use cdt/images/actor.png>
 Package pdftex.def Info: cdt/images/actor.png  used on input line 176.
 (pdftex.def)             Requested size: 14.26958pt x 11.0pt.
 File: cdt/images/usecase.png Graphic file (type png)
 <use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 177.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree3 on i
+nput line 177.
+
+(C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontawesomefr
+ee3.fd)
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
 Package pdftex.def Info: cdt/images/usecase.png  used on input line 178.
 (pdftex.def)             Requested size: 16.40865pt x 11.0pt.
-File: cdt/images/iu.png Graphic file (type png)
-<use cdt/images/iu.png>
-Package pdftex.def Info: cdt/images/iu.png  used on input line 178.
-(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-File: cdt/images/actor.png Graphic file (type png)
-<use cdt/images/actor.png>
-Package pdftex.def Info: cdt/images/actor.png  used on input line 180.
-(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
-File: cdt/images/actor.png Graphic file (type png)
-<use cdt/images/actor.png>
-Package pdftex.def Info: cdt/images/actor.png  used on input line 182.
-(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
 File: cdt/images/usecase.png Graphic file (type png)
 <use cdt/images/usecase.png>
-Package pdftex.def Info: cdt/images/usecase.png  used on input line 184.
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 179.
 (pdftex.def)             Requested size: 16.40865pt x 11.0pt.
-File: cdt/images/usecase.png Graphic file (type png)
-<use cdt/images/usecase.png>
-Package pdftex.def Info: cdt/images/usecase.png  used on input line 186.
-(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
-File: cdt/images/usecase.png Graphic file (type png)
-<use cdt/images/usecase.png>
-Package pdftex.def Info: cdt/images/usecase.png  used on input line 188.
-(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
-File: cdt/images/usecase.png Graphic file (type png)
-<use cdt/images/usecase.png>
-Package pdftex.def Info: cdt/images/usecase.png  used on input line 192.
-(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
-File: cdt/images/iu.png Graphic file (type png)
-<use cdt/images/iu.png>
-Package pdftex.def Info: cdt/images/iu.png  used on input line 192.
-(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
-Package pdftex.def Info: theme/headerInp.png  used on input line 193.
+Package pdftex.def Info: theme/headerInp.png  used on input line 186.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
 File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 193.
+Package pdftex.def Info: theme/pleca.png  used on input line 186.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[31]
+ [45{C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/fa5f
+ree3.enc} <./cdt/images/cuRule.png> <./cdt/images/iu.png> <./cdt/images/actor.p
+ng> <./cdt/images/usecase.png> <C:/Users/d/AppData/Local/Programs/MiKTeX/tex/la
+tex/keystroke/keystroke_left.pdf> <C:/Users/d/AppData/Local/Programs/MiKTeX/tex
+/latex/keystroke/keystroke_middle.pdf> <C:/Users/d/AppData/Local/Programs/MiKTe
+X/tex/latex/keystroke/keystroke_right.pdf>]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 186.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 186--186
+[][] 
+ []
+
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 206.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--222
+
+ []
+
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 223.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
 File: cdt/images/usecase.png Graphic file (type png)
 <use cdt/images/usecase.png>
-Package pdftex.def Info: cdt/images/usecase.png  used on input line 199.
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 224.
 (pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 225.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 225.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 236.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 236.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[46]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 236.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 236--236
+[][] 
+ []
 
 
-LaTeX Warning: Reference `CUX.etiqueta' on page 32 undefined on input line 221.
+Underfull \hbox (badness 10000) in paragraph at lines 273--273
+
+ []
+
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 274.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 275.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 275.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 276.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 277.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 278.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 279.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 286.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 286.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[47]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 286.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 286--286
+[][] 
+ []
+
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 306.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--323
+
+ []
+
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 324.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 325.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 326.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 327.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 334.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 334.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[48]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 334.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 334--334
+[][] 
+ []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 370--370
 
-LaTeX Warning: Reference `CUX.etiqueta' on page 32 undefined on input line 221.
+ []
+
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 371.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 372.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 372.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 373.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 374.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 375.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 376.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 383.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 383.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[49]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 383.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 383--383
+[][] 
+ []
 
 
-))
+Underfull \hbox (badness 10000) in paragraph at lines 419--419
+
+ []
+
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 420.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 421.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 422.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 423.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 424.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 431.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 431.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[50]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 431.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 431--431
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 467--467
+
+ []
+
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 468.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 469.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 470.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 471.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 472.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 473.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 474.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 474.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[51]
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 480.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 480.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [52]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 480.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 480--480
+[][] 
+ []
+
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 504.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 524--524
+
+ []
+
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 525.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 525.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[53]
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 525.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 526.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 526.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 527.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 528.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 529.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 530.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 531.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 537.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 537.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [54]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 537.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 537--537
+[][] 
+ []
+
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 563.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 581--581
+
+ []
+
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 581.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 581.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[55]
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 582.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 583.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 583.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 584.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 585.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 586.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 586.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 592.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 592.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [56]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 592.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 592--592
+[][] 
+ []
+
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 620.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+ignored error: Infinite glue shrinkage found in box being split
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 640.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 640.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [57]
+Underfull \hbox (badness 10000) in paragraph at lines 642--642
+
+ []
+
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 643.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 643.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 644.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 644.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 645.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 646.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 647.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 648.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 649.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 650.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 656.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 656.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[58]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 656.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 656--656
+[][] 
+ []
+
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 681.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+ignored error: Infinite glue shrinkage found in box being split
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 700.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 700.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [59]
+Underfull \hbox (badness 10000) in paragraph at lines 702--702
+
+ []
+
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 703.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 704.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 704.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 705.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 706.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 707.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 708.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 714.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 714.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[60]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 714.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 714--714
+[][] 
+ []
+
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 752.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+ignored error: Infinite glue shrinkage found in box being split
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 773.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 773.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [61]
+Underfull \hbox (badness 10000) in paragraph at lines 775--775
+
+ []
+
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 776.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 777.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 777.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 778.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 779.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 780.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 781.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 782.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 783.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 784.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 785.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 791.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 791.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[62]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 791.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 791--791
+[][] 
+ []
+
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 817.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 835--835
+
+ []
+
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 835.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 835.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[63]
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 836.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 837.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 837.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 838.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 839.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 840.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 840.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 848.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 848.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [64]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 848.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 848--848
+[][] 
+ []
+
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 872.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 891--891
+
+ []
+
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 891.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 891.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[65]
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 892.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 892.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 893.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 893.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 894.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 895.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 896.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 897.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 898.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 899.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 912.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 912.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [66]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 912.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 912--912
+[][] 
+ []
+
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 946.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+ignored error: Infinite glue shrinkage found in box being split
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 964.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 964.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [67]
+Underfull \hbox (badness 10000) in paragraph at lines 966--966
+
+ []
+
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 967.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 968.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 968.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 969.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 970.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 971.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 972.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 973.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 974.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 975.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 983.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 983.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[68]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 983.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 983--983
+[][] 
+ []
+
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1006.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1025--1025
+
+ []
+
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 1026.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 1026.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[69]
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 1026.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1027.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1027.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 1028.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1029.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1030.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1031.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1032.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1033.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 1042.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 1042.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [70]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 1042.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 1042--1042
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1078--1078
+
+ []
+
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 1079.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1080.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1081.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 1082.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 1082.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[71]
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 1082.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1083.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 1090.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 1090.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [72]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 1090.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 1090--1090
+[][] 
+ []
+
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1111.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1127--1127
+
+ []
+
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 1128.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1129.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1130.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 1131.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 1132.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 1132.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[73]
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 1138.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 1138.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [74]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 1138.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 1138--1138
+[][] 
+ []
+
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1161.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1177--1177
+
+ []
+
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 1178.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1179.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 1180.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1181.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1182.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 1183.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 1183.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[75]
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1183.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 1193.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 1193.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [76]
+File: cdt/images/cuRule.png Graphic file (type png)
+<use cdt/images/cuRule.png>
+Package pdftex.def Info: cdt/images/cuRule.png  used on input line 1193.
+(pdftex.def)             Requested size: 550.53545pt x 33.9985pt.
+
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 1193--1193
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1230
+
+ []
+
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 1231.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1232.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1232.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/actor.png Graphic file (type png)
+<use cdt/images/actor.png>
+Package pdftex.def Info: cdt/images/actor.png  used on input line 1233.
+(pdftex.def)             Requested size: 14.26958pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1234.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1235.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: cdt/images/usecase.png Graphic file (type png)
+<use cdt/images/usecase.png>
+Package pdftex.def Info: cdt/images/usecase.png  used on input line 1236.
+(pdftex.def)             Requested size: 16.40865pt x 11.0pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 1237.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 1237.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[77])
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
 Package pdftex.def Info: theme/headerPar.png  used on input line 48.
@@ -1935,49 +3502,625 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 48.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [32]
+ [78]
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 48.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 48.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [79 <./images/casosUsoDetalle.png>]
 \openout2 = `5ModeloDeInteraccion.aux'.
 
  (5ModeloDeInteraccion.tex
-Cap\'{\i }tulo 5.
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
-
- []
-
-File: images/mapa.jpg Graphic file (type jpg)
-<use images/mapa.jpg>
-Package pdftex.def Info: images/mapa.jpg  used on input line 20.
-(pdftex.def)             Requested size: 350.33727pt x 263.03017pt.
-(iu/iu-template.tex
-File: cdt/images/iu.png Graphic file (type png)
-<use cdt/images/iu.png>
-Package pdftex.def Info: cdt/images/iu.png  used on input line 9.
-(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-<images/Login.png, id=661, 354.32375pt x 252.945pt>
-File: images/Login.png Graphic file (type png)
-<use images/Login.png>
-Package pdftex.def Info: images/Login.png  used on input line 11.
-(pdftex.def)             Requested size: 350.33727pt x 250.10368pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 3.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
 File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 20.
+Package pdftex.def Info: theme/pleca.png  used on input line 3.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [33
+
+[80
 
 
 
 
 ]
+Cap\'{\i }tulo 5.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 20.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 28.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 34.
 (pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: images/flujo.png Graphic file (type png)
+<use images/flujo.png>
+Package pdftex.def Info: images/flujo.png  used on input line 56.
+(pdftex.def)             Requested size: 475.45825pt x 280.14249pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 62.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[81]
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 62.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 62.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [82]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
-Package pdftex.def Info: cdt/images/iu.png  used on input line 35.
+Package pdftex.def Info: cdt/images/iu.png  used on input line 76.
 (pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-) (5-1-Mensajes.tex
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 85.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 87.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+<images/IU1-IniciarSesion.png, id=2598, 947.79094pt x 567.62062pt>
+File: images/IU1-IniciarSesion.png Graphic file (type png)
+<use images/IU1-IniciarSesion.png>
+Package pdftex.def Info: images/IU1-IniciarSesion.png  used on input line 89.
+(pdftex.def)             Requested size: 350.33727pt x 209.80846pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 95.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 102.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 102.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [83
+
+ <./images/IU1-IniciarSesion.png>]
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 120.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 140.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 142.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+<images/DashAdmin.png, id=2614, 1906.87407pt x 438.13687pt>
+File: images/DashAdmin.png Graphic file (type png)
+<use images/DashAdmin.png>
+Package pdftex.def Info: images/DashAdmin.png  used on input line 150.
+(pdftex.def)             Requested size: 450.43253pt x 103.49031pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 152.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 152.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [84 <./images/DashAdmin.png>]
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 166.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 171.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 176.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 181.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 186.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 202.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 204.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+<images/ListaUsuarios.png, id=2630, 1915.9078pt x 413.29407pt>
+File: images/ListaUsuarios.png Graphic file (type png)
+<use images/ListaUsuarios.png>
+Package pdftex.def Info: images/ListaUsuarios.png  used on input line 213.
+(pdftex.def)             Requested size: 450.43253pt x 97.16194pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 226.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 226.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+
+[85]
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 242.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 248.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 265.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 279.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 281.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 283.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 283.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [86 <./images/ListaUsuarios.png>]
+<images/RegistroPersonal.png, id=2657, 726.46407pt x 895.09406pt>
+File: images/RegistroPersonal.png Graphic file (type png)
+<use images/RegistroPersonal.png>
+Package pdftex.def Info: images/RegistroPersonal.png  used on input line 295.
+(pdftex.def)             Requested size: 450.43253pt x 555.0072pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 343.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 343.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [87]
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 373.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 381.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 396.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 398.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 406.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 413.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 413.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [88]
+<images/ModificarUsuario.png, id=2688, 846.91406pt x 922.19531pt>
+File: images/ModificarUsuario.png Graphic file (type png)
+<use images/ModificarUsuario.png>
+Package pdftex.def Info: images/ModificarUsuario.png  used on input line 414.
+(pdftex.def)             Requested size: 450.43253pt x 490.46385pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 474.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 474.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [89]
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 495.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 505.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 520.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 522.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+<images/ConsultaUsaurios.png, id=2709, 1012.5328pt x 843.15pt>
+File: images/ConsultaUsaurios.png Graphic file (type png)
+<use images/ConsultaUsaurios.png>
+Package pdftex.def Info: images/ConsultaUsaurios.png  used on input line 540.
+(pdftex.def)             Requested size: 450.43253pt x 375.09122pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 546.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 546.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [90]
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 560.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 566.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 579.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 582.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 598.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 600.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+
+Overfull \hbox (4.83997pt too wide) in paragraph at lines 597--601
+[]\OT1/txss/m/n/10 Esta pan-ta-lla [] [][]IU07 Pan-ta-lla de Con-sul-ta de Equi
+-pos Mul-ti-dis-ci-pli-na-rios[][] es ac-ce-si-ble des-de el bot[]on  [][][][]
+ []
+
+<images/ConsultaEquipo.png, id=2726, 1251.92719pt x 355.3275pt>
+File: images/ConsultaEquipo.png Graphic file (type png)
+<use images/ConsultaEquipo.png>
+Package pdftex.def Info: images/ConsultaEquipo.png  used on input line 611.
+(pdftex.def)             Requested size: 450.43253pt x 127.84189pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 619.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 619.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+[91]
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 639.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 645.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 656.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 671.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 673.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+<images/RegistroEquipo.png, id=2739, 1251.92719pt x 355.3275pt>
+File: images/RegistroEquipo.png Graphic file (type png)
+<use images/RegistroEquipo.png>
+Package pdftex.def Info: images/RegistroEquipo.png  used on input line 679.
+(pdftex.def)             Requested size: 450.43253pt x 127.84189pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 691.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 691.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [92]
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 706.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 713.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 728.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 730.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+<images/AnadirIntegrantes.png, id=2763, 1352.05125pt x 332.24126pt>
+File: images/AnadirIntegrantes.png Graphic file (type png)
+<use images/AnadirIntegrantes.png>
+Package pdftex.def Info: images/AnadirIntegrantes.png  used on input line 743.
+(pdftex.def)             Requested size: 450.43253pt x 110.68428pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 770.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 770.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [93]
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 783.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 794.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 794.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+<images/ModificarEquipo.png, id=2780, 1190.94937pt x 328.22626pt>
+File: images/ModificarEquipo.png Graphic file (type png)
+<use images/ModificarEquipo.png>
+Package pdftex.def Info: images/ModificarEquipo.png  used on input line 796.
+(pdftex.def)             Requested size: 450.43253pt x 124.13628pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 820.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 820.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [94]
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 821.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 833.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 833.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+<images/ConsultaNNAsTutores.png, id=2799, 1237.62375pt x 457.71pt>
+File: images/ConsultaNNAsTutores.png Graphic file (type png)
+<use images/ConsultaNNAsTutores.png>
+Package pdftex.def Info: images/ConsultaNNAsTutores.png  used on input line 841
+.
+(pdftex.def)             Requested size: 450.43253pt x 166.58435pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 862.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 862.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [95]
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 877.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 889.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 889.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+<images/RegistroNNA.png, id=2816, 1199.98312pt x 737.75626pt>
+File: images/RegistroNNA.png Graphic file (type png)
+<use images/RegistroNNA.png>
+Package pdftex.def Info: images/RegistroNNA.png  used on input line 897.
+(pdftex.def)             Requested size: 450.43253pt x 276.92809pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 906.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 906.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [96]
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 936.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 950.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 950.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [97]
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 951.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 951.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+<images/RegistroTutor.png, id=2835, 602.25pt x 502.12593pt>
+File: images/RegistroTutor.png Graphic file (type png)
+<use images/RegistroTutor.png>
+Package pdftex.def Info: images/RegistroTutor.png  used on input line 953.
+(pdftex.def)             Requested size: 450.43253pt x 375.55917pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 978.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 990.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 990.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [98]
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 991.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 993.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+<images/ConsultaNNA.png, id=2849, 880.03781pt x 833.36343pt>
+File: images/ConsultaNNA.png Graphic file (type png)
+<use images/ConsultaNNA.png>
+Package pdftex.def Info: images/ConsultaNNA.png  used on input line 999.
+(pdftex.def)             Requested size: 450.43253pt x 426.53566pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1031.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1037.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1040.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1042.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 1043.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 1043.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [99]
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1056.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1057.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1058.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+<images/ModificacionNNA.png, id=2862, 1120.185pt x 794.2172pt>
+File: images/ModificacionNNA.png Graphic file (type png)
+<use images/ModificacionNNA.png>
+Package pdftex.def Info: images/ModificacionNNA.png  used on input line 1064.
+(pdftex.def)             Requested size: 450.43253pt x 319.36575pt.
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 1103.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 1103.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [100]
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1130.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1144.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1145.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+<images/PanelRestitucion.png, id=2875, 1099.10625pt x 245.41687pt>
+File: images/PanelRestitucion.png Graphic file (type png)
+<use images/PanelRestitucion.png>
+Package pdftex.def Info: images/PanelRestitucion.png  used on input line 1150.
+(pdftex.def)             Requested size: 450.43253pt x 100.57661pt.
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 1165.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 1165.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [101]
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1168.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1172.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1185.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1187.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+<images/ConsultaCatalogos.png, id=2888, 1087.81406pt x 773.89125pt>
+File: images/ConsultaCatalogos.png Graphic file (type png)
+<use images/ConsultaCatalogos.png>
+Package pdftex.def Info: images/ConsultaCatalogos.png  used on input line 1197.
+
+(pdftex.def)             Requested size: 450.43253pt x 320.45036pt.
+File: cdt/images/iu.png Graphic file (type png)
+<use cdt/images/iu.png>
+Package pdftex.def Info: cdt/images/iu.png  used on input line 1220.
+(pdftex.def)             Requested size: 11.09076pt x 10.0pt.
+ (5-1-Mensajes.tex
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
 Package pdftex.def Info: theme/headerPar.png  used on input line 9.
@@ -1986,26 +4129,44 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 9.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [34]
+
+[102]
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
-Package pdftex.def Info: theme/headerInp.png  used on input line 24.
+Package pdftex.def Info: theme/headerInp.png  used on input line 64.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
 File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 24.
+Package pdftex.def Info: theme/pleca.png  used on input line 64.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [35 <./images/Login.png>]
+ [103]
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
-Package pdftex.def Info: theme/headerPar.png  used on input line 99.
+Package pdftex.def Info: theme/headerPar.png  used on input line 138.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
 File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 99.
+Package pdftex.def Info: theme/pleca.png  used on input line 138.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-
-[36]))
+ [104]
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 210.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 210.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [105]
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 273.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 273.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [106]))
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
 Package pdftex.def Info: theme/headerInp.png  used on input line 51.
@@ -2014,12 +4175,96 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 51.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [37] (proyecto.aux
+ [107]
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 51.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 51.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [108 <./images/RegistroPersonal.png>]
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 51.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 51.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+
+[109 <./images/ModificarUsuario.png>]
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 51.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 51.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [110 <./images/ConsultaUsaurios.png> <./images/ConsultaEquipo.png>]
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 51.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 51.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [111 <./images/RegistroEquipo.png> <./images/AnadirIntegrantes.png> <./images/
+ModificarEquipo.png>]
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 51.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 51.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [112 <./images/ConsultaNNAsTutores.png> <./images/RegistroNNA.png>]
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 51.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 51.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [113 <./images/RegistroTutor.png>]
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 51.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 51.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+
+[114 <./images/ConsultaNNA.png>]
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 51.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 51.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [115 <./images/ModificacionNNA.png> <./images/PanelRestitucion.png>]
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 51.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 51.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [116 <./images/ConsultaCatalogos.png>] (proyecto.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
- (projectCharter.aux) (1introduccion.aux)
-(2ModeloDelAlcance.aux) (3ModeloDelNegocio.aux) (4ModeloDinamico.aux)
-(5ModeloDeInteraccion.aux))
+
+(projectCharter.aux) (1introduccion.aux) (2ModeloDelAlcance.aux)
+(3ModeloDelNegocio.aux) (4ModeloDinamico.aux) (5ModeloDeInteraccion.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -2028,117 +4273,436 @@ L3 programming layer <2025-12-24>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
-
-Package rerunfilecheck Warning: File `proyecto.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `proyecto.out':
-(rerunfilecheck)             Before: 3D1151AABAD61047DCFD32D36D141F3B;8945
-(rerunfilecheck)             After:  D1619F7CF79F6ACF1A749C816A1E7CB7;9552.
+Package rerunfilecheck Info: File `proyecto.out' has not changed.
+(rerunfilecheck)             Checksum: 3695060599FBA57E9594AC4893778B04;40238.
  ) 
 Here is how much of TeX's memory you used:
- 20331 strings out of 467870
- 346788 string characters out of 5420291
- 797567 words of memory out of 5000000
- 48579 multiletter control sequences out of 15000+600000
- 688413 words of font info for 166 fonts, out of 8000000 for 9000
+ 21438 strings out of 467870
+ 363728 string characters out of 5420291
+ 797210 words of memory out of 5000000
+ 48942 multiletter control sequences out of 15000+600000
+ 685550 words of font info for 160 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 105i,16n,107p,557b,829s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 105i,16n,107p,740b,804s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-pdfTeX warning (dest): name{Usuario.login} has been referenced but does not exi
-st, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{Usuario.nombre} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{IU50} has been referenced but does not exist, repla
-ced by a fixed one
-
-
-pdfTeX warning (dest): name{UI32} has been referenced but does not exist, repla
-ced by a fixed one
-
-
-pdfTeX warning (dest): name{CU3.4} has been referenced but does not exist, repl
+pdfTeX warning (dest): name{MSG27} has been referenced but does not exist, repl
 aced by a fixed one
 
 
-pdfTeX warning (dest): name{MSG1} has been referenced but does not exist, repla
-ced by a fixed one
-
-
-pdfTeX warning (dest): name{CUY.B} has been referenced but does not exist, repl
+pdfTeX warning (dest): name{MSG26} has been referenced but does not exist, repl
 aced by a fixed one
 
 
-pdfTeX warning (dest): name{CUY.A} has been referenced but does not exist, repl
+pdfTeX warning (dest): name{MSG25} has been referenced but does not exist, repl
 aced by a fixed one
 
 
-pdfTeX warning (dest): name{CUZ} has been referenced but does not exist, replac
-ed by a fixed one
-
-
-pdfTeX warning (dest): name{IU2} has been referenced but does not exist, replac
-ed by a fixed one
-
-
-pdfTeX warning (dest): name{CUY} has been referenced but does not exist, replac
-ed by a fixed one
-
-
-pdfTeX warning (dest): name{CUX.B} has been referenced but does not exist, repl
+pdfTeX warning (dest): name{MSG24} has been referenced but does not exist, repl
 aced by a fixed one
 
 
-pdfTeX warning (dest): name{CUX.E3} has been referenced but does not exist, rep
-laced by a fixed one
-
-
-pdfTeX warning (dest): name{CUX.A} has been referenced but does not exist, repl
+pdfTeX warning (dest): name{MSG23} has been referenced but does not exist, repl
 aced by a fixed one
 
 
-pdfTeX warning (dest): name{IU1} has been referenced but does not exist, replac
-ed by a fixed one
+pdfTeX warning (dest): name{MSG22} has been referenced but does not exist, repl
+aced by a fixed one
 
 
-pdfTeX warning (dest): name{IUX} has been referenced but does not exist, replac
-ed by a fixed one
+pdfTeX warning (dest): name{MSG21} has been referenced but does not exist, repl
+aced by a fixed one
 
 
-pdfTeX warning (dest): name{Entidad.Atributo} has been referenced but does not 
+pdfTeX warning (dest): name{MSG20} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG19} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG18} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG17} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG16} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG15} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG14} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG13} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG12} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG11} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG10} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG09} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG08} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG07} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG06} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG05} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG04} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG03} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG02} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{MSG01} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{IU-36} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{cat_enfermedades} has been referenced but does not 
 exist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{IdDelActor} has been referenced but does not exist,
- replaced by a fixed one
-
-
-pdfTeX warning (dest): name{CUCE3.3} has been referenced but does not exist, re
-placed by a fixed one
-
-
-pdfTeX warning (dest): name{CUCE3.2} has been referenced but does not exist, re
-placed by a fixed one
-
-
-pdfTeX warning (dest): name{Pais} has been referenced but does not exist, repla
-ced by a fixed one
-
-
-pdfTeX warning (dest): name{Curso} has been referenced but does not exist, repl
+pdfTeX warning (dest): name{IU-34} has been referenced but does not exist, repl
 aced by a fixed one
 
 
-pdfTeX warning (dest): name{Domicilio} has been referenced but does not exist, 
-replaced by a fixed one
+pdfTeX warning (dest): name{nna_discapacidades.observaciones} has been referenc
+ed but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{nna_discapacidades.discapacidad_id} has been refere
+nced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{cat_idiomas} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{IU-33} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{IU-19} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{direcciones_usuarios} has been referenced but does 
+not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{IU-18} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{cat_tipo_vivienda} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{direcciones_usuarios.tipo_vivienda_id} has been ref
+erenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{direcciones_usuarios.colonia_id} has been reference
+d but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{direcciones_usuarios.num_interior} has been referen
+ced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{direcciones_usuarios.num_exterior} has been referen
+ced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{direcciones_usuarios.calle} has been referenced but
+ does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{tutores.parentesco} has been referenced but does no
+t exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{tutores.nacionalidad} has been referenced but does 
+not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{tutores.curp} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{tutores.sexo} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{tutores.fecha_nacimiento} has been referenced but d
+oes not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{tutores.segundo_apellido} has been referenced but d
+oes not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{tutores.primer_apellido} has been referenced but do
+es not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{tutores.nombre} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{IU-15} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{nna_idiomas} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{nna_discapacidades} has been referenced but does no
+t exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{nna_enfermedades} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{tutores} has been referenced but does not exist, re
+placed by a fixed one
+
+
+pdfTeX warning (dest): name{IU-14} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{nna.creado_por} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{direcciones_nna} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{IU-13} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{nna.tutor_id} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{cat_vivienda_nna} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{direcciones_nna.vivienda_nna_id} has been reference
+d but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{direcciones_nna.pueblo_comunidad} has been referenc
+ed but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{direcciones_nna.colonia_id} has been referenced but
+ does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{direcciones_nna.num_interior} has been referenced b
+ut does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{direcciones_nna.num_exterior} has been referenced b
+ut does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{direcciones_nna.calle} has been referenced but does
+ not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{cat_estatus_escolar} has been referenced but does n
+ot exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{nna.estatus_escolar_id} has been referenced but doe
+s not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{nna.es_migrante} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{nna.nacionalidad} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{nna.curp} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{nna.sexo} has been referenced but does not exist, r
+eplaced by a fixed one
+
+
+pdfTeX warning (dest): name{nna.fecha_nacimiento} has been referenced but does 
+not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{nna.segundo_apellido} has been referenced but does 
+not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{nna.primer_apellido} has been referenced but does n
+ot exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{nna.nombre} has been referenced but does not exist,
+ replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Actor.Especialista} has been referenced but does no
+t exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{nna.equipo_asignado_id} has been referenced but doe
+s not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{IU-12} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{equipos_multidisciplinarios.id} has been referenced
+ but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{nna.id} has been referenced but does not exist, rep
+laced by a fixed one
+
+
+pdfTeX warning (dest): name{IU-11} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{integrantes_equipo.fecha_salida} has been reference
+d but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{integrantes_equipo.motivo_cambio} has been referenc
+ed but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{integrantes_equipo.usuario_id} has been referenced 
+but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{nna} has been referenced but does not exist, replac
+ed by a fixed one
+
+
+pdfTeX warning (dest): name{integrantes_equipo} has been referenced but does no
+t exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{IU-10} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{equipos_multidisciplinarios.fecha_creacion} has bee
+n referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{equipos_multidisciplinarios.activo} has been refere
+nced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{equipos_multidisciplinarios} has been referenced bu
+t does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{IU-09} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{equipos_multidisciplinarios.nombre_equipo} has been
+ referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{IU-06} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{IU-05} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{IU-04} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{usuarios.rol} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{usuarios.nombre} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Actor.Administrador} has been referenced but does n
+ot exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{IU-01} has been referenced but does not exist, repl
+aced by a fixed one
+
+
+pdfTeX warning (dest): name{usuarios.contrasena} has been referenced but does n
+ot exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{usuarios.correo} has been referenced but does not e
+xist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Actor.Usuario} has been referenced but does not exi
+st, replaced by a fixed one
 
 <C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/type1/public/fontawesome5/FontA
 wesome5Free-Solid.pfb><C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/type1/pub
@@ -2147,7 +4711,6 @@ lic/marvosym/marvosym.pfb><C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/type1
 1/public/txfonts/rtxmi.pfb><C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/txfonts/rtxsssc.pfb><C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/ty
 pe1/public/txfonts/txsy.pfb><C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/txfonts/txsya.pfb><C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/public/txfonts/txsyc.pfb><C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/public/txfonts/txtt.pfb><C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/type
 1/urw/helvetic/uhvb8a.pfb><C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/type1
@@ -2155,9 +4718,9 @@ e1/public/txfonts/txtt.pfb><C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/type
 urw/helvetic/uhvr8a.pfb><C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/type1/u
 rw/times/utmr8a.pfb><C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/type1/urw/t
 imes/utmri8a.pfb>
-Output written on proyecto.pdf (47 pages, 4464829 bytes).
+Output written on proyecto.pdf (130 pages, 2149169 bytes).
 PDF statistics:
- 814 PDF objects out of 1000 (max. 8388607)
- 211 named destinations out of 1000 (max. 500000)
- 514 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3249 PDF objects out of 3580 (max. 8388607)
+ 991 named destinations out of 1000 (max. 500000)
+ 2149 words of extra memory for PDF output out of 10000 (max. 10000000)
 

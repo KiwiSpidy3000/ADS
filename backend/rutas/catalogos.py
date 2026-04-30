@@ -4,8 +4,9 @@ from sqlalchemy.orm import selectinload
 
 from sqlalchemy import select
 from typing import List
+from pydantic import BaseModel
 
-from models import CatRol, CatTipoVivienda, CatEstado, CatColonia, CatMunicipio, CatEstatusEscolar, CatViviendaNNA
+from models import CatRoles, CatTipoLugar, CatEstados, CatColonias, CatMunicipios, CatEstatusEscolar,CatTipoActor
 # from schemas import CatalogoBaseEstado, CatalogoBaseRol,CatalogoBaseTipoVivienda
 
 # from schemas import ColoniaResponse, CodigoPostalResponse, MunicipioResponse
@@ -19,17 +20,32 @@ async def get_db():
     async with AsyncSessionLocal() as session:
         yield session
 
+class TipoActorOut(BaseModel):
+    id: int
+    nombre: str  # mapped desde nom_tipo
+
+    class Config:
+        from_attributes = True
+
+@router.get("/tipos-actor", response_model=list[TipoActorOut])
+async def listar_tipos_actor(db: AsyncSession = Depends(get_db)):
+    result = await db.execute(
+        select(CatTipoActor.id, CatTipoActor.nom_tipo)
+        .order_by(CatTipoActor.nom_tipo)
+    )
+    rows = result.all()
+    return [TipoActorOut(id=row.id, nombre=row.nom_tipo) for row in rows]
 @router.get("/por-codigo-postal/{codigo_postal}")
 async def obtener_datos_por_cp(
     codigo_postal: str,
     db: AsyncSession = Depends(get_db)
 ):
     result = await db.execute(
-        select(CatColonia)
+        select(CatColonias)
         .options(
-            selectinload(CatColonia.municipio).selectinload(CatMunicipio.estado)
+            selectinload(CatColonias.municipio).selectinload(CatMunicipios.estado)
         )
-        .where(CatColonia.codigo_postal == codigo_postal)
+        .where(CatColonias.codigo_postal == codigo_postal)
     )
     colonias = result.scalars().all()
 
@@ -57,14 +73,14 @@ async def obtener_datos_por_cp(
 
 @router.get("/roles")
 async def obtener_roles(db: AsyncSession = Depends(get_db)):
-    result = await db.execute(select(CatRol).order_by(CatRol.nombre_rol))
+    result = await db.execute(select(CatRoles).order_by(CatRoles.nombre_rol))
     roles = result.scalars().all()
     return [{"id": r.id, "nombre_rol": r.nombre_rol} for r in roles]
  
  
 @router.get("/roles/{rol_id}")
 async def obtener_rol(rol_id: int, db: AsyncSession = Depends(get_db)):
-    result = await db.execute(select(CatRol).where(CatRol.id == rol_id))
+    result = await db.execute(select(CatRoles).where(CatRoles.id == rol_id))
     rol = result.scalar_one_or_none()
     if not rol:
         raise HTTPException(status_code=404, detail="Rol no encontrado")
@@ -75,14 +91,14 @@ async def obtener_rol(rol_id: int, db: AsyncSession = Depends(get_db)):
  
 @router.get("/tipos-vivienda")
 async def obtener_tipos_vivienda(db: AsyncSession = Depends(get_db)):
-    result = await db.execute(select(CatTipoVivienda).order_by(CatTipoVivienda.descripcion))
+    result = await db.execute(select(CatTipoLugar).order_by(CatTipoLugar.descripcion))
     tipos = result.scalars().all()
     return [{"id": t.id, "descripcion": t.descripcion} for t in tipos]
  
  
 @router.get("/tipos-vivienda/{tipo_id}")
 async def obtener_tipo_vivienda(tipo_id: int, db: AsyncSession = Depends(get_db)):
-    result = await db.execute(select(CatTipoVivienda).where(CatTipoVivienda.id == tipo_id))
+    result = await db.execute(select(CatTipoLugar).where(CatTipoLugar.id == tipo_id))
     tipo = result.scalar_one_or_none()
     if not tipo:
         raise HTTPException(status_code=404, detail="Tipo de vivienda no encontrado")
@@ -115,7 +131,7 @@ class CatViviendaNNAResponse(BaseModel):
 @router.get("/tipos-vivienda-nna", response_model=list[CatViviendaNNAResponse])
 async def obtener_tipos_vivienda(db: AsyncSession = Depends(get_db)):
     result = await db.execute(
-        select(CatViviendaNNA).order_by(CatViviendaNNA.descripcion)
+        select(CatTipoLugar).order_by(CatTipoLugar.descripcion)
     )
     return result.scalars().all()
 
@@ -141,7 +157,7 @@ async def obtener_tipos_vivienda(db: AsyncSession = Depends(get_db)):
 
 # @router.get("/colonias", response_model=list[ColoniaResponse])
 # async def obtener_colonias(db: AsyncSession = Depends(get_db)):
-#     result = await db.execute(select(CatColonia))
+#     result = await db.execute(select(CatColonias))
 #     return result.scalars().all()
 
 

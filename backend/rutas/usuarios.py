@@ -6,7 +6,7 @@ from sqlalchemy import select
 from passlib.context import CryptContext
 from typing import List
 
-from models import Usuario, DireccionUsuario
+from models import Usuarios, DireccionUsuario
 from schemas import UsuarioCreate, UsuarioResponse, UsuarioUpdate
 from database import AsyncSessionLocal
 
@@ -22,16 +22,16 @@ async def get_db():
 # HELPER: carga completa del usuario
 # ──────────────────────────────────────────
  
-async def _get_usuario_completo(usuario_id: int, db: AsyncSession) -> Usuario:
+async def _get_usuario_completo(usuario_id: int, db: AsyncSession) -> Usuarios:
     """Reutilizable: trae el usuario con todas sus relaciones anidadas."""
     result = await db.execute(
-        select(Usuario)
+        select(Usuarios)
         .options(
-            selectinload(Usuario.rol),
-            selectinload(Usuario.direccion).selectinload(DireccionUsuario.colonia),
-            selectinload(Usuario.direccion).selectinload(DireccionUsuario.tipo_vivienda),
+            selectinload(Usuarios.rol),
+            selectinload(Usuarios.direccion).selectinload(DireccionUsuario.colonia),
+            selectinload(Usuarios.direccion).selectinload(DireccionUsuario.tipo_vivienda),
         )
-        .where(Usuario.id == usuario_id)
+        .where(Usuarios.id == usuario_id)
     )
     return result.scalar_one_or_none()
  

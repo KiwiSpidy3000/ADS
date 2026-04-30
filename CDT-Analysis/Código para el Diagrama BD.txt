@@ -194,7 +194,6 @@ Table tutores {
   sexo                    varchar
   curp                    varchar(18) [unique]
   nacionalidad_id         integer
-  municipio_nacimiento_id integer
   escolaridad             varchar
   ocupacion               varchar
   es_tutor_legal          boolean     [default: false]
@@ -202,6 +201,7 @@ Table tutores {
   resolucion_tutela       varchar
   fecha_inicio_tutela     date
   direccion_id            integer
+  municipio_nacimiento_id integer
 }
 
 // --- NNA (Niñas, Niños y Adolescentes) ---
@@ -520,7 +520,3 @@ Ref: servicio_derecho.derecho_id           > cat_derecho_lgdnna.id_derecho
 // --- Vinculación Expediente ↔ Servicios ---
 Ref: expediente_vinculacion_servicios.expediente_id     > expedientes.id
 Ref: expediente_vinculacion_servicios.servicio_actor_id > servicios_actores.id
-
-Ref: "personas_idiomas"."idioma_id" < "personas_idiomas"."id"
-
-Ref: "usuarios"."id" < "cat_estatus_escolar"."descripcion"

@@ -23,89 +23,266 @@
 
 \subsection{Lista de mensajes}
 
-%msgNormalColor
-%msgInfoColor
-%msgWarningColor
-%msgErrorColor
+%--------------------------------------
+% MENSAJES DE CONTROL DE ACCESO
+%--------------------------------------
+
 \begin{cdtMessage}[msgInfoColor]{MSG-001}{Bienvenida al usuario}
-	\item[Propósito:] Indicar al usuario que ha ingresado satisfactoriamente al sistema.
-	\item[Redacción:] Bienvenido $<$nombre$>$.
+	\item[Propósito:] Indicar al usuario que ha ingresado 
+	satisfactoriamente al sistema SICORRE.
+	\item[Redacción:] Bienvenido/a $<$nombre$>$.
 	\item[Parámetros:] \hspace{1cm}
 	\begin{itemize}
-		\item $<$nombre$>$ \hyperlink{Usuario.nombre}{Nombre completo} del Usuario.
+		\item $<$nombre$>$ Nombre completo del usuario autenticado.
 	\end{itemize}
-	\item[Ejemplos:] Bienvenido Juan Pérez.
+	\item[Ejemplos:] Bienvenido/a Joji Pérez Ramírez.
 \end{cdtMessage}
 
-%msgNormalColor
-%msgInfoColor
-%msgWarninigColor
-%msgErrorColor
-\begin{cdtMessage}{MSG-002}{Usuario no registrado} 
-	\item[Propósito:] Indica que el usuario ingresado no existe en el sistema.
-	\item[Redacción:] El usuario $<$login$>$ no se encuentra registrado.
+\begin{cdtMessage}[msgErrorColor]{MSG-002}{Credenciales incorrectas}
+	\item[Propósito:] Indicar al usuario que el correo electrónico 
+	o la contraseña ingresados no son válidos.
+	\item[Redacción:] El correo electrónico o la contraseña 
+	son incorrectos. Verifique sus datos e intente de nuevo.
 	\item[Parámetros:] \hspace{1cm}
 	\begin{itemize}
-		\item $<$login$>$ \hyperlink{Usuario.login}{Login} del Usuario.
+		\item Ninguno. Por seguridad no se especifica cuál de 
+		los dos campos es incorrecto.
 	\end{itemize}
-	\item[Ejemplos:] El usuario juanP no se encuentra registrado.
+	\item[Ejemplos:] El correo electrónico o la contraseña 
+	son incorrectos. Verifique sus datos e intente de nuevo.
 \end{cdtMessage}
 
-%msgNormalColor
-%msgInfoColor
-%msgWarninigColor
-%msgErrorColor
-\begin{cdtMessage}[msgErrorColor]{MSG-003}{Cuenta inactiva} 
-	\item[Propósito:] Indicar al usuario que la cuenta especificada se encuentra inactiva.
-	\item[Redacción:] La cuenta especificada $<$login$>$ se encuentra inactiva, favor de contactar al Secretario Escolar para mas información.
+\begin{cdtMessage}[msgErrorColor]{MSG-003}{Acceso revocado}
+	\item[Propósito:] Indicar al usuario que su cuenta ha sido 
+	revocada y no puede acceder al sistema.
+	\item[Redacción:] El acceso de $<$nombre$>$ ha sido revocado. 
+	Contacte al administrador para más información.
 	\item[Parámetros:] \hspace{1cm}
 	\begin{itemize}
-		\item $<$login$>$ \hyperlink{Usuario.login}{Login} del Usuario.
+		\item $<$nombre$>$ Nombre completo del usuario 
+		que intenta acceder.
 	\end{itemize}
-	\item[Ejemplos:] La cuenta especificada juanP se encuentra inactiva, favor de contactar al Secretario Escolar para mas información.
+	\item[Ejemplos:] El acceso de Joji Pérez Ramírez ha sido 
+	revocado. Contacte al administrador para más información.
 \end{cdtMessage}
 
-%msgNormalColor
-%msgInfoColor
-%msgWarninigColor
-%msgErrorColor
-\begin{cdtMessage}[msgErrorColor]{MSG-004}{Error de inicio de sesión}
-	\item[Propósito:] Indica al usuario que la contraseña introducida es incorrecta.
-	\item[Redacción:] La contraseña ingresada es incorrecta.
-	\item[Parámetros:] No aplica.
-	\item[Ejemplos:] La contraseña ingresada es incorrecta.
-\end{cdtMessage}
+%--------------------------------------
+% MENSAJES DE GESTIÓN DE USUARIOS
+%--------------------------------------
 
-%msgNormalColor
-%msgInfoColor
-%msgWarninigColor
-%msgErrorColor
-\begin{cdtMessage}{MSG-008}{Tiempo restante para terminar un proceso} 
-	\item[Propósito:] Indicar al usuario el tiempo restante para terminar una operación limitada en el tiempo como la reinscripción.
-	\item[Redacción:] Quedan $<$tiempo$>$ para terminar la $<$operación$>$.
+\begin{cdtMessage}[msgWarningColor]{MSG-004}{Confirmar revocación de acceso}
+	\item[Propósito:] Solicitar confirmación al administrador 
+	antes de revocar el acceso de un usuario al sistema.
+	\item[Redacción:] ¿Está seguro que desea revocar el acceso 
+	de $<$nombre$>$? El usuario no podrá ingresar al sistema, 
+	pero su historial de actividad se conservará.
 	\item[Parámetros:] \hspace{1cm}
 	\begin{itemize}
-		\item $<$tiempo$>$ Tiempo faltante para la operació especificando días, horas minutos y segundos.
-		\item 
+		\item $<$nombre$>$ Nombre completo del usuario 
+		a quien se revocará el acceso.
 	\end{itemize}
-	\item[Ejemplos:] \hspace{1cm}
-	\begin{itemize}
-		\item Quedan 45 días, 2 horas 12 minutos y 45 segundos para iniciar tu reinscripción.
-		\item Quedan 2 minutos y 32 segundos para terminar tu reinscripción
-	\end{itemize}
+	\item[Ejemplos:] ¿Está seguro que desea revocar el acceso 
+	de Joji Pérez Ramírez? El usuario no podrá ingresar al 
+	sistema, pero su historial de actividad se conservará.
 \end{cdtMessage}
 
-\begin{cdtMessage}[msgInfoColor]{MSG-009}{Operación exitosa}
-	\item[Propósito:] Informar al usuario que la operación solicitada ha sido ejecutada con éxito.
-	\item[Redacción:] $<$Artículo$>$ $<$Operación$>$ del $<$Entidad$>$ $<$Identificador$>$ se realizó con éxito.
-	\item[Parámetros:]\hspace{1pt}
+\begin{cdtMessage}[msgWarningColor]{MSG-005}{Confirmar eliminación de usuario}
+	\item[Propósito:] Solicitar confirmación al administrador 
+	antes de eliminar permanentemente el registro de un usuario.
+	\item[Redacción:] ¿Está seguro que desea eliminar el registro 
+	de $<$nombre$>$? Esta acción no puede deshacerse.
+	\item[Parámetros:] \hspace{1cm}
 	\begin{itemize}
-		\item $<$Artículo$>$ $<$Operación$>$ se refiere a la operación realizada.
-		\item $<$Entidad$>$ $<$Identificador$>$ se refiere al elemento del negocio donde recayó la operación, indicando el tipo del objeto y un dato que el usuario pueda usar para identificarlo.
+		\item $<$nombre$>$ Nombre completo del usuario 
+		a eliminar del sistema.
 	\end{itemize}
-	\item[Ejemplo:] Algunos ejemplos son
+	\item[Ejemplos:] ¿Está seguro que desea eliminar el registro 
+	de Joji Pérez Ramírez? Esta acción no puede deshacerse.
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgInfoColor]{MSG-006}{Registro exitoso de usuario}
+	\item[Propósito:] Confirmar al administrador que el nuevo 
+	usuario ha sido registrado correctamente en el sistema.
+	\item[Redacción:] El usuario $<$nombre$>$ ha sido registrado 
+	exitosamente en el sistema.
+	\item[Parámetros:] \hspace{1cm}
 	\begin{itemize}
-		\item El registro del Alumno 342343 se realizó con éxito.
-		\item La eliminación de la Tarea ``documentar el proceso'' se ha realizado con éxito.
+		\item $<$nombre$>$ Nombre completo del usuario 
+		recién registrado.
 	\end{itemize}
+	\item[Ejemplos:] El usuario Joji Pérez Ramírez ha sido 
+	registrado exitosamente en el sistema.
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgErrorColor]{MSG-007}{CURP ya registrada}
+	\item[Propósito:] Indicar al administrador que la CURP 
+	ingresada ya está asociada a otro usuario en el sistema.
+	\item[Redacción:] La CURP $<$curp$>$ ya se encuentra 
+	registrada en el sistema.
+	\item[Parámetros:] \hspace{1cm}
+	\begin{itemize}
+		\item $<$curp$>$ CURP ingresada en el formulario.
+	\end{itemize}
+	\item[Ejemplos:] La CURP PERJ900101HDFRZN09 ya se encuentra 
+	registrada en el sistema.
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgErrorColor]{MSG-008}{Correo ya registrado}
+	\item[Propósito:] Indicar al administrador que el correo 
+	electrónico ingresado ya está asociado a otro usuario 
+	en el sistema.
+	\item[Redacción:] El correo $<$correo$>$ ya se encuentra 
+	registrado en el sistema.
+	\item[Parámetros:] \hspace{1cm}
+	\begin{itemize}
+		\item $<$correo$>$ Correo electrónico ingresado 
+		en el formulario.
+	\end{itemize}
+	\item[Ejemplos:] El correo joji.perez@fundacion.org ya 
+	se encuentra registrado en el sistema.
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgErrorColor]{MSG-009}{Código postal no encontrado}
+	\item[Propósito:] Indicar al usuario que el código postal 
+	ingresado no existe en el catálogo SEPOMEX del sistema.
+	\item[Redacción:] El código postal $<$cp$>$ no fue encontrado. 
+	Verifique e intente de nuevo.
+	\item[Parámetros:] \hspace{1cm}
+	\begin{itemize}
+		\item $<$cp$>$ Código postal ingresado en el formulario.
+	\end{itemize}
+	\item[Ejemplos:] El código postal 00000 no fue encontrado. 
+	Verifique e intente de nuevo.
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgErrorColor]{MSG-010}{Campos obligatorios incompletos}
+	\item[Propósito:] Indicar al usuario que existen campos 
+	obligatorios sin completar antes de guardar el formulario.
+	\item[Redacción:] El campo $<$campo$>$ es obligatorio 
+	y no puede estar vacío.
+	\item[Parámetros:] \hspace{1cm}
+	\begin{itemize}
+		\item $<$campo$>$ Nombre del campo obligatorio 
+		que se encuentra vacío.
+	\end{itemize}
+	\item[Ejemplos:] El campo Nombre(s) es obligatorio 
+	y no puede estar vacío.
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgInfoColor]{MSG-011}{Modificación exitosa de usuario}
+	\item[Propósito:] Confirmar al administrador que los datos 
+	del usuario han sido actualizados correctamente en el sistema.
+	\item[Redacción:] Los datos de $<$nombre$>$ han sido 
+	actualizados exitosamente.
+	\item[Parámetros:] \hspace{1cm}
+	\begin{itemize}
+		\item $<$nombre$>$ Nombre completo del usuario modificado.
+	\end{itemize}
+	\item[Ejemplos:] Los datos de Joji Pérez Ramírez han sido 
+	actualizados exitosamente.
+\end{cdtMessage}
+
+%--------------------------------------
+% MENSAJES DE GESTIÓN DE EQUIPOS
+%--------------------------------------
+
+\begin{cdtMessage}[msgWarningColor]{MSG-012}{Sin equipos registrados}
+	\item[Propósito:] Informar al administrador que no existe 
+	ningún equipo multidisciplinario registrado en el sistema.
+	\item[Redacción:] No hay equipos multidisciplinarios 
+	registrados en el sistema.
+	\item[Parámetros:] \hspace{1cm}
+	\begin{itemize}
+		\item Ninguno.
+	\end{itemize}
+	\item[Ejemplos:] No hay equipos multidisciplinarios 
+	registrados en el sistema.
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgWarningColor]{MSG-013}{Confirmar eliminación de equipo}
+	\item[Propósito:] Solicitar confirmación al administrador 
+	antes de eliminar permanentemente el registro de un equipo 
+	multidisciplinario.
+	\item[Redacción:] ¿Está seguro que desea eliminar el equipo 
+	$<$nombre$>$? Esta acción no puede deshacerse.
+	\item[Parámetros:] \hspace{1cm}
+	\begin{itemize}
+		\item $<$nombre$>$ Nombre del equipo a eliminar.
+	\end{itemize}
+	\item[Ejemplos:] ¿Está seguro que desea eliminar el equipo 
+	Equipo Alpha? Esta acción no puede deshacerse.
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgInfoColor]{MSG-014}{Equipo registrado exitosamente}
+	\item[Propósito:] Confirmar al administrador que el nuevo 
+	equipo multidisciplinario ha sido registrado correctamente 
+	en el sistema.
+	\item[Redacción:] El equipo $<$nombre$>$ ha sido registrado 
+	exitosamente en el sistema.
+	\item[Parámetros:] \hspace{1cm}
+	\begin{itemize}
+		\item $<$nombre$>$ Nombre del equipo recién registrado.
+	\end{itemize}
+	\item[Ejemplos:] El equipo Equipo Alpha ha sido registrado 
+	exitosamente en el sistema.
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgErrorColor]{MSG-015}{Nombre de equipo ya registrado}
+	\item[Propósito:] Indicar al administrador que el nombre 
+	ingresado para el equipo ya existe en el sistema.
+	\item[Redacción:] El nombre de equipo $<$nombre$>$ ya se 
+	encuentra registrado en el sistema.
+	\item[Parámetros:] \hspace{1cm}
+	\begin{itemize}
+		\item $<$nombre$>$ Nombre de equipo ingresado 
+		en el formulario.
+	\end{itemize}
+	\item[Ejemplos:] El nombre de equipo Equipo Alpha ya se 
+	encuentra registrado en el sistema.
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgWarningColor]{MSG-016}{No hay integrantes disponibles}
+	\item[Propósito:] Informar al administrador que todo el 
+	personal activo ya pertenece a un equipo multidisciplinario 
+	y no hay integrantes disponibles para asignar.
+	\item[Redacción:] No hay personal disponible para agregar 
+	al equipo. Todos los integrantes activos ya pertenecen 
+	a un equipo multidisciplinario.
+	\item[Parámetros:] \hspace{1cm}
+	\begin{itemize}
+		\item Ninguno.
+	\end{itemize}
+	\item[Ejemplos:] No hay personal disponible para agregar 
+	al equipo. Todos los integrantes activos ya pertenecen 
+	a un equipo multidisciplinario.
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgInfoColor]{MSG-017}{Integrante agregado exitosamente}
+	\item[Propósito:] Confirmar al administrador que el integrante 
+	seleccionado ha sido asignado correctamente al equipo 
+	multidisciplinario.
+	\item[Redacción:] $<$nombre$>$ ha sido agregado exitosamente 
+	al equipo $<$equipo$>$.
+	\item[Parámetros:] \hspace{1cm}
+	\begin{itemize}
+		\item $<$nombre$>$ Nombre completo del integrante agregado.
+		\item $<$equipo$>$ Nombre del equipo al que fue asignado.
+	\end{itemize}
+	\item[Ejemplos:] Joji Pérez Ramírez ha sido agregado 
+	exitosamente al equipo Equipo Alpha.
+\end{cdtMessage}
+
+%--------------------------------------
+% MENSAJES DE CONSULTA GENERAL
+%--------------------------------------
+
+\begin{cdtMessage}[msgWarningColor]{MSG-018}{Sin usuarios registrados}
+	\item[Propósito:] Informar al administrador que no existe 
+	ningún usuario registrado en el sistema.
+	\item[Redacción:] No hay usuarios registrados en el sistema.
+	\item[Parámetros:] \hspace{1cm}
+	\begin{itemize}
+		\item Ninguno.
+	\end{itemize}
+	\item[Ejemplos:] No hay usuarios registrados en el sistema.
 \end{cdtMessage}

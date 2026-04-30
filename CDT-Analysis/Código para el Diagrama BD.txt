@@ -1,0 +1,527 @@
+Código para el Diagrama de Base de Datos de SICORRE
+
+// =============================================================
+// SECCIÓN 1: CATÁLOGOS
+// =============================================================
+
+// --- Catálogos Geográficos ---
+
+Table cat_estados {
+  id     serial  [pk]
+  nombre varchar [not null, unique]
+}
+
+Table cat_municipios {
+  id        serial  [pk]
+  nombre    varchar [not null]
+  estado_id integer
+}
+
+Table cat_colonias {
+  id            serial     [pk]
+  nombre        varchar    [not null]
+  codigo_postal varchar(5) [not null]
+  municipio_id  integer
+}
+
+// --- Catálogos de Dirección ---
+
+Table cat_tipo_lugar {
+  id             serial  [pk]
+  descripcion    varchar [not null, unique]
+  aplica_nna     boolean [default: true]
+  aplica_persona boolean [default: true]
+  aplica_actor   boolean [default: false]
+}
+
+// --- Catálogos de Contacto --
+
+Table cat_plataforma_red_social {
+  id     serial  [pk]
+  nombre varchar [not null, unique]
+  url_base varchar
+}
+
+// --- Catálogos de Roles y Personas ---
+
+Table cat_roles {
+  id         serial  [pk]
+  nombre_rol varchar [not null, unique]
+}
+
+Table cat_nacionalidades {
+  id     serial     [pk]
+  nombre varchar    [not null, unique]
+  codigo varchar(3)
+}
+
+Table cat_estatus_escolar {
+  id          serial  [pk]
+  descripcion varchar [not null, unique]
+}
+
+// --- Catálogos de Idiomas ---
+
+Table cat_idiomas {
+  id       serial  [pk]
+  nombre   varchar [not null]
+  variante varchar
+}
+
+Table cat_nivel_idioma {
+  id    serial  [pk]
+  nivel varchar [not null, unique]
+}
+
+// --- Catálogos de Salud ---
+
+Table cat_enfermedades {
+  id     serial  [pk]
+  nombre varchar [not null]
+}
+
+Table cat_tratamientos {
+  id            serial  [pk]
+  nombre        varchar [not null]
+  descripcion   text
+  enfermedad_id integer
+}
+
+Table cat_discapacidades {
+  id     serial  [pk]
+  nombre varchar [not null]
+}
+
+// --- Catálogos de Actores en Materia de Derechos ---
+
+Table cat_tipo_actor {
+  id              serial  [pk]
+  nom_tipo        varchar [not null, unique]
+  descripcion     varchar
+}
+
+Table cat_categoria_servicio {
+  id_cat_serv   serial  [pk]
+  nom_categoria varchar [not null, unique]
+  descripcion   varchar
+}
+
+// --- Catálogo de Derechos (LGDNNA Art. 13) ---
+Table cat_derecho_lgdnna {
+  id_derecho      serial     [pk]
+  fraccion_art13  varchar(5) [not null, unique]
+  nom_derecho     varchar    [not null, unique]
+  capitulo_lgdnna varchar
+  articulo_ref    varchar
+  descripcion     text
+}
+
+// --- Catálogo de Tipo de Tutela / Relación Legal ---
+
+Table cat_tipo_tutela {
+  id                           serial  [pk]
+  descripcion                  varchar [not null, unique]
+  requiere_resolucion_judicial boolean [default: false]
+}
+
+
+// =============================================================
+// SECCIÓN 2: TABLAS PRINCIPALES
+// =============================================================
+
+// --- Direcciones ---
+
+Table direcciones {
+  id                   serial  [pk]
+  calle                varchar
+  no_exterior          varchar
+  no_interior          varchar
+  colonia_id           integer
+  tipo_lugar_id        integer
+  pueblo_comunidad     varchar
+  referencia_ubicacion text
+}
+
+// --- Contactos ---
+
+Table contactos {
+  id                 serial       [pk]
+  tel_principal      varchar(15)
+  tel_secundario     varchar(15)
+  correo             varchar(150)
+  pagina_web         varchar(255)
+  red_social_id      integer
+  tutor_id           integer
+  actor_id           integer
+  enlace_id          integer
+  es_principal       boolean [default: false]
+  observaciones      varchar
+}
+
+// --- Administración y Personal ---
+
+Table usuarios {
+  id               serial       [pk]
+  nombre           varchar      [not null]
+  primer_apellido  varchar      [not null]
+  segundo_apellido varchar      [not null]
+  fecha_nacimiento date         [not null]
+  sexo             varchar
+  curp             varchar(18)  [not null, unique]
+  rfc              varchar(13)  [not null, unique]
+  correo           varchar(100) [not null, unique]
+  password_hash    varchar(255) [not null]
+  tipo_personal    boolean
+  activo           boolean      [default: true]
+  fecha_registro   timestamp    [default: `CURRENT_TIMESTAMP`]
+  direccion_id     integer
+  rol_id           integer
+}
+
+Table equipos_multidisciplinarios {
+  id             serial    [pk]
+  nombre_equipo  varchar   [not null]
+  activo         boolean   [default: true]
+  fecha_creacion timestamp [default: `CURRENT_TIMESTAMP`]
+}
+
+// --- Tutores ---
+
+Table tutores {
+  id                      serial      [pk]
+  nombre                  varchar     [not null]
+  primer_apellido         varchar     [not null]
+  segundo_apellido        varchar     [not null]
+  fecha_nacimiento        date        [not null]
+  sexo                    varchar
+  curp                    varchar(18) [unique]
+  nacionalidad_id         integer
+  municipio_nacimiento_id integer
+  escolaridad             varchar
+  ocupacion               varchar
+  es_tutor_legal          boolean     [default: false]
+  tipo_tutela_id          integer
+  resolucion_tutela       varchar
+  fecha_inicio_tutela     date
+  direccion_id            integer
+}
+
+// --- NNA (Niñas, Niños y Adolescentes) ---
+
+Table nna {
+  id                      serial      [pk]
+  nombre                  varchar     [not null]
+  primer_apellido         varchar     [not null]
+  segundo_apellido        varchar     [not null]
+  fecha_nacimiento        date        [not null]
+  sexo                    varchar
+  curp                    varchar(18) [unique]
+  nacionalidad_id         integer
+  municipio_nacimiento_id integer
+  es_migrante             boolean     [default: false]
+  creado_por              integer
+  activo                  boolean     [default: true]
+  fecha_registro          timestamp   [default: `CURRENT_TIMESTAMP`]
+  estatus_escolar_id      integer
+  direccion_id            integer
+  equipo_asignado_id      integer
+}
+
+// --- Víctima Directa ---
+
+Table victima_directa {
+  id                       serial      [pk]
+  nombre                   varchar     [not null]
+  primer_apellido          varchar     [not null]
+  segundo_apellido         varchar
+  curp                     varchar(18) [unique]
+  fecha_nacimiento         date
+  fecha_fallecimiento      date
+  modalidad_feminicidio    varchar
+  causa_certificada_muerte text
+  descripcion_hecho        text
+  nna_id                   integer
+}
+
+// --- Actores en Materia de Derechos ---
+
+Table actores_derechos {
+  id                     serial    [pk]
+  nombre                 varchar   [not null]
+  tipo_actor_id          integer
+  tiene_registro_oficial boolean   [default: false]
+  registro_oficial_num   varchar
+  horario_atencion       varchar
+  observaciones          text
+  activo                 boolean   [default: true]
+  fecha_registro         timestamp [default: `CURRENT_TIMESTAMP`]
+  direccion_id           integer
+}
+
+// Datos adicionales exclusivos de personas físicas
+Table actor_persona_fisica {
+  id_actor             integer    [pk]
+  curp                 varchar(18) [unique]
+  rfc                  varchar(13)
+  fecha_nacimiento     date
+  sexo                 varchar
+  municipio_id         integer
+  escolaridad          varchar
+  ocupacion_oficio     varchar
+  descripcion_actividad text
+  zona_geografica      varchar
+  disponibilidad       varchar
+  es_lider_comunitario boolean [default: false]
+  es_lider_religioso   boolean [default: false]
+  pertenece_grupo      varchar
+  como_contactar       text
+}
+
+// Personas enlace dentro de una organización actora
+Table actor_enlace {
+  id_enlace             serial  [pk]
+  actor_id              integer
+  nom_enlace            varchar [not null]
+  cargo_enlace          varchar
+  es_principal_contacto boolean [default: false]
+  notas_enlace          text
+}
+
+
+Table actor_programa {
+  id_programa     serial  [pk]
+  actor_id        integer
+  nom_programa    varchar [not null]
+  descripcion     text
+  fecha_inicio    date
+  fecha_fin       date
+  activo_programa boolean [default: true]
+}
+
+Table servicios_actores {
+  id                   serial  [pk]
+  actor_id             integer
+  programa_id          integer
+  categoria_id         integer
+  nombre_servicio      varchar [not null]
+  descripcion_servicio text
+  modalidad            varchar
+  es_gratuito          boolean [default: true]
+  costo                decimal
+  duracion             varchar
+  disponibilidad       varchar
+  requisitos_tramites  text
+  poblacion_objetivo   varchar
+  cupos_disponibles    integer
+  activo_servicio      boolean [default: true]
+}
+
+// --- Expedientes ---
+
+Table hechos_victimales {
+  id                     serial  [pk]
+  nna_id                 integer
+  nombre_victima_directa varchar
+  fecha_hecho            date
+  descripcion_delito     text
+}
+
+Table expedientes {
+  id              serial  [pk]
+  folio_fud       varchar [unique]
+  nna_id          integer
+  estatus_proceso varchar [default: 'Detección']
+}
+
+Table valoraciones {
+  id                 serial    [pk]
+  expediente_id      integer
+  especialista_id    integer
+  area_evaluacion    varchar   [not null]
+  hallazgos_dictamen text      [not null]
+  medidas_sugeridas  text
+  fecha_valoracion   timestamp [default: `CURRENT_TIMESTAMP`]
+}
+
+Table derechos_vulnerados {
+  id             serial    [pk]
+  expediente_id  integer
+  derecho_id     integer
+  esta_vulnerado boolean   [default: false]
+  observaciones  text
+  creado_por     integer
+  fecha_registro timestamp [default: `CURRENT_TIMESTAMP`]
+}
+
+
+// =============================================================
+// SECCIÓN 3: TABLAS DE RELACIÓN
+// =============================================================
+
+Table nna_tutores {
+  id            serial  [pk]
+  nna_id        integer
+  tutor_id      integer
+  parentesco    varchar [not null]
+  es_principal  boolean [default: false]
+  fecha_inicio  date
+  fecha_fin     date
+  observaciones text
+}
+
+Table integrantes_equipo {
+  id                 serial    [pk]
+  equipo_id          integer
+  usuario_id         integer
+  fecha_ingreso      timestamp [default: `CURRENT_TIMESTAMP`]
+  fecha_salida       timestamp
+  motivo_cambio      text
+  estatus_integrante varchar   [default: 'Activo']
+}
+
+// Enfermedades compartida para NNA y tutores
+Table personas_enfermedades {
+  id                   serial  [pk]
+  nna_id               integer
+  tutor_id             integer
+  enfermedad_id        integer
+  tratamiento_id       integer
+  es_cronica           boolean [default: false]
+  esta_controlada      boolean [default: false]
+  requiere_medicamento boolean [default: false]
+  nombre_medicamento   varchar
+  observaciones        text
+}
+
+// Idiomas compartida para NNA y tutores
+Table personas_idiomas {
+  id                   serial  [pk]
+  nna_id               integer
+  tutor_id             integer
+  idioma_id            integer
+  nivel_habla_id       integer
+  nivel_comprension_id integer
+  nivel_escritura_id   integer
+  requiere_traductor   boolean [default: false]
+}
+
+// Discapacidades solo aplica a NNA
+Table nna_discapacidades {
+  id                serial  [pk]
+  nna_id            integer
+  discapacidad_id   integer
+  tipo_discapacidad varchar
+  grado_dependencia varchar
+  observaciones     text
+}
+
+Table servicio_derecho {
+  servicio_id integer
+  derecho_id  integer
+
+  indexes {
+    (servicio_id, derecho_id) [pk]
+  }
+}
+
+Table expediente_vinculacion_servicios {
+  id                serial    [pk]
+  expediente_id     integer
+  servicio_actor_id integer
+  fecha_vinculacion timestamp [default: `CURRENT_TIMESTAMP`]
+}
+
+
+// =============================================================
+// SECCIÓN 4: REFERENCIAS 
+// =============================================================
+
+// --- Geográficas ---
+Ref: cat_municipios.estado_id        > cat_estados.id
+Ref: cat_colonias.municipio_id       > cat_municipios.id
+
+// --- Direcciones ---
+Ref: direcciones.colonia_id          > cat_colonias.id
+Ref: direcciones.tipo_lugar_id       > cat_tipo_lugar.id
+
+// --- Salud (catálogos) ---
+Ref: cat_tratamientos.enfermedad_id  > cat_enfermedades.id
+
+// --- Usuarios ---
+Ref: usuarios.direccion_id           - direcciones.id
+Ref: usuarios.rol_id                 > cat_roles.id
+
+// --- Tutores ---
+Ref: tutores.nacionalidad_id         > cat_nacionalidades.id
+Ref: tutores.municipio_nacimiento_id > cat_municipios.id
+Ref: tutores.tipo_tutela_id          > cat_tipo_tutela.id
+Ref: tutores.direccion_id            > direcciones.id
+
+// --- NNA ---
+Ref: nna.nacionalidad_id             > cat_nacionalidades.id
+Ref: nna.municipio_nacimiento_id     > cat_municipios.id
+Ref: nna.creado_por                  > usuarios.id
+Ref: nna.estatus_escolar_id          > cat_estatus_escolar.id
+Ref: nna.direccion_id                - direcciones.id
+Ref: nna.equipo_asignado_id          > equipos_multidisciplinarios.id
+
+// --- Víctima Directa ---
+Ref: victima_directa.nna_id          > nna.id
+
+// --- Contactos ---
+Ref: contactos.red_social_id         > cat_plataforma_red_social.id
+Ref: contactos.tutor_id              > tutores.id
+Ref: contactos.actor_id              > actores_derechos.id
+Ref: contactos.enlace_id             > actor_enlace.id_enlace
+
+// --- Actores ---
+Ref: actores_derechos.tipo_actor_id  > cat_tipo_actor.id
+Ref: actores_derechos.direccion_id   - direcciones.id
+Ref: actor_persona_fisica.id_actor   - actores_derechos.id
+Ref: actor_persona_fisica.municipio_id > cat_municipios.id
+Ref: actor_enlace.actor_id           > actores_derechos.id
+Ref: actor_programa.actor_id         > actores_derechos.id
+Ref: servicios_actores.actor_id      > actores_derechos.id
+Ref: servicios_actores.programa_id   > actor_programa.id_programa
+Ref: servicios_actores.categoria_id  > cat_categoria_servicio.id_cat_serv
+
+// --- Expedientes ---
+Ref: hechos_victimales.nna_id                          > nna.id
+Ref: expedientes.nna_id                                > nna.id
+Ref: valoraciones.expediente_id                        > expedientes.id
+Ref: valoraciones.especialista_id                      > usuarios.id
+Ref: derechos_vulnerados.expediente_id                 > expedientes.id
+Ref: derechos_vulnerados.derecho_id                    > cat_derecho_lgdnna.id_derecho
+Ref: derechos_vulnerados.creado_por                    > usuarios.id
+
+// --- Relaciones NNA ↔ Tutores ---
+Ref: nna_tutores.nna_id              > nna.id
+Ref: nna_tutores.tutor_id            > tutores.id
+
+// --- Equipo ---
+Ref: integrantes_equipo.equipo_id    > equipos_multidisciplinarios.id
+Ref: integrantes_equipo.usuario_id   > usuarios.id
+
+// --- Salud e Idiomas (NNA y Tutores) ---
+Ref: personas_enfermedades.nna_id               > nna.id
+Ref: personas_enfermedades.tutor_id             > tutores.id
+Ref: personas_enfermedades.enfermedad_id        > cat_enfermedades.id
+Ref: personas_enfermedades.tratamiento_id       > cat_tratamientos.id
+Ref: personas_idiomas.nna_id                    > nna.id
+Ref: personas_idiomas.tutor_id                  > tutores.id
+Ref: personas_idiomas.idioma_id                 > cat_idiomas.id
+Ref: personas_idiomas.nivel_habla_id            > cat_nivel_idioma.id
+Ref: personas_idiomas.nivel_comprension_id      > cat_nivel_idioma.id
+Ref: personas_idiomas.nivel_escritura_id        > cat_nivel_idioma.id
+
+// --- Discapacidades NNA ---
+Ref: nna_discapacidades.nna_id                  > nna.id
+Ref: nna_discapacidades.discapacidad_id         > cat_discapacidades.id
+
+// --- Servicios y Derechos ---
+Ref: servicio_derecho.servicio_id          > servicios_actores.id
+Ref: servicio_derecho.derecho_id           > cat_derecho_lgdnna.id_derecho
+
+// --- Vinculación Expediente ↔ Servicios ---
+Ref: expediente_vinculacion_servicios.expediente_id     > expedientes.id
+Ref: expediente_vinculacion_servicios.servicio_actor_id > servicios_actores.id

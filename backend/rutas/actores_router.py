@@ -1,11 +1,14 @@
 from typing import Annotated, Union
 
 from fastapi import APIRouter, Depends, HTTPException, status
+from sqlalchemy.orm import joinedload, selectinload
+
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from sqlalchemy import select, update, delete
 from sqlalchemy.orm import joinedload
 from sqlalchemy.orm import joinedload
+from sqlalchemy import select, delete
 from database import AsyncSessionLocal
 from models import (
     ActoresDerechos,
@@ -137,43 +140,66 @@ def actor_to_dict(actor) -> dict:
 async def obtener_actor(actor_id: int, db: DB):
     result = await db.execute(
         select(ActoresDerechos)
-        .options(joinedload(ActoresDerechos.direccion))
         .where(ActoresDerechos.id == actor_id)
+        .options(
+            joinedload(ActoresDerechos.direccion),
+            selectinload(ActoresDerechos.contactos),
+            selectinload(ActoresDerechos.programas),
+            selectinload(ActoresDerechos.enlaces).selectinload(ActorEnlace.contactos),
+        )
     )
-    actor = result.scalar_one_or_none()
+    actor = result.unique().scalar_one_or_none()
+
     if not actor:
-        raise HTTPException(status_code=404, detail="Actor no encontrado")
+        raise HTTPException(status_code=404, detail=f"Actor con id {actor_id} no encontrado")
 
     pf_result = await db.execute(
-        select(ActorPersonaFisica).where(ActorPersonaFisica.id_actor == actor_id)
+        select(ActorPersonaFisica).where(ActorPersonaFisica.id_actor == actor.id)
     )
     pf = pf_result.scalar_one_or_none()
 
     direccion = DireccionOut.model_validate(actor.direccion) if actor.direccion else None
-    data = actor_to_dict(actor)
+
+    data = {
+        "id":                     actor.id,
+        "nombre":                 actor.nombre,
+        "tipo_actor_id":          actor.tipo_actor_id,
+        "tiene_registro_oficial": actor.tiene_registro_oficial,
+        "registro_oficial_num":   actor.registro_oficial_num,
+        "horario_atencion":       actor.horario_atencion,
+        "responsable_contacto":   actor.responsable_contacto,
+        "observaciones":          actor.observaciones,
+        "activo":                 actor.activo,
+        "fecha_registro":         actor.fecha_registro,
+        "direccion_id":           actor.direccion_id,
+        "direccion":              direccion,
+        "contactos":              actor.contactos,
+        "programas":              actor.programas,
+        "enlaces":                actor.enlaces,
+    }
 
     if pf:
         return ActorPersonaFisicaOut(
             **data,
             tipo           = "persona_fisica",
             persona_fisica = pf,
-            direccion      = direccion,
         )
+
     return ActorAsociacionOut(
         **data,
-        tipo      = "asociacion",
-        direccion = direccion,
+        tipo = "asociacion",
     )
 
-
-# =============================================================
-# GET /actores/
-# =============================================================
 @router.get("/", response_model=list[ActorOut])
 async def obtener_actores(db: DB):
     result = await db.execute(
         select(ActoresDerechos)
-        .options(joinedload(ActoresDerechos.direccion))
+        .options(
+            joinedload(ActoresDerechos.direccion),
+            selectinload(ActoresDerechos.contactos),
+            selectinload(ActoresDerechos.programas),
+            selectinload(ActoresDerechos.enlaces).selectinload(ActorEnlace.contactos),
+        )
     )
     actores = result.unique().scalars().all()
 
@@ -188,7 +214,24 @@ async def obtener_actores(db: DB):
         pf = pf_result.scalar_one_or_none()
 
         direccion = DireccionOut.model_validate(actor.direccion) if actor.direccion else None
-        data = actor_to_dict(actor)
+
+        data = {
+            "id":                     actor.id,
+            "nombre":                 actor.nombre,
+            "tipo_actor_id":          actor.tipo_actor_id,
+            "tiene_registro_oficial": actor.tiene_registro_oficial,
+            "registro_oficial_num":   actor.registro_oficial_num,
+            "horario_atencion":       actor.horario_atencion,
+            "responsable_contacto":   actor.responsable_contacto,
+            "observaciones":          actor.observaciones,
+            "activo":                 actor.activo,
+            "fecha_registro":         actor.fecha_registro,
+            "direccion_id":           actor.direccion_id,   # <-- agregar esto
+            "direccion":              direccion,
+            "contactos":              actor.contactos,
+            "programas":              actor.programas,
+            "enlaces":                actor.enlaces,
+        }
 
         if pf:
             actores_out.append(
@@ -196,19 +239,17 @@ async def obtener_actores(db: DB):
                     **data,
                     tipo           = "persona_fisica",
                     persona_fisica = pf,
-                    direccion      = direccion,
                 )
             )
         else:
             actores_out.append(
                 ActorAsociacionOut(
                     **data,
-                    tipo      = "asociacion",
-                    direccion = direccion,
+                    tipo = "asociacion",
                 )
             )
-    return actores_out
 
+    return actores_out
 
 # =============================================================
 # PUT /actores/{actor_id}
@@ -334,4 +375,107 @@ async def actualizar_actor(actor_id: int, payload: ActorCreate, db: DB):
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Error al actualizar el actor: {str(exc)}",
+        )
+    
+
+
+@router.delete(
+    "/{actor_id}",
+    status_code=status.HTTP_204_NO_CONTENT,
+)
+async def eliminar_actor(actor_id: int, db: DB):
+    try:
+        # 1. Verificar que el actor existe
+        result = await db.execute(
+            select(ActoresDerechos).where(ActoresDerechos.id == actor_id)
+        )
+        actor = result.scalar_one_or_none()
+
+        if not actor:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Actor con id {actor_id} no encontrado.",
+            )
+
+        direccion_id = actor.direccion_id
+
+        # 2. Eliminar relaciones hijas (para evitar violaciones de FK)
+        await db.execute(
+            delete(ActorPersonaFisica).where(ActorPersonaFisica.id_actor == actor_id)
+        )
+        await db.execute(
+            delete(ActorEnlace).where(ActorEnlace.actor_id == actor_id)
+        )
+        await db.execute(
+            delete(ActorPrograma).where(ActorPrograma.actor_id == actor_id)
+        )
+        await db.execute(
+            delete(Contactos).where(Contactos.actor_id == actor_id)
+        )
+
+        # 3. Eliminar el actor base
+        await db.delete(actor)
+        await db.flush()
+
+        # 4. Eliminar la dirección huérfana (si existía)
+        if direccion_id:
+            direccion_result = await db.execute(
+                select(Direcciones).where(Direcciones.id == direccion_id)
+            )
+            direccion = direccion_result.scalar_one_or_none()
+            if direccion:
+                await db.delete(direccion)
+
+        await db.commit()
+
+    except HTTPException:
+        raise
+    except Exception as exc:
+        await db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error al eliminar el actor: {str(exc)}",
+        )
+    
+
+@router.patch(
+    "/{actor_id}/desactivar",
+    status_code=status.HTTP_200_OK,
+    response_model=ActorOut,
+)
+async def desactivar_actor(actor_id: int, db: DB):
+    try:
+        # 1. Verificar que el actor existe
+        result = await db.execute(
+            select(ActoresDerechos).where(ActoresDerechos.id == actor_id)
+        )
+        actor = result.scalar_one_or_none()
+
+        if not actor:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Actor con id {actor_id} no encontrado.",
+            )
+
+        # 2. Verificar que no esté ya inactivo
+        if not actor.activo:
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail=f"El actor con id {actor_id} ya se encuentra inactivo.",
+            )
+
+        # 3. Cambiar a inactivo
+        actor.activo = False
+        await db.commit()
+        await db.refresh(actor)
+
+        return actor
+
+    except HTTPException:
+        raise
+    except Exception as exc:
+        await db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error al desactivar el actor: {str(exc)}",
         )

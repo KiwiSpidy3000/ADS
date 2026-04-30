@@ -268,7 +268,7 @@ export default function ActorDerechosPerfil() {
                   )}
                 </div>
                 <div className="flex gap-2 shrink-0">
-                  <Link href={`/actores-derechos/${id}/editar`}
+                  <Link href={`/actoresDerechos/${id}/editar`}
                     className="bg-blue-600 text-white text-xs font-semibold px-4 py-2 rounded-lg
                       hover:bg-blue-700 transition shadow-sm">
                     ✏ Editar

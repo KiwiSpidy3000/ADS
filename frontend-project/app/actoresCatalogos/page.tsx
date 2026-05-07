@@ -26,6 +26,11 @@ export default function DashboardAdmin() {
       className="bg-blue-600 text-white py-6 rounded-xl hover:bg-blue-700 text-center font-semibold text-lg shadow-md transition transform hover:scale-105">
       Consultar Actores en Materia de Derechos
     </Link>
+
+      <Link href="/programas"
+      className="bg-blue-600 text-white py-6 rounded-xl hover:bg-blue-700 text-center font-semibold text-lg shadow-md transition transform hover:scale-105">
+      Consultar Actores Programas Registrados para la Restitucion de Derechos
+    </Link>
   </div>
 </div>
     </body>

@@ -202,9 +202,9 @@ useEffect(() => {
                         </span>
                       </Link>
                       {actor.activo ? (
-                        <Link href={`/actores/revocar/${actor.id}`}>
+                        <Link href={`/actoresDerechos/revocar/${actor.id}`}>
                           <span className="text-red-600 cursor-pointer hover:underline text-sm">
-                            Revocar
+                            Desactivar
                           </span>
                         </Link>
                       ) : (

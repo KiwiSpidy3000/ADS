@@ -25,6 +25,7 @@ export default function AdminAcceso() {
       });
 
       if (!response.ok) {
+      router.push("/listaUsuarios");
         throw new Error("Error al actualizar");
       }
 
@@ -33,7 +34,11 @@ export default function AdminAcceso() {
 
     } catch (error) {
       console.error(error);
+      
       alert("Hubo un error");
+      
+      router.push("/listaUsuarios");
+
     }
 
     setLoading(false);
@@ -83,7 +88,7 @@ export default function AdminAcceso() {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
                 </svg>
-                  <button  onClick={revocarAcceso}>       REVOCAR ACCESO</button>
+                  <button  onClick={revocarAcceso}>Deshabilitar Actor</button>
          
             </button>
         </div>

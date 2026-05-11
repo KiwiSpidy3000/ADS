@@ -162,8 +162,8 @@ la documentación necesaria para las iteraciones 1 y 2.
 		\Titem Controlar el acceso al sistema para proteger la información confidencial de los NNA.
 	\end{Titemize}
 	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{usuarios.correo}{Correo electrónico}.
-		\Titem \hyperlink{usuarios.contrasena}{Contraseña}.
+		\Titem \hyperlink{Usuarios.correo}{Correo electrónico}.
+		\Titem \hyperlink{Usuarios.passwordHash}{Contraseña}.
 	\end{Titemize}
 	}\UCitem{Origen}{\begin{Titemize}
 		\Titem Se introducen desde el teclado en la pantalla de inicio de sesión.
@@ -263,8 +263,8 @@ la documentación necesaria para las iteraciones 1 y 2.
 		\Titem Otorgar acceso al sistema al personal autorizado de la institución.
 	\end{Titemize}
 	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{usuarios.nombre}{Nombre completo}, \hyperlink{usuarios.correo}{Correo electrónico}.
-		\Titem \hyperlink{usuarios.rol}{Rol del usuario} (Administrador / Especialista).
+		\Titem \hyperlink{Usuarios.nombre}{Nombre completo}, \hyperlink{Usuarios.correo}{Correo electrónico}.
+		\Titem \hyperlink{Usuarios.rol}{Rol del usuario} (Administrador / Especialista).
 	\end{Titemize}
 	}\UCitem{Origen}{\begin{Titemize}
 		\Titem Pantalla de registro de usuarios.
@@ -508,7 +508,7 @@ la documentación necesaria para las iteraciones 1 y 2.
 		\Titem Permitir la posterior asignación de integrantes y NNA al equipo creado.
 	\end{Titemize}
 	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{equipos_multidisciplinarios.nombre_equipo}{Nombre del equipo}.
+		\Titem \hyperlink{EquiposMultidisciplinarios.nombreEquipo}{Nombre del equipo}.
 	\end{Titemize}
 	}\UCitem{Origen}{\begin{Titemize}
 		\Titem Se introduce desde el teclado en la pantalla de registro de equipo.
@@ -520,14 +520,14 @@ la documentación necesaria para las iteraciones 1 y 2.
 	\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
 		\Titem Se muestra en la pantalla \IUref{IU-09}{Registrar equipo multidisciplinario}.
-		\Titem Se almacena en la tabla \hyperlink{equipos_multidisciplinarios}{equipos\_multidisciplinarios} de la base de datos.
+		\Titem Se almacena en la tabla \hyperlink{EquiposMultidisciplinarios}{equipos\_multidisciplinarios} de la base de datos.
 	\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 		\Titem El administrador debe haber iniciado sesión en el sistema (\UCref{CU-01}{Iniciar sesión}).
 		\Titem El actor debe tener el rol de Administrador en el sistema.
 	\end{Titemize}
 	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Se registra un nuevo equipo en la tabla \hyperlink{equipos_multidisciplinarios}{equipos\_multidisciplinarios} con estatus activo.
+		\Titem Se registra un nuevo equipo en la tabla \hyperlink{EquiposMultidisciplinarios}{equipos\_multidisciplinarios} con estatus activo.
 		\Titem Se registra automáticamente la fecha de creación del equipo.
 		\Titem El equipo queda disponible para la asignación de integrantes y NNA.
 	\end{Titemize}
@@ -547,7 +547,7 @@ la documentación necesaria para las iteraciones 1 y 2.
 	\UCpaso Muestra la pantalla \IUref{IU-09}{Registrar equipo multidisciplinario} con el formulario de registro.
 	\UCpaso[\UCactor] \label{CU-09.ingresaDatos} Ingresa el nombre del equipo y presiona el botón \IUbutton{Guardar}.
 	\UCpaso Valida que el campo nombre no esté vacío. \ErrorRef{CU-09}{E1}{Campo vacío}
-	\UCpaso Verifica que no exista otro equipo con el mismo nombre en la tabla \hyperlink{equipos_multidisciplinarios}{equipos\_multidisciplinarios}. \ErrorRef{CU-09}{E2}{Nombre duplicado}
+	\UCpaso Verifica que no exista otro equipo con el mismo nombre en la tabla \hyperlink{EquiposMultidisciplinarios}{equipos\_multidisciplinarios}. \ErrorRef{CU-09}{E2}{Nombre duplicado}
 	\UCpaso Registra el nuevo equipo en la base de datos con estatus activo y la fecha de creación actual.
 	\UCpaso Muestra el mensaje de confirmación ``El equipo multidisciplinario ha sido registrado exitosamente'' y actualiza el listado de equipos.
 \end{UCtrayectoria}
@@ -565,15 +565,15 @@ la documentación necesaria para las iteraciones 1 y 2.
 		\Titem Facilitar la revisión de los integrantes y los NNA bajo responsabilidad del equipo.
 	\end{Titemize}
 	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{equipos_multidisciplinarios.nombre_equipo}{Nombre o identificador del equipo} (para búsqueda).
+		\Titem \hyperlink{EquiposMultidisciplinarios.nombreEquipo}{Nombre o identificador del equipo} (para búsqueda).
 	\end{Titemize}
 	}\UCitem{Origen}{\begin{Titemize}
 		\Titem Se selecciona desde el listado de equipos o se introduce desde el teclado en el campo de búsqueda.
 	\end{Titemize}
 	}\UCitem{Salidas}{\begin{Titemize}
-		\Titem \hyperlink{equipos_multidisciplinarios.nombre_equipo}{Nombre del equipo}.
-		\Titem \hyperlink{equipos_multidisciplinarios.activo}{Estatus del equipo} (Activo / Inactivo).
-		\Titem \hyperlink{equipos_multidisciplinarios.fecha_creacion}{Fecha de creación}.
+		\Titem \hyperlink{EquiposMultidisciplinarios.nombreEquipo}{Nombre del equipo}.
+		\Titem \hyperlink{EquiposMultidisciplinarios.activo}{Estatus del equipo} (Activo / Inactivo).
+		\Titem \hyperlink{EquiposMultidisciplinarios.fechaCreacion}{Fecha de creación}.
 		\Titem Listado de integrantes del equipo con su rol y fecha de ingreso.
 		\Titem Listado de NNA asignados al equipo.
 		\Titem Mensaje de error si el equipo no existe.
@@ -603,7 +603,7 @@ la documentación necesaria para las iteraciones 1 y 2.
 	\UCpaso[\UCactor] Ingresa al módulo de equipos multidisciplinarios desde el menú principal del sistema.
 	\UCpaso Muestra la pantalla \IUref{IU-10}{Consultar equipo multidisciplinario} con el listado de todos los equipos registrados. \ErrorRef{CU-10}{E1}{Sin equipos}
 	\UCpaso[\UCactor] \label{CU-10.selecciona} Selecciona el equipo que desea consultar del listado, o ingresa un criterio de búsqueda y presiona el botón \IUbutton{Buscar}. \ErrorRef{CU-10}{E2}{Sin resultados}
-	\UCpaso Recupera de la base de datos la información del equipo seleccionado, incluyendo sus integrantes actuales de la tabla \hyperlink{integrantes_equipo}{integrantes\_equipo} y los NNA asignados de la tabla \hyperlink{nna}{nna}.
+	\UCpaso Recupera de la base de datos la información del equipo seleccionado, incluyendo sus integrantes actuales de la tabla \hyperlink{IntegrantesEquipo}{integrantes\_equipo} y los NNA asignados de la tabla \hyperlink{Nna}{nna}.
 	\UCpaso Muestra la información completa del equipo en la pantalla \IUref{IU-10}{Consultar equipo multidisciplinario}.
 \end{UCtrayectoria}
 %-------------------------------------- TERMINA CU-10
@@ -620,11 +620,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 		\Titem Permitir la incorporación o salida de integrantes del equipo registrando el motivo del cambio.
 	\end{Titemize}
 	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{equipos_multidisciplinarios.nombre_equipo}{Nombre del equipo} (modificable).
-		\Titem \hyperlink{equipos_multidisciplinarios.activo}{Estatus del equipo} (Activo / Inactivo).
-		\Titem \hyperlink{integrantes_equipo.usuario_id}{Integrante a agregar o dar de baja}.
-		\Titem \hyperlink{integrantes_equipo.motivo_cambio}{Motivo del cambio de integrante} (en caso de baja).
-		\Titem \hyperlink{integrantes_equipo.fecha_salida}{Fecha de salida del integrante} (en caso de baja).
+		\Titem \hyperlink{EquiposMultidisciplinarios.nombreEquipo}{Nombre del equipo} (modificable).
+		\Titem \hyperlink{EquiposMultidisciplinarios.activo}{Estatus del equipo} (Activo / Inactivo).
+		\Titem \hyperlink{IntegrantesEquipo.usuarioId}{Integrante a agregar o dar de baja}.
+		\Titem \hyperlink{IntegrantesEquipo.motivoCambio}{Motivo del cambio de integrante} (en caso de baja).
+		\Titem \hyperlink{IntegrantesEquipo.fechaSalida}{Fecha de salida del integrante} (en caso de baja).
 	\end{Titemize}
 	}\UCitem{Origen}{\begin{Titemize}
 		\Titem Se introducen o seleccionan desde la pantalla de modificación del equipo.
@@ -636,7 +636,7 @@ la documentación necesaria para las iteraciones 1 y 2.
 	\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
 		\Titem Se muestra en la pantalla \IUref{IU-11}{Modificar equipo multidisciplinario}.
-		\Titem Los cambios se persisten en las tablas \hyperlink{equipos_multidisciplinarios}{equipos\_multidisciplinarios} e \hyperlink{integrantes_equipo}{integrantes\_equipo}.
+		\Titem Los cambios se persisten en las tablas \hyperlink{EquiposMultidisciplinarios}{equipos\_multidisciplinarios} e \hyperlink{IntegrantesEquipo}{integrantes\_equipo}.
 	\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 		\Titem El administrador debe haber iniciado sesión en el sistema (\UCref{CU-01}{Iniciar sesión}).
@@ -644,9 +644,9 @@ la documentación necesaria para las iteraciones 1 y 2.
 		\Titem El administrador debe haber consultado previamente el equipo (\UCref{CU-10}{Consultar equipo multidisciplinario}).
 	\end{Titemize}
 	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Se actualizan los datos del equipo en la tabla \hyperlink{equipos_multidisciplinarios}{equipos\_multidisciplinarios}.
-		\Titem En caso de baja de un integrante, se registra la fecha de salida y motivo en \hyperlink{integrantes_equipo}{integrantes\_equipo} con estatus ``Inactivo''.
-		\Titem En caso de incorporación de un integrante, se crea un nuevo registro en \hyperlink{integrantes_equipo}{integrantes\_equipo} con la fecha de ingreso actual.
+		\Titem Se actualizan los datos del equipo en la tabla \hyperlink{EquiposMultidisciplinarios}{equipos\_multidisciplinarios}.
+		\Titem En caso de baja de un integrante, se registra la fecha de salida y motivo en \hyperlink{IntegrantesEquipo}{integrantes\_equipo} con estatus ``Inactivo''.
+		\Titem En caso de incorporación de un integrante, se crea un nuevo registro en \hyperlink{IntegrantesEquipo}{integrantes\_equipo} con la fecha de ingreso actual.
 	\end{Titemize}
 	}\UCitem{Errores}{\begin{Titemize}
 		\Titem {\bf \hypertarget{CU-11.E1}{E1}}: El campo nombre del equipo se deja vacío; el sistema muestra el mensaje ``El campo Nombre del equipo es requerido'' y regresa al paso \ref{CU-11.modificaDatos}.
@@ -684,8 +684,8 @@ la documentación necesaria para las iteraciones 1 y 2.
 		\Titem Garantizar que cada NNA tenga un equipo responsable claramente definido en el sistema.
 	\end{Titemize}
 	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{nna.id}{Identificador del NNA} a asignar.
-		\Titem \hyperlink{equipos_multidisciplinarios.id}{Equipo multidisciplinario} al que se asignará.
+		\Titem \hyperlink{Nna.id}{Identificador del NNA} a asignar.
+		\Titem \hyperlink{EquiposMultidisciplinarios.id}{Equipo multidisciplinario} al que se asignará.
 	\end{Titemize}
 	}\UCitem{Origen}{\begin{Titemize}
 		\Titem Se seleccionan desde listas desplegables en la pantalla de asignación.
@@ -697,7 +697,7 @@ la documentación necesaria para las iteraciones 1 y 2.
 	\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
 		\Titem Se muestra en la pantalla \IUref{IU-12}{Asignar NNA a equipo multidisciplinario}.
-		\Titem Se actualiza el campo \hyperlink{nna.equipo_asignado_id}{equipo\_asignado\_id} en la tabla \hyperlink{nna}{nna}.
+		\Titem Se actualiza el campo \hyperlink{Nna.equipoAsignadoId}{equipo\_asignado\_id} en la tabla \hyperlink{Nna}{nna}.
 	\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 		\Titem El administrador debe haber iniciado sesión en el sistema (\UCref{CU-01}{Iniciar sesión}).
@@ -705,7 +705,7 @@ la documentación necesaria para las iteraciones 1 y 2.
 		\Titem Debe existir al menos un equipo multidisciplinario activo (\UCref{CU-09}{Registrar equipo multidisciplinario}).
 	\end{Titemize}
 	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Se actualiza el campo \hyperlink{nna.equipo_asignado_id}{equipo\_asignado\_id} del NNA seleccionado en la tabla \hyperlink{nna}{nna}.
+		\Titem Se actualiza el campo \hyperlink{Nna.equipoAsignadoId}{equipo\_asignado\_id} del NNA seleccionado en la tabla \hyperlink{Nna}{nna}.
 		\Titem El equipo asignado puede visualizar al NNA en su listado de casos a atender.
 	\end{Titemize}
 	}\UCitem{Errores}{\begin{Titemize}
@@ -725,7 +725,7 @@ la documentación necesaria para las iteraciones 1 y 2.
 	\UCpaso Muestra la pantalla \IUref{IU-12}{Asignar NNA a equipo multidisciplinario} con una lista de NNA disponibles y una lista de equipos activos.
 	\UCpaso[\UCactor] \label{CU-12.selecciona} Selecciona el NNA y el equipo multidisciplinario al que desea asignarlo, y presiona el botón \IUbutton{Asignar}. \ErrorRef{CU-12}{E1}{NNA no seleccionado} \ErrorRef{CU-12}{E2}{Equipo no seleccionado}
 	\UCpaso Verifica que el NNA no esté ya asignado al mismo equipo seleccionado. \ErrorRef{CU-12}{E3}{Asignación duplicada}
-	\UCpaso Actualiza el campo \hyperlink{nna.equipo_asignado_id}{equipo\_asignado\_id} del NNA en la tabla \hyperlink{nna}{nna}.
+	\UCpaso Actualiza el campo \hyperlink{Nna.equipoAsignadoId}{equipo\_asignado\_id} del NNA en la tabla \hyperlink{Nna}{nna}.
 	\UCpaso Muestra el mensaje ``El NNA ha sido asignado exitosamente al equipo multidisciplinario seleccionado.''
 \end{UCtrayectoria}
 %-------------------------------------- TERMINA CU-12
@@ -743,20 +743,20 @@ la documentación necesaria para las iteraciones 1 y 2.
 		\Titem Centralizar la información del NNA como punto de partida para la apertura de expedientes.
 	\end{Titemize}
 	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{nna.nombre}{Nombre(s) del NNA}.
-		\Titem \hyperlink{nna.primer_apellido}{Primer apellido del NNA}.
-		\Titem \hyperlink{nna.segundo_apellido}{Segundo apellido del NNA}.
-		\Titem \hyperlink{nna.fecha_nacimiento}{Fecha de nacimiento}.
-		\Titem \hyperlink{nna.sexo}{Sexo}.
-		\Titem \hyperlink{nna.curp}{CURP} (opcional si no cuenta con él).
-		\Titem \hyperlink{nna.nacionalidad}{Nacionalidad}.
-		\Titem \hyperlink{nna.es_migrante}{Indicador de condición migrante}.
-		\Titem \hyperlink{nna.estatus_escolar_id}{Estatus escolar} (selección del catálogo \hyperlink{cat_estatus_escolar}{cat\_estatus\_escolar}).
-		\Titem \hyperlink{direcciones_nna.calle}{Calle}, \hyperlink{direcciones_nna.num_exterior}{número exterior}, \hyperlink{direcciones_nna.num_interior}{número interior}.
-		\Titem \hyperlink{direcciones_nna.colonia_id}{Colonia} (del catálogo SEPOMEX).
-		\Titem \hyperlink{direcciones_nna.pueblo_comunidad}{Pueblo o comunidad} (en caso de aplicar).
-		\Titem \hyperlink{direcciones_nna.vivienda_nna_id}{Tipo de vivienda} (del catálogo \hyperlink{cat_vivienda_nna}{cat\_vivienda\_nna}).
-		\Titem \hyperlink{nna.tutor_id}{Tutor del NNA} (referencia al tutor ya registrado).
+		\Titem \hyperlink{Nna.nombre}{Nombre(s) del NNA}.
+		\Titem \hyperlink{Nna.primerApellido}{Primer apellido del NNA}.
+		\Titem \hyperlink{Nna.segundoApellido}{Segundo apellido del NNA}.
+		\Titem \hyperlink{Nna.fechaNacimiento}{Fecha de nacimiento}.
+		\Titem \hyperlink{Nna.sexo}{Sexo}.
+		\Titem \hyperlink{Nna.curp}{CURP} (opcional si no cuenta con él).
+		\Titem \hyperlink{Nna.nacionalidad}{Nacionalidad}.
+		\Titem \hyperlink{Nna.esMigrante}{Indicador de condición migrante}.
+		\Titem \hyperlink{Nna.estatusEscolarId}{Estatus escolar} (selección del catálogo \hyperlink{CatEstatusEscolar}{cat\_estatus\_escolar}).
+		\Titem \hyperlink{Direcciones.calle}{Calle}, \hyperlink{Direcciones.noExterior}{número exterior}, \hyperlink{Direcciones.noInterior}{número interior}.
+		\Titem \hyperlink{Direcciones.coloniaId}{Colonia} (del catálogo SEPOMEX).
+		\Titem \hyperlink{Direcciones.puebloComunidad}{Pueblo o comunidad} (en caso de aplicar).
+		\Titem \hyperlink{Direcciones.viviendaNnaId}{Tipo de vivienda} (del catálogo \hyperlink{CatTipoLugar}{cat\_vivienda\_nna}).
+		\Titem \hyperlink{Nna.tutorId}{Tutor del NNA} (referencia al tutor ya registrado).
 	\end{Titemize}
 	}\UCitem{Origen}{\begin{Titemize}
 		\Titem Se introducen desde el teclado o se seleccionan de listas desplegables en la pantalla de registro de NNA.
@@ -768,16 +768,16 @@ la documentación necesaria para las iteraciones 1 y 2.
 	\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
 		\Titem Se muestra en la pantalla \IUref{IU-13}{Registrar NNA}.
-		\Titem Se almacena en las tablas \hyperlink{nna}{nna} y \hyperlink{direcciones_nna}{direcciones\_nna} de la base de datos.
+		\Titem Se almacena en las tablas \hyperlink{Nna}{nna} y \hyperlink{Direcciones}{direcciones\_nna} de la base de datos.
 	\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 		\Titem El especialista debe haber iniciado sesión en el sistema (\UCref{CU-01}{Iniciar sesión}).
 		\Titem El tutor del NNA debe estar registrado previamente en el sistema (\UCref{CU-18}{Registrar tutor del NNA}).
 	\end{Titemize}
 	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Se crea un nuevo registro en la tabla \hyperlink{nna}{nna} con estatus activo.
-		\Titem Se crea el registro de dirección correspondiente en \hyperlink{direcciones_nna}{direcciones\_nna}.
-		\Titem Se registra el usuario que realizó el registro en el campo \hyperlink{nna.creado_por}{creado\_por}.
+		\Titem Se crea un nuevo registro en la tabla \hyperlink{Nna}{nna} con estatus activo.
+		\Titem Se crea el registro de dirección correspondiente en \hyperlink{Direcciones}{direcciones\_nna}.
+		\Titem Se registra el usuario que realizó el registro en el campo \hyperlink{Nna.creadoPor}{creado\_por}.
 		\Titem El NNA queda disponible para la apertura de expediente y asignación a equipo.
 	\end{Titemize}
 	}\UCitem{Errores}{\begin{Titemize}
@@ -800,9 +800,9 @@ la documentación necesaria para las iteraciones 1 y 2.
 	\UCpaso Valida que los campos obligatorios no estén vacíos (nombre, apellidos, fecha de nacimiento). \ErrorRef{CU-13}{E1}{Campos obligatorios}
 	\UCpaso Valida que la fecha de nacimiento no sea posterior a la fecha actual. \ErrorRef{CU-13}{E3}{Fecha inválida}
 	\UCpaso Si se proporcionó CURP, valida el formato de 18 caracteres. \ErrorRef{CU-13}{E4}{Formato CURP}
-	\UCpaso Verifica que la CURP ingresada no esté registrada en la tabla \hyperlink{nna}{nna}. \ErrorRef{CU-13}{E2}{CURP duplicada}
-	\UCpaso Crea el registro de dirección en la tabla \hyperlink{direcciones_nna}{direcciones\_nna}.
-	\UCpaso Registra al NNA en la tabla \hyperlink{nna}{nna} con estatus activo, vinculando la dirección y el usuario que realizó el registro.
+	\UCpaso Verifica que la CURP ingresada no esté registrada en la tabla \hyperlink{Nna}{nna}. \ErrorRef{CU-13}{E2}{CURP duplicada}
+	\UCpaso Crea el registro de dirección en la tabla \hyperlink{Direcciones}{direcciones\_nna}.
+	\UCpaso Registra al NNA en la tabla \hyperlink{Nna}{nna} con estatus activo, vinculando la dirección y el usuario que realizó el registro.
 	\UCpaso Muestra el mensaje ``El NNA ha sido registrado exitosamente en el sistema'' con el identificador asignado.
 \end{UCtrayectoria}
 %-------------------------------------- TERMINA CU-13
@@ -819,7 +819,7 @@ la documentación necesaria para las iteraciones 1 y 2.
 		\Titem Facilitar el acceso centralizado a los datos del NNA como punto de partida para el seguimiento de su caso.
 	\end{Titemize}
 	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{nna.nombre}{Nombre(s) del NNA}, \hyperlink{nna.primer_apellido}{apellidos} o \hyperlink{nna.curp}{CURP} (criterio de búsqueda).
+		\Titem \hyperlink{Nna.nombre}{Nombre(s) del NNA}, \hyperlink{Nna.primerApellido}{apellidos} o \hyperlink{Nna.curp}{CURP} (criterio de búsqueda).
 	\end{Titemize}
 	}\UCitem{Origen}{\begin{Titemize}
 		\Titem Se introduce desde el teclado en el campo de búsqueda del listado de NNA.
@@ -857,7 +857,7 @@ la documentación necesaria para las iteraciones 1 y 2.
 	\UCpaso[\UCactor] Accede al módulo de NNA desde el menú principal.
 	\UCpaso Muestra la pantalla \IUref{IU-14}{Consultar NNA} con el listado de NNA registrados activos. \ErrorRef{CU-14}{E2}{Sin registros}
 	\UCpaso[\UCactor] \label{CU-14.busca} Ingresa un criterio de búsqueda (nombre, apellidos o CURP) y presiona el botón \IUbutton{Buscar}. \ErrorRef{CU-14}{E1}{Sin resultados}
-	\UCpaso Recupera de las tablas \hyperlink{nna}{nna}, \hyperlink{direcciones_nna}{direcciones\_nna}, \hyperlink{tutores}{tutores}, \hyperlink{nna_enfermedades}{nna\_enfermedades}, \hyperlink{nna_discapacidades}{nna\_discapacidades} y \hyperlink{nna_idiomas}{nna\_idiomas} la información completa del NNA encontrado.
+	\UCpaso Recupera de las tablas \hyperlink{Nna}{nna}, \hyperlink{Direcciones}{direcciones\_nna}, \hyperlink{Tutores}{tutores}, \hyperlink{NnaEnfermedades}{nna\_enfermedades}, \hyperlink{NnaDiscapacidades}{nna\_discapacidades} y \hyperlink{NnaIdiomas}{nna\_idiomas} la información completa del NNA encontrado.
 	\UCpaso Muestra la información completa del NNA en la pantalla \IUref{IU-14}{Consultar NNA}.
 \end{UCtrayectoria}
 %-------------------------------------- TERMINA CU-14
@@ -888,7 +888,7 @@ la documentación necesaria para las iteraciones 1 y 2.
 	\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
 		\Titem Se muestra en la pantalla \IUref{IU-15}{Modificar datos del NNA}.
-		\Titem Los cambios se persisten en las tablas \hyperlink{nna}{nna} y \hyperlink{direcciones_nna}{direcciones\_nna}.
+		\Titem Los cambios se persisten en las tablas \hyperlink{Nna}{nna} y \hyperlink{Direcciones}{direcciones\_nna}.
 	\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 		\Titem El especialista debe haber iniciado sesión (\UCref{CU-01}{Iniciar sesión}).
@@ -916,7 +916,7 @@ la documentación necesaria para las iteraciones 1 y 2.
 	\UCpaso Valida que los campos obligatorios no estén vacíos. \ErrorRef{CU-15}{E1}{Campos obligatorios}
 	\UCpaso Valida que la fecha de nacimiento no sea posterior a la fecha actual. \ErrorRef{CU-15}{E3}{Fecha inválida}
 	\UCpaso Si se modificó la CURP, verifica que no exista en otro registro de NNA. \ErrorRef{CU-15}{E2}{CURP duplicada}
-	\UCpaso Persiste los cambios en las tablas \hyperlink{nna}{nna} y \hyperlink{direcciones_nna}{direcciones\_nna}.
+	\UCpaso Persiste los cambios en las tablas \hyperlink{Nna}{nna} y \hyperlink{Direcciones}{direcciones\_nna}.
 	\UCpaso Muestra el mensaje ``Los datos del NNA han sido actualizados exitosamente.''
 \end{UCtrayectoria}
 %-------------------------------------- TERMINA CU-15
@@ -940,17 +940,17 @@ la documentación necesaria para las iteraciones 1 y 2.
 		\Titem Contar con datos de contacto e historial de salud del tutor como parte del expediente del NNA.
 	\end{Titemize}
 	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{tutores.nombre}{Nombre(s) del tutor}.
-		\Titem \hyperlink{tutores.primer_apellido}{Primer apellido}.
-		\Titem \hyperlink{tutores.segundo_apellido}{Segundo apellido}.
-		\Titem \hyperlink{tutores.fecha_nacimiento}{Fecha de nacimiento}.
-		\Titem \hyperlink{tutores.sexo}{Sexo}.
-		\Titem \hyperlink{tutores.curp}{CURP} (opcional).
-		\Titem \hyperlink{tutores.nacionalidad}{Nacionalidad}.
-		\Titem \hyperlink{tutores.parentesco}{Parentesco con el NNA}.
-		\Titem \hyperlink{direcciones_usuarios.calle}{Calle}, \hyperlink{direcciones_usuarios.num_exterior}{número exterior}, \hyperlink{direcciones_usuarios.num_interior}{número interior}.
-		\Titem \hyperlink{direcciones_usuarios.colonia_id}{Colonia} (del catálogo SEPOMEX, \UCref{CU-32}{Consultar catálogo de domicilios}).
-		\Titem \hyperlink{direcciones_usuarios.tipo_vivienda_id}{Tipo de vivienda} (del catálogo \hyperlink{cat_tipo_vivienda}{cat\_tipo\_vivienda}).
+		\Titem \hyperlink{Tutores.nombre}{Nombre(s) del tutor}.
+		\Titem \hyperlink{Tutores.primerApellido}{Primer apellido}.
+		\Titem \hyperlink{Tutores.segundoApellido}{Segundo apellido}.
+		\Titem \hyperlink{Tutores.fechaNacimiento}{Fecha de nacimiento}.
+		\Titem \hyperlink{Tutores.sexo}{Sexo}.
+		\Titem \hyperlink{Tutores.curp}{CURP} (opcional).
+		\Titem \hyperlink{Tutores.nacionalidad}{Nacionalidad}.
+		\Titem \hyperlink{Tutores.parentesco}{Parentesco con el NNA}.
+		\Titem \hyperlink{Direcciones.calle}{Calle}, \hyperlink{Direcciones.noExterior}{número exterior}, \hyperlink{Direcciones.noInterior}{número interior}.
+		\Titem \hyperlink{Direcciones.coloniaId}{Colonia} (del catálogo SEPOMEX, \UCref{CU-32}{Consultar catálogo de domicilios}).
+		\Titem \hyperlink{Direcciones.tipoViviendaId}{Tipo de vivienda} (del catálogo \hyperlink{CatTipoVivienda}{cat\_tipo\_vivienda}).
 	\end{Titemize}
 	}\UCitem{Origen}{\begin{Titemize}
 		\Titem Se introducen desde el teclado o se seleccionan de listas desplegables en la pantalla de registro de tutor.
@@ -962,14 +962,14 @@ la documentación necesaria para las iteraciones 1 y 2.
 	\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
 		\Titem Se muestra en la pantalla \IUref{IU-18}{Registrar tutor del NNA}.
-		\Titem Se almacena en las tablas \hyperlink{tutores}{tutores} y \hyperlink{direcciones_usuarios}{direcciones\_usuarios}.
+		\Titem Se almacena en las tablas \hyperlink{Tutores}{tutores} y \hyperlink{Direcciones}{direcciones\_usuarios}.
 	\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 		\Titem El especialista debe haber iniciado sesión (\UCref{CU-01}{Iniciar sesión}).
 	\end{Titemize}
 	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Se crea un nuevo registro en la tabla \hyperlink{tutores}{tutores}.
-		\Titem Se crea el registro de domicilio correspondiente en \hyperlink{direcciones_usuarios}{direcciones\_usuarios}.
+		\Titem Se crea un nuevo registro en la tabla \hyperlink{Tutores}{tutores}.
+		\Titem Se crea el registro de domicilio correspondiente en \hyperlink{Direcciones}{direcciones\_usuarios}.
 		\Titem El tutor queda disponible para ser vinculado a uno o más NNA.
 	\end{Titemize}
 	}\UCitem{Errores}{\begin{Titemize}
@@ -990,9 +990,9 @@ la documentación necesaria para las iteraciones 1 y 2.
 	\UCpaso[\UCactor] \label{CU-18.ingresaDatos} Completa los datos personales y de domicilio del tutor, y presiona el botón \IUbutton{Guardar}.
 	\UCpaso Valida que los campos obligatorios no estén vacíos. \ErrorRef{CU-18}{E1}{Campos obligatorios}
 	\UCpaso Valida que la fecha de nacimiento no sea posterior a la fecha actual. \ErrorRef{CU-18}{E3}{Fecha inválida}
-	\UCpaso Si se proporcionó CURP, verifica que no exista ya en la tabla \hyperlink{tutores}{tutores}. \ErrorRef{CU-18}{E2}{CURP duplicada}
-	\UCpaso Crea el registro de domicilio en la tabla \hyperlink{direcciones_usuarios}{direcciones\_usuarios}.
-	\UCpaso Registra al tutor en la tabla \hyperlink{tutores}{tutores} vinculando el domicilio creado.
+	\UCpaso Si se proporcionó CURP, verifica que no exista ya en la tabla \hyperlink{Tutores}{tutores}. \ErrorRef{CU-18}{E2}{CURP duplicada}
+	\UCpaso Crea el registro de domicilio en la tabla \hyperlink{Direcciones}{direcciones\_usuarios}.
+	\UCpaso Registra al tutor en la tabla \hyperlink{Tutores}{tutores} vinculando el domicilio creado.
 	\UCpaso Muestra el mensaje ``El tutor ha sido registrado exitosamente en el sistema.''
 \end{UCtrayectoria}
 %-------------------------------------- TERMINA CU-18
@@ -1022,7 +1022,7 @@ la documentación necesaria para las iteraciones 1 y 2.
 	\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
 		\Titem Se muestra en la pantalla \IUref{IU-19}{Modificar datos del tutor}.
-		\Titem Los cambios se persisten en las tablas \hyperlink{tutores}{tutores} y \hyperlink{direcciones_usuarios}{direcciones\_usuarios}.
+		\Titem Los cambios se persisten en las tablas \hyperlink{Tutores}{tutores} y \hyperlink{Direcciones}{direcciones\_usuarios}.
 	\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 		\Titem El especialista debe haber iniciado sesión (\UCref{CU-01}{Iniciar sesión}).
@@ -1050,7 +1050,7 @@ la documentación necesaria para las iteraciones 1 y 2.
 	\UCpaso Valida que los campos obligatorios no estén vacíos. \ErrorRef{CU-19}{E1}{Campos obligatorios}
 	\UCpaso Valida que la fecha de nacimiento no sea posterior a la fecha actual. \ErrorRef{CU-19}{E3}{Fecha inválida}
 	\UCpaso Si se modificó la CURP, verifica que no exista ya en otro registro de tutor. \ErrorRef{CU-19}{E2}{CURP duplicada}
-	\UCpaso Persiste los cambios en las tablas \hyperlink{tutores}{tutores} y \hyperlink{direcciones_usuarios}{direcciones\_usuarios}.
+	\UCpaso Persiste los cambios en las tablas \hyperlink{Tutores}{tutores} y \hyperlink{Direcciones}{direcciones\_usuarios}.
 	\UCpaso Muestra el mensaje ``Los datos del tutor han sido actualizados exitosamente.''
 \end{UCtrayectoria}
 %-------------------------------------- TERMINA CU-19
@@ -1130,10 +1130,10 @@ la documentación necesaria para las iteraciones 1 y 2.
 		\Titem Vistas de registro de características del NNA/tutor (\IUref{IU-33}{Consultar catálogo de idiomas}).
 	\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
-		\Titem El catálogo basado en INALI debe estar cargado en la base de datos (\hyperlink{cat_idiomas}{cat\_idiomas}).
+		\Titem El catálogo basado en INALI debe estar cargado en la base de datos (\hyperlink{CatIdiomas}{cat\_idiomas}).
 	\end{Titemize}
 	}\UCitem{Postcondiciones}{\begin{Titemize}
-		\Titem Selección del idioma registrado en la tabla de asociación respectiva (\hyperlink{nna_idiomas}{nna\_idiomas} o similar).
+		\Titem Selección del idioma registrado en la tabla de asociación respectiva (\hyperlink{NnaIdiomas}{nna\_idiomas} o similar).
 	\end{Titemize}
 	}\UCitem{Errores}{\begin{Titemize}
 		\Titem {\bf \hypertarget{CU-33.E1}{E1}}: El idioma no se encuentra listado en el catálogo; se prevé que el sistema ofrezca la alternativa ``Otro'' con campo de texto libre temporal o notificación para el administrador.
@@ -1147,7 +1147,7 @@ la documentación necesaria para las iteraciones 1 y 2.
 
 \begin{UCtrayectoria}
 	\UCpaso[\UCactor] Despliega la lista de idiomas o ingresa fragmentos del nombre del idioma durante la captura de un NNA o tutor.
-	\UCpaso Consulta la tabla \hyperlink{cat_idiomas}{cat\_idiomas} filtrando por las coincidencias con el texto provisto.
+	\UCpaso Consulta la tabla \hyperlink{CatIdiomas}{cat\_idiomas} filtrando por las coincidencias con el texto provisto.
 	\UCpaso Muestra en pantalla el listado de resultados oficiales. \ErrorRef{CU-33}{E1}{Sin resultados}
 	\UCpaso[\UCactor] Selecciona el idioma y confirma si requiere intérprete para la atención.
 \end{UCtrayectoria}
@@ -1165,8 +1165,8 @@ la documentación necesaria para las iteraciones 1 y 2.
 		\Titem Identificar necesidades especiales para garantizar medidas de inclusión y accesibilidad en el trato y seguimiento del caso.
 	\end{Titemize}
 	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem \hyperlink{nna_discapacidades.discapacidad_id}{Tipo de discapacidad} (seleccionado de catálogo).
-		\Titem \hyperlink{nna_discapacidades.observaciones}{Observaciones adicionales} (texto libre).
+		\Titem \hyperlink{NnaDiscapacidades.discapacidadId}{Tipo de discapacidad} (seleccionado de catálogo).
+		\Titem \hyperlink{NnaDiscapacidades.observaciones}{Observaciones adicionales} (texto libre).
 	\end{Titemize}
 	}\UCitem{Origen}{\begin{Titemize}
 		\Titem Selección desde la vista del NNA o del tutor en su rubro de características médicas.
@@ -1177,7 +1177,7 @@ la documentación necesaria para las iteraciones 1 y 2.
 	\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
 		\Titem Pantalla \IUref{IU-34}{Registrar discapacidad}.
-		\Titem Tabla cruzada \hyperlink{nna_discapacidades}{nna\_discapacidades} o tabla de tutores correspondiente.
+		\Titem Tabla cruzada \hyperlink{NnaDiscapacidades}{nna\_discapacidades} o tabla de tutores correspondiente.
 	\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 		\Titem NNA o tutor deben estar registrados.
@@ -1220,7 +1220,7 @@ la documentación necesaria para las iteraciones 1 y 2.
 		\Titem Documentar afecciones médicas importantes que puedan dictar precauciones de salud dentro del proceso de protección al NNA.
 	\end{Titemize}
 	}\UCitem{Entradas}{\begin{Titemize}
-		\Titem Nombre o tipo de enfermedad (referido a un catálogo \hyperlink{cat_enfermedades}{cat\_enfermedades}).
+		\Titem Nombre o tipo de enfermedad (referido a un catálogo \hyperlink{CatEnfermedades}{cat\_enfermedades}).
 		\Titem Observaciones particulares (ej. medicamentos prescritos, gravedad).
 	\end{Titemize}
 	}\UCitem{Origen}{\begin{Titemize}
@@ -1230,7 +1230,7 @@ la documentación necesaria para las iteraciones 1 y 2.
 		\Titem Confirmación visible de que la enfermedad ha sido registrada.
 	\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
-		\Titem Módulo de consulta de salud del NNA y registro en \hyperlink{nna_enfermedades}{nna\_enfermedades} (o su equivalente para el tutor).
+		\Titem Módulo de consulta de salud del NNA y registro en \hyperlink{NnaEnfermedades}{nna\_enfermedades} (o su equivalente para el tutor).
 	\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 		\Titem El perfil clínico y general del usuario (NNA o tutor) debe existir de antemano.

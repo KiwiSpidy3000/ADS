@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.30)  11 MAY 2026 14:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.30)  11 MAY 2026 14:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2546,21 +2546,310 @@ File: theme/pleca.png Graphic file (type png)
 Package pdftex.def Info: theme/pleca.png  used on input line 545.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
 [9]
+! Undefined control sequence.
+<argument> ...rtpbox {\@nextchar }\insert@pcolumn 
+                                                  \@endpbox \do@row@strut \o...
+l.555 	]{BR-01}{Unicidad de la CURP}
+                                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...rtpbox {\@nextchar }\insert@pcolumn 
+                                                  \@endpbox \do@row@strut \o...
+l.555 	]{BR-01}{Unicidad de la CURP}
+                                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...rtpbox {\@nextchar }\insert@pcolumn 
+                                                  \@endpbox \do@row@strut \o...
+l.555 	]{BR-01}{Unicidad de la CURP}
+                                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing # inserted in alignment preamble.
+<to be read again> 
+                   &
+l.555 	]{BR-01}{Unicidad de la CURP}
+                                    
+There should be exactly one # between &'s, when an
+\halign or \valign is being set up. In this case you had
+none, so I've put one in; maybe that will work.
+
+! Missing # inserted in alignment preamble.
+<to be read again> 
+                   &
+l.555 	]{BR-01}{Unicidad de la CURP}
+                                    
+There should be exactly one # between &'s, when an
+\halign or \valign is being set up. In this case you had
+none, so I've put one in; maybe that will work.
+
+! Missing # inserted in alignment preamble.
+<to be read again> 
+                   \cr 
+l.555 	]{BR-01}{Unicidad de la CURP}
+                                    
+There should be exactly one # between &'s, when an
+\halign or \valign is being set up. In this case you had
+none, so I've put one in; maybe that will work.
+
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on i
+nput line 555.
+
+(C:\Users\Alison\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontawes
+omefree2.fd)
+LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on i
+nput line 555.
+
+(C:\Users\Alison\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontawes
+omefree0.fd)
+Overfull \hbox (277.19785pt too wide) in paragraph at lines 555--555
+[] 
+ []
+
+! Undefined control sequence.
+<argument> ...rtpbox {\@nextchar }\insert@pcolumn 
+                                                  \@endpbox \do@row@strut \o...
+l.575 	]{BR-02}{Unicidad del correo electrónico}
+                                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...rtpbox {\@nextchar }\insert@pcolumn 
+                                                  \@endpbox \do@row@strut \o...
+l.575 	]{BR-02}{Unicidad del correo electrónico}
+                                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...rtpbox {\@nextchar }\insert@pcolumn 
+                                                  \@endpbox \do@row@strut \o...
+l.575 	]{BR-02}{Unicidad del correo electrónico}
+                                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing # inserted in alignment preamble.
+<to be read again> 
+                   &
+l.575 	]{BR-02}{Unicidad del correo electrónico}
+                                                 
+There should be exactly one # between &'s, when an
+\halign or \valign is being set up. In this case you had
+none, so I've put one in; maybe that will work.
+
+! Missing # inserted in alignment preamble.
+<to be read again> 
+                   &
+l.575 	]{BR-02}{Unicidad del correo electrónico}
+                                                 
+There should be exactly one # between &'s, when an
+\halign or \valign is being set up. In this case you had
+none, so I've put one in; maybe that will work.
+
+! Missing # inserted in alignment preamble.
+<to be read again> 
+                   \cr 
+l.575 	]{BR-02}{Unicidad del correo electrónico}
+                                                 
+There should be exactly one # between &'s, when an
+\halign or \valign is being set up. In this case you had
+none, so I've put one in; maybe that will work.
+
+
+Overfull \hbox (277.19785pt too wide) in paragraph at lines 575--575
+[] 
+ []
+
+! Undefined control sequence.
+<argument> ...rtpbox {\@nextchar }\insert@pcolumn 
+                                                  \@endpbox \do@row@strut \o...
+l.595 ...R-03}{Asignación única de equipo a NNA}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...rtpbox {\@nextchar }\insert@pcolumn 
+                                                  \@endpbox \do@row@strut \o...
+l.595 ...R-03}{Asignación única de equipo a NNA}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...rtpbox {\@nextchar }\insert@pcolumn 
+                                                  \@endpbox \do@row@strut \o...
+l.595 ...R-03}{Asignación única de equipo a NNA}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing # inserted in alignment preamble.
+<to be read again> 
+                   &
+l.595 ...R-03}{Asignación única de equipo a NNA}
+                                                  
+There should be exactly one # between &'s, when an
+\halign or \valign is being set up. In this case you had
+none, so I've put one in; maybe that will work.
+
+! Missing # inserted in alignment preamble.
+<to be read again> 
+                   &
+l.595 ...R-03}{Asignación única de equipo a NNA}
+                                                  
+There should be exactly one # between &'s, when an
+\halign or \valign is being set up. In this case you had
+none, so I've put one in; maybe that will work.
+
+! Missing # inserted in alignment preamble.
+<to be read again> 
+                   \cr 
+l.595 ...R-03}{Asignación única de equipo a NNA}
+                                                  
+There should be exactly one # between &'s, when an
+\halign or \valign is being set up. In this case you had
+none, so I've put one in; maybe that will work.
+
+
+Overfull \hbox (277.19785pt too wide) in paragraph at lines 595--595
+[] 
+ []
+
+! Undefined control sequence.
+<argument> ...rtpbox {\@nextchar }\insert@pcolumn 
+                                                  \@endpbox \do@row@strut \o...
+l.615 ...4}{Unicidad del Folio FUD en expedientes}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...rtpbox {\@nextchar }\insert@pcolumn 
+                                                  \@endpbox \do@row@strut \o...
+l.615 ...4}{Unicidad del Folio FUD en expedientes}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...rtpbox {\@nextchar }\insert@pcolumn 
+                                                  \@endpbox \do@row@strut \o...
+l.615 ...4}{Unicidad del Folio FUD en expedientes}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing # inserted in alignment preamble.
+<to be read again> 
+                   &
+l.615 ...4}{Unicidad del Folio FUD en expedientes}
+                                                  
+There should be exactly one # between &'s, when an
+\halign or \valign is being set up. In this case you had
+none, so I've put one in; maybe that will work.
+
+! Missing # inserted in alignment preamble.
+<to be read again> 
+                   &
+l.615 ...4}{Unicidad del Folio FUD en expedientes}
+                                                  
+There should be exactly one # between &'s, when an
+\halign or \valign is being set up. In this case you had
+none, so I've put one in; maybe that will work.
+
+! Missing # inserted in alignment preamble.
+<to be read again> 
+                   \cr 
+l.615 ...4}{Unicidad del Folio FUD en expedientes}
+                                                  
+There should be exactly one # between &'s, when an
+\halign or \valign is being set up. In this case you had
+none, so I've put one in; maybe that will work.
+
+
+Overfull \hbox (277.19785pt too wide) in paragraph at lines 615--615
+[] 
+ []
+
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
-Package pdftex.def Info: theme/headerPar.png  used on input line 616.
+Package pdftex.def Info: theme/headerPar.png  used on input line 619.
 (pdftex.def)             Requested size: 210.00035pt x 35.0pt.
 File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 616.
+Package pdftex.def Info: theme/pleca.png  used on input line 619.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [10]
-<images/arquitectura.png, id=1470, 563.10374pt x 458.71375pt>
+[10{C:/Users/Alison/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/
+fa5free2.enc}{C:/Users/Alison/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fon
+tawesome5/fa5free0.enc}]
+File: theme/headerInp.png Graphic file (type png)
+<use theme/headerInp.png>
+Package pdftex.def Info: theme/headerInp.png  used on input line 691.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 691.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [11]
+<images/arquitectura.png, id=1494, 563.10374pt x 458.71375pt>
 File: images/arquitectura.png Graphic file (type png)
 <use images/arquitectura.png>
-Package pdftex.def Info: images/arquitectura.png  used on input line 648.
+Package pdftex.def Info: images/arquitectura.png  used on input line 733.
 (pdftex.def)             Requested size: 300.29344pt x 244.622pt.
 )
+File: theme/headerPar.png Graphic file (type png)
+<use theme/headerPar.png>
+Package pdftex.def Info: theme/headerPar.png  used on input line 42.
+(pdftex.def)             Requested size: 210.00035pt x 35.0pt.
+File: theme/pleca.png Graphic file (type png)
+<use theme/pleca.png>
+Package pdftex.def Info: theme/pleca.png  used on input line 42.
+(pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
+ [12]
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
 Package pdftex.def Info: theme/headerInp.png  used on input line 42.
@@ -2569,10 +2858,11 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 42.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [11 <./images/arquitectura.png>]
+ [13 <./images/arquitectura.png>]
 \openout2 = `3ModeloDelNegocio.aux'.
 
- (3ModeloDelNegocio.tex
+
+(3ModeloDelNegocio.tex
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
 Package pdftex.def Info: theme/headerPar.png  used on input line 4.
@@ -2581,14 +2871,14 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 4.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [12
+ [14
 
 
 
 
 ]
 Cap\'{\i }tulo 3.
-<cdt/images/actorRule.png, id=1482, 1401.0744pt x 130.086pt>
+<cdt/images/actorRule.png, id=1509, 1401.0744pt x 130.086pt>
 File: cdt/images/actorRule.png Graphic file (type png)
 <use cdt/images/actorRule.png>
 Package pdftex.def Info: cdt/images/actorRule.png  used on input line 22.
@@ -2597,7 +2887,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 46.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[13 <./cdt/images/actorRule.png>]
+[15 <./cdt/images/actorRule.png>]
 File: cdt/images/actorRule.png Graphic file (type png)
 <use cdt/images/actorRule.png>
 Package pdftex.def Info: cdt/images/actorRule.png  used on input line 68.
@@ -2610,7 +2900,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 104.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [14]
+ [16]
 File: cdt/images/actorRule.png Graphic file (type png)
 <use cdt/images/actorRule.png>
 Package pdftex.def Info: cdt/images/actorRule.png  used on input line 118.
@@ -2623,7 +2913,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 157.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [15]
+ [17]
 File: cdt/images/actorRule.png Graphic file (type png)
 <use cdt/images/actorRule.png>
 Package pdftex.def Info: cdt/images/actorRule.png  used on input line 176.
@@ -2636,7 +2926,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 212.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [16]
+ [18]
 File: cdt/images/actorRule.png Graphic file (type png)
 <use cdt/images/actorRule.png>
 Package pdftex.def Info: cdt/images/actorRule.png  used on input line 226.
@@ -2649,7 +2939,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 269.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [17]
+ [19]
 File: cdt/images/actorRule.png Graphic file (type png)
 <use cdt/images/actorRule.png>
 Package pdftex.def Info: cdt/images/actorRule.png  used on input line 277.
@@ -2662,7 +2952,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 324.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [18]
+ [20]
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
 Package pdftex.def Info: theme/headerInp.png  used on input line 418.
@@ -2671,8 +2961,8 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 418.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [19]
-<images/DiagramaBDproyecto4.png, id=1520, 5600.925pt x 3155.79pt>
+ [21]
+<images/DiagramaBDproyecto4.png, id=1547, 5600.925pt x 3155.79pt>
 File: images/DiagramaBDproyecto4.png Graphic file (type png)
 <use images/DiagramaBDproyecto4.png>
 Package pdftex.def Info: images/DiagramaBDproyecto4.png  used on input line 439
@@ -2690,7 +2980,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 445.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[20]
+[22]
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
 Package pdftex.def Info: theme/headerInp.png  used on input line 445.
@@ -2699,8 +2989,8 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 445.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [21 <./images/DiagramaBDproyecto4.png>]
-<cdt/images/classRule.png, id=1530, 1930.5726pt x 130.086pt>
+ [23 <./images/DiagramaBDproyecto4.png>]
+<cdt/images/classRule.png, id=1558, 1930.5726pt x 130.086pt>
 File: cdt/images/classRule.png Graphic file (type png)
 <use cdt/images/classRule.png>
 Package pdftex.def Info: cdt/images/classRule.png  used on input line 447.
@@ -3956,7 +4246,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 475.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[22
+[24
 
  <./cdt/images/classRule.png>]
 File: cdt/images/classRule.png Graphic file (type png)
@@ -4950,7 +5240,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 496.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[23]
+[25]
 File: cdt/images/classRule.png Graphic file (type png)
 <use cdt/images/classRule.png>
 Package pdftex.def Info: cdt/images/classRule.png  used on input line 498.
@@ -5964,7 +6254,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 518.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[24]
+[26]
 File: cdt/images/classRule.png Graphic file (type png)
 <use cdt/images/classRule.png>
 Package pdftex.def Info: cdt/images/classRule.png  used on input line 520.
@@ -7066,7 +7356,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 544.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[25]
+[27]
 File: cdt/images/classRule.png Graphic file (type png)
 <use cdt/images/classRule.png>
 Package pdftex.def Info: cdt/images/classRule.png  used on input line 546.
@@ -8346,7 +8636,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 579.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[26]
+[28]
 File: cdt/images/classRule.png Graphic file (type png)
 <use cdt/images/classRule.png>
 Package pdftex.def Info: cdt/images/classRule.png  used on input line 581.
@@ -8996,7 +9286,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 602.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[27]
+[29]
 ! Undefined control sequence.
 <argument> ...rtpbox {\@nextchar }\insert@pcolumn 
                                                   \@endpbox \do@row@strut \o...
@@ -10013,7 +10303,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 633.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[28]
+[30]
 ! Undefined control sequence.
 <argument> ...rtpbox {\@nextchar }\insert@pcolumn 
                                                   \@endpbox \do@row@strut \o...
@@ -11323,7 +11613,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 673.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[29]
+[31]
 File: cdt/images/classRule.png Graphic file (type png)
 <use cdt/images/classRule.png>
 Package pdftex.def Info: cdt/images/classRule.png  used on input line 675.
@@ -12473,7 +12763,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 709.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[30]
+[32]
 File: cdt/images/classRule.png Graphic file (type png)
 <use cdt/images/classRule.png>
 Package pdftex.def Info: cdt/images/classRule.png  used on input line 711.
@@ -13315,7 +13605,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 732.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[31]
+[33]
 File: cdt/images/classRule.png Graphic file (type png)
 <use cdt/images/classRule.png>
 Package pdftex.def Info: cdt/images/classRule.png  used on input line 734.
@@ -14377,7 +14667,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 764.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[32]
+[34]
 File: cdt/images/classRule.png Graphic file (type png)
 <use cdt/images/classRule.png>
 Package pdftex.def Info: cdt/images/classRule.png  used on input line 766.
@@ -15212,7 +15502,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 788.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[33]
+[35]
 ! Undefined control sequence.
 <argument> ...rtpbox {\@nextchar }\insert@pcolumn 
                                                   \@endpbox \do@row@strut \o...
@@ -16652,7 +16942,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 827.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[34]
+[36]
 File: cdt/images/classRule.png Graphic file (type png)
 <use cdt/images/classRule.png>
 Package pdftex.def Info: cdt/images/classRule.png  used on input line 829.
@@ -17868,7 +18158,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 863.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[35]
+[37]
 File: cdt/images/classRule.png Graphic file (type png)
 <use cdt/images/classRule.png>
 Package pdftex.def Info: cdt/images/classRule.png  used on input line 865.
@@ -18666,7 +18956,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 883.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
-[36]
+[38]
 File: cdt/images/classRule.png Graphic file (type png)
 <use cdt/images/classRule.png>
 Package pdftex.def Info: cdt/images/classRule.png  used on input line 885.
@@ -19071,7 +19361,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 45.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [37]
+ [39]
 \openout2 = `4ModeloDinamico.aux'.
 
  (4ModeloDinamico.tex
@@ -19083,7 +19373,7 @@ File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
 Package pdftex.def Info: theme/pleca.png  used on input line 4.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
- [38
+ [40
 
 
 
@@ -19095,7 +19385,7 @@ LaTeX Font Info:    Trying to load font information for U+lasy on input line 7.
 (C:\Users\Alison\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-<images/casosUso.jpeg, id=1933, 682.55pt x 561.09625pt>
+<images/casosUso.jpeg, id=1960, 682.55pt x 561.09625pt>
 File: images/casosUso.jpeg Graphic file (type jpg)
 <use images/casosUso.jpeg>
 Package pdftex.def Info: images/casosUso.jpeg  used on input line 19.
@@ -19113,7 +19403,7 @@ l.32 \begin{figure}[htbp]
 You've lost some text.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-<images/casosDeUsoSistemas.png, id=1936, 603.4545pt x 475.7775pt>
+<images/casosDeUsoSistemas.png, id=1963, 603.4545pt x 475.7775pt>
 File: images/casosDeUsoSistemas.png Graphic file (type png)
 <use images/casosDeUsoSistemas.png>
 Package pdftex.def Info: images/casosDeUsoSistemas.png  used on input line 34.
@@ -19191,7 +19481,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[39]
+[41]
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
 Package pdftex.def Info: theme/headerPar.png  used on input line 40.
@@ -19205,13 +19495,13 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[40 <./images/casosUso.jpeg>]
-<images/casosUsoDetalle.png, id=1946, 423.5825pt x 1606.0pt>
+[42 <./images/casosUso.jpeg>]
+<images/casosUsoDetalle.png, id=1974, 423.5825pt x 1606.0pt>
 File: images/casosUsoDetalle.png Graphic file (type png)
 <use images/casosUsoDetalle.png>
 Package pdftex.def Info: images/casosUsoDetalle.png  used on input line 45.
 (pdftex.def)             Requested size: 423.58147pt x 1605.99611pt.
-<images/diagramaCasosUso.jpeg, id=1947, 423.5825pt x 1606.0pt>
+<images/diagramaCasosUso.jpeg, id=1975, 423.5825pt x 1606.0pt>
 File: images/diagramaCasosUso.jpeg Graphic file (type jpg)
 <use images/diagramaCasosUso.jpeg>
 Package pdftex.def Info: images/diagramaCasosUso.jpeg  used on input line 47.
@@ -19797,7 +20087,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[41]
+[43]
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
 Package pdftex.def Info: theme/headerPar.png  used on input line 156.
@@ -19811,8 +20101,8 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[42]
-<cdt/images/cuRule.png, id=1957, 926.46124pt x 57.21375pt>
+[44]
+<cdt/images/cuRule.png, id=1984, 926.46124pt x 57.21375pt>
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 156.
@@ -20083,7 +20373,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<cdt/images/iu.png, id=1961, 61.22874pt x 55.20625pt>
+<cdt/images/iu.png, id=1988, 61.22874pt x 55.20625pt>
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 178.
@@ -20230,12 +20520,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 194--194
 
  []
 
-<cdt/images/actor.png, id=1964, 96.36pt x 74.2775pt>
+<cdt/images/actor.png, id=1991, 96.36pt x 74.2775pt>
 File: cdt/images/actor.png Graphic file (type png)
 <use cdt/images/actor.png>
 Package pdftex.def Info: cdt/images/actor.png  used on input line 195.
 (pdftex.def)             Requested size: 14.26958pt x 11.0pt.
-<cdt/images/usecase.png, id=1965, 91.34125pt x 61.22874pt>
+<cdt/images/usecase.png, id=1992, 91.34125pt x 61.22874pt>
 File: cdt/images/usecase.png Graphic file (type png)
 <use cdt/images/usecase.png>
 Package pdftex.def Info: cdt/images/usecase.png  used on input line 196.
@@ -20278,7 +20568,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[43{C:/Users/Alison/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/
+[45{C:/Users/Alison/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/fontawesome5/
 fa5free3.enc} <./cdt/images/cuRule.png> <./cdt/images/iu.png> <./cdt/images/act
 or.png> <./cdt/images/usecase.png> <C:/Users/Alison/AppData/Local/Programs/MiKT
 eX/tex/latex/keystroke/keystroke_left.pdf> <C:/Users/Alison/AppData/Local/Progr
@@ -20729,7 +21019,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[44]
+[46]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 257.
@@ -21183,7 +21473,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[45]
+[47]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 307.
@@ -21629,7 +21919,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[46]
+[48]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 355.
@@ -22083,7 +22373,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[47]
+[49]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 404.
@@ -22529,7 +22819,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[48]
+[50]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 452.
@@ -22979,7 +23269,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[49]
+[51]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 501.
@@ -23441,7 +23731,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[50]
+[52]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 558.
@@ -23899,7 +24189,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[51]
+[53]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 613.
@@ -24369,7 +24659,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[52]
+[54]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 677.
@@ -24827,7 +25117,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[53]
+[55]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 735.
@@ -25301,7 +25591,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[54]
+[56]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 812.
@@ -25766,7 +26056,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[55]
+[57]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 869.
@@ -26236,7 +26526,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[56]
+[58]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 933.
@@ -26706,7 +26996,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[57]
+[59]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 1004.
@@ -27172,7 +27462,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[58]
+[60]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 1063.
@@ -27618,7 +27908,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[59]
+[61]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 1111.
@@ -28064,7 +28354,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[60]
+[62]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 1159.
@@ -28518,7 +28808,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[61]
+[63]
 File: cdt/images/cuRule.png Graphic file (type png)
 <use cdt/images/cuRule.png>
 Package pdftex.def Info: cdt/images/cuRule.png  used on input line 1214.
@@ -28973,7 +29263,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[62]
+[64]
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
 Package pdftex.def Info: theme/headerInp.png  used on input line 48.
@@ -28987,7 +29277,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[63 <./images/casosUsoDetalle.png> <./images/diagramaCasosUso.jpeg>]
+[65 <./images/casosUsoDetalle.png> <./images/diagramaCasosUso.jpeg>]
 \openout2 = `5ModeloDeInteraccion.aux'.
 
 
@@ -29005,7 +29295,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[64
+[66
 
 
 
@@ -29037,7 +29327,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[65]
+[67]
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
 Package pdftex.def Info: theme/headerPar.png  used on input line 62.
@@ -29051,7 +29341,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[66]
+[68]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 76.
@@ -29064,7 +29354,7 @@ File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 87.
 (pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-<images/IU1-IniciarSesion.png, id=2591, 947.79094pt x 567.62062pt>
+<images/IU1-IniciarSesion.png, id=2564, 947.79094pt x 567.62062pt>
 File: images/IU1-IniciarSesion.png Graphic file (type png)
 <use images/IU1-IniciarSesion.png>
 Package pdftex.def Info: images/IU1-IniciarSesion.png  used on input line 89.
@@ -29086,7 +29376,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[67
+[69
 
  <./images/IU1-IniciarSesion.png>]
 File: cdt/images/iu.png Graphic file (type png)
@@ -29101,7 +29391,7 @@ File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 142.
 (pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-<images/DashAdmin.png, id=2606, 1906.87407pt x 438.13687pt>
+<images/DashAdmin.png, id=2579, 1906.87407pt x 438.13687pt>
 File: images/DashAdmin.png Graphic file (type png)
 <use images/DashAdmin.png>
 Package pdftex.def Info: images/DashAdmin.png  used on input line 150.
@@ -29119,7 +29409,7 @@ Overfull \hbox (14.58763pt too wide) has occurred while \output is active
 [][]\OT1/txss/b/n/12 ''' [] 
  []
 
-[68 <./images/DashAdmin.png>]
+[70 <./images/DashAdmin.png>]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 166.
@@ -29148,7 +29438,7 @@ File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 204.
 (pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-<images/ListaUsuarios.png, id=2622, 1915.9078pt x 413.29407pt>
+<images/ListaUsuarios.png, id=2595, 1915.9078pt x 413.29407pt>
 File: images/ListaUsuarios.png Graphic file (type png)
 <use images/ListaUsuarios.png>
 Package pdftex.def Info: images/ListaUsuarios.png  used on input line 213.
@@ -29166,7 +29456,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[69]
+[71]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 242.
@@ -29207,8 +29497,8 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[70 <./images/ListaUsuarios.png>]
-<images/RegistroPersonal.png, id=2649, 726.46407pt x 895.09406pt>
+[72 <./images/ListaUsuarios.png>]
+<images/RegistroPersonal.png, id=2623, 726.46407pt x 895.09406pt>
 File: images/RegistroPersonal.png Graphic file (type png)
 <use images/RegistroPersonal.png>
 Package pdftex.def Info: images/RegistroPersonal.png  used on input line 295.
@@ -29226,7 +29516,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[71]
+[73]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 373.
@@ -29260,8 +29550,8 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[72]
-<images/ModificarUsuario.png, id=2681, 846.91406pt x 922.19531pt>
+[74]
+<images/ModificarUsuario.png, id=2654, 846.91406pt x 922.19531pt>
 File: images/ModificarUsuario.png Graphic file (type png)
 <use images/ModificarUsuario.png>
 Package pdftex.def Info: images/ModificarUsuario.png  used on input line 414.
@@ -29279,7 +29569,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[73]
+[75]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 495.
@@ -29296,7 +29586,7 @@ File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 522.
 (pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-<images/ConsultaUsaurios.png, id=2701, 1012.5328pt x 843.15pt>
+<images/ConsultaUsaurios.png, id=2674, 1012.5328pt x 843.15pt>
 File: images/ConsultaUsaurios.png Graphic file (type png)
 <use images/ConsultaUsaurios.png>
 Package pdftex.def Info: images/ConsultaUsaurios.png  used on input line 540.
@@ -29314,7 +29604,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[74]
+[76]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 560.
@@ -29346,7 +29636,7 @@ Overfull \hbox (14.87907pt too wide) in paragraph at lines 597--601
 [][]
  []
 
-<images/ConsultaEquipo.png, id=2718, 1251.92719pt x 355.3275pt>
+<images/ConsultaEquipo.png, id=2691, 1251.92719pt x 355.3275pt>
 File: images/ConsultaEquipo.png Graphic file (type png)
 <use images/ConsultaEquipo.png>
 Package pdftex.def Info: images/ConsultaEquipo.png  used on input line 611.
@@ -29364,7 +29654,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[75]
+[77]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 639.
@@ -29399,7 +29689,7 @@ Overfull \hbox (6.73808pt too wide) in paragraph at lines 671--674
 -
  []
 
-<images/RegistroEquipo.png, id=2732, 1251.92719pt x 355.3275pt>
+<images/RegistroEquipo.png, id=2706, 1251.92719pt x 355.3275pt>
 File: images/RegistroEquipo.png Graphic file (type png)
 <use images/RegistroEquipo.png>
 Package pdftex.def Info: images/RegistroEquipo.png  used on input line 679.
@@ -29417,7 +29707,7 @@ Overfull \hbox (14.58763pt too wide) has occurred while \output is active
 [][]\OT1/txss/b/n/12 ''' [] 
  []
 
-[76]
+[78]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 706.
@@ -29434,7 +29724,7 @@ File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 730.
 (pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-<images/AnadirIntegrantes.png, id=2757, 1352.05125pt x 332.24126pt>
+<images/AnadirIntegrantes.png, id=2731, 1352.05125pt x 332.24126pt>
 File: images/AnadirIntegrantes.png Graphic file (type png)
 <use images/AnadirIntegrantes.png>
 Package pdftex.def Info: images/AnadirIntegrantes.png  used on input line 743.
@@ -29452,7 +29742,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[77]
+[79]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 783.
@@ -29465,7 +29755,7 @@ File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 794.
 (pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-<images/ModificarEquipo.png, id=2775, 1190.94937pt x 328.22626pt>
+<images/ModificarEquipo.png, id=2748, 1190.94937pt x 328.22626pt>
 File: images/ModificarEquipo.png Graphic file (type png)
 <use images/ModificarEquipo.png>
 Package pdftex.def Info: images/ModificarEquipo.png  used on input line 796.
@@ -29483,7 +29773,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[78]
+[80]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 821.
@@ -29496,7 +29786,7 @@ File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 833.
 (pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-<images/ConsultaNNAsTutores.png, id=2794, 1237.62375pt x 457.71pt>
+<images/ConsultaNNAsTutores.png, id=2767, 1237.62375pt x 457.71pt>
 File: images/ConsultaNNAsTutores.png Graphic file (type png)
 <use images/ConsultaNNAsTutores.png>
 Package pdftex.def Info: images/ConsultaNNAsTutores.png  used on input line 841
@@ -29515,7 +29805,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[79]
+[81]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 877.
@@ -29528,7 +29818,7 @@ File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 889.
 (pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-<images/RegistroNNA.png, id=2810, 1199.98312pt x 737.75626pt>
+<images/RegistroNNA.png, id=2783, 1199.98312pt x 737.75626pt>
 File: images/RegistroNNA.png Graphic file (type png)
 <use images/RegistroNNA.png>
 Package pdftex.def Info: images/RegistroNNA.png  used on input line 897.
@@ -29546,7 +29836,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[80]
+[82]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 936.
@@ -29564,7 +29854,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[81]
+[83]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 951.
@@ -29573,7 +29863,7 @@ File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 951.
 (pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-<images/RegistroTutor.png, id=2829, 602.25pt x 502.12593pt>
+<images/RegistroTutor.png, id=2803, 602.25pt x 502.12593pt>
 File: images/RegistroTutor.png Graphic file (type png)
 <use images/RegistroTutor.png>
 Package pdftex.def Info: images/RegistroTutor.png  used on input line 953.
@@ -29591,7 +29881,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[82]
+[84]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 978.
@@ -29604,7 +29894,7 @@ File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 993.
 (pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-<images/ConsultaNNA.png, id=2843, 880.03781pt x 833.36343pt>
+<images/ConsultaNNA.png, id=2817, 880.03781pt x 833.36343pt>
 File: images/ConsultaNNA.png Graphic file (type png)
 <use images/ConsultaNNA.png>
 Package pdftex.def Info: images/ConsultaNNA.png  used on input line 999.
@@ -29626,7 +29916,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[83]
+[85]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 1037.
@@ -29651,7 +29941,7 @@ File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 1058.
 (pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-<images/ModificacionNNA.png, id=2857, 1120.185pt x 794.2172pt>
+<images/ModificacionNNA.png, id=2830, 1120.185pt x 794.2172pt>
 File: images/ModificacionNNA.png Graphic file (type png)
 <use images/ModificacionNNA.png>
 Package pdftex.def Info: images/ModificacionNNA.png  used on input line 1064.
@@ -29669,7 +29959,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[84]
+[86]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 1130.
@@ -29682,7 +29972,7 @@ File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 1145.
 (pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-<images/PanelRestitucion.png, id=2871, 1099.10625pt x 245.41687pt>
+<images/PanelRestitucion.png, id=2844, 1099.10625pt x 245.41687pt>
 File: images/PanelRestitucion.png Graphic file (type png)
 <use images/PanelRestitucion.png>
 Package pdftex.def Info: images/PanelRestitucion.png  used on input line 1150.
@@ -29700,7 +29990,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[85]
+[87]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 1168.
@@ -29717,7 +30007,7 @@ File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 1187.
 (pdftex.def)             Requested size: 11.09076pt x 10.0pt.
-<images/ConsultaCatalogos.png, id=2883, 1087.81406pt x 773.89125pt>
+<images/ConsultaCatalogos.png, id=2856, 1087.81406pt x 773.89125pt>
 File: images/ConsultaCatalogos.png Graphic file (type png)
 <use images/ConsultaCatalogos.png>
 Package pdftex.def Info: images/ConsultaCatalogos.png  used on input line 1197.
@@ -29736,7 +30026,7 @@ Overfull \hbox (14.58763pt too wide) has occurred while \output is active
 [][]\OT1/txss/b/n/12 ''' [] 
  []
 
-[86]
+[88]
 File: cdt/images/iu.png Graphic file (type png)
 <use cdt/images/iu.png>
 Package pdftex.def Info: cdt/images/iu.png  used on input line 1220.
@@ -29755,7 +30045,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[87]
+[89]
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
 Package pdftex.def Info: theme/headerPar.png  used on input line 134.
@@ -29769,7 +30059,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[88]
+[90]
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
 Package pdftex.def Info: theme/headerInp.png  used on input line 206.
@@ -29783,7 +30073,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[89]
+[91]
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
 Package pdftex.def Info: theme/headerPar.png  used on input line 268.
@@ -29797,7 +30087,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[90]))
+[92]))
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
 Package pdftex.def Info: theme/headerInp.png  used on input line 51.
@@ -29811,7 +30101,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[91]
+[93]
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
 Package pdftex.def Info: theme/headerPar.png  used on input line 51.
@@ -29825,7 +30115,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[92 <./images/RegistroPersonal.png>]
+[94 <./images/RegistroPersonal.png>]
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
 Package pdftex.def Info: theme/headerInp.png  used on input line 51.
@@ -29839,7 +30129,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[93 <./images/ModificarUsuario.png>]
+[95 <./images/ModificarUsuario.png>]
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
 Package pdftex.def Info: theme/headerPar.png  used on input line 51.
@@ -29853,7 +30143,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[94 <./images/ConsultaUsaurios.png> <./images/ConsultaEquipo.png>]
+[96 <./images/ConsultaUsaurios.png> <./images/ConsultaEquipo.png>]
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
 Package pdftex.def Info: theme/headerInp.png  used on input line 51.
@@ -29867,7 +30157,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[95 <./images/RegistroEquipo.png> <./images/AnadirIntegrantes.png> <./images/Mo
+[97 <./images/RegistroEquipo.png> <./images/AnadirIntegrantes.png> <./images/Mo
 dificarEquipo.png>]
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
@@ -29882,7 +30172,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[96 <./images/ConsultaNNAsTutores.png> <./images/RegistroNNA.png>]
+[98 <./images/ConsultaNNAsTutores.png> <./images/RegistroNNA.png>]
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
 Package pdftex.def Info: theme/headerInp.png  used on input line 51.
@@ -29896,7 +30186,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[97 <./images/RegistroTutor.png>]
+[99 <./images/RegistroTutor.png>]
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
 Package pdftex.def Info: theme/headerPar.png  used on input line 51.
@@ -29910,7 +30200,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[98 <./images/ConsultaNNA.png>]
+[100 <./images/ConsultaNNA.png>]
 File: theme/headerInp.png Graphic file (type png)
 <use theme/headerInp.png>
 Package pdftex.def Info: theme/headerInp.png  used on input line 51.
@@ -29924,7 +30214,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[99 <./images/ModificacionNNA.png> <./images/PanelRestitucion.png>]
+[101 <./images/ModificacionNNA.png> <./images/PanelRestitucion.png>]
 File: theme/headerPar.png Graphic file (type png)
 <use theme/headerPar.png>
 Package pdftex.def Info: theme/headerPar.png  used on input line 51.
@@ -29938,7 +30228,7 @@ Overfull \hbox (10.03761pt too wide) has occurred while \output is active
 [][]\OT1/txss/m/n/10 ''' [] 
  []
 
-[100 <./images/ConsultaCatalogos.png>]
+[102 <./images/ConsultaCatalogos.png>]
 
 ! LaTeX Error: \begin{quoting} on input line 7 ended by \end{document}.
 
@@ -29961,8 +30251,18 @@ LaTeX Info: Redefining \% on input line 11.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-Package rerunfilecheck Info: File `proyecto.out' has not changed.
-(rerunfilecheck)             Checksum: AA5462BAA047EC25E8B2D64376168443;42193.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `proyecto.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `proyecto.out':
+(rerunfilecheck)             Before: AA5462BAA047EC25E8B2D64376168443;42193
+(rerunfilecheck)             After:  CCFAEBAA2BF670456BD8C522E7D940F9;42340.
  )
 (\end occurred inside a group at level 3)
 
@@ -29971,11 +30271,11 @@ Package rerunfilecheck Info: File `proyecto.out' has not changed.
 ### semi simple group (level 1) entered at line 7 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 21509 strings out of 474486
- 367876 string characters out of 5743283
+ 21516 strings out of 474486
+ 368166 string characters out of 5743283
  1990542 words of memory out of 5000000
- 42331 multiletter control sequences out of 15000+600000
- 614900 words of font info for 157 fonts, out of 8000000 for 9000
+ 42369 multiletter control sequences out of 15000+600000
+ 615519 words of font info for 159 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  105i,16n,107p,739b,807s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
@@ -30091,24 +30391,8 @@ pdfTeX warning (dest): name{IU-36} has been referenced but does not exist, repl
 aced by a fixed one
 
 
-pdfTeX warning (dest): name{cat_enfermedades} has been referenced but does not 
-exist, replaced by a fixed one
-
-
 pdfTeX warning (dest): name{IU-34} has been referenced but does not exist, repl
 aced by a fixed one
-
-
-pdfTeX warning (dest): name{nna_discapacidades.observaciones} has been referenc
-ed but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{nna_discapacidades.discapacidad_id} has been refere
-nced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cat_idiomas} has been referenced but does not exist
-, replaced by a fixed one
 
 
 pdfTeX warning (dest): name{IU-33} has been referenced but does not exist, repl
@@ -30119,244 +30403,76 @@ pdfTeX warning (dest): name{IU-19} has been referenced but does not exist, repl
 aced by a fixed one
 
 
-pdfTeX warning (dest): name{direcciones_usuarios} has been referenced but does 
-not exist, replaced by a fixed one
-
-
 pdfTeX warning (dest): name{IU-18} has been referenced but does not exist, repl
 aced by a fixed one
 
 
-pdfTeX warning (dest): name{cat_tipo_vivienda} has been referenced but does not
- exist, replaced by a fixed one
+pdfTeX warning (dest): name{CatTipoVivienda} has been referenced but does not e
+xist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{direcciones_usuarios.tipo_vivienda_id} has been ref
-erenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{direcciones_usuarios.colonia_id} has been reference
-d but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{direcciones_usuarios.num_interior} has been referen
-ced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{direcciones_usuarios.num_exterior} has been referen
-ced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{direcciones_usuarios.calle} has been referenced but
+pdfTeX warning (dest): name{Direcciones.tipoViviendaId} has been referenced but
  does not exist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{tutores.parentesco} has been referenced but does no
+pdfTeX warning (dest): name{Tutores.parentesco} has been referenced but does no
 t exist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{tutores.nacionalidad} has been referenced but does 
+pdfTeX warning (dest): name{Tutores.nacionalidad} has been referenced but does 
 not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{tutores.curp} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{tutores.sexo} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{tutores.fecha_nacimiento} has been referenced but d
-oes not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{tutores.segundo_apellido} has been referenced but d
-oes not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{tutores.primer_apellido} has been referenced but do
-es not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{tutores.nombre} has been referenced but does not ex
-ist, replaced by a fixed one
 
 
 pdfTeX warning (dest): name{IU-15} has been referenced but does not exist, repl
 aced by a fixed one
 
 
-pdfTeX warning (dest): name{nna_idiomas} has been referenced but does not exist
-, replaced by a fixed one
+pdfTeX warning (dest): name{NnaIdiomas} has been referenced but does not exist,
+ replaced by a fixed one
 
 
-pdfTeX warning (dest): name{nna_discapacidades} has been referenced but does no
-t exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{nna_enfermedades} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{tutores} has been referenced but does not exist, re
-placed by a fixed one
+pdfTeX warning (dest): name{NnaEnfermedades} has been referenced but does not e
+xist, replaced by a fixed one
 
 
 pdfTeX warning (dest): name{IU-14} has been referenced but does not exist, repl
 aced by a fixed one
 
 
-pdfTeX warning (dest): name{nna.creado_por} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{direcciones_nna} has been referenced but does not e
-xist, replaced by a fixed one
-
-
 pdfTeX warning (dest): name{IU-13} has been referenced but does not exist, repl
 aced by a fixed one
 
 
-pdfTeX warning (dest): name{nna.tutor_id} has been referenced but does not exis
-t, replaced by a fixed one
+pdfTeX warning (dest): name{Nna.tutorId} has been referenced but does not exist
+, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{cat_vivienda_nna} has been referenced but does not 
+pdfTeX warning (dest): name{Direcciones.viviendaNnaId} has been referenced but 
+does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Nna.nacionalidad} has been referenced but does not 
 exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{direcciones_nna.vivienda_nna_id} has been reference
-d but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{direcciones_nna.pueblo_comunidad} has been referenc
-ed but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{direcciones_nna.colonia_id} has been referenced but
- does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{direcciones_nna.num_interior} has been referenced b
-ut does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{direcciones_nna.num_exterior} has been referenced b
-ut does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{direcciones_nna.calle} has been referenced but does
- not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{cat_estatus_escolar} has been referenced but does n
-ot exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{nna.estatus_escolar_id} has been referenced but doe
-s not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{nna.es_migrante} has been referenced but does not e
-xist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{nna.nacionalidad} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{nna.curp} has been referenced but does not exist, r
-eplaced by a fixed one
-
-
-pdfTeX warning (dest): name{nna.sexo} has been referenced but does not exist, r
-eplaced by a fixed one
-
-
-pdfTeX warning (dest): name{nna.fecha_nacimiento} has been referenced but does 
-not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{nna.segundo_apellido} has been referenced but does 
-not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{nna.primer_apellido} has been referenced but does n
-ot exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{nna.nombre} has been referenced but does not exist,
- replaced by a fixed one
 
 
 pdfTeX warning (dest): name{Actor.Especialista} has been referenced but does no
 t exist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{nna.equipo_asignado_id} has been referenced but doe
-s not exist, replaced by a fixed one
-
-
 pdfTeX warning (dest): name{IU-12} has been referenced but does not exist, repl
 aced by a fixed one
-
-
-pdfTeX warning (dest): name{equipos_multidisciplinarios.id} has been referenced
- but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{nna.id} has been referenced but does not exist, rep
-laced by a fixed one
 
 
 pdfTeX warning (dest): name{IU-11} has been referenced but does not exist, repl
 aced by a fixed one
 
 
-pdfTeX warning (dest): name{integrantes_equipo.fecha_salida} has been reference
-d but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{integrantes_equipo.motivo_cambio} has been referenc
-ed but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{integrantes_equipo.usuario_id} has been referenced 
-but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{nna} has been referenced but does not exist, replac
-ed by a fixed one
-
-
-pdfTeX warning (dest): name{integrantes_equipo} has been referenced but does no
-t exist, replaced by a fixed one
-
-
 pdfTeX warning (dest): name{IU-10} has been referenced but does not exist, repl
 aced by a fixed one
 
 
-pdfTeX warning (dest): name{equipos_multidisciplinarios.fecha_creacion} has bee
-n referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{equipos_multidisciplinarios.activo} has been refere
-nced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{equipos_multidisciplinarios} has been referenced bu
-t does not exist, replaced by a fixed one
-
-
 pdfTeX warning (dest): name{IU-09} has been referenced but does not exist, repl
 aced by a fixed one
-
-
-pdfTeX warning (dest): name{equipos_multidisciplinarios.nombre_equipo} has been
- referenced but does not exist, replaced by a fixed one
 
 
 pdfTeX warning (dest): name{IU-06} has been referenced but does not exist, repl
@@ -30371,12 +30487,8 @@ pdfTeX warning (dest): name{IU-04} has been referenced but does not exist, repl
 aced by a fixed one
 
 
-pdfTeX warning (dest): name{usuarios.rol} has been referenced but does not exis
+pdfTeX warning (dest): name{Usuarios.rol} has been referenced but does not exis
 t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{usuarios.nombre} has been referenced but does not e
-xist, replaced by a fixed one
 
 
 pdfTeX warning (dest): name{Actor.Administrador} has been referenced but does n
@@ -30387,16 +30499,12 @@ pdfTeX warning (dest): name{IU-01} has been referenced but does not exist, repl
 aced by a fixed one
 
 
-pdfTeX warning (dest): name{usuarios.contrasena} has been referenced but does n
-ot exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{usuarios.correo} has been referenced but does not e
-xist, replaced by a fixed one
-
-
 pdfTeX warning (dest): name{Actor.Usuario} has been referenced but does not exi
 st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{CU-20} has been referenced but does not exist, repl
+aced by a fixed one
 
 <C:/Users/Alison/AppData/Local/Programs/MiKTeX/fonts/type1/public/fontawesome5/
 FontAwesome5Free-Solid.pfb><C:/Users/Alison/AppData/Local/Programs/MiKTeX/fonts
@@ -30412,9 +30520,9 @@ pfb><C:/Users/Alison/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhv
 b8a.pfb><C:/Users/Alison/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic
 /uhvr8a.pfb><C:/Users/Alison/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helv
 etic/uhvr8a.pfb>
-Output written on proyecto.pdf (114 pages, 2455161 bytes).
+Output written on proyecto.pdf (116 pages, 2459229 bytes).
 PDF statistics:
- 3256 PDF objects out of 3580 (max. 8388607)
- 1071 named destinations out of 1200 (max. 500000)
+ 3228 PDF objects out of 3580 (max. 8388607)
+ 1030 named destinations out of 1200 (max. 500000)
  2239 words of extra memory for PDF output out of 10000 (max. 10000000)
 

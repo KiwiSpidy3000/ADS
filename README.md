@@ -31,6 +31,16 @@ git clone https://github.com/KiwiSpidy3000/ADS.git
 
 ---
 
+## ⚠️ Rama de desarrollo activa
+
+Debido a conflictos de versión, la rama `main` no cuenta con las actualizaciones
+más recientes del módulo de Actores en Materia de Derechos (IU42–IU55).
+Para ejecutar el sistema con dichas funcionalidades, cambia a la rama de recuperación:
+
+```bash
+git checkout recuperacion
+```
+
 ##  Backend — FastAPI
 
 ### 1. Ir a la carpeta del backend

@@ -128,7 +128,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 		\hline
 		\multicolumn{3}{|c|}{\textbf{Módulo de Restitución de Derechos -- Directorio de Actores}} \\
 		\hline
+<<<<<<< HEAD
 		CU-41  & Registrar actor                          & Iteración 3  \\
+=======
+				CU-41  & Registrar actor                          & Iteración 3  \\
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 		CU-42  & Registrar contactos del actor            & Iteración 3  \\
 		CU-43  & Registrar ubicación del actor            & Iteración 3  \\
 		CU-44  & Registrar programas del actor            & Iteración 3  \\
@@ -1304,7 +1308,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 			\Titem Mensaje de confirmación de registro exitoso.
 		\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
+<<<<<<< HEAD
 			\Titem Pantalla \IUref{IU41}{Registrar actor}.
+=======
+			\Titem Pantalla \IUref{IU-41}{Registrar actor}.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 		\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 			\Titem El usuario debe haber iniciado sesión con rol de Especialista.
@@ -1369,7 +1377,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 			\Titem Mensaje de confirmación de registro exitoso.
 		\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
+<<<<<<< HEAD
 			\Titem Pantalla \IUref{IU42}{Registrar contactos del actor}.
+=======
+			\Titem Pantalla \IUref{IU-42}{Registrar contactos del actor}.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 		\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 			\Titem El actor debe estar previamente registrado y activo en el sistema (véase \UCref{CU-41}).
@@ -1390,7 +1402,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 \end{UseCase}
 \begin{UCtrayectoria}
 	\UCpaso[\UCactor] Desde el perfil del actor, selecciona la opción ``Agregar contacto''.
+<<<<<<< HEAD
 	\UCpaso Muestra la pantalla \IUref{IU42}{Registrar contactos del actor}.
+=======
+	\UCpaso Muestra la pantalla \IUref{IU-42}{Registrar contactos del actor}.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 	\UCpaso[\UCactor] \label{CU-42.ingresaContactos} Captura teléfono principal, y opcionalmente teléfono secundario, correo, página web, red social y observaciones; indica si es el contacto principal; luego presiona \IUbutton{Guardar}.
 	\UCpaso Valida el formato del teléfono. \ErrorRef{CU-42}{E1}{Teléfono inválido}
 	\UCpaso Valida el formato del correo electrónico, si fue proporcionado. \ErrorRef{CU-42}{E2}{Correo inválido}
@@ -1427,7 +1443,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 			\Titem Mensaje de confirmación de registro exitoso.
 		\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
+<<<<<<< HEAD
 			\Titem Pantalla \IUref{IU43}{Registrar ubicación del actor}.
+=======
+			\Titem Pantalla \IUref{IU-43}{Registrar ubicación del actor}.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 		\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 			\Titem El actor debe estar previamente registrado y activo en el sistema (véase \UCref{CU-41}).
@@ -1447,7 +1467,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 \end{UseCase}
 \begin{UCtrayectoria}
 	\UCpaso[\UCactor] Desde el perfil del actor, selecciona la opción ``Agregar ubicación''.
+<<<<<<< HEAD
 	\UCpaso Muestra la pantalla \IUref{IU43}{Registrar ubicación del actor}.
+=======
+	\UCpaso Muestra la pantalla \IUref{IU-43}{Registrar ubicación del actor}.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 	\UCpaso[\UCactor] \label{CU-43.ingresaUbicacion} Captura la calle, número exterior, número interior (opcional), selecciona la colonia, tipo de lugar, y opcionalmente pueblo/comunidad y referencia; luego presiona \IUbutton{Guardar}.
 	\UCpaso Valida que la colonia haya sido seleccionada. \ErrorRef{CU-43}{E1}{Colonia no seleccionada}
 	\UCpaso Crea el registro en la tabla \texttt{direcciones} y asocia el \texttt{direccion\_id} al actor en \texttt{actores\_derechos}.
@@ -1492,7 +1516,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 			\Titem Mensaje de confirmación de registro exitoso.
 		\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
+<<<<<<< HEAD
 			\Titem Pantalla \IUref{IU44}{Registrar programas del actor}.
+=======
+			\Titem Pantalla \IUref{IU-44}{Registrar programas del actor}.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 		\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 			\Titem El actor debe estar previamente registrado y activo (véase \UCref{CU-41}).
@@ -1514,7 +1542,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 \end{UseCase}
 \begin{UCtrayectoria}
 	\UCpaso[\UCactor] Desde el perfil del actor, selecciona la opción ``Agregar programa''.
+<<<<<<< HEAD
 	\UCpaso Muestra la pantalla \IUref{IU44}{Registrar programas del actor}.
+=======
+	\UCpaso Muestra la pantalla \IUref{IU-44}{Registrar programas del actor}.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 	\UCpaso[\UCactor] \label{CU-44.ingresaPrograma} Captura el nombre del programa, descripción y fechas de vigencia (opcionales); luego agrega al menos un servicio con su nombre, categoría, modalidad, gratuidad/costo, duración, disponibilidad, requisitos y población objetivo; presiona \IUbutton{Guardar}.
 	\UCpaso Valida que el nombre del programa no esté vacío. \ErrorRef{CU-44}{E1}{Nombre de programa vacío}
 	\UCpaso Valida que el nombre del servicio no esté vacío. \ErrorRef{CU-44}{E2}{Nombre de servicio vacío}
@@ -1550,7 +1582,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 			\Titem Mensaje de confirmación de registro exitoso.
 		\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
+<<<<<<< HEAD
 			\Titem Pantalla \IUref{IU45}{Registrar enlaces representantes}.
+=======
+			\Titem Pantalla \IUref{IU-45}{Registrar enlaces representantes}.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 		\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 			\Titem El actor debe estar previamente registrado y activo en el sistema (véase \UCref{CU-41}).
@@ -1569,7 +1605,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 \end{UseCase}
 \begin{UCtrayectoria}
 	\UCpaso[\UCactor] Desde el perfil del actor, selecciona la opción ``Agregar enlace representante''.
+<<<<<<< HEAD
 	\UCpaso Muestra la pantalla \IUref{IU45}{Registrar enlaces representantes}.
+=======
+	\UCpaso Muestra la pantalla \IUref{IU-45}{Registrar enlaces representantes}.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 	\UCpaso[\UCactor] \label{CU-45.ingresaEnlace} Captura el nombre del enlace, cargo (opcional), marca si es el contacto principal y agrega notas (opcional); luego presiona \IUbutton{Guardar}.
 	\UCpaso Valida que el nombre del enlace no esté vacío. \ErrorRef{CU-45}{E1}{Nombre vacío}
 	\UCpaso Almacena el registro en la tabla \texttt{actor\_enlace} vinculado al \texttt{actor\_id}.
@@ -1603,7 +1643,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 			\Titem Mensaje informativo si no se encontraron resultados.
 		\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
+<<<<<<< HEAD
 			\Titem Pantalla \IUref{IU46}{Buscar actores}.
+=======
+			\Titem Pantalla \IUref{IU-46}{Buscar actores}.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 		\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 			\Titem El Especialista debe haber iniciado sesión en el sistema.
@@ -1623,7 +1667,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 \end{UseCase}
 \begin{UCtrayectoria}
 	\UCpaso[\UCactor] Selecciona la opción ``Buscar actores'' en el módulo de Directorio de Actores.
+<<<<<<< HEAD
 	\UCpaso Muestra la pantalla \IUref{IU46}{Buscar actores} con los campos de búsqueda y el listado completo de actores activos.
+=======
+	\UCpaso Muestra la pantalla \IUref{IU-46}{Buscar actores} con los campos de búsqueda y el listado completo de actores activos.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 	\UCpaso[\UCactor] \label{CU-46.ingresaCriterios} Ingresa uno o más criterios de búsqueda (nombre, municipio, tipo de actor, categoría de servicio) y presiona \IUbutton{Buscar}.
 	\UCpaso Consulta la tabla \texttt{actores\_derechos} aplicando los filtros indicados. \ErrorRef{CU-46}{E1}{Sin resultados}
 	\UCpaso Despliega la lista de actores que coinciden con los criterios ingresados.
@@ -1653,7 +1701,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 			\Titem Mensaje informativo si no hay actores del tipo seleccionado.
 		\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
+<<<<<<< HEAD
 			\Titem Pantalla \IUref{IU46}{Buscar actores} (resultados actualizados).
+=======
+			\Titem Pantalla \IUref{IU-46}{Buscar actores} (resultados actualizados).
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 		\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 			\Titem Debe haberse ejecutado previamente una búsqueda (véase \UCref{CU-46}).
@@ -1671,7 +1723,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 	}
 \end{UseCase}
 \begin{UCtrayectoria}
+<<<<<<< HEAD
 	\UCpaso[\UCactor] Desde los resultados de búsqueda en \IUref{IU46}{Buscar actores}, selecciona un tipo de actor en el panel de filtros.
+=======
+	\UCpaso[\UCactor] Desde los resultados de búsqueda en \IUref{IU-46}{Buscar actores}, selecciona un tipo de actor en el panel de filtros.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 	\UCpaso \label{CU-47.seleccionaTipo} Registra el tipo de actor como criterio activo de filtrado.
 	\UCpaso Consulta \texttt{actores\_derechos} uniendo con \texttt{cat\_tipo\_actor} y aplica el filtro por tipo. \ErrorRef{CU-47}{E1}{Sin resultados del tipo}
 	\UCpaso Actualiza el listado en pantalla mostrando solo los actores del tipo seleccionado.
@@ -1699,7 +1755,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 			\Titem Perfil completo del actor con datos generales, contactos, dirección, programas, servicios y enlaces.
 		\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
+<<<<<<< HEAD
 			\Titem Pantalla \IUref{IU48}{Consultar actor}.
+=======
+			\Titem Pantalla \IUref{IU-48}{Consultar actor}.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 		\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 			\Titem El Especialista debe haber iniciado sesión en el sistema.
@@ -1720,7 +1780,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 \begin{UCtrayectoria}
 	\UCpaso[\UCactor] Selecciona un actor del listado de resultados o del catálogo general.
 	\UCpaso Recupera los datos del actor desde \texttt{actores\_derechos} y sus tablas relacionadas. \ErrorRef{CU-48}{E1}{Actor no disponible}
+<<<<<<< HEAD
 	\UCpaso Muestra la pantalla \IUref{IU48}{Consultar actor} con el perfil completo: datos generales, contactos, ubicación, programas/servicios y enlaces representantes.
+=======
+	\UCpaso Muestra la pantalla \IUref{IU-48}{Consultar actor} con el perfil completo: datos generales, contactos, ubicación, programas/servicios y enlaces representantes.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 \end{UCtrayectoria}
 %-------------------------------------- TERMINA CU-48
 
@@ -1751,7 +1815,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 			\Titem Mensaje de confirmación de actualización exitosa.
 		\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
+<<<<<<< HEAD
 			\Titem Pantalla \IUref{IU49}{Editar actor}.
+=======
+			\Titem Pantalla \IUref{IU-49}{Editar actor}.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 		\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 			\Titem El Especialista debe haber iniciado sesión en el sistema.
@@ -1771,9 +1839,15 @@ la documentación necesaria para las iteraciones 1 y 2.
 	}
 \end{UseCase}
 \begin{UCtrayectoria}
+<<<<<<< HEAD
 	\UCpaso[\UCactor] Desde el perfil del actor en \IUref{IU48}{Consultar actor}, selecciona la opción ``Editar''.
 	\UCpaso Recupera y precarga los datos actuales del actor desde \texttt{actores\_derechos}.
 	\UCpaso Muestra la pantalla \IUref{IU49}{Editar actor} con los campos precargados.
+=======
+	\UCpaso[\UCactor] Desde el perfil del actor en \IUref{IU-48}{Consultar actor}, selecciona la opción ``Editar''.
+	\UCpaso Recupera y precarga los datos actuales del actor desde \texttt{actores\_derechos}.
+	\UCpaso Muestra la pantalla \IUref{IU-49}{Editar actor} con los campos precargados.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 	\UCpaso[\UCactor] \label{CU-49.modificaDatos} Modifica los campos deseados y presiona \IUbutton{Guardar}.
 	\UCpaso Valida que el nombre no esté vacío. \ErrorRef{CU-49}{E1}{Nombre vacío}
 	\UCpaso Valida que el tipo de actor esté seleccionado. \ErrorRef{CU-49}{E2}{Tipo no seleccionado}
@@ -1810,7 +1884,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 			\Titem Mensaje de confirmación de actualización exitosa.
 		\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
+<<<<<<< HEAD
 			\Titem Pantalla \IUref{IU50}{Editar contactos del actor}.
+=======
+			\Titem Pantalla \IUref{IU-50}{Editar contactos del actor}.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 		\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 			\Titem El actor debe existir y estar activo (véase \UCref{CU-48}).
@@ -1832,7 +1910,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 \begin{UCtrayectoria}
 	\UCpaso[\UCactor] Desde el perfil del actor, selecciona un contacto y elige la opción ``Editar''.
 	\UCpaso Recupera y precarga los datos actuales del contacto desde la tabla \texttt{contactos}.
+<<<<<<< HEAD
 	\UCpaso Muestra la pantalla \IUref{IU50}{Editar contactos del actor} con los campos precargados.
+=======
+	\UCpaso Muestra la pantalla \IUref{IU-50}{Editar contactos del actor} con los campos precargados.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 	\UCpaso[\UCactor] \label{CU-50.modificaContacto} Modifica los campos deseados y presiona \IUbutton{Guardar}.
 	\UCpaso Valida el formato del teléfono principal. \ErrorRef{CU-50}{E1}{Teléfono inválido}
 	\UCpaso Valida el formato del correo electrónico, si fue proporcionado. \ErrorRef{CU-50}{E2}{Correo inválido}
@@ -1869,7 +1951,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 			\Titem Mensaje de confirmación de actualización exitosa.
 		\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
+<<<<<<< HEAD
 			\Titem Pantalla \IUref{IU51}{Editar ubicación del actor}.
+=======
+			\Titem Pantalla \IUref{IU-51}{Editar ubicación del actor}.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 		\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 			\Titem El actor debe existir y estar activo (véase \UCref{CU-48}).
@@ -1890,7 +1976,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 \begin{UCtrayectoria}
 	\UCpaso[\UCactor] Desde el perfil del actor, selecciona la opción ``Editar ubicación''.
 	\UCpaso Recupera y precarga los datos actuales de la dirección desde la tabla \texttt{direcciones}.
+<<<<<<< HEAD
 	\UCpaso Muestra la pantalla \IUref{IU51}{Editar ubicación del actor} con los campos precargados.
+=======
+	\UCpaso Muestra la pantalla \IUref{IU-51}{Editar ubicación del actor} con los campos precargados.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 	\UCpaso[\UCactor] \label{CU-51.modificaUbicacion} Modifica los campos deseados y presiona \IUbutton{Guardar}.
 	\UCpaso Valida que la colonia esté seleccionada. \ErrorRef{CU-51}{E1}{Colonia no seleccionada}
 	\UCpaso Actualiza el registro en la tabla \texttt{direcciones}.
@@ -1933,7 +2023,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 			\Titem Mensaje de confirmación de actualización exitosa.
 		\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
+<<<<<<< HEAD
 			\Titem Pantalla \IUref{IU52}{Editar programas del actor}.
+=======
+			\Titem Pantalla \IUref{IU-52}{Editar programas del actor}.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 		\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 			\Titem El actor debe existir y estar activo (véase \UCref{CU-48}).
@@ -1956,7 +2050,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 \begin{UCtrayectoria}
 	\UCpaso[\UCactor] Desde el perfil del actor, selecciona un programa y elige la opción ``Editar''.
 	\UCpaso Recupera y precarga los datos actuales del programa y sus servicios desde \texttt{actor\_programa} y \texttt{servicios\_actores}.
+<<<<<<< HEAD
 	\UCpaso Muestra la pantalla \IUref{IU52}{Editar programas del actor} con los campos precargados.
+=======
+	\UCpaso Muestra la pantalla \IUref{IU-52}{Editar programas del actor} con los campos precargados.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 	\UCpaso[\UCactor] \label{CU-52.modificaPrograma} Modifica los campos deseados y presiona \IUbutton{Guardar}.
 	\UCpaso Valida que el nombre del programa no esté vacío. \ErrorRef{CU-52}{E1}{Nombre de programa vacío}
 	\UCpaso Valida que el nombre del servicio no esté vacío. \ErrorRef{CU-52}{E2}{Nombre de servicio vacío}
@@ -1991,7 +2089,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 			\Titem Mensaje de confirmación de actualización exitosa.
 		\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
+<<<<<<< HEAD
 			\Titem Pantalla \IUref{IU53}{Editar enlaces representantes}.
+=======
+			\Titem Pantalla \IUref{IU-53}{Editar enlaces representantes}.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 		\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 			\Titem El actor debe existir y estar activo (véase \UCref{CU-48}).
@@ -2012,7 +2114,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 \begin{UCtrayectoria}
 	\UCpaso[\UCactor] Desde el perfil del actor, selecciona un enlace representante y elige la opción ``Editar''.
 	\UCpaso Recupera y precarga los datos actuales del enlace desde la tabla \texttt{actor\_enlace}.
+<<<<<<< HEAD
 	\UCpaso Muestra la pantalla \IUref{IU53}{Editar enlaces representantes} con los campos precargados.
+=======
+	\UCpaso Muestra la pantalla \IUref{IU-53}{Editar enlaces representantes} con los campos precargados.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 	\UCpaso[\UCactor] \label{CU-53.modificaEnlace} Modifica los campos deseados y presiona \IUbutton{Guardar}.
 	\UCpaso Valida que el nombre del enlace no esté vacío. \ErrorRef{CU-53}{E1}{Nombre vacío}
 	\UCpaso Actualiza el registro en la tabla \texttt{actor\_enlace}.
@@ -2043,7 +2149,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 			\Titem Mensaje de confirmación de deshabilitación exitosa.
 		\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
+<<<<<<< HEAD
 			\Titem Pantalla \IUref{IU48}{Consultar actor} (con estado actualizado).
+=======
+			\Titem Pantalla \IUref{IU-48}{Consultar actor} (con estado actualizado).
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 		\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 			\Titem El Especialista debe haber iniciado sesión en el sistema.
@@ -2063,7 +2173,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 	}
 \end{UseCase}
 \begin{UCtrayectoria}
+<<<<<<< HEAD
 	\UCpaso[\UCactor] Desde el perfil del actor en \IUref{IU48}{Consultar actor}, selecciona la opción ``Deshabilitar actor''.
+=======
+	\UCpaso[\UCactor] Desde el perfil del actor en \IUref{IU-48}{Consultar actor}, selecciona la opción ``Deshabilitar actor''.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 	\UCpaso Muestra un diálogo de confirmación: ``¿Está seguro de que desea deshabilitar este actor? Ya no aparecerá en búsquedas ni podrá vincularse a nuevos expedientes.''.
 	\UCpaso[\UCactor] Confirma la acción presionando \IUbutton{Aceptar}. \ErrorRef{CU-54}{E1}{Acción cancelada}
 	\UCpaso Actualiza \texttt{actores\_derechos.activo = false} para el actor seleccionado.
@@ -2092,7 +2206,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 			\Titem Listado de programas activos con nombre del programa, actor al que pertenecen, categoría de servicio, modalidad y disponibilidad.
 		\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
+<<<<<<< HEAD
 			\Titem Pantalla \IUref{IU56}{Consultar catálogo de programas}.
+=======
+			\Titem Pantalla \IUref{IU-56}{Consultar catálogo de programas}.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 		\end{Titemize}
 	}\UCitem{Precondiciones}{\begin{Titemize}
 			\Titem El Especialista debe haber iniciado sesión en el sistema.
@@ -2113,7 +2231,11 @@ la documentación necesaria para las iteraciones 1 y 2.
 \begin{UCtrayectoria}
 	\UCpaso[\UCactor] Selecciona la opción ``Catálogo de programas'' en el módulo de Directorio de Actores.
 	\UCpaso Consulta \texttt{actor\_programa} y \texttt{servicios\_actores} filtrando por registros activos y actores activos. \ErrorRef{CU-56}{E1}{Sin programas registrados}
+<<<<<<< HEAD
 	\UCpaso Muestra la pantalla \IUref{IU56}{Consultar catálogo de programas} con el listado consolidado de programas y servicios activos, agrupados por actor.
+=======
+	\UCpaso Muestra la pantalla \IUref{IU-56}{Consultar catálogo de programas} con el listado consolidado de programas y servicios activos, agrupados por actor.
+>>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 \end{UCtrayectoria}
 %-------------------------------------- TERMINA CU-56
 

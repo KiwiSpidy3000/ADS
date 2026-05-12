@@ -7,24 +7,39 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Modelo del dominio del problema}}{23}{figure.3.1}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagrama de casos de uso del sistema.}}{42}{figure.4.1}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Diagrama detallado del sistema.}}{79}{figure.4.2}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Diagrama de casos de uso del sistema.}}{45}{figure.4.1}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Diagrama detallado del sistema.}}{48}{figure.4.2}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Mapa de navegación del sistema SICORRE.}}{82}{figure.5.1}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces IU01~{}Pantalla de Inicio de Sesión.}}{83}{figure.5.2}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces IU02~{}Pantalla del Panel de Administrador.}}{84}{figure.5.3}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces IU03~{}Pantalla de Consulta de Usuarios.}}{86}{figure.5.4}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces IU04~{}Pantalla de Registro de Personal.}}{108}{figure.5.5}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces IU05~{}Pantalla de Modificación de Usuario.}}{109}{figure.5.6}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces IU06~{}Pantalla de Consulta de Usuario.}}{110}{figure.5.7}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces IU07~{}Pantalla de Consulta de Equipos Multidisciplinarios.}}{110}{figure.5.8}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces IU08~{}Pantalla de Registro de Equipo.}}{111}{figure.5.9}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces IU09~{}Pantalla de Añadir Integrantes a Equipo.}}{111}{figure.5.10}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces IU10~{}Pantalla de Modificación de Equipo.}}{111}{figure.5.11}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces IU11~{}Pantalla de Consulta de NNAs y Tutores.}}{112}{figure.5.12}%
-\contentsline {figure}{\numberline {5.13}{\ignorespaces IU12~{}Pantalla de Registro de NNA.}}{112}{figure.5.13}%
-\contentsline {figure}{\numberline {5.14}{\ignorespaces IU13~{}Pantalla de Registro de Tutor.}}{113}{figure.5.14}%
-\contentsline {figure}{\numberline {5.15}{\ignorespaces IU14~{}Pantalla de Consulta de NNA.}}{114}{figure.5.15}%
-\contentsline {figure}{\numberline {5.16}{\ignorespaces IU15~{}Pantalla de Modificación de NNA.}}{115}{figure.5.16}%
-\contentsline {figure}{\numberline {5.17}{\ignorespaces IU16~{}Pantalla del Panel de Restitución de Derechos.}}{115}{figure.5.17}%
-\contentsline {figure}{\numberline {5.18}{\ignorespaces IU17~{}Pantalla de Consulta de Catálogos.}}{116}{figure.5.18}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Mapa de navegación del sistema SICORRE.}}{116}{figure.5.1}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces IU01~{}Pantalla de Inicio de Sesión.}}{117}{figure.5.2}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces IU02~{}Pantalla del Panel de Administrador.}}{118}{figure.5.3}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces IU03~{}Pantalla de Consulta de Usuarios.}}{120}{figure.5.4}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces IU04~{}Pantalla de Registro de Personal.}}{157}{figure.5.5}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces IU05~{}Pantalla de Modificación de Usuario.}}{158}{figure.5.6}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces IU06~{}Pantalla de Consulta de Usuario.}}{159}{figure.5.7}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces IU07~{}Pantalla de Consulta de Equipos Multidisciplinarios.}}{159}{figure.5.8}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces IU08~{}Pantalla de Registro de Equipo.}}{160}{figure.5.9}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces IU09~{}Pantalla de Añadir Integrantes a Equipo.}}{160}{figure.5.10}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces IU10~{}Pantalla de Modificación de Equipo.}}{160}{figure.5.11}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces IU11~{}Pantalla de Consulta de NNAs y Tutores.}}{161}{figure.5.12}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces IU12~{}Pantalla de Registro de NNA.}}{161}{figure.5.13}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces IU13~{}Pantalla de Registro de Tutor.}}{162}{figure.5.14}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces IU14~{}Pantalla de Consulta de NNA.}}{163}{figure.5.15}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces IU15~{}Pantalla de Modificación de NNA.}}{164}{figure.5.16}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces IU16~{}Pantalla del Panel de Restitución de Derechos.}}{164}{figure.5.17}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces IU17~{}Pantalla de Consulta de Catálogos.}}{165}{figure.5.18}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces IU-41~{}Pantalla de Registro de Actor.}}{166}{figure.5.19}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces IU-42~{}Pantalla de Registro de Contactos de Actor.}}{167}{figure.5.20}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces IU-43~{}Pantalla de Registro de Dirección de Actor.}}{168}{figure.5.21}%
+\contentsline {figure}{\numberline {5.22}{\ignorespaces IU-44~{}Pantalla de Registro de Programas de Actor.}}{169}{figure.5.22}%
+\contentsline {figure}{\numberline {5.23}{\ignorespaces IU-45~{}Pantalla de Registro de Enlaces y Representantes de Actor.}}{170}{figure.5.23}%
+\contentsline {figure}{\numberline {5.24}{\ignorespaces IU-46~{}Pantalla de Catálogo de Actores en Materia de Derechos.}}{171}{figure.5.24}%
+\contentsline {figure}{\numberline {5.25}{\ignorespaces IU-46.1~{}Pantalla de Catálogo de Actores filtrada por tipo Persona Física.}}{171}{figure.5.25}%
+\contentsline {figure}{\numberline {5.26}{\ignorespaces IU-48~{}Pantalla de Consulta de Actor.}}{172}{figure.5.26}%
+\contentsline {figure}{\numberline {5.27}{\ignorespaces IU-49~{}Pantalla de Edición de Actor.}}{173}{figure.5.27}%
+\contentsline {figure}{\numberline {5.28}{\ignorespaces IU-50~{}Pantalla de Edición de Contactos de Actor.}}{174}{figure.5.28}%
+\contentsline {figure}{\numberline {5.29}{\ignorespaces IU-51~{}Pantalla de Edición de Dirección de Actor.}}{175}{figure.5.29}%
+\contentsline {figure}{\numberline {5.30}{\ignorespaces IU-52~{}Pantalla de Edición de Programas de Actor.}}{176}{figure.5.30}%
+\contentsline {figure}{\numberline {5.31}{\ignorespaces IU-53~{}Pantalla de Edición de Enlaces y Representantes de Actor.}}{177}{figure.5.31}%
+\contentsline {figure}{\numberline {5.32}{\ignorespaces IU-54~{}Pantalla de Deshabilitación de Actor.}}{178}{figure.5.32}%
+\contentsline {figure}{\numberline {5.33}{\ignorespaces IU-56~{}Pantalla de Consulta de Programas de Atención.}}{179}{figure.5.33}%

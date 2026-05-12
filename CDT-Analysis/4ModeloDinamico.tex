@@ -1261,7 +1261,6 @@ la documentación necesaria para las iteraciones 1 y 2.
 \end{UCtrayectoria}
 %-------------------------------------- TERMINA CU-36
 
-
 %-------------------------------------- COMIENZA CU-41
 \begin{UseCase}{CU-41}{Registrar actor}{
 		El usuario Especialista captura los datos generales de una organización o persona física para incorporarla al directorio de actores en materia de restitución de derechos.
@@ -1280,12 +1279,28 @@ la documentación necesaria para las iteraciones 1 y 2.
 			\Titem \hyperlink{actores_derechos.horario_atencion}{Horario de atención}.
 			\Titem \hyperlink{actores_derechos.responsable_contacto}{Nombre del responsable de contacto}.
 			\Titem \hyperlink{actores_derechos.observaciones}{Observaciones generales} (opcional).
+			% -- Datos adicionales cuando el tipo de actor es Persona Física --
+			\Titem \hyperlink{actor_persona_fisica.curp}{CURP} (p.\,ej.\ \texttt{MERC850312HDFNRS01}).
+			\Titem \hyperlink{actor_persona_fisica.rfc}{RFC} (p.\,ej.\ \texttt{MERC850312AB1}).
+			\Titem \hyperlink{actor_persona_fisica.fecha_nacimiento}{Fecha de nacimiento} (dd/mm/aaaa).
+			\Titem \hyperlink{actor_persona_fisica.sexo}{Sexo} (selección de catálogo).
+			\Titem \hyperlink{actor_persona_fisica.escolaridad}{Escolaridad} (selección de catálogo).
+			\Titem \hyperlink{actor_persona_fisica.ocupacion}{Ocupación / Oficio} (p.\,ej.\ Promotor social).
+			\Titem \hyperlink{actor_persona_fisica.zona_geografica}{Zona geográfica} (selección de catálogo).
+			\Titem \hyperlink{actor_persona_fisica.disponibilidad}{Disponibilidad} (p.\,ej.\ Tiempo completo).
+			\Titem \hyperlink{actor_persona_fisica.descripcion_actividad}{Descripción de actividad} (texto libre, opcional).
+			\Titem \hyperlink{actor_persona_fisica.pertenece_grupo}{Pertenece a grupo} (p.\,ej.\ Colectivo vecinal, opcional).
+			\Titem \hyperlink{actor_persona_fisica.como_contactar}{¿Cómo contactar?} (p.\,ej.\ WhatsApp por las mañanas, opcional).
+			\Titem \hyperlink{actor_persona_fisica.es_lider_comunitario}{Indicador: Líder comunitario} (booleano).
+			\Titem \hyperlink{actor_persona_fisica.es_lider_religioso}{Indicador: Líder religioso} (booleano).
 		\end{Titemize}
 	}\UCitem{Origen}{\begin{Titemize}
 			\Titem Los datos se introducen desde el teclado en el formulario de registro de actor.
+			\Titem Cuando el tipo de actor es persona física, el sistema presenta una sección adicional del formulario para capturar los datos de \texttt{actor\_persona\_fisica}.
 		\end{Titemize}
 	}\UCitem{Salidas}{\begin{Titemize}
 			\Titem Registro del actor almacenado en el sistema con estado activo.
+			\Titem Registro de datos de persona física almacenado en \texttt{actor\_persona\_fisica} (cuando aplique).
 			\Titem Mensaje de confirmación de registro exitoso.
 		\end{Titemize}
 	}\UCitem{Destino}{\begin{Titemize}
@@ -1294,28 +1309,37 @@ la documentación necesaria para las iteraciones 1 y 2.
 	}\UCitem{Precondiciones}{\begin{Titemize}
 			\Titem El usuario debe haber iniciado sesión con rol de Especialista.
 			\Titem Deben existir tipos de actor registrados en el catálogo \hyperlink{cat_tipo_actor}{CatTipoActor}.
+			\Titem Deben existir catálogos de sexo, escolaridad y zona geográfica disponibles.
 		\end{Titemize}
 	}\UCitem{Postcondiciones}{\begin{Titemize}
 			\Titem Se crea un nuevo registro en la tabla \texttt{actores\_derechos} con \texttt{activo = true}.
+			\Titem Si el actor es persona física, se crea el registro asociado en \texttt{actor\_persona\_fisica}.
 		\end{Titemize}
 	}\UCitem{Errores}{\begin{Titemize}
 			\Titem {\bf \hypertarget{CU-41.E1}{E1}}: El campo nombre está vacío; el sistema muestra ``El nombre del actor es obligatorio'' y regresa al paso \ref{CU-41.ingresaDatos}.
-			\Titem {\bf \hypertarget{CU-41.E2}{E2}}: No se seleccionó tipo de actor; el sistema muestra ``Debe seleccionar un tipo de actor'' y regresa al paso \ref{CU-41.ingresaDatos}.
+			\Titem {\bf \hypertarget{CU-41.E2}{E2}}: El CURP capturado no tiene el formato válido (18 caracteres alfanuméricos); el sistema muestra ``El CURP ingresado no es válido'' y regresa al paso \ref{CU-41.ingresaDatosPF}.
+			\Titem {\bf \hypertarget{CU-41.E3}{E3}}: El RFC capturado no tiene el formato válido; el sistema muestra ``El RFC ingresado no es válido'' y regresa al paso \ref{CU-41.ingresaDatosPF}.
+			\Titem {\bf \hypertarget{CU-41.E4}{E4}}: La fecha de nacimiento está vacía o tiene formato incorrecto; el sistema muestra ``La fecha de nacimiento es obligatoria y debe tener el formato dd/mm/aaaa'' y regresa al paso \ref{CU-41.ingresaDatosPF}.
+			\Titem {\bf \hypertarget{CU-41.E5}{E5}}: No se seleccionó sexo ni escolaridad; el sistema muestra ``Debe seleccionar sexo y escolaridad'' y regresa al paso \ref{CU-41.ingresaDatosPF}.
 		\end{Titemize}
 	}\UCitem{Tipo}{
 		Caso de uso primario.
 	}\UCitem{Observaciones}{
-		Si el tipo de actor seleccionado corresponde a persona física, el sistema continúa con \UCref{CU-41} registrando adicionalmente los datos de \texttt{actor\_persona\_fisica} (CURP, RFC, fecha de nacimiento, ocupación, entre otros).
+		Si el tipo de actor seleccionado corresponde a persona física, el sistema habilita la sección de datos personales y continúa registrando en \texttt{actor\_persona\_fisica} (CURP, RFC, fecha de nacimiento, ocupación, entre otros).
 	}
 \end{UseCase}
 \begin{UCtrayectoria}
 	\UCpaso[\UCactor] Selecciona la opción ``Registrar actor'' en el módulo de Directorio de Actores.
-	\UCpaso Muestra la pantalla \IUref{IU-41}{Registrar actor}.
-	\UCpaso[\UCactor] \label{CU-41.ingresaDatos} Captura el nombre del actor, tipo de actor, número de registro oficial (si aplica), horario de atención, responsable de contacto y observaciones, luego presiona \IUbutton{Guardar}.
-	\UCpaso Valida que los campos obligatorios estén completos. \ErrorRef{CU-41}{E1}{Nombre vacío} \ErrorRef{CU-41}{E2}{Tipo de actor no seleccionado}
-	\UCpaso Almacena el registro en la tabla \texttt{actores\_derechos} con \texttt{activo = true} y registra la \texttt{fecha\_registro} automáticamente.
+	\UCpaso Muestra la pantalla \IUref{IU41}{Registrar actor}.
+	\UCpaso[\UCactor] \label{CU-41.ingresaDatos} Captura el nombre del actor, tipo de actor, número de registro oficial (si aplica), horario de atención, responsable de contacto y observaciones.
+	\UCpaso Verifica si el tipo de actor seleccionado corresponde a \textbf{persona física}. \Trayref{CU-41}{A1}
+	\UCpaso[\UCactor] \label{CU-41.ingresaDatosPF} Captura los datos de persona física: CURP, RFC, fecha de nacimiento, sexo, escolaridad, ocupación/oficio, zona geográfica, disponibilidad, descripción de actividad, pertenencia a grupo, forma de contacto, e indicadores de líder comunitario y líder religioso; luego presiona \IUbutton{Guardar}.
+	\UCpaso Valida que los campos obligatorios generales estén completos. \ErrorRef{CU-41}{E1}{Nombre vacío} \ErrorRef{CU-41}{E2}{Tipo de actor no seleccionado} \ErrorRef{CU-41}{E2}{CURP inválido} \ErrorRef{CU-41}{E3}{RFC inválido} \ErrorRef{CU-41}{E4}{Fecha inválida} \ErrorRef{CU-41}{E5}{Sexo/Escolaridad no seleccionados}
+	\UCpaso Almacena el registro en \texttt{actores\_derechos} con \texttt{activo = true} y registra la \texttt{fecha\_registro} automáticamente.
+	\UCpaso Almacena los datos complementarios en \texttt{actor\_persona\_fisica} vinculados al registro creado.
 	\UCpaso Muestra mensaje de confirmación ``Actor registrado exitosamente''.
 \end{UCtrayectoria}
+
 %-------------------------------------- TERMINA CU-41
 
 %-------------------------------------- COMIENZA CU-42
@@ -1335,7 +1359,6 @@ la documentación necesaria para las iteraciones 1 y 2.
 			\Titem \hyperlink{contactos.correo}{Correo electrónico} (opcional).
 			\Titem \hyperlink{contactos.pagina_web}{Página web} (opcional).
 			\Titem \hyperlink{contactos.red_social_id}{Plataforma de red social} y \hyperlink{contactos.red_social_usuario}{nombre de usuario en la red social} (opcional).
-			\Titem \hyperlink{contactos.es_principal}{Indicador de contacto principal}.
 			\Titem \hyperlink{contactos.observaciones}{Observaciones} (opcional).
 		\end{Titemize}
 	}\UCitem{Origen}{\begin{Titemize}

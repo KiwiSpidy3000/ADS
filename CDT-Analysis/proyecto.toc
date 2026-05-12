@@ -144,62 +144,62 @@
 \contentsline {subsection}{\numberline {4.22.1}Descripción completa}{79}{subsection.4.22.1}%
 \contentsline {subsection}{\numberline {4.22.2}Atributos importantes}{79}{subsection.4.22.2}%
 \contentsline {subsection}{\numberline {4.22.3}Trayectorias del Caso de Uso}{80}{subsection.4.22.3}%
-\contentsline {section}{\numberline {4.23}CU-42 Registrar contactos del actor}{81}{section.4.23}%
-\contentsline {subsection}{\numberline {4.23.1}Descripción completa}{81}{subsection.4.23.1}%
-\contentsline {subsection}{\numberline {4.23.2}Atributos importantes}{81}{subsection.4.23.2}%
-\contentsline {subsection}{\numberline {4.23.3}Trayectorias del Caso de Uso}{82}{subsection.4.23.3}%
-\contentsline {section}{\numberline {4.24}CU-43 Registrar ubicación del actor}{83}{section.4.24}%
-\contentsline {subsection}{\numberline {4.24.1}Descripción completa}{83}{subsection.4.24.1}%
-\contentsline {subsection}{\numberline {4.24.2}Atributos importantes}{83}{subsection.4.24.2}%
-\contentsline {subsection}{\numberline {4.24.3}Trayectorias del Caso de Uso}{84}{subsection.4.24.3}%
-\contentsline {section}{\numberline {4.25}CU-44 Registrar programas del actor}{85}{section.4.25}%
-\contentsline {subsection}{\numberline {4.25.1}Descripción completa}{85}{subsection.4.25.1}%
-\contentsline {subsection}{\numberline {4.25.2}Atributos importantes}{85}{subsection.4.25.2}%
-\contentsline {subsection}{\numberline {4.25.3}Trayectorias del Caso de Uso}{86}{subsection.4.25.3}%
-\contentsline {section}{\numberline {4.26}CU-45 Registrar enlaces representantes}{87}{section.4.26}%
-\contentsline {subsection}{\numberline {4.26.1}Descripción completa}{87}{subsection.4.26.1}%
-\contentsline {subsection}{\numberline {4.26.2}Atributos importantes}{87}{subsection.4.26.2}%
-\contentsline {subsection}{\numberline {4.26.3}Trayectorias del Caso de Uso}{87}{subsection.4.26.3}%
-\contentsline {section}{\numberline {4.27}CU-46 Buscar actores}{89}{section.4.27}%
-\contentsline {subsection}{\numberline {4.27.1}Descripción completa}{89}{subsection.4.27.1}%
-\contentsline {subsection}{\numberline {4.27.2}Atributos importantes}{89}{subsection.4.27.2}%
-\contentsline {subsection}{\numberline {4.27.3}Trayectorias del Caso de Uso}{89}{subsection.4.27.3}%
-\contentsline {section}{\numberline {4.28}CU-47 Filtrar actores por tipo}{91}{section.4.28}%
-\contentsline {subsection}{\numberline {4.28.1}Descripción completa}{91}{subsection.4.28.1}%
-\contentsline {subsection}{\numberline {4.28.2}Atributos importantes}{91}{subsection.4.28.2}%
-\contentsline {subsection}{\numberline {4.28.3}Trayectorias del Caso de Uso}{91}{subsection.4.28.3}%
-\contentsline {section}{\numberline {4.29}CU-48 Consultar actor}{93}{section.4.29}%
-\contentsline {subsection}{\numberline {4.29.1}Descripción completa}{93}{subsection.4.29.1}%
-\contentsline {subsection}{\numberline {4.29.2}Atributos importantes}{93}{subsection.4.29.2}%
-\contentsline {subsection}{\numberline {4.29.3}Trayectorias del Caso de Uso}{93}{subsection.4.29.3}%
-\contentsline {section}{\numberline {4.30}CU-49 Editar actor}{95}{section.4.30}%
-\contentsline {subsection}{\numberline {4.30.1}Descripción completa}{95}{subsection.4.30.1}%
-\contentsline {subsection}{\numberline {4.30.2}Atributos importantes}{95}{subsection.4.30.2}%
-\contentsline {subsection}{\numberline {4.30.3}Trayectorias del Caso de Uso}{96}{subsection.4.30.3}%
-\contentsline {section}{\numberline {4.31}CU-50 Editar contactos del actor}{97}{section.4.31}%
-\contentsline {subsection}{\numberline {4.31.1}Descripción completa}{97}{subsection.4.31.1}%
-\contentsline {subsection}{\numberline {4.31.2}Atributos importantes}{97}{subsection.4.31.2}%
-\contentsline {subsection}{\numberline {4.31.3}Trayectorias del Caso de Uso}{98}{subsection.4.31.3}%
-\contentsline {section}{\numberline {4.32}CU-51 Editar ubicación del actor}{99}{section.4.32}%
-\contentsline {subsection}{\numberline {4.32.1}Descripción completa}{99}{subsection.4.32.1}%
-\contentsline {subsection}{\numberline {4.32.2}Atributos importantes}{99}{subsection.4.32.2}%
-\contentsline {subsection}{\numberline {4.32.3}Trayectorias del Caso de Uso}{99}{subsection.4.32.3}%
-\contentsline {section}{\numberline {4.33}CU-52 Editar programas del actor}{101}{section.4.33}%
-\contentsline {subsection}{\numberline {4.33.1}Descripción completa}{101}{subsection.4.33.1}%
-\contentsline {subsection}{\numberline {4.33.2}Atributos importantes}{101}{subsection.4.33.2}%
-\contentsline {subsection}{\numberline {4.33.3}Trayectorias del Caso de Uso}{102}{subsection.4.33.3}%
-\contentsline {section}{\numberline {4.34}CU-53 Editar enlaces representantes}{103}{section.4.34}%
-\contentsline {subsection}{\numberline {4.34.1}Descripción completa}{103}{subsection.4.34.1}%
-\contentsline {subsection}{\numberline {4.34.2}Atributos importantes}{103}{subsection.4.34.2}%
-\contentsline {subsection}{\numberline {4.34.3}Trayectorias del Caso de Uso}{103}{subsection.4.34.3}%
-\contentsline {section}{\numberline {4.35}CU-54 Deshabilitar actor}{105}{section.4.35}%
-\contentsline {subsection}{\numberline {4.35.1}Descripción completa}{105}{subsection.4.35.1}%
-\contentsline {subsection}{\numberline {4.35.2}Atributos importantes}{105}{subsection.4.35.2}%
-\contentsline {subsection}{\numberline {4.35.3}Trayectorias del Caso de Uso}{105}{subsection.4.35.3}%
-\contentsline {section}{\numberline {4.36}CU-56 Consultar catálogo de programas}{107}{section.4.36}%
-\contentsline {subsection}{\numberline {4.36.1}Descripción completa}{107}{subsection.4.36.1}%
-\contentsline {subsection}{\numberline {4.36.2}Atributos importantes}{107}{subsection.4.36.2}%
-\contentsline {subsection}{\numberline {4.36.3}Trayectorias del Caso de Uso}{107}{subsection.4.36.3}%
+\contentsline {section}{\numberline {4.23}CU-42 Registrar contactos del actor}{82}{section.4.23}%
+\contentsline {subsection}{\numberline {4.23.1}Descripción completa}{82}{subsection.4.23.1}%
+\contentsline {subsection}{\numberline {4.23.2}Atributos importantes}{82}{subsection.4.23.2}%
+\contentsline {subsection}{\numberline {4.23.3}Trayectorias del Caso de Uso}{83}{subsection.4.23.3}%
+\contentsline {section}{\numberline {4.24}CU-43 Registrar ubicación del actor}{84}{section.4.24}%
+\contentsline {subsection}{\numberline {4.24.1}Descripción completa}{84}{subsection.4.24.1}%
+\contentsline {subsection}{\numberline {4.24.2}Atributos importantes}{84}{subsection.4.24.2}%
+\contentsline {subsection}{\numberline {4.24.3}Trayectorias del Caso de Uso}{85}{subsection.4.24.3}%
+\contentsline {section}{\numberline {4.25}CU-44 Registrar programas del actor}{86}{section.4.25}%
+\contentsline {subsection}{\numberline {4.25.1}Descripción completa}{86}{subsection.4.25.1}%
+\contentsline {subsection}{\numberline {4.25.2}Atributos importantes}{86}{subsection.4.25.2}%
+\contentsline {subsection}{\numberline {4.25.3}Trayectorias del Caso de Uso}{87}{subsection.4.25.3}%
+\contentsline {section}{\numberline {4.26}CU-45 Registrar enlaces representantes}{88}{section.4.26}%
+\contentsline {subsection}{\numberline {4.26.1}Descripción completa}{88}{subsection.4.26.1}%
+\contentsline {subsection}{\numberline {4.26.2}Atributos importantes}{88}{subsection.4.26.2}%
+\contentsline {subsection}{\numberline {4.26.3}Trayectorias del Caso de Uso}{88}{subsection.4.26.3}%
+\contentsline {section}{\numberline {4.27}CU-46 Buscar actores}{90}{section.4.27}%
+\contentsline {subsection}{\numberline {4.27.1}Descripción completa}{90}{subsection.4.27.1}%
+\contentsline {subsection}{\numberline {4.27.2}Atributos importantes}{90}{subsection.4.27.2}%
+\contentsline {subsection}{\numberline {4.27.3}Trayectorias del Caso de Uso}{90}{subsection.4.27.3}%
+\contentsline {section}{\numberline {4.28}CU-47 Filtrar actores por tipo}{92}{section.4.28}%
+\contentsline {subsection}{\numberline {4.28.1}Descripción completa}{92}{subsection.4.28.1}%
+\contentsline {subsection}{\numberline {4.28.2}Atributos importantes}{92}{subsection.4.28.2}%
+\contentsline {subsection}{\numberline {4.28.3}Trayectorias del Caso de Uso}{92}{subsection.4.28.3}%
+\contentsline {section}{\numberline {4.29}CU-48 Consultar actor}{94}{section.4.29}%
+\contentsline {subsection}{\numberline {4.29.1}Descripción completa}{94}{subsection.4.29.1}%
+\contentsline {subsection}{\numberline {4.29.2}Atributos importantes}{94}{subsection.4.29.2}%
+\contentsline {subsection}{\numberline {4.29.3}Trayectorias del Caso de Uso}{94}{subsection.4.29.3}%
+\contentsline {section}{\numberline {4.30}CU-49 Editar actor}{96}{section.4.30}%
+\contentsline {subsection}{\numberline {4.30.1}Descripción completa}{96}{subsection.4.30.1}%
+\contentsline {subsection}{\numberline {4.30.2}Atributos importantes}{96}{subsection.4.30.2}%
+\contentsline {subsection}{\numberline {4.30.3}Trayectorias del Caso de Uso}{97}{subsection.4.30.3}%
+\contentsline {section}{\numberline {4.31}CU-50 Editar contactos del actor}{98}{section.4.31}%
+\contentsline {subsection}{\numberline {4.31.1}Descripción completa}{98}{subsection.4.31.1}%
+\contentsline {subsection}{\numberline {4.31.2}Atributos importantes}{98}{subsection.4.31.2}%
+\contentsline {subsection}{\numberline {4.31.3}Trayectorias del Caso de Uso}{99}{subsection.4.31.3}%
+\contentsline {section}{\numberline {4.32}CU-51 Editar ubicación del actor}{100}{section.4.32}%
+\contentsline {subsection}{\numberline {4.32.1}Descripción completa}{100}{subsection.4.32.1}%
+\contentsline {subsection}{\numberline {4.32.2}Atributos importantes}{100}{subsection.4.32.2}%
+\contentsline {subsection}{\numberline {4.32.3}Trayectorias del Caso de Uso}{100}{subsection.4.32.3}%
+\contentsline {section}{\numberline {4.33}CU-52 Editar programas del actor}{102}{section.4.33}%
+\contentsline {subsection}{\numberline {4.33.1}Descripción completa}{102}{subsection.4.33.1}%
+\contentsline {subsection}{\numberline {4.33.2}Atributos importantes}{102}{subsection.4.33.2}%
+\contentsline {subsection}{\numberline {4.33.3}Trayectorias del Caso de Uso}{103}{subsection.4.33.3}%
+\contentsline {section}{\numberline {4.34}CU-53 Editar enlaces representantes}{104}{section.4.34}%
+\contentsline {subsection}{\numberline {4.34.1}Descripción completa}{104}{subsection.4.34.1}%
+\contentsline {subsection}{\numberline {4.34.2}Atributos importantes}{104}{subsection.4.34.2}%
+\contentsline {subsection}{\numberline {4.34.3}Trayectorias del Caso de Uso}{104}{subsection.4.34.3}%
+\contentsline {section}{\numberline {4.35}CU-54 Deshabilitar actor}{106}{section.4.35}%
+\contentsline {subsection}{\numberline {4.35.1}Descripción completa}{106}{subsection.4.35.1}%
+\contentsline {subsection}{\numberline {4.35.2}Atributos importantes}{106}{subsection.4.35.2}%
+\contentsline {subsection}{\numberline {4.35.3}Trayectorias del Caso de Uso}{106}{subsection.4.35.3}%
+\contentsline {section}{\numberline {4.36}CU-56 Consultar catálogo de programas}{108}{section.4.36}%
+\contentsline {subsection}{\numberline {4.36.1}Descripción completa}{108}{subsection.4.36.1}%
+\contentsline {subsection}{\numberline {4.36.2}Atributos importantes}{108}{subsection.4.36.2}%
+\contentsline {subsection}{\numberline {4.36.3}Trayectorias del Caso de Uso}{108}{subsection.4.36.3}%
 \contentsline {chapter}{\numberline {5}Modelo de la interacción}{111}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Modelo de navegación}{111}{section.5.1}%
 \contentsline {section}{\numberline {5.2}IU01 Pantalla de Inicio de Sesión}{113}{section.5.2}%
@@ -303,5 +303,11 @@
 \contentsline {subsection}{\numberline {5.17.3}Salidas}{132}{subsection.5.17.3}%
 \contentsline {subsection}{\numberline {5.17.4}Entradas}{132}{subsection.5.17.4}%
 \contentsline {subsection}{\numberline {5.17.5}Comandos}{132}{subsection.5.17.5}%
-\contentsline {section}{\numberline {5.18}Catálogo de mensajes}{133}{section.5.18}%
-\contentsline {subsection}{\numberline {5.18.1}Lista de mensajes}{133}{subsection.5.18.1}%
+\contentsline {section}{\numberline {5.18}IU41 Pantalla de Registro de Actor}{133}{section.5.18}%
+\contentsline {subsection}{\numberline {5.18.1}Objetivo}{133}{subsection.5.18.1}%
+\contentsline {subsection}{\numberline {5.18.2}Diseño}{133}{subsection.5.18.2}%
+\contentsline {subsection}{\numberline {5.18.3}Salidas}{133}{subsection.5.18.3}%
+\contentsline {subsection}{\numberline {5.18.4}Entradas}{133}{subsection.5.18.4}%
+\contentsline {subsection}{\numberline {5.18.5}Comandos}{134}{subsection.5.18.5}%
+\contentsline {section}{\numberline {5.19}Catálogo de mensajes}{134}{section.5.19}%
+\contentsline {subsection}{\numberline {5.19.1}Lista de mensajes}{135}{subsection.5.19.1}%

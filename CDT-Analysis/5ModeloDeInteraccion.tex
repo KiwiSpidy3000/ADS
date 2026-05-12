@@ -1220,5 +1220,88 @@ Los catálogos presentados son: \textbf{Tipos de vivienda}, \textbf{Vivienda NNA
 	\IUref{IU16}{Pantalla del Panel de Restitución de Derechos}.
 \end{itemize}
 
+% !TeX root = ../proyecto.tex
+%--------------------------------------
+\section{IU41 Pantalla de Registro de Actor}
+\subsection{Objetivo}
+Permitir al usuario registrar un nuevo actor en el sistema, capturando tanto sus 
+datos generales como, en caso de ser persona física, su información personal 
+detallada.
+\subsection{Diseño}
+Esta pantalla \IUref{IU41}{Pantalla de Registro de Actor} es accesible desde 
+el botón \IUbutton{Registrar Actor} de la pantalla correspondiente al catálogo 
+de actores. El formulario se organiza en dos secciones claramente diferenciadas.
+
+La primera sección, \textbf{Datos generales}, es común a todos los tipos de 
+actor y presenta los campos: \textbf{Nombre / Razón social} (obligatorio), 
+\textbf{Tipo de actor} (obligatorio, con opciones: organización privada, 
+organización pública, persona física), \textbf{Horario de atención}, 
+\textbf{Responsable de contacto}, \textbf{Tiene registro oficial}, y 
+\textbf{Observaciones}.
+
+La segunda sección, \textbf{Datos de persona física}, se habilita únicamente 
+cuando el tipo de actor seleccionado es \textit{persona física}, y presenta los 
+campos: \textbf{CURP}, \textbf{RFC}, \textbf{Fecha de nacimiento}, 
+\textbf{Sexo} (con opciones: Masculino, Femenino, No binario, Prefiero no 
+especificar), \textbf{Escolaridad} (con opciones: Primaria, Secundaria, 
+Preparatoria, Técnico, Licenciatura, Posgrado), \textbf{Ocupación / Oficio}, 
+\textbf{Zona geográfica} (con opciones: Norte, Sur, Este, Oeste, Centro, Rural, 
+Urbana, Periurbana), \textbf{Disponibilidad}, \textbf{Descripción de 
+	actividad}, \textbf{Pertenece a grupo}, \textbf{¿Cómo contactar?}, y las 
+casillas de verificación \textbf{Líder comunitario} y \textbf{Líder religioso}.
+
+\IUfig[.9]{RegistrarActor}{IU41}{Pantalla de Registro de Actor.}
+\subsection{Salidas}
+\begin{itemize}
+	\item Confirmación del registro exitoso del actor en el sistema.
+	\item Mensaje de error \MSGref{MSG??}{Campos obligatorios incompletos} en caso 
+	de que los campos requeridos no hayan sido llenados.
+\end{itemize}
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Sección Datos generales:}
+	\begin{itemize}
+		\item \textbf{Nombre / Razón social:} Texto libre. Campo obligatorio.
+		\item \textbf{Tipo de actor:} Lista desplegable con opciones: 
+		\textit{organización privada}, \textit{organización pública}, 
+		\textit{persona física}. Campo obligatorio.
+		\item \textbf{Horario de atención:} Texto libre. Opcional.
+		\item \textbf{Responsable de contacto:} Texto libre. Opcional.
+		\item \textbf{Tiene registro oficial:} Casilla de verificación. Opcional.
+		\item \textbf{Observaciones:} Texto libre. Opcional.
+	\end{itemize}
+	\item \textbf{Sección Datos de persona física} (visible únicamente si el tipo 
+	de actor es \textit{persona física}):
+	\begin{itemize}
+		\item \textbf{CURP:} Texto. Opcional.
+		\item \textbf{RFC:} Texto. Opcional.
+		\item \textbf{Fecha de nacimiento:} Fecha. Opcional.
+		\item \textbf{Sexo:} Lista desplegable con opciones: \textit{Masculino}, 
+		\textit{Femenino}, \textit{No binario}, \textit{Prefiero no especificar}. 
+		Opcional.
+		\item \textbf{Escolaridad:} Lista desplegable con opciones: 
+		\textit{Primaria}, \textit{Secundaria}, \textit{Preparatoria}, 
+		\textit{Técnico}, \textit{Licenciatura}, \textit{Posgrado}. Opcional.
+		\item \textbf{Ocupación / Oficio:} Texto libre. Opcional.
+		\item \textbf{Zona geográfica:} Lista desplegable con opciones: 
+		\textit{Norte}, \textit{Sur}, \textit{Este}, \textit{Oeste}, 
+		\textit{Centro}, \textit{Rural}, \textit{Urbana}, \textit{Periurbana}. 
+		Opcional.
+		\item \textbf{Disponibilidad:} Texto libre. Opcional.
+		\item \textbf{Descripción de actividad:} Texto libre. Opcional.
+		\item \textbf{Pertenece a grupo:} Texto libre. Opcional.
+		\item \textbf{¿Cómo contactar?:} Texto libre. Opcional.
+		\item \textbf{Líder comunitario:} Casilla de verificación. Opcional.
+		\item \textbf{Líder religioso:} Casilla de verificación. Opcional.
+	\end{itemize}
+\end{itemize}
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Registrar}: Valida los campos obligatorios y, si son 
+	correctos, guarda el nuevo actor en el sistema.
+	\item \IUbutton{Cancelar}: Descarta los datos ingresados y regresa a la 
+	pantalla anterior sin realizar ningún cambio.
+\end{itemize}
+
 
 \input{5-1-Mensajes}

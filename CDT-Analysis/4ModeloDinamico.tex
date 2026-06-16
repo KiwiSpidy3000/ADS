@@ -128,11 +128,8 @@ la documentación necesaria para las iteraciones 1 y 2.
 		\hline
 		\multicolumn{3}{|c|}{\textbf{Módulo de Restitución de Derechos -- Directorio de Actores}} \\
 		\hline
-<<<<<<< HEAD
 		CU-41  & Registrar actor                          & Iteración 3  \\
-=======
 				CU-41  & Registrar actor                          & Iteración 3  \\
->>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 		CU-42  & Registrar contactos del actor            & Iteración 3  \\
 		CU-43  & Registrar ubicación del actor            & Iteración 3  \\
 		CU-44  & Registrar programas del actor            & Iteración 3  \\
@@ -1723,11 +1720,8 @@ la documentación necesaria para las iteraciones 1 y 2.
 	}
 \end{UseCase}
 \begin{UCtrayectoria}
-<<<<<<< HEAD
 	\UCpaso[\UCactor] Desde los resultados de búsqueda en \IUref{IU46}{Buscar actores}, selecciona un tipo de actor en el panel de filtros.
-=======
 	\UCpaso[\UCactor] Desde los resultados de búsqueda en \IUref{IU-46}{Buscar actores}, selecciona un tipo de actor en el panel de filtros.
->>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 	\UCpaso \label{CU-47.seleccionaTipo} Registra el tipo de actor como criterio activo de filtrado.
 	\UCpaso Consulta \texttt{actores\_derechos} uniendo con \texttt{cat\_tipo\_actor} y aplica el filtro por tipo. \ErrorRef{CU-47}{E1}{Sin resultados del tipo}
 	\UCpaso Actualiza el listado en pantalla mostrando solo los actores del tipo seleccionado.
@@ -1839,15 +1833,12 @@ la documentación necesaria para las iteraciones 1 y 2.
 	}
 \end{UseCase}
 \begin{UCtrayectoria}
-<<<<<<< HEAD
 	\UCpaso[\UCactor] Desde el perfil del actor en \IUref{IU48}{Consultar actor}, selecciona la opción ``Editar''.
 	\UCpaso Recupera y precarga los datos actuales del actor desde \texttt{actores\_derechos}.
 	\UCpaso Muestra la pantalla \IUref{IU49}{Editar actor} con los campos precargados.
-=======
 	\UCpaso[\UCactor] Desde el perfil del actor en \IUref{IU-48}{Consultar actor}, selecciona la opción ``Editar''.
 	\UCpaso Recupera y precarga los datos actuales del actor desde \texttt{actores\_derechos}.
 	\UCpaso Muestra la pantalla \IUref{IU-49}{Editar actor} con los campos precargados.
->>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 	\UCpaso[\UCactor] \label{CU-49.modificaDatos} Modifica los campos deseados y presiona \IUbutton{Guardar}.
 	\UCpaso Valida que el nombre no esté vacío. \ErrorRef{CU-49}{E1}{Nombre vacío}
 	\UCpaso Valida que el tipo de actor esté seleccionado. \ErrorRef{CU-49}{E2}{Tipo no seleccionado}
@@ -2173,11 +2164,8 @@ la documentación necesaria para las iteraciones 1 y 2.
 	}
 \end{UseCase}
 \begin{UCtrayectoria}
-<<<<<<< HEAD
 	\UCpaso[\UCactor] Desde el perfil del actor en \IUref{IU48}{Consultar actor}, selecciona la opción ``Deshabilitar actor''.
-=======
 	\UCpaso[\UCactor] Desde el perfil del actor en \IUref{IU-48}{Consultar actor}, selecciona la opción ``Deshabilitar actor''.
->>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 	\UCpaso Muestra un diálogo de confirmación: ``¿Está seguro de que desea deshabilitar este actor? Ya no aparecerá en búsquedas ni podrá vincularse a nuevos expedientes.''.
 	\UCpaso[\UCactor] Confirma la acción presionando \IUbutton{Aceptar}. \ErrorRef{CU-54}{E1}{Acción cancelada}
 	\UCpaso Actualiza \texttt{actores\_derechos.activo = false} para el actor seleccionado.

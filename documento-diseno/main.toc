@@ -1,0 +1,24 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\numberline {1}Organización del Diseño}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Lineamientos de Diseño}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Metodología o Procedimiento o Técnicas}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Notación}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Alcance}{2}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Organización del Diseño}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Lineamientos de Diseño}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Metodología o Procedimiento o Técnicas}{3}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Notación}{3}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Alcance}{3}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Diseño Estático}{4}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Descripción y Alcance del Diseño}{4}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Diseño de Subsistemas}{4}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Diseño de Módulos}{4}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Diseño de Paquetes}{4}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Diseño de Clases}{5}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Diseño Dinámico}{6}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Diseño Dinámico del CU: Login}{6}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Diseño de la Persistencia de la Información}{7}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Modelo Relacional}{7}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Diccionario de Datos}{7}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Diseño de las Consultas}{7}{section.5.3}%
+\contentsfinish 

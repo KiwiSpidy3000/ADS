@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.24)  15 JUN 2026 18:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.24)  15 JUN 2026 18:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2307,20 +2307,20 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.41 \textbf{X}
-                Es un número consecutivo: 1, 2, 3, ...
+l.40 L
+      os casos de uso se identifican de la forma CUX, donde:
 <theme/pleca.png, id=2189, 1638.12pt x 231.264pt>
 File: theme/pleca.png Graphic file (type png)
 <use theme/pleca.png>
-Package pdftex.def Info: theme/pleca.png  used on input line 41.
+Package pdftex.def Info: theme/pleca.png  used on input line 40.
 (pdftex.def)             Requested size: 614.2935pt x 86.72379pt.
  [1
 
 
  <./theme/pleca.png>]
 LaTeX Font Info:    Trying to load font information for OT1+txtt on input line 
-66.
-(C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\ot1txtt.fd
+60.
+ (C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/txfonts\ot1txtt.fd
 File: ot1txtt.fd 2000/12/15 v3.1
 ))
 File: theme/headerPar.png Graphic file (type png)
@@ -7986,7 +7986,7 @@ fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/d/AppData/Local/Programs/MiKTeX/f
 onts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/d/AppData/Local/Programs/MiKTeX/fo
 nts/type1/urw/times/utmr8a.pfb><C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on proyecto.pdf (198 pages, 3985226 bytes).
+Output written on proyecto.pdf (198 pages, 3985150 bytes).
 PDF statistics:
  5140 PDF objects out of 5155 (max. 8388607)
  1568 named destinations out of 1728 (max. 500000)

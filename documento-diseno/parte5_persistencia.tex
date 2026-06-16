@@ -1,0 +1,53 @@
+\chapter{Diseño de la Persistencia de la Información}
+
+\section{Modelo Relacional}
+Presentar el modelo entidad-relación o el esquema relacional del sistema.
+
+\begin{figure}[h!]
+	\centering
+	\fbox{\parbox{0.85\linewidth}{\centering\vspace{3cm}[Diagrama del modelo relacional]\vspace{3cm}}}
+	\caption{Modelo relacional de la base de datos.}
+\end{figure}
+
+\section{Diccionario de Datos}
+
+\begin{table}[h!]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{usuarios}}
+	\begin{tabular}{>{\ttfamily}l l l l p{5cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id\_usuario  & INT       & 11  & NO  & Identificador único del usuario (PK). \\
+		nombre       & VARCHAR   & 100 & NO  & Nombre completo del usuario. \\
+		email        & VARCHAR   & 150 & NO  & Correo electrónico (único). \\
+		contrasena   & VARCHAR   & 255 & NO  & Hash de la contraseña. \\
+		fecha\_alta  & DATETIME  & --  & NO  & Fecha y hora de registro. \\
+		activo       & TINYINT   & 1   & NO  & 1 = activo, 0 = inactivo. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+% Repetir la tabla para cada entidad del modelo
+
+\section{Diseño de las Consultas}
+
+\subsection*{Diccionario de Consultas}
+
+\begin{table}[h!]
+	\centering
+	\caption{Diccionario de consultas}
+	\begin{tabular}{l p{4cm} p{5.5cm}}
+		\toprule
+		\textbf{ID} & \textbf{Descripción} & \textbf{Sentencia SQL} \\
+		\midrule
+		Q-001 & Autenticar usuario por email y contraseña &
+		\texttt{SELECT * FROM usuarios WHERE email=? AND contrasena=? AND activo=1} \\
+		\addlinespace
+		Q-002 & Obtener perfil del usuario por ID &
+		\texttt{SELECT id\_usuario, nombre, email FROM usuarios WHERE id\_usuario=?} \\
+		\addlinespace
+		Q-003 & [Descripción de la consulta] & \texttt{[sentencia SQL]} \\
+		\bottomrule
+	\end{tabular}
+\end{table}

@@ -1,0 +1,26 @@
+\chapter{Diseño Dinámico}
+
+Descripción del comportamiento en tiempo de ejecución del sistema mediante diagramas
+de secuencia, actividad o estados.
+
+\section{Diseño Dinámico del CU: Login}
+
+\subsection*{Descripción del Flujo}
+El actor \textit{Usuario} ingresa sus credenciales; el sistema las valida contra la
+base de datos y, según el resultado, otorga o deniega el acceso.
+
+\begin{figure}[h!]
+	\centering
+	\fbox{\parbox{0.85\linewidth}{\centering\vspace{2.5cm}[Diagrama de secuencia: Login]\vspace{2.5cm}}}
+	\caption{Diagrama de secuencia --- CU Login.}
+\end{figure}
+
+\subsection*{Flujo Alternativo / Excepciones}
+\begin{itemize}
+	\item Credenciales incorrectas: el sistema muestra mensaje de error y permite
+	reintentar (máximo 3 intentos).
+	\item Cuenta bloqueada: se redirige al flujo de recuperación de contraseña.
+\end{itemize}
+
+% Agregar más casos de uso según sea necesario
+% \section{Diseño Dinámico del CU: [Nombre CU]}

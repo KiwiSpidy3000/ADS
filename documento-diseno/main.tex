@@ -1,0 +1,89 @@
+\documentclass[12pt, letterpaper]{report}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{setspace}
+
+\geometry{
+	left=3cm, right=2.5cm,
+	top=3cm, bottom=2.5cm
+}
+
+% Color institucional
+\definecolor{azulDoc}{RGB}{0, 70, 127}
+
+% Formato de títulos
+\titleformat{\chapter}[block]
+{\normalfont\Large\bfseries\color{azulDoc}}
+{\thechapter.}{10pt}{\Large}
+\titleformat{\section}[block]
+{\normalfont\large\bfseries}
+{\thesection}{8pt}{\large}
+\titleformat{\subsection}[block]
+{\normalfont\normalsize\bfseries}
+{\thesubsection}{6pt}{}
+
+% Encabezado y pie de página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Documento de Diseño}
+\fancyhead[R]{\small\leftmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=azulDoc,
+	urlcolor=azulDoc,
+	pdftitle={Documento de Diseño},
+}
+
+\begin{document}
+	
+	% ─── PORTADA ───────────────────────────────────────────────────────────────
+	\begin{titlepage}
+		\centering
+		\vspace*{2cm}
+		{\Huge\bfseries\color{azulDoc} Documento de Diseño\par}
+		\vspace{1cm}
+		\rule{\linewidth}{1pt}
+		\vspace{1cm}
+		{\large [Nombre del Sistema / Proyecto]\par}
+		\vspace{2cm}
+		{\large Versión 1.0\par}
+		\vspace{1cm}
+		{\large \today\par}
+		\vfill
+		{\normalsize [Autores / Equipo de Desarrollo]\par}
+	\end{titlepage}
+	
+	% ─── ÍNDICE ────────────────────────────────────────────────────────────────
+	\tableofcontents
+	\clearpage
+	
+	% ─── PARTE 1: ORGANIZACIÓN DEL DISEÑO ─────────────────────────────────────
+	\include{parte1_organizacion}
+	
+	% ─── PARTE 2: DISEÑO ARQUITECTÓNICO ───────────────────────────────────────
+	\include{parte2_arquitectura}
+	
+	% ─── PARTE 3: DISEÑO ESTÁTICO ─────────────────────────────────────────────
+	\include{parte3_estatico}
+	
+	% ─── PARTE 4: DISEÑO DINÁMICO ─────────────────────────────────────────────
+	\include{parte4_dinamico}
+	
+	% ─── PARTE 5: DISEÑO DE PERSISTENCIA ──────────────────────────────────────
+	\include{parte5_persistencia}
+	
+\end{document}

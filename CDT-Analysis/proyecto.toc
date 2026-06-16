@@ -169,11 +169,11 @@
 \contentsline {section}{\numberline {4.26}CU-45 Registrar enlaces representantes}{92}{section.4.26}%
 \contentsline {subsection}{\numberline {4.26.1}Descripción completa}{92}{subsection.4.26.1}%
 \contentsline {subsection}{\numberline {4.26.2}Atributos importantes}{92}{subsection.4.26.2}%
-\contentsline {subsection}{\numberline {4.26.3}Trayectorias del Caso de Uso}{93}{subsection.4.26.3}%
+\contentsline {subsection}{\numberline {4.26.3}Trayectorias del Caso de Uso}{92}{subsection.4.26.3}%
 \contentsline {section}{\numberline {4.27}CU-46 Buscar actores}{94}{section.4.27}%
 \contentsline {subsection}{\numberline {4.27.1}Descripción completa}{94}{subsection.4.27.1}%
 \contentsline {subsection}{\numberline {4.27.2}Atributos importantes}{94}{subsection.4.27.2}%
-\contentsline {subsection}{\numberline {4.27.3}Trayectorias del Caso de Uso}{95}{subsection.4.27.3}%
+\contentsline {subsection}{\numberline {4.27.3}Trayectorias del Caso de Uso}{94}{subsection.4.27.3}%
 \contentsline {section}{\numberline {4.28}CU-47 Filtrar actores por tipo}{96}{section.4.28}%
 \contentsline {subsection}{\numberline {4.28.1}Descripción completa}{96}{subsection.4.28.1}%
 \contentsline {subsection}{\numberline {4.28.2}Atributos importantes}{96}{subsection.4.28.2}%

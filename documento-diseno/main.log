@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.24)  15 JUN 2026 21:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.25)  16 JUN 2026 11:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -354,7 +354,22 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 (C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 49.
+(C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks26
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 52.
 
 (C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.
 def
@@ -369,26 +384,26 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 (parte3_estatico.aux) (parte4_dinamico.aux) (parte5_persistencia.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Info: Redefining \. on input line 51.
-LaTeX Info: Redefining \% on input line 51.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Info: Redefining \. on input line 54.
+LaTeX Info: Redefining \% on input line 54.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -424,7 +439,7 @@ LaTeX Info: Redefining \% on input line 51.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 51.
+Package hyperref Info: Link coloring ON on input line 54.
 (main.out) (main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
@@ -437,12 +452,12 @@ Package hyperref Info: Link coloring ON on input line 51.
 \scratchbox=\box57
 \nofMPsegments=\count310
 \nofMParguments=\count311
-\everyMPshowfont=\toks26
+\everyMPshowfont=\toks27
 \MPscratchCnt=\count312
 \MPscratchDim=\dimen187
 \MPnumerator=\count313
 \makeMPintoPDFobject=\count314
-\everyMPtoPDFconversion=\toks27
+\everyMPtoPDFconversion=\toks28
 )
 (C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.
 sty
@@ -457,7 +472,16 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 {C:/Users/d/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (main.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+
+(C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+
+(C:\Users\d\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
@@ -466,7 +490,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.72 	\clearpage
+l.77 	\clearpage
                  [1
 
 ]
@@ -474,44 +498,15 @@ l.72 	\clearpage
 
  (parte1_organizacion.tex
 Cap\'{\i }tulo 1.
-) [2
+[2
 
 
 
 ]
-\openout2 = `parte2_arquitectura.aux'.
-
- (parte2_arquitectura.tex
-Cap\'{\i }tulo 2.
-) [3
-
-
-
-
-]
-\openout2 = `parte3_estatico.aux'.
-
- (parte3_estatico.tex
-Cap\'{\i }tulo 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 16.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 16.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 16.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[4
-
-
-
-
-])
-LaTeX Info: Redefining \. on input line 81.
-LaTeX Info: Redefining \% on input line 81.
+LaTeX Info: Redefining \. on input line 102.
+LaTeX Info: Redefining \% on input line 102.
 Package babel Info: 'spanish' activates 'spanish' shorthands.
-(babel)             Reported on input line 81.
+(babel)             Reported on input line 102.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -520,12 +515,373 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
 
+[3]
+Overfull \hbox (58.09338pt too wide) in paragraph at lines 130--142
+ [][] 
+ []
+
+LaTeX Info: Redefining \. on input line 151.
+LaTeX Info: Redefining \% on input line 151.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.85303pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.85303pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
+
+[4]
+Underfull \hbox (badness 3769) in paragraph at lines 158--158
+[]|\T1/cmr/m/n/12 Actor, ca-so de uso
+ []
+
+
+Underfull \hbox (badness 2205) in paragraph at lines 158--158
+[]|\T1/cmr/m/n/12 Describir in-ter-ac-cio-nes en-tre
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
+[]|\T1/cmr/m/n/12 Entidad-Relación
+ []
+
+
+Underfull \hbox (badness 3118) in paragraph at lines 163--163
+[]|\T1/cmr/m/n/12 Entidades, atri-bu-tos,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
+\T1/cmr/m/n/12 re-la-cio-nes (crow's
+ []
+
+LaTeX Info: Redefining \. on input line 197.
+LaTeX Info: Redefining \% on input line 197.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.85303pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.85303pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
+
 [5]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+)
+LaTeX Info: Redefining \. on input line 80.
+LaTeX Info: Redefining \% on input line 80.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.85303pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.85303pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
+
+[6]
+LaTeX Info: Redefining \. on input line 80.
+LaTeX Info: Redefining \% on input line 80.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.85303pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.85303pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
+
+[7]
+\openout2 = `parte2_arquitectura.aux'.
+
+ (parte2_arquitectura.tex
+Cap\'{\i }tulo 2.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Reference `fig:arq-general' on page 8 undefined on input line 62
+.
+
+[8
+
+
+
+
+]
+Overfull \hbox (15.48003pt too wide) in paragraph at lines 83--85
+[]\T1/cmr/m/it/12 React Rou-ter: \T1/cmr/m/n/12 ma-ne-jo de ru-tas del la-do de
+l clien-te (\T1/cmtt/m/n/12 /expedientes\T1/cmr/m/n/12 , \T1/cmtt/m/n/12 /diagn
+osticos\T1/cmr/m/n/12 ,
+ []
+
+LaTeX Info: Redefining \. on input line 95.
+LaTeX Info: Redefining \% on input line 95.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.85303pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.85303pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
+
+[9]
+Overfull \hbox (37.5842pt too wide) in paragraph at lines 107--110
+[]\T1/cmr/m/it/12 Routers: \T1/cmr/m/n/12 agru-pan los end-points por do-mi-nio
+ fun-cio-nal (\T1/cmtt/m/n/12 /expedientes\T1/cmr/m/n/12 , \T1/cmtt/m/n/12 /dia
+gnosticos\T1/cmr/m/n/12 ,
+ []
+
+
+Overfull \hbox (8.66783pt too wide) in paragraph at lines 117--119
+[]\T1/cmr/m/it/12 SQLAlchemy ORM: \T1/cmr/m/n/12 abs-trae el ac-ce-so a Post-gr
+eSQL me-dian-te mo-de-los de Python,
+ []
+
+LaTeX Info: Redefining \. on input line 146.
+LaTeX Info: Redefining \% on input line 146.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.85303pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.85303pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
+
+[10]
+LaTeX Info: Redefining \. on input line 201.
+LaTeX Info: Redefining \% on input line 201.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.85303pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.85303pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
+
+[11]
+Overfull \hbox (21.1364pt too wide) in paragraph at lines 206--209
+[]\T1/cmr/bx/n/12 Autenticación obli-ga-to-ria: \T1/cmr/m/n/12 to-dos los end-p
+oints de la API, ex-cep-to \T1/cmtt/m/n/12 POST /auth/login\T1/cmr/m/n/12 ,
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 272--274
+[]|\T1/cmr/m/n/12 Implementar res-pal-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 272--274
+\T1/cmr/m/n/12 dos au-to-má-ti-cos y
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 272--274
+\T1/cmr/m/n/12 do-cu-men-tar un plan
+ []
+
+
+Underfull \hbox (badness 6775) in paragraph at lines 272--274
+\T1/cmr/m/n/12 de re-cu-pe-ra-ción an-te
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 272--274
+\T1/cmr/m/n/12 de-sas-tres (RTO/RPO
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--278
+[]|\T1/cmr/m/n/12 Aplicar \T1/cmr/m/it/12 co-de split-
+ []
+
+
+Underfull \hbox (badness 2689) in paragraph at lines 276--278
+\T1/cmr/m/it/12 ting \T1/cmr/m/n/12 y car-ga di-fe-ri-da
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 276--278
+\T1/cmr/m/n/12 (\T1/cmtt/m/n/12 React.lazy\T1/cmr/m/n/12 ) pa-ra
+ []
+
+
+Underfull \hbox (badness 1009) in paragraph at lines 276--278
+\T1/cmr/m/n/12 re-du-cir el ta-ma-ño del
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 279--279
+[]|\T1/cmr/bx/n/12 Complejidad
+ []
+
+
+Underfull \hbox (badness 2495) in paragraph at lines 279--280
+\T1/cmr/m/n/12 greSQL) re-quie-re com-pe-ten-
+ []
+
+
+Underfull \hbox (badness 5460) in paragraph at lines 280--282
+\T1/cmr/m/n/12 di-mien-tos de des-plie-
+ []
+
+
+Underfull \hbox (badness 5787) in paragraph at lines 284--285
+[]|\T1/cmr/m/n/12 Definir co-mo tra-ba-jo
+ []
+
+
+Underfull \hbox (badness 2005) in paragraph at lines 284--285
+\T1/cmr/m/n/12 fu-tu-ro un mó-du-lo de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 284--285
+\T1/cmr/m/n/12 sin-cro-ni-za-ción of-fli-ne
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--286
+[]|\T1/cmr/bx/n/12 Escalabilidad
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--289
+[]|\T1/cmr/m/n/12 Planificar par-ti-cio-na-
+ []
+
+
+Underfull \hbox (badness 1127) in paragraph at lines 287--289
+\T1/cmr/m/n/12 lar-go pla-zo, mi-gra-ción
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--289
+\T1/cmr/m/n/12 a una so-lu-ción con
+ []
+
+
+Underfull \hbox (badness 1107) in paragraph at lines 291--292
+[]|\T1/cmr/m/n/12 Implementar una lis-ta
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+)
+LaTeX Info: Redefining \. on input line 83.
+LaTeX Info: Redefining \% on input line 83.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.85303pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.85303pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
+
+[12]
+LaTeX Info: Redefining \. on input line 83.
+LaTeX Info: Redefining \% on input line 83.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.85303pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.85303pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
+
+[13]
+LaTeX Info: Redefining \. on input line 83.
+LaTeX Info: Redefining \% on input line 83.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.85303pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.85303pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
+
+[14]
+\openout2 = `parte3_estatico.aux'.
+
+ (parte3_estatico.tex
+Cap\'{\i }tulo 3.
+[15
+
+
+
+
+]
+LaTeX Info: Redefining \. on input line 34.
+LaTeX Info: Redefining \% on input line 34.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.85303pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.85303pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
+
+[16]
+LaTeX Info: Redefining \. on input line 69.
+LaTeX Info: Redefining \% on input line 69.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.85303pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.85303pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
+
+[17]
+LaTeX Info: Redefining \. on input line 100.
+LaTeX Info: Redefining \% on input line 100.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.85303pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.85303pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
+
+[18]
+LaTeX Info: Redefining \. on input line 132.
+LaTeX Info: Redefining \% on input line 132.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.85303pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.85303pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
+
+[19]
+LaTeX Info: Redefining \. on input line 157.
+LaTeX Info: Redefining \% on input line 157.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.85303pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.85303pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
+
+[20])
+LaTeX Info: Redefining \. on input line 86.
+LaTeX Info: Redefining \% on input line 86.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.85303pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.85303pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
+
+[21]
 \openout2 = `parte4_dinamico.aux'.
 
  (parte4_dinamico.tex
 Cap\'{\i }tulo 4.
-) [6
+) [22
 
 
 
@@ -583,14 +939,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--49
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [7
+) [23
 
 
 
 
 ]
-LaTeX Info: Redefining \. on input line 87.
-LaTeX Info: Redefining \% on input line 87.
+LaTeX Info: Redefining \. on input line 92.
+LaTeX Info: Redefining \% on input line 92.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -599,7 +955,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.85303pt}.
 
-[8] (main.aux
+[24] (main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
  (parte1_organizacion.aux) (parte2_arquitectura.aux)
@@ -610,35 +966,37 @@ L3 programming layer <2025-12-24>
  ***********
 
 
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  34BEEE79476D6497BC7FA07ADBFEF902;3678.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: C8761670907202327345BE04C8B11B7A;4708.
  ) 
 Here is how much of TeX's memory you used:
- 12515 strings out of 467871
- 199588 string characters out of 5420312
- 637927 words of memory out of 5000000
- 41179 multiletter control sequences out of 15000+600000
- 638397 words of font info for 60 fonts, out of 8000000 for 9000
+ 13176 strings out of 467870
+ 207609 string characters out of 5420291
+ 647227 words of memory out of 5000000
+ 41770 multiletter control sequences out of 15000+600000
+ 641784 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,253b,564s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200
-.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti12
-00.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx
+ 75i,12n,81p,790b,762s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti1200
+.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt12
+00.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1200.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ec
-rm1095.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
-ecbx1440.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ecbx1728.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
-600\ecrm1200.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
-pi600\ecrm1440.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecbx2488.pk>
-Output written on main.pdf (9 pages, 124632 bytes).
+rm0800.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
+ecrm1095.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\ecti1200.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
+600\ecbx1440.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
+pi600\ecbx1200.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecbx1728.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/
+ec/dpi600\ecrm1200.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappe
+n/ec/dpi600\ecrm1440.pk> <C:\Users\d\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecbx2488.pk><C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb><C:/Users/d/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/symbols/msam10.pfb>
+Output written on main.pdf (25 pages, 251515 bytes).
 PDF statistics:
- 416 PDF objects out of 1000 (max. 8388607)
- 39 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 782 PDF objects out of 1000 (max. 8388607)
+ 85 named destinations out of 1000 (max. 500000)
+ 217 words of extra memory for PDF output out of 10000 (max. 10000000)
 

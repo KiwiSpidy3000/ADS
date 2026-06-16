@@ -1,15 +1,26 @@
 \chapter{Diseño Estático}
 
-Descripción de la estructura estática del código, apoyada en diagramas de clases
-y paquetes UML.
+El diseño estático de SICORRE describe la estructura interna del código que da soporte a la arquitectura definida para el sistema, mostrando cómo se organizan los subsistemas, los módulos, los paquetes y las clases que implementan la funcionalidad descrita en la especificación de requisitos. Este capítulo presenta dicha organización mediante diagramas UML de clases y de paquetes, y detalla el propósito y las dependencias de cada elemento, de manera que sirva como referencia para la implementación y el mantenimiento del sistema a lo largo de las distintas iteraciones de desarrollo.
 
 \section{Descripción y Alcance del Diseño}
-Indicar qué partes del sistema se detallan en esta sección y cuál es el nivel de
-abstracción utilizado.
+
+En esta sección se detalla la estructura estática correspondiente a los módulos funcionales de SICORRE planificados para las iteraciones 1, 2 y 3, así como aquellos casos de uso que han quedado programados para iteraciones posteriores. El nivel de abstracción utilizado parte de los subsistemas que agrupan la funcionalidad del sistema, desciende a los módulos que los componen, continúa con los paquetes que organizan el código fuente de cada módulo y concluye con las clases que implementan la lógica de negocio, sus atributos, métodos y relaciones. De esta manera se ofrece una visión que va de lo general a lo particular, permitiendo ubicar cualquier elemento del código dentro de la estructura global del sistema.
 
 \section{Diseño de Subsistemas}
-Describir la descomposición del sistema en subsistemas, sus responsabilidades y
-las interfaces que exponen.
+
+La funcionalidad de SICORRE se organiza en nueve subsistemas, cada uno responsable de un conjunto cohesionado de casos de uso y expuesto al resto del sistema mediante interfaces bien definidas que evitan el acceso directo a los datos internos de otros subsistemas.
+
+\begin{itemize}
+	\item \textbf{Control de Acceso:} responsable de la autenticación de los usuarios del sistema, así como del cierre de sesión y la recuperación de contraseña. Expone una interfaz de autenticación que es consumida por el resto de los subsistemas para validar la identidad y los privilegios del usuario en cada operación.
+	\item \textbf{Gestión de Usuarios:} encargado del ciclo de vida de las cuentas de usuario, incluyendo su registro, consulta, modificación, revocación de acceso y eliminación. Provee la información de usuarios y roles que requiere el subsistema de Control de Acceso.
+	\item \textbf{Equipos Multidisciplinarios:} administra el registro, consulta y modificación de los equipos multidisciplinarios, así como la asignación de niñas, niños y adolescentes (NNA) a dichos equipos, sirviendo de enlace entre el subsistema de Gestión de Usuarios y el subsistema del NNA.
+	\item \textbf{NNA:} concentra el registro, consulta y modificación de los datos de las niñas, niños y adolescentes, el registro y modificación de su hecho victimal, y el registro y modificación de los datos de su tutor. Es consumido por los subsistemas de Equipos Multidisciplinarios y de Expedientes.
+	\item \textbf{Expedientes:} gestiona la apertura y consulta de expedientes, así como el registro y modificación de las valoraciones multidisciplinarias y de los derechos vulnerados asociados a cada NNA, integrando la información proveniente de los subsistemas del NNA y de Equipos Multidisciplinarios.
+	\item \textbf{Actores en Materia de Derechos:} permite el registro, consulta, modificación y eliminación de los actores en materia de derechos, el registro de los servicios que ofrecen y su consulta por municipio y tipo de servicio, exponiendo esta información al subsistema de Restitución de Derechos.
+	\item \textbf{Catálogos:} provee información de referencia compartida por el resto del sistema, como los catálogos de domicilios (SEPOMEX) e idiomas (INALI), así como el registro y modificación de discapacidades y enfermedades del NNA o de su tutor.
+	\item \textbf{Calendario:} administra la consulta del calendario de expedientes y el registro y modificación de eventos asociados, sirviendo de apoyo transversal a los subsistemas de Expedientes y de Equipos Multidisciplinarios.
+	\item \textbf{Restitución de Derechos -- Directorio de Actores:} concentra el registro, edición, consulta, búsqueda y filtrado de actores, sus contactos, ubicaciones, programas y enlaces de representantes, además de la consulta y búsqueda del catálogo de programas y la posibilidad de deshabilitar y reactivar tanto actores como programas.
+\end{itemize}
 
 \begin{figure}[h!]
 	\centering
@@ -18,11 +29,116 @@ las interfaces que exponen.
 \end{figure}
 
 \section{Diseño de Módulos}
-Describir cada módulo dentro de los subsistemas, especificando su función y
-dependencias.
+
+Cada subsistema descrito previamente se implementa mediante uno o varios módulos de software, cuya función y casos de uso asociados se resumen a continuación junto con el estado de planificación correspondiente.
+
+\subsection*{Módulo de Control de Acceso}
+\begin{itemize}
+	\item CU-01 Iniciar sesión -- Iteración 1
+	\item CU-02 Cerrar sesión -- Iteración 1
+	\item CU-03 Recuperar contraseña -- Siguiente iteración
+\end{itemize}
+Depende del Módulo de Gestión de Usuarios para validar las credenciales y los privilegios de cada cuenta.
+
+\subsection*{Módulo de Gestión de Usuarios}
+\begin{itemize}
+	\item CU-04 Registrar usuario -- Iteración 1
+	\item CU-05 Consultar usuario -- Iteración 1
+	\item CU-06 Modificar usuario -- Iteración 1
+	\item CU-07 Revocar acceso a usuario -- Iteración 1
+	\item CU-08 Eliminar usuario -- Iteración 1
+\end{itemize}
+No depende de otros módulos para su operación básica; es consumido por el Módulo de Control de Acceso.
+
+\subsection*{Módulo de Equipos Multidisciplinarios}
+\begin{itemize}
+	\item CU-09 Registrar equipo multidisciplinario -- Iteración 2
+	\item CU-10 Consultar equipo multidisciplinario -- Iteración 2
+	\item CU-11 Modificar equipo multidisciplinario -- Iteración 2
+	\item CU-12 Asignar NNA a equipo multidisciplinario -- Iteración 2
+\end{itemize}
+Depende del Módulo de Gestión de Usuarios y del Módulo del NNA.
+
+\subsection*{Módulo del NNA}
+\begin{itemize}
+	\item CU-13 Registrar NNA -- Iteración 2
+	\item CU-14 Consultar NNA -- Iteración 2
+	\item CU-15 Modificar datos del NNA -- Iteración 2
+	\item CU-16 Registrar hecho victimal -- Siguiente iteración
+	\item CU-17 Modificar hecho victimal -- Siguiente iteración
+	\item CU-18 Registrar tutor del NNA -- Iteración 2
+	\item CU-19 Modificar datos del tutor -- Iteración 2
+\end{itemize}
+Depende del Módulo de Catálogos para la captura de domicilios, idiomas, discapacidades y enfermedades.
+
+\subsection*{Módulo de Expedientes}
+\begin{itemize}
+	\item CU-20 Abrir expediente -- Siguiente iteración
+	\item CU-21 Consultar expediente -- Siguiente iteración
+	\item CU-22 Registrar valoración multidisciplinaria -- Siguiente iteración
+	\item CU-23 Modificar valoración multidisciplinaria -- Siguiente iteración
+	\item CU-24 Registrar derecho vulnerado -- Siguiente iteración
+	\item CU-25 Modificar derecho vulnerado -- Siguiente iteración
+\end{itemize}
+Depende del Módulo del NNA y del Módulo de Equipos Multidisciplinarios.
+
+\subsection*{Módulo de Actores en Materia de Derechos}
+\begin{itemize}
+	\item CU-26 Registrar actor en materia de derechos -- Siguiente iteración
+	\item CU-27 Consultar actor en materia de derechos -- Siguiente iteración
+	\item CU-28 Modificar actor en materia de derechos -- Siguiente iteración
+	\item CU-29 Eliminar actor en materia de derechos -- Siguiente iteración
+	\item CU-30 Registrar servicio de actor -- Siguiente iteración
+	\item CU-31 Consultar actores por municipio y tipo de servicio -- Siguiente iteración
+\end{itemize}
+Depende del Módulo de Catálogos para la captura de domicilios.
+
+\subsection*{Módulo de Catálogos}
+\begin{itemize}
+	\item CU-32 Consultar catálogo de domicilios (SEPOMEX) -- Iteración 2
+	\item CU-33 Consultar catálogo de idiomas (INALI) -- Iteración 2
+	\item CU-34 Registrar discapacidad de NNA o tutor -- Iteración 2
+	\item CU-35 Modificar discapacidad de NNA o tutor -- Siguiente iteración
+	\item CU-36 Registrar enfermedad de NNA o tutor -- Iteración 2
+	\item CU-37 Modificar enfermedad de NNA o tutor -- Siguiente iteración
+\end{itemize}
+No depende de otros módulos; es consumido de manera transversal por el resto del sistema.
+
+\subsection*{Módulo de Calendario}
+\begin{itemize}
+	\item CU-38 Consultar calendario de expedientes -- Siguiente iteración
+	\item CU-39 Registrar evento en calendario -- Siguiente iteración
+	\item CU-40 Modificar evento en calendario -- Siguiente iteración
+\end{itemize}
+Depende del Módulo de Expedientes para asociar eventos a un expediente determinado.
+
+\subsection*{Módulo de Restitución de Derechos -- Directorio de Actores}
+\begin{itemize}
+	\item CU-41 Registrar actor -- Iteración 3
+	\item CU-42 Registrar contactos del actor -- Iteración 3
+	\item CU-43 Registrar ubicación del actor -- Iteración 3
+	\item CU-44 Registrar programas del actor -- Iteración 3
+	\item CU-45 Registrar enlaces representantes -- Iteración 3
+	\item CU-46 Buscar actores -- Iteración 3
+	\item CU-47 Filtrar actores por tipo -- Iteración 3
+	\item CU-48 Consultar actor -- Iteración 3
+	\item CU-49 Editar actor -- Iteración 3
+	\item CU-50 Editar contactos del actor -- Iteración 3
+	\item CU-51 Editar ubicación del actor -- Iteración 3
+	\item CU-52 Editar programas del actor -- Iteración 3
+	\item CU-53 Editar enlaces representantes -- Iteración 3
+	\item CU-54 Deshabilitar actor -- Iteración 3
+	\item CU-55 Reactivar actor -- Siguiente iteración
+	\item CU-56 Consultar catálogo de programas -- Iteración 3
+	\item CU-57 Buscar programas -- Siguiente iteración
+	\item CU-58 Deshabilitar programa -- Siguiente iteración
+	\item CU-59 Reactivar programa -- Siguiente iteración
+\end{itemize}
+Depende del Módulo de Catálogos para la captura de domicilios y de los catálogos de programas registrados internamente.
 
 \section{Diseño de Paquetes}
-Presentar el diagrama de paquetes que muestra la organización lógica del código.
+
+El código fuente de SICORRE se organiza en paquetes que reflejan la separación por subsistemas descrita anteriormente, agrupando en cada paquete las clases de modelo, de lógica de negocio y de acceso a datos correspondientes a un mismo módulo. Esta organización busca minimizar el acoplamiento entre módulos, de forma que las dependencias señaladas en la sección anterior se reflejen como relaciones explícitas entre paquetes, facilitando la sustitución o evolución independiente de cada módulo conforme avancen las iteraciones del proyecto.
 
 \begin{figure}[h!]
 	\centering
@@ -31,8 +147,8 @@ Presentar el diagrama de paquetes que muestra la organización lógica del códi
 \end{figure}
 
 \section{Diseño de Clases}
-Presentar los diagramas de clases con sus atributos, métodos y relaciones
-(herencia, composición, dependencia).
+
+Dentro de cada paquete se definen las clases que implementan los casos de uso correspondientes, especificando sus atributos, métodos y las relaciones de herencia, composición y dependencia que mantienen entre sí y con las clases de otros módulos. El diagrama de clases principal integra las entidades centrales del dominio, como el usuario, el equipo multidisciplinario, el NNA, el expediente y el actor en materia de derechos, mostrando cómo se relacionan entre ellas para dar soporte a los casos de uso descritos en las secciones previas.
 
 \begin{figure}[h!]
 	\centering

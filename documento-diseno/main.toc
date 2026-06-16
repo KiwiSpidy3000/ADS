@@ -7,23 +7,23 @@
 \contentsline {chapter}{\numberline {2}Diseño Arquitectónico}{8}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Propósito y Objetivo de la Arquitectura}{8}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Diagrama Arquitectónico}{8}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Explicación de la Arquitectura}{8}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Elementos}{8}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Relaciones entre elementos}{11}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Reglas arquitectónicas}{11}{subsection.2.3.3}%
-\contentsline {section}{\numberline {2.4}Beneficios y Limitaciones de la Arquitectura}{12}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Beneficios}{12}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Limitaciones}{12}{subsection.2.4.2}%
+\contentsline {section}{\numberline {2.3}Explicación de la Arquitectura}{10}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Elementos}{10}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Relaciones entre elementos}{12}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Reglas arquitectónicas}{12}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Beneficios y Limitaciones de la Arquitectura}{13}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Beneficios}{13}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Limitaciones}{14}{subsection.2.4.2}%
 \contentsline {chapter}{\numberline {3}Diseño Estático}{15}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Descripción y Alcance del Diseño}{15}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Diseño de Subsistemas}{15}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Diseño de Módulos}{17}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Diseño de Paquetes}{20}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Diseño de Clases}{20}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Diseño Dinámico}{22}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Diseño Dinámico del CU: Login}{22}{section.4.1}%
-\contentsline {chapter}{\numberline {5}Diseño de la Persistencia de la Información}{23}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Modelo Relacional}{23}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Diccionario de Datos}{23}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Diseño de las Consultas}{23}{section.5.3}%
+\contentsline {section}{\numberline {3.4}Diseño de Paquetes}{21}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Diseño de Clases}{21}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Diseño Dinámico}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Diseño Dinámico del CU: Login}{23}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Diseño de la Persistencia de la Información}{24}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Modelo Relacional}{24}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Diccionario de Datos}{24}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Diseño de las Consultas}{24}{section.5.3}%
 \contentsfinish 

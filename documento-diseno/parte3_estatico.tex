@@ -33,6 +33,9 @@ La funcionalidad de SICORRE se organiza en nueve subsistemas, cada uno responsab
 Cada subsistema descrito previamente se implementa mediante uno o varios módulos de software, cuya función y casos de uso asociados se resumen a continuación junto con el estado de planificación correspondiente.
 
 \subsection*{Módulo de Control de Acceso}
+Este módulo administra la autenticación de los usuarios dentro del sistema, permitiendo el inicio y cierre de sesión, así como los mecanismos de recuperación de acceso. Su función principal es garantizar que únicamente los usuarios autorizados puedan acceder a la información y funcionalidades de acuerdo con los permisos asignados.
+
+
 \begin{itemize}
 	\item CU-01 Iniciar sesión -- Iteración 1
 	\item CU-02 Cerrar sesión -- Iteración 1
@@ -41,6 +44,9 @@ Cada subsistema descrito previamente se implementa mediante uno o varios módulo
 Depende del Módulo de Gestión de Usuarios para validar las credenciales y los privilegios de cada cuenta.
 
 \subsection*{Módulo de Gestión de Usuarios}
+
+Este módulo permite administrar las cuentas de los usuarios del sistema mediante operaciones de registro, consulta, modificación, revocación de acceso y eliminación. Su propósito es mantener actualizada la información de los usuarios y controlar los privilegios que poseen dentro de la plataforma.
+
 \begin{itemize}
 	\item CU-04 Registrar usuario -- Iteración 1
 	\item CU-05 Consultar usuario -- Iteración 1
@@ -51,6 +57,9 @@ Depende del Módulo de Gestión de Usuarios para validar las credenciales y los 
 No depende de otros módulos para su operación básica; es consumido por el Módulo de Control de Acceso.
 
 \subsection*{Módulo de Equipos Multidisciplinarios}
+Este módulo permite registrar y administrar los equipos multidisciplinarios encargados de la atención de niñas, niños y adolescentes. Además, facilita la asignación de casos a los equipos responsables, permitiendo una coordinación eficiente entre los distintos profesionales involucrados.
+
+
 \begin{itemize}
 	\item CU-09 Registrar equipo multidisciplinario -- Iteración 2
 	\item CU-10 Consultar equipo multidisciplinario -- Iteración 2
@@ -58,6 +67,8 @@ No depende de otros módulos para su operación básica; es consumido por el Mó
 	\item CU-12 Asignar NNA a equipo multidisciplinario -- Iteración 2
 \end{itemize}
 Depende del Módulo de Gestión de Usuarios y del Módulo del NNA.
+
+Este módulo concentra la información general de las niñas, niños y adolescentes atendidos por el sistema. Permite registrar y consultar sus datos personales, información de tutores, antecedentes relevantes y demás elementos necesarios para el seguimiento y protección de sus derechos.
 
 \subsection*{Módulo del NNA}
 \begin{itemize}
@@ -72,6 +83,8 @@ Depende del Módulo de Gestión de Usuarios y del Módulo del NNA.
 Depende del Módulo de Catálogos para la captura de domicilios, idiomas, discapacidades y enfermedades.
 
 \subsection*{Módulo de Expedientes}
+Este módulo administra los expedientes asociados a cada NNA, integrando valoraciones, derechos vulnerados, observaciones y demás información relacionada con los procesos de atención. Su objetivo es centralizar la documentación necesaria para el seguimiento de cada caso.
+
 \begin{itemize}
 	\item CU-20 Abrir expediente -- Siguiente iteración
 	\item CU-21 Consultar expediente -- Siguiente iteración
@@ -83,6 +96,8 @@ Depende del Módulo de Catálogos para la captura de domicilios, idiomas, discap
 Depende del Módulo del NNA y del Módulo de Equipos Multidisciplinarios.
 
 \subsection*{Módulo de Actores en Materia de Derechos}
+Este módulo permite gestionar la información de instituciones, organizaciones y dependencias que participan en la protección y restitución de derechos de los NNA. Facilita el registro, consulta y actualización de los servicios que ofrecen para apoyar los procesos de atención.
+
 \begin{itemize}
 	\item CU-26 Registrar actor en materia de derechos -- Siguiente iteración
 	\item CU-27 Consultar actor en materia de derechos -- Siguiente iteración
@@ -94,6 +109,9 @@ Depende del Módulo del NNA y del Módulo de Equipos Multidisciplinarios.
 Depende del Módulo de Catálogos para la captura de domicilios.
 
 \subsection*{Módulo de Catálogos}
+
+Este módulo proporciona información de referencia utilizada por los demás componentes del sistema, como domicilios, idiomas, discapacidades y enfermedades. Su finalidad es estandarizar los datos capturados y asegurar la consistencia de la información registrada.
+
 \begin{itemize}
 	\item CU-32 Consultar catálogo de domicilios (SEPOMEX) -- Iteración 2
 	\item CU-33 Consultar catálogo de idiomas (INALI) -- Iteración 2
@@ -105,6 +123,8 @@ Depende del Módulo de Catálogos para la captura de domicilios.
 No depende de otros módulos; es consumido de manera transversal por el resto del sistema.
 
 \subsection*{Módulo de Calendario}
+Este módulo permite gestionar eventos, actividades y fechas relevantes relacionadas con los expedientes. Facilita la programación y consulta de citas, seguimientos y acciones pendientes para mejorar la organización de las actividades institucionales.
+
 \begin{itemize}
 	\item CU-38 Consultar calendario de expedientes -- Siguiente iteración
 	\item CU-39 Registrar evento en calendario -- Siguiente iteración
@@ -113,6 +133,10 @@ No depende de otros módulos; es consumido de manera transversal por el resto de
 Depende del Módulo de Expedientes para asociar eventos a un expediente determinado.
 
 \subsection*{Módulo de Restitución de Derechos -- Directorio de Actores}
+
+Este módulo administra un directorio especializado de actores que participan en los procesos de restitución de derechos. Permite registrar información detallada de instituciones, contactos, ubicaciones, programas y representantes, facilitando la búsqueda y localización de recursos disponibles para la atención integral de los NNA.
+
+
 \begin{itemize}
 	\item CU-41 Registrar actor -- Iteración 3
 	\item CU-42 Registrar contactos del actor -- Iteración 3

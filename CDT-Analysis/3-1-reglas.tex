@@ -1,30 +1,322 @@
 % !TeX root = proyecto.tex
 
+%=========================================================
+% REGLAS DE NEGOCIO DEL MÓDULO DE ACCESO Y SEGURIDAD
+%=========================================================
 
-\cdtInstrucciones{En esta sección describa todas las reglas de negocio identificadas.}
-
-
-% Tipo: \btDerivation (no aplica Clase), \btEnabler, \btTimer, \btExecutive
-% Clase: \bcCondition, \bcIntegrity, \bcAutorization.
-% Cumplimiento: \blStrict \blDeferred \blPreAutorized \blPostJustified \blOverride \blGuideline
 \begin{BussinesRule}[%
-	\brClassification{\btEnabler}{\bcCondition}{\blStrict}
-	]{BR-001}{Nombre de la regla de negocio}
-	
-				% Opciones para nivel: \blControlling, \blInfluencing
-	\BRitem[Descripción:] Descripción de la regla. Forma coloquial a manera de reglamento.
-	\BRitem[Motivación:] Describa por que es importante la regla.
-	\BRitem[Sentencia:] Sentencia formal de la regla.
-	\BRitem[Ejemplo positivo:] Indique uno o varios ejemplos en donde la regla se cumple.
-        \begin{itemize}
-        	\item ...
-        \end{itemize}
-	
-	\BRitem[Ejemplo negativo:] Indique uno o varios ejemplos en dónde la regla no se cumple.
-		\begin{itemize}
-        	\item ...
-        \end{itemize}
-	
-	\BRitem[Referenciado por:] Liste los casos de uso en donde la regla no se cumple. por ejemplo \hyperlink{CUCE3.2}{CUCE3.2}, \hyperlink{CUCE3.3}{CUCE3.3}.
+	\brClassification{\btEnabler}{\bcCondition}{\blStrict}%
+	]{RN-001}{Solo usuarios activos pueden iniciar sesión}
+	\BRitem[Descripción:] Un usuario solo puede autenticarse en SICORRE si su cuenta está registrada en el sistema y tiene el campo \texttt{activo = true} en la tabla \texttt{usuarios}.
+	\BRitem[Motivación:] Garantizar que ex-empleados o cuentas revocadas no puedan acceder a información sensible de los NNA.
+	\BRitem[Sentencia:] $\text{login}(email, password) \implies \exists \, u \in Usuarios : (u.\text{correo} = email \land \text{check\_password}(password, u.\text{password\_hash}) \land u.\text{activo} = \text{true})$.
+	\BRitem[Ejemplo positivo:] La trabajadora social Sofía tiene \texttt{activo = true}; ingresa sus credenciales y accede al sistema.
+	\BRitem[Ejemplo negativo:] El ex-empleado Luis fue revocado (\texttt{activo = false}); al ingresar sus credenciales el sistema muestra el mensaje de error E1 y deniega el acceso.
+	\BRitem[Referenciado por:] \hyperlink{CU-01}{CU-01} (Iniciar sesión).
 \end{BussinesRule}
 
+\begin{BussinesRule}[%
+	\brClassification{\btEnabler}{\bcCondition}{\blStrict}%
+	]{RN-002}{El correo electrónico del usuario debe ser único}
+	\BRitem[Descripción:] No pueden existir dos registros en la tabla \texttt{usuarios} con el mismo valor en el campo \texttt{correo}.
+	\BRitem[Motivación:] El correo electrónico es el identificador de autenticación; si dos cuentas compartieran correo el sistema no podría distinguir a cuál usuario pertenecen las credenciales.
+	\BRitem[Sentencia:] $\forall \, u_1, u_2 \in Usuarios \implies u_1.\text{correo} \neq u_2.\text{correo} \lor u_1.id = u_2.id$.
+	\BRitem[Ejemplo positivo:] Se registra a María con maria@fundacion.org; ningún otro usuario tiene ese correo, el registro procede.
+	\BRitem[Ejemplo negativo:] Se intenta registrar a un segundo usuario con maria@fundacion.org; el sistema muestra el error E1 de \hyperlink{CU-04}{CU-04} y cancela el guardado.
+	\BRitem[Referenciado por:] \hyperlink{CU-04}{CU-04} (Registrar usuario) y \hyperlink{CU-06}{CU-06} (Modificar usuario).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btDerivation}{\bcIntegrity}{\blStrict}%
+	]{RN-003}{La contraseña nunca se almacena en texto plano}
+	\BRitem[Descripción:] El campo \texttt{password\_hash} de la tabla \texttt{usuarios} debe contener exclusivamente el resultado de aplicar una función de hash segura (por ejemplo, bcrypt) a la contraseña. Nunca se almacena la contraseña original.
+	\BRitem[Motivación:] Proteger la información de las cuentas ante posibles vulneraciones de la base de datos, en cumplimiento con los principios de seguridad de la información y protección de datos personales.
+	\BRitem[Sentencia:] $\forall \, u \in Usuarios \implies u.\text{password\_hash} = \text{bcrypt}(u.password) \land u.\text{password\_hash} \neq u.password$.
+	\BRitem[Ejemplo positivo:] El administrador registra a un nuevo usuario; el sistema almacena \texttt{\$2b\$12\$...} en \texttt{password\_hash}.
+	\BRitem[Ejemplo negativo:] Se almacena la cadena ``Contraseña123'' tal cual en \texttt{password\_hash}: esto viola la regla.
+	\BRitem[Referenciado por:] \hyperlink{CU-04}{CU-04} (Registrar usuario).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btEnabler}{\bcAutorization}{\blStrict}%
+	]{RN-004}{Solo el Administrador puede gestionar usuarios}
+	\BRitem[Descripción:] Las operaciones de registrar, modificar, revocar y eliminar usuarios del sistema están restringidas al rol Administrador. Los usuarios con rol Especialista no tienen acceso a estas funciones.
+	\BRitem[Motivación:] Centralizar el control de acceso para evitar que los especialistas puedan crear cuentas no autorizadas o manipular perfiles de otros usuarios.
+	\BRitem[Sentencia:] $\text{gestionar}(usuarios) \implies \text{usuario.rol} = \text{Administrador}$.
+	\BRitem[Ejemplo positivo:] La directora (rol Administrador) registra a un nuevo trabajador social.
+	\BRitem[Ejemplo negativo:] Una trabajadora social (rol Especialista) intenta acceder al módulo de usuarios; el sistema debe denegar el acceso.
+	\BRitem[Referenciado por:] \hyperlink{CU-04}{CU-04} (Registrar usuario), \hyperlink{CU-06}{CU-06} (Modificar usuario), \hyperlink{CU-07}{CU-07} (Revocar acceso a usuario) y \hyperlink{CU-08}{CU-08} (Eliminar usuario).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btEnabler}{\bcIntegrity}{\blStrict}%
+	]{RN-005}{Un usuario con NNA o expedientes asignados no puede eliminarse}
+	\BRitem[Descripción:] No se permite eliminar un registro de usuarios si este está referenciado como \texttt{creado\_por} en algún NNA, o como integrante activo de un equipo multidisciplinario con NNA asignados.
+	\BRitem[Motivación:] Preservar la integridad referencial del historial de atención de los NNA; eliminar al usuario responsable rompería la trazabilidad del caso.
+	\BRitem[Sentencia:] $\forall \, u \in Usuarios \land (\exists \, nna \in NNA : nna.\text{creado\_por} = u.id \lor \text{integranteActivo}(u, equipo)) \implies \neg \text{eliminar}(u)$.
+	\BRitem[Ejemplo positivo:] Se elimina un usuario recién creado sin NNA asociados; la eliminación procede sin conflicto.
+	\BRitem[Ejemplo negativo:] Se intenta eliminar a la trabajadora social que registró a 15 NNA; el sistema muestra el error E1 de \hyperlink{CU-08}{CU-08} y bloquea la operación.
+	\BRitem[Referenciado por:] \hyperlink{CU-08}{CU-08} (Eliminar usuario).
+\end{BussinesRule}
+
+
+%=========================================================
+% REGLAS DE NEGOCIO DEL MÓDULO DE EQUIPOS MULTIDISCIPLINARIOS
+%=========================================================
+
+\begin{BussinesRule}[%
+	\brClassification{\btEnabler}{\bcIntegrity}{\blStrict}%
+	]{RN-006}{El nombre de un equipo multidisciplinario debe ser único}
+	\BRitem[Descripción:] No pueden coexistir dos registros en \texttt{equipos\_multidisciplinarios} con el mismo valor en \texttt{nombre\_equipo}.
+	\BRitem[Motivación:] Evitar confusiones operativas al asignar NNA o especialistas a equipos cuando varios equipos comparten el mismo nombre.
+	\BRitem[Sentencia:] $\forall \, e_1, e_2 \in Equipos \implies e_1.\text{nombre\_equipo} \neq e_2.\text{nombre\_equipo} \lor e_1.id = e_2.id$.
+	\BRitem[Ejemplo positivo:] Se registra el equipo ``Equipo Norte''; no existe otro equipo con ese nombre, el registro procede.
+	\BRitem[Ejemplo negativo:] Se intenta registrar un segundo equipo llamado ``Equipo Norte''; el sistema muestra el error E2 de \hyperlink{CU-09}{CU-09} y cancela la operación.
+	\BRitem[Referenciado por:] \hyperlink{CU-09}{CU-09} (Registrar equipo multidisciplinario) y \hyperlink{CU-11}{CU-11} (Modificar equipo multidisciplinario).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btEnabler}{\bcIntegrity}{\blStrict}%
+	]{RN-007}{Al dar de baja a un integrante se debe registrar el motivo}
+	\BRitem[Descripción:] Cuando un usuario es retirado de un equipo multidisciplinario, el campo \texttt{motivo\_cambio} de la tabla \texttt{integrantes\_equipo} no puede quedar vacío, y debe registrarse también la \texttt{fecha\_salida}.
+	\BRitem[Motivación:] Mantener una auditoría completa de los cambios en la composición de los equipos que atienden a los NNA, como lo requieren los procesos de supervisión institucional.
+	\BRitem[Sentencia:] $\forall \, i \in IntegrantesEquipo \land \text{estaDefinida}(i.\text{fecha\_salida}) \implies i.\text{motivo\_cambio} \neq \emptyset$.
+	\BRitem[Ejemplo positivo:] Se da de baja al psicólogo Carlos con motivo ``Cambio de adscripción'' y fecha de salida del día actual; el registro procede.
+	\BRitem[Ejemplo negativo:] Se intenta dar de baja a Carlos sin especificar motivo; el sistema muestra el error E3 de \hyperlink{CU-11}{CU-11} y detiene la operación.
+	\BRitem[Referenciado por:] \hyperlink{CU-11}{CU-11} (Modificar equipo multidisciplinario).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btEnabler}{\bcIntegrity}{\blStrict}%
+	]{RN-008}{Un NNA solo puede estar asignado a un equipo multidisciplinario a la vez}
+	\BRitem[Descripción:] El campo \texttt{equipo\_asignado\_id} de la tabla \texttt{nna} admite un único valor; si un NNA ya tiene equipo y se le asigna uno nuevo, la asignación anterior es reemplazada. No se permite la doble asignación simultánea.
+	\BRitem[Motivación:] Garantizar que la responsabilidad del caso de cada NNA recaiga en un equipo claramente definido, evitando ambigüedad en el seguimiento.
+	\BRitem[Sentencia:] $\forall \, nna \in NNA \implies \text{unico}(nna.\text{equipo\_asignado\_id})$.
+	\BRitem[Ejemplo positivo:] El NNA Ramón no tiene equipo asignado; se le asigna el ``Equipo Sur'' y la operation procede.
+	\BRitem[Ejemplo negativo:] Se intenta asignar a Ramón al mismo ``Equipo Sur'' al que ya pertenece; el sistema muestra el error E3 de \hyperlink{CU-12}{CU-12}.
+	\BRitem[Referenciado por:] \hyperlink{CU-12}{CU-12} (Asignar NNA a equipo multidisciplinario).
+\end{BussinesRule}
+
+
+%=========================================================
+% REGLAS DE NEGOCIO DEL MÓDULO DEL NNA
+%=========================================================
+
+\begin{BussinesRule}[%
+	\brClassification{\btDerivation}{\bcIntegrity}{\blStrict}%
+	]{RN-009}{La CURP debe tener exactamente 18 caracteres y ser única por entidad}
+	\BRitem[Descripción:] Cuando se proporciona CURP para un NNA, tutor, usuario o actor, este campo debe cumplir con el formato oficial de 18 caracteres alfanuméricos definido por RENAPO (4 letras de nombre y apellidos + 6 dígitos de fecha AAMMDD + 1 letra de sexo H/M + 2 letras de entidad de nacimiento + 3 consonantes internas + 2 caracteres de homoclave/dígito verificador). Dentro de cada tabla, el valor debe ser único.
+	\BRitem[Motivación:] La CURP es el identificador personal oficial en México; aceptar valores incorrectos generaría inconsistencias al cruzar datos con dependencias gubernamentales.
+	\BRitem[Sentencia:] $\forall \, x \in \{NNA, Tutores, Usuarios, Actores\} \land \text{estaDefinida}(x.\text{curp}) \implies \text{longitud}(x.\text{curp}) = 18 \land \text{match}(x.\text{curp}, \text{REGEXP\_CURP}) \land (\forall \, y \in \text{Tabla}(x) \setminus \{x\} \implies x.\text{curp} \neq y.\text{curp})$.
+	\BRitem[Ejemplo positivo:] Se captura GARM030512HDFRZN01: 18 caracteres, no existe en el sistema; el registro procede.
+	\BRitem[Ejemplo negativo:] Se captura GARM030512: solo 10 caracteres; el sistema muestra el error de formato (E4 de \hyperlink{CU-13}{CU-13}).
+	\BRitem[Referenciado por:] \hyperlink{CU-13}{CU-13} (Registrar NNA), \hyperlink{CU-15}{CU-15} (Modificar datos del NNA), \hyperlink{CU-18}{CU-18} (Registrar tutor del NNA), \hyperlink{CU-19}{CU-19} (Modificar datos del tutor) y \hyperlink{CU-41}{CU-41} (Registrar actor).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btDerivation}{\bcIntegrity}{\blStrict}%
+	]{RN-010}{La fecha de nacimiento no puede ser posterior a la fecha actual}
+	\BRitem[Descripción:] En todos los formularios que capturen fecha de nacimiento (NNA, tutor, usuario, actor persona física), el sistema debe rechazar fechas posteriores al día actual.
+	\BRitem[Motivación:] Una fecha de nacimiento futura es inválida; su aceptación indicaría un error de captura que podría corromper los cálculos de edad y los criterios de elegibilidad de los NNA.
+	\BRitem[Sentencia:] $x.\text{fecha\_nacimiento} \le \text{fecha\_actual}$.
+	\BRitem[Ejemplo positivo:] Se registra al NNA con fecha de nacimiento 2015-03-20; la fecha es anterior a hoy, el registro procede.
+	\BRitem[Ejemplo negativo:] Se captura 2030-01-01 como fecha de nacimiento; el sistema muestra el error E3 de \hyperlink{CU-13}{CU-13} y cancela.
+	\BRitem[Referenciado por:] \hyperlink{CU-13}{CU-13} (Registrar NNA), \hyperlink{CU-15}{CU-15} (Modificar datos del NNA), \hyperlink{CU-18}{CU-18} (Registrar tutor del NNA), \hyperlink{CU-19}{CU-19} (Modificar datos del tutor) y \hyperlink{CU-41}{CU-41} (Registrar actor).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btEnabler}{\bcCondition}{\blStrict}%
+	]{RN-011}{El tutor debe existir antes de registrar un NNA}
+	\BRitem[Descripción:] Para completar el registro de un NNA es necesario que el tutor responsable ya esté dado de alta en la tabla \texttt{tutores}. No se puede registrar un NNA sin un tutor vinculado.
+	\BRitem[Motivación:] El tutor es la figura legal de responsabilidad sobre el NNA; su existencia previa garantiza la integridad del expediente desde el momento del registro.
+	\BRitem[Sentencia:] $\text{registrar}(nna) \implies \exists \, t \in Tutores : t.id = nna.\text{tutor\_id}$.
+	\BRitem[Ejemplo positivo:] La abuela de Ramón ya fue registrada como tutora; el especialista la selecciona y completa el registro del NNA.
+	\BRitem[Ejemplo negativo:] No existe ningún tutor registrado; el sistema impide avanzar en el formulario del NNA hasta que se cree al menos uno.
+	\BRitem[Referenciado por:] \hyperlink{CU-13}{CU-13} (Registrar NNA) y \hyperlink{CU-18}{CU-18} (Registrar tutor del NNA).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btEnabler}{\bcCondition}{\blStrict}%
+	]{RN-012}{Un NNA migrante puede registrarse sin CURP}
+	\BRitem[Descripción:] El campo \texttt{curp} en la tabla \texttt{nna} es opcional. Cuando el NNA es extranjero o migrante sin documentación mexicana, el campo puede quedar en blanco, siempre y cuando el campo \texttt{es\_migrante} esté marcado como true o se especifique una nacionalidad distinta a la mexicana.
+	\BRitem[Motivación:] La CURP es un documento exclusivo para personas mexicanas; exigirla sin excepción excluiría del sistema a NNA migrantes que requieren atención.
+	\BRitem[Sentencia:] $\neg \text{estaDefinida}(nna.\text{curp}) \implies nna.\text{es\_migrante} = \text{true} \lor nna.\text{nacionalidad\_id} \neq \text{MEX}$.
+	\BRitem[Ejemplo positivo:] Se registra a Sofía, niña guatemalteca con \texttt{es\_migrante = true} y sin CURP; el registro procede.
+	\BRitem[Ejemplo negativo:] Se registra a un NNA de nacionalidad mexicana sin CURP y con \texttt{es\_migrante = false}; el sistema debe solicitar la CURP o el motivo de su ausencia.
+	\BRitem[Referenciado por:] \hyperlink{CU-13}{CU-13} (Registrar NNA) y \hyperlink{CU-18}{CU-18} (Registrar tutor del NNA).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btDerivation}{\bcIntegrity}{\blStrict}%
+	]{RN-013}{El sistema registra automáticamente quién creó el NNA y cuándo}
+	\BRitem[Descripción:] Al crear un registro de NNA, el sistema debe poblar automáticamente los campos \texttt{creado\_por} (con el id del usuario en sesión) y \texttt{fecha\_registro} (con la marca de tiempo del sistema). El usuario no los captura manualmente.
+	\BRitem[Motivación:] Mantener la trazabilidad y responsabilidad sobre la creación de registros sensibles, como lo exige la normatividad de protección de datos y la supervisión institucional.
+	\BRitem[Sentencia:] $\text{persiste}(nna) \implies nna.\text{creado\_por} = \text{usuario.id} \land nna.\text{fecha\_registro} = \text{fecha\_actual}$.
+	\BRitem[Ejemplo positivo:] La trabajadora social Sofía guarda el registro del NNA; el sistema asigna \texttt{creado\_por = 5} (el id de Sofía) y \texttt{fecha\_registro = 2025-06-10 14:23:00}.
+	\BRitem[Ejemplo negativo:] El sistema guarda el NNA sin asignar \texttt{creado\_por}; queda sin responsable identificado, lo que viola la trazabilidad requerida.
+	\BRitem[Referenciado por:] \hyperlink{CU-13}{CU-13} (Registrar NNA).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btEnabler}{\bcCondition}{\blStrict}%
+	]{RN-014}{Un NNA puede tener múltiples discapacidades o enfermedades registradas}
+	\BRitem[Descripción:] Las tablas \texttt{nna\_discapacidades} y \texttt{personas\_enfermedades} permiten múltiples registros vinculados a un mismo NNA o tutor. No existe restricción de unicidad por persona; sí existe unicidad por par (persona, discapacidad/enfermedad) para evitar duplicados del mismo padecimiento.
+	\BRitem[Motivación:] Un NNA puede presentar comorbilidades o múltiples discapacidades simultáneas; el modelo debe reflejar fielmente su situación de salud.
+	\BRitem[Sentencia:] $\forall \, p \in Personas, d \in Discapacidades \implies \text{contar}(p.id, d.id) \le 1$.
+	\BRitem[Ejemplo positivo:] Se registra discapacidad auditiva y visual para el mismo NNA: dos registros distintos, ambos permitidos.
+	\BRitem[Ejemplo negativo:] Se intenta registrar por segunda vez la discapacidad auditiva para el mismo NNA; el sistema lo rechaza como duplicado.
+	\BRitem[Referenciado por:] \hyperlink{CU-34}{CU-34} (Registrar discapacidad de NNA o tutor) y \hyperlink{CU-36}{CU-36} (Registrar enfermedad de NNA o tutor).
+\end{BussinesRule}
+
+
+%=========================================================
+% REGLAS DE NEGOCIO DEL MÓDULO DE CATÁLOGOS Y DOMICILIOS
+%=========================================================
+
+\begin{BussinesRule}[%
+	\brClassification{\btDerivation}{\bcIntegrity}{\blStrict}%
+	]{RN-015}{La colonia determina automáticamente el municipio y estado}
+	\BRitem[Descripción:] Al seleccionar una colonia del catálogo \texttt{cat\_colonias}, el sistema debe poblar automáticamente los campos de municipio y estado en la interfaz, derivándolos de las relaciones \texttt{cat\_colonias} $\rightarrow$ \texttt{cat\_municipios} $\rightarrow$ \texttt{cat\_estados}. El usuario no puede capturar municipio ni estado de forma independiente.
+	\BRitem[Motivación:] Homologar las direcciones conforme al catálogo de SEPOMEX y eliminar errores ortográficos o inconsistencias geográficas al capturar domicilios.
+	\BRitem[Sentencia:] $colonia\_id \implies municipio\_id = \text{getMunicipio}(colonia\_id) \land estado\_id = \text{getEstado}(municipio\_id)$.
+	\BRitem[Ejemplo positivo:] Se selecciona la colonia ``Del Valle'' (CP 03100); el sistema autocompleta municipio ``Benito Juárez'' y estado ``Ciudad de México''.
+	\BRitem[Ejemplo negativo:] El usuario escribe manualmente ``Benito Juárez'' en el campo municipio sin haber seleccionado una colonia; este flujo no debe estar permitido en el sistema.
+	\BRitem[Referenciado por:] \hyperlink{CU-32}{CU-32} (Consultar catálogo de domicilios (SEPOMEX)), \hyperlink{CU-43}{CU-43} (Registrar ubicación del actor) y \hyperlink{CU-51}{CU-51} (Editar ubicación del actor).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btDerivation}{\bcIntegrity}{\blStrict}%
+	]{RN-016}{El código postal tiene exactamente 5 dígitos}
+	\BRitem[Descripción:] El campo \texttt{codigo\_postal} en la tabla \texttt{cat\_colonias} debe contener exactamente 5 caracteres numéricos, conforme al estándar de SEPOMEX en México.
+	\BRitem[Motivación:] Garantizar la homologación del catálogo postal y evitar búsquedas fallidas por variaciones en la longitud del código.
+	\BRitem[Sentencia:] $\text{longitud}(colonia.\text{codigo\_postal}) = 5 \land \text{esNumerico}(colonia.\text{codigo\_postal})$.
+	\BRitem[Ejemplo positivo:] El código postal 06600 es válido (5 dígitos).
+	\BRitem[Ejemplo negativo:] El código postal 6600 (4 dígitos) o 066000 (6 dígitos) no son válidos.
+	\BRitem[Referenciado por:] \hyperlink{CU-32}{CU-32} (Consultar catálogo de domicilios (SEPOMEX)).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btDerivation}{\bcIntegrity}{\blStrict}%
+	]{RN-017}{El RFC de persona física debe tener exactamente 13 caracteres}
+	\BRitem[Descripción:] El campo \texttt{rfc} en las tablas \texttt{usuarios} y \texttt{actor\_persona\_fisica} debe contener exactamente 13 caracteres alfanuméricos con el formato del SAT para personas físicas (4 letras + 6 dígitos de fecha + 3 caracteres de homoclave).
+	\BRitem[Motivación:] El RFC es un identificador fiscal oficial; un formato incorrecto genera inconsistencias al vincular la información con dependencias fiscales o al validar la identidad del actor.
+	\BRitem[Sentencia:] $\text{estaDefinida}(rfc) \implies \text{longitud}(rfc) = 13 \land \text{match}(rfc, \text{REGEXP\_RFC\_PF})$.
+	\BRitem[Ejemplo positivo:] MERC850312AB1: 13 caracteres; es válido y único.
+	\BRitem[Ejemplo negativo:] MERC850312: solo 10 caracteres; el sistema muestra el error E3 de \hyperlink{CU-41}{CU-41} y cancela.
+	\BRitem[Referenciado por:] \hyperlink{CU-41}{CU-41} (Registrar actor).
+\end{BussinesRule}
+
+
+%=========================================================
+% REGLAS DE NEGOCIO DEL MÓDULO DE ACTORES EN MATERIA DE DERECHOS
+%=========================================================
+
+\begin{BussinesRule}[%
+	\brClassification{\btEnabler}{\bcCondition}{\blStrict}%
+	]{RN-018}{El nombre del actor en el directorio es obligatorio y no puede repetirse}
+	\BRitem[Descripción:] El campo \texttt{nombre} en la tabla \texttt{actores\_derechos} no puede quedar vacío, y no pueden coexistir dos actores con el mismo nombre dentro del directorio.
+	\BRitem[Motivación:] El nombre del actor es su identificador principal en el directorio; la duplicidad generaría confusión al vincular servicios a expedientes de NNA.
+	\BRitem[Sentencia:] $actor.nombre \neq \emptyset \land (\forall \, a_1, a_2 \in Actores \implies a_1.nombre \neq a_2.nombre \lor a_1.id = a_2.id)$.
+	\BRitem[Ejemplo positivo:] Se registra ``Fundación Crecer A.C.'': nombre no vacío y único; el registro procede.
+	\BRitem[Ejemplo negativo:] Se intenta registrar un segundo actor con el nombre ``Fundación Crecer A.C.''; el sistema muestra el error E1 de \hyperlink{CU-41}{CU-41}.
+	\BRitem[Referenciado por:] \hyperlink{CU-41}{CU-41} (Registrar actor) y \hyperlink{CU-49}{CU-49} (Editar actor).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btEnabler}{\bcCondition}{\blStrict}%
+	]{RN-019}{Si un servicio no es gratuito, el costo debe especificarse}
+	\BRitem[Descripción:] En la tabla \texttt{servicios\_actores}, si el campo \texttt{es\_gratuito = false}, el campo \texttt{costo} debe tener un valor mayor a cero. No se permite registrar un servicio con costo que no tenga monto definido.
+	\BRitem[Motivación:] La información de costo es indispensable para que los especialistas puedan evaluar la accesibilidad económica del servicio al vincularlo con un NNA.
+	\BRitem[Sentencia:] $servicio.\text{es\_gratuito} = \text{false} \implies servicio.costo > 0$.
+	\BRitem[Ejemplo positivo:] Se registra el servicio ``Terapia psicológica'' con \texttt{es\_gratuito = false} y \texttt{costo = 350.00}; el registro procede.
+	\BRitem[Ejemplo negativo:] Se registra ``Terapia psicológica'' con \texttt{es\_gratuito = false} y \texttt{costo} vacío; el sistema muestra el error E3 de \hyperlink{CU-44}{CU-44}.
+	\BRitem[Referenciado por:] \hyperlink{CU-44}{CU-44} (Registrar programas del actor) y \hyperlink{CU-52}{CU-52} (Editar programas del actor).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btEnabler}{\bcCondition}{\blStrict}%
+	]{RN-020}{Solo puede existir un contacto principal por actor o enlace}
+	\BRitem[Descripción:] En la tabla \texttt{contactos}, para un mismo \texttt{actor\_id} (o \texttt{enlace\_id}), solo un registro puede tener \texttt{es\_principal = true} en un momento dado. Si se marca un nuevo contacto como principal, el sistema debe desmarcar automáticamente el que anteriormente tenía ese indicador.
+	\BRitem[Motivación:] Garantizar que los especialistas sepan cuál es el medio de contacto prioritario del actor al coordinar servicios para los NNA.
+	\BRitem[Sentencia:] $\forall \, c \in Contactos : (\text{contarPrincipal}(c.\text{actor\_id}) \le 1 \land \text{contarPrincipal}(c.\text{enlace\_id}) \le 1)$.
+	\BRitem[Ejemplo positivo:] El actor tiene dos contactos; se marca el segundo como principal y el sistema automáticamente desmarca el primero.
+	\BRitem[Ejemplo negativo:] Quedan dos contactos con \texttt{es\_principal = true} para el mismo actor; el sistema no puede identificar cuál es el prioritario.
+	\BRitem[Referenciado por:] \hyperlink{CU-42}{CU-42} (Registrar contactos del actor), \hyperlink{CU-50}{CU-50} (Editar contactos del actor), \hyperlink{CU-45}{CU-45} (Registrar enlaces representantes) y \hyperlink{CU-53}{CU-53} (Editar enlaces representantes).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btDerivation}{\bcIntegrity}{\blStrict}%
+	]{RN-021}{El teléfono de contacto no puede exceder 15 caracteres}
+	\BRitem[Descripción:] Los campos \texttt{tel\_principal} y \texttt{tel\_secundario} de la tabla \texttt{contactos} admiten máximo 15 caracteres, suficientes para el formato nacional de 10 dígitos o el formato internacional E.164 con código de país (por ejemplo, +52 55 1234 5678).
+	\BRitem[Motivación:] Estandarizar la longitud de los teléfonos para facilitar su uso en comunicaciones automatizadas y garantizar la compatibilidad con el formato E.164 de la UIT.
+	\BRitem[Sentencia:] $\text{longitud}(tel) \le 15$.
+	\BRitem[Ejemplo positivo:] 5512345678 (10 caracteres): válido.
+	\BRitem[Ejemplo negativo:] +521234567890123 (16 caracteres): excede el límite; el sistema muestra el error E1 de \hyperlink{CU-42}{CU-42}.
+	\BRitem[Referenciado por:] \hyperlink{CU-42}{CU-42} (Registrar contactos del actor) y \hyperlink{CU-50}{CU-50} (Editar contactos del actor).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btDerivation}{\bcIntegrity}{\blStrict}%
+	]{RN-022}{El correo electrónico de contacto debe tener formato válido}
+	\BRitem[Descripción:] Los campos \texttt{correo} en las tablas \texttt{contactos} y \texttt{usuarios} deben seguir el formato usuario@dominio.tld y no pueden exceder el tamaño máximo definido (150 caracteres en contactos, 100 en usuarios).
+	\BRitem[Motivación:] Un correo con formato inválido provocaría fallos en las comunicaciones automatizadas del sistema (envío de contraseñas temporales, notificaciones, etc.).
+	\BRitem[Sentencia:] $\text{match}(correo, \text{REGEXP\_EMAIL}) \land \text{longitud}(correo) \le \text{limite\_tabla}$.
+	\BRitem[Ejemplo positivo:] coordinadora@fundacion.org.mx: formato válido y dentro del límite.
+	\BRitem[Ejemplo negativo:] coordinadora@fundacion: falta la extensión de dominio (.tld); el sistema muestra el error E2 de \hyperlink{CU-42}{CU-42}.
+	\BRitem[Referenciado por:] \hyperlink{CU-04}{CU-04} (Registrar usuario), \hyperlink{CU-06}{CU-06} (Modificar usuario), \hyperlink{CU-42}{CU-42} (Registrar contactos del actor) y \hyperlink{CU-50}{CU-50} (Editar contactos del actor).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btEnabler}{\bcCondition}{\blStrict}%
+	]{RN-023}{La deshabilitación de un actor es lógica, no física}
+	\BRitem[Descripción:] Al deshabilitar un actor (\hyperlink{CU-54}{CU-54}), el sistema actualiza \texttt{actores\_derechos.activo = false} pero no elimina ningún registro de la base de datos. El historial de vinculaciones en \texttt{expediente\_vinculacion\_servicios} se conserva íntegro.
+	\BRitem[Motivación:] Los actores deshabilitados pueden haber atendido NNA en el pasado; eliminar sus registros comprometería la integridad y la auditabilidad de los expedientes históricos.
+	\BRitem[Sentencia:] $\text{deshabilitar}(actor) \implies actor.\text{activo} = \text{false} \land \text{existeEnBD}(actor)$.
+	\BRitem[Ejemplo positivo:] Se deshabilita ``DIF Municipal''; el actor ya no aparece en búsquedas nuevas, pero los expedientes vinculados a sus servicios siguen mostrando ese registro históricamente.
+	\BRitem[Ejemplo negativo:] Se elimina físicamente el registro del actor; los expedientes que lo referenciaban pierden su información de vinculación.
+	\BRitem[Referenciado por:] \hyperlink{CU-54}{CU-54} (Deshabilitar actor).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btEnabler}{\bcCondition}{\blStrict}%
+	]{RN-024}{El catálogo de programas solo muestra registros activos}
+	\BRitem[Descripción:] La consulta del catálogo de programas (\hyperlink{CU-56}{CU-56}) y las búsquedas de actores (\hyperlink{CU-46}{CU-46}) solo deben retornar actores con \texttt{actores\_derechos.activo = true}, programas con \texttt{actor\_programa.activo\_programa = true} y servicios con \texttt{servicios\_actores.activo\_servicio = true}.
+	\BRitem[Motivación:] Garantizar que los especialistas solo visualicen y vinculen servicios que están operativos en el momento de la atención del NNA.
+	\BRitem[Sentencia:] $\text{consultarCatalogo}() \implies (actor.\text{activo} = \text{true} \land programa.\text{activo\_programa} = \text{true} \land servicio.\text{activo\_servicio} = \text{true})$.
+	\BRitem[Ejemplo positivo:] El programa ``Becas escolares'' tiene \texttt{activo\_programa = true}; aparece en el catálogo.
+	\BRitem[Ejemplo negativo:] El programa ``Talleres de verano'' tiene \texttt{activo\_programa = false}; no debe aparecer en el catálogo aunque el actor esté activo.
+	\BRitem[Referenciado por:] \hyperlink{CU-46}{CU-46} (Buscar actores) y \hyperlink{CU-56}{CU-56} (Consultar catálogo de programas).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btEnabler}{\bcCondition}{\blStrict}%
+	]{RN-025}{El catálogo de idiomas debe consultarse antes de registrar idiomas del NNA}
+	\BRitem[Descripción:] Los idiomas o lenguas registrados para un NNA o tutor deben seleccionarse del catálogo \texttt{cat\_idiomas}, cargado con base en el catálogo oficial del INALI. No se permite registrar un idioma que no exista en dicho catálogo sin autorización del administrador.
+	\BRitem[Motivación:] Homologar la denominación de idiomas y lenguas indígenas conforme a la norma del INALI, facilitando el cruce de datos con otras instituciones y garantizando la correcta identificación de NNA que requieren intérprete.
+	\BRitem[Sentencia:] $idioma\_seleccionado \in cat\_idiomas \lor idioma\_seleccionado = \text{``Otro''}$.
+	\BRitem[Ejemplo positivo:] El especialista selecciona ``Náhuatl - Variante del Balsas'' del catálogo INALI; el idioma queda registrado con su identificador oficial.
+	\BRitem[Ejemplo negativo:] El especialista escribe libremente ``Nahuatl'' (sin homologar); el sistema debe validar contra el catálogo y no permitir la inserción directa.
+	\BRitem[Referenciado por:] \hyperlink{CU-33}{CU-33} (Consultar catálogo de idiomas (INALI)).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btEnabler}{\bcCondition}{\blStrict}%
+	]{RN-026}{Solo pueden asignarse NNA a equipos multidisciplinarios activos}
+	\BRitem[Descripción:] En el proceso de asignación (\hyperlink{CU-12}{CU-12}), el sistema solo debe mostrar en la lista de equipos disponibles aquellos cuyo campo \texttt{activo = true} en la tabla \texttt{equipos\_multidisciplinarios}.
+	\BRitem[Motivación:] Asignar un NNA a un equipo inactivo significaría que ningún especialista activo estaría a cargo de su caso, dejándolo sin atención efectiva.
+	\BRitem[Sentencia:] $\text{asignar}(nna, equipo) \implies equipo.\text{activo} = \text{true}$.
+	\BRitem[Ejemplo positivo:] El ``Equipo Norte'' está activo; aparece en la lista de asignación.
+	\BRitem[Ejemplo negativo:] El ``Equipo Beta'' fue desactivado; no aparece en la lista de asignación aunque exista en la base de datos.
+	\BRitem[Referenciado por:] \hyperlink{CU-12}{CU-12} (Asignar NNA a equipo multidisciplinario).
+\end{BussinesRule}
+
+\begin{BussinesRule}[%
+	\brClassification{\btDerivation}{\bcIntegrity}{\blStrict}%
+	]{RN-027}{Las fracciones del artículo 13 LGDNNA tienen máximo 5 caracteres}
+	\BRitem[Descripción:] El campo \texttt{fraccion\_art13} en la tabla \texttt{cat\_derecho\_lgdnna} admite máximo 5 caracteres, suficientes para representar cualquier fracción romana del artículo 13 de la LGDNNA (por ejemplo, I, XII, XVIII). El valor debe ser único en el catálogo.
+	\BRitem[Motivación:] El artículo 13 de la LGDNNA elista los derechos de los NNA en fracciones; estandarizar su formato garantiza la correcta referencia normativa en los expedientes.
+	\BRitem[Sentencia:] $\text{longitud}(cat\_derecho\_lgdnna.\text{fraccion\_art13}) \le 5 \land \text{unico}(cat\_derecho\_lgdnna.\text{fraccion\_art13})$.
+	\BRitem[Ejemplo positivo:] XVIII: 5 caracteres, valor único; el registro procede.
+	\BRitem[Ejemplo negativo:] XXIII: 5 caracteres (justo en el límite); válido. Si fueran 6 (XXVIII), el sistema lo rechazaría.
+	\BRitem[Referenciado por:] Entidad CatDerechoLGDNNA del modelo de dominio.
+\end{BussinesRule}

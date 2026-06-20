@@ -5,10 +5,10 @@
 
 \cdtInstrucciones{Introduzca el capítulo indicando su contenido y organización.}
 Este capítulo describe el modelo de interfaces de usuario del sistema SICORRE, 
-detallando la interacción entre el usuario y el sisteman. Se presentan el mapa 
+detallando la interacción entre el usuario y el sistema. Se presentan el mapa 
 de navegación general del sistema, los elementos comunes a todas las pantallas 
 y la especificación detallada de cada interfaz, incluyendo sus objetivos, 
-entradas, y salidas .
+entradas, y salidas.
 
 
 %---------------------------------------------------------
@@ -31,7 +31,7 @@ El sistema cuenta con dos flujos de navegación principales:
 	
 	\item[Flujo de Especialista:] Accesible para el trabajador social, 
 	abogado, psicólogo y médico. Desde la 
-	\IUref{IU03}{Pantalla del Panel de Especialista} se puede acceder al 
+	Pantalla del Panel de Especialista se puede acceder al 
 	registro y consulta de NNA's, gestión de expedientes, registro de 
 	valoraciones y consulta del calendario de casos.
 \end{description}
@@ -83,8 +83,7 @@ campos es incorrecto, por razones de seguridad. Si la autenticación
 es exitosa, el sistema redirigirá automáticamente al usuario hacia 
 su panel según su rol: la directora y coordinadora serán dirigidas 
 a la \IUref{IU02}{Pantalla del Panel de Administrador}, mientras que 
-los especialistas serán dirigidos a la 
-\IUref{IU03}{Pantalla del Panel de Especialista}.
+los especialistas serán dirigidos a la Pantalla del Panel de Especialista.
 
 \IUfig[.7]{IU1-IniciarSesion}{IU01}{Pantalla de Inicio de Sesión.}
 
@@ -95,7 +94,7 @@ los especialistas serán dirigidos a la
 		Administrador} si el usuario tiene rol de administrador 
 	(directora o coordinadora).
 	\item Redirección a la Pantalla del Panel de 
-		Especialista (por programar) si el usuario tiene rol de especialista 
+	Especialista (por programar) si el usuario tiene rol de especialista 
 	(trabajador social, abogado, psicólogo o médico).
 	\item Mensaje de error \MSGref{MSG01}{Credenciales incorrectas} 
 	si el correo o la contraseña no son válidos.
@@ -168,17 +167,17 @@ conocimientos técnicos previos.
 	el acceso del personal registrado en el sistema.
 	
 	\item \IUbutton{Consultar equipos}: Redirige a la 
-	\IUref{IU04}{Pantalla de Consulta de Equipos Multidisciplinarios} 
+	\IUref{IU07}{Pantalla de Consulta de Equipos Multidisciplinarios} 
 	donde se pueden visualizar y gestionar los equipos de trabajo 
 	registrados en el sistema.
 	
 	\item \IUbutton{Consultar NNAs y Tutores}: Redirige a la 
-	\IUref{IU05}{Pantalla de Consulta de NNAs y Tutores} donde se 
+	\IUref{IU11}{Pantalla de Consulta de NNAs y Tutores} donde se 
 	puede visualizar el listado de niñas, niños y adolescentes 
 	registrados en el sistema junto con los datos de sus tutores.
 	
 	\item \IUbutton{Restitución de Derechos}: Redirige a la 
-	\IUref{IU06}{Pantalla de Restitución de Derechos} donde se 
+	\IUref{IU16}{Pantalla del Panel de Restitución de Derechos} donde se 
 	puede consultar el estado de los expedientes activos y los 
 	derechos vulnerados identificados para cada NNA.
 	
@@ -642,7 +641,7 @@ multidisciplinario.
 	
 	\item \IUbutton{Modificar}: Disponible por cada fila de equipo 
 	en la tabla. Redirige a la 
-	\IUref{IU09}{Pantalla de Modificación de Equipo} donde se 
+	\IUref{IU10}{Pantalla de Modificación de Equipo} donde se 
 	pueden editar los datos del equipo seleccionado y gestionar 
 	sus integrantes.
 	
@@ -785,7 +784,7 @@ la tabla mostrará el mensaje
 
 
 % !TeX root = ../proyecto.tex
-%--------------------------------------\section{IU10 Pantalla de Modificación de Equipo}
+\section{IU10 Pantalla de Modificación de Equipo}
 
 \subsection{Objetivo}
 Permitir a la directora y coordinadora modificar el nombre de un equipo multidisciplinario registrado en el sistema SICORRE, así como eliminar integrantes que actualmente pertenecen a dicho equipo.
@@ -832,7 +831,7 @@ Permitir a la directora y coordinadora consultar el listado de Niñas, Niños y 
 \subsection{Diseño}
 Esta pantalla \IUref{IU11}{Pantalla de Consulta de NNAs y Tutores} es accesible desde la \IUref{IU02}{Pantalla del Panel de Administrador}. Presenta dos tablas independientes: la primera corresponde al listado de NNAs y la segunda al listado de tutores registrados en el sistema.
 
-La tabla de NNAs muestra por cada registro el nombre completo, CURP, fecha de nacimiento, sexo, estatus escolar, equipo asignado y estatus, junto con dos columnas de operaciones: \textbf{Acciones}, que contiene el botón \IUbutton{Editar}, y \textbf{Gestión}, que contiene el botón \IUbutton{Eliminar}.
+La tabla de NNAs muestra por cada registro el nombre completo, CURP, fecha de nacimiento, sexo, grado escolar, equipo asignado y estatus, junto con dos columnas de operaciones: \textbf{Acciones}, que contiene el botón \IUbutton{Editar}, y \textbf{Gestión}, que contiene el botón \IUbutton{Eliminar}.
 
 La tabla de Tutores muestra por cada registro el nombre completo, CURP, parentesco y sexo, siendo únicamente de consulta sin acciones disponibles.
 
@@ -848,7 +847,7 @@ En caso de no existir NNAs registrados, la tabla correspondiente mostrará el me
 		\item \textbf{CURP:} Clave Única de Registro de Población del NNA.
 		\item \textbf{Fecha de nacimiento:} Fecha de nacimiento del NNA.
 		\item \textbf{Sexo:} Sexo del NNA.
-		\item \textbf{Estatus escolar:} Situación escolar actual del NNA.
+		\item \textbf{Grado escolar:} Situación escolar actual del NNA.
 		\item \textbf{Equipo asignado:} Nombre del equipo multidisciplinario asignado al NNA.
 		\item \textbf{Estatus:} Estado actual del registro del NNA en el sistema.
 		\item \textbf{Acciones:} Botón \IUbutton{Editar} por cada fila.
@@ -890,7 +889,7 @@ Esta pantalla \IUref{IU12}{Pantalla de Registro de NNA} es accesible desde la \I
 
 La sección de \textbf{Datos personales} contiene campos para ingresar el nombre, apellido paterno, apellido materno, fecha de nacimiento, sexo, CURP (opcional) y nacionalidad del NNA. Adicionalmente, presenta el checkbox \IUbutton{Es migrante} para indicar si el NNA tiene condición migratoria.
 
-La sección de \textbf{Escolaridad y asignación} contiene un selector de estatus escolar, un selector de tutor y un selector de equipo asignado.
+La sección de \textbf{Escolaridad y asignación} contiene un selector de grado escolar, un selector de tutor y un selector de equipo asignado.
 
 La sección de \textbf{Domicilio} permite ingresar el código postal y utilizar el botón \IUbutton{Buscar} para autocompletar los campos de la dirección. Una vez ejecutada la búsqueda, se habilitan los campos de calle, número exterior, número interior, pueblo o comunidad y tipo de vivienda.
 
@@ -901,7 +900,7 @@ La sección de \textbf{Domicilio} permite ingresar el código postal y utilizar 
 	\item Formulario con los campos del NNA organizados en tres secciones:
 	\begin{itemize}
 		\item \textbf{Datos personales:} Nombre(s), apellido paterno, apellido materno, fecha de nacimiento, sexo, CURP y nacionalidad.
-		\item \textbf{Escolaridad y asignación:} Estatus escolar, tutor asignado y equipo asignado.
+		\item \textbf{Escolaridad y asignación:} Grado escolar, tutor asignado y equipo asignado.
 		\item \textbf{Domicilio:} Código postal, calle, número exterior, número interior, pueblo o comunidad y tipo de vivienda.
 	\end{itemize}
 	\item Mensaje \MSGref{MSG23}{NNA registrado exitosamente} al guardar el registro correctamente.
@@ -916,9 +915,9 @@ La sección de \textbf{Domicilio} permite ingresar el código postal y utilizar 
 	\item \textbf{Fecha de nacimiento:} Campo de fecha obligatorio con formato dd/mm/aaaa.
 	\item \textbf{Sexo:} Selector desplegable obligatorio.
 	\item \textbf{CURP:} Campo de texto opcional.
-	\item \textbf{Nacionalidad:} Campo de texto obligatorio. Valor por defecto: \textit{Mexicana}.
+	\item \textbf{Nacionalidad:} Selector desplegable obligatorio (catálogo CatNacionalidades). Valor por defecto: \textit{Mexicana}.
 	\item \textbf{Es migrante:} Checkbox opcional. Indica si el NNA tiene condición migratoria.
-	\item \textbf{Estatus escolar:} Selector desplegable obligatorio.
+	\item \textbf{Grado escolar:} Selector desplegable obligatorio.
 	\item \textbf{Seleccionar tutor:} Selector desplegable obligatorio.
 	\item \textbf{Equipo asignado:} Selector desplegable obligatorio.
 	\item \textbf{Código postal:} Campo de texto obligatorio. Se utiliza junto con el botón \IUbutton{Buscar} para autocompletar los campos de domicilio.
@@ -968,7 +967,7 @@ Esta pantalla \IUref{IU13}{Pantalla de Registro de Tutor} es accesible desde el 
 	\item \textbf{Sexo:} Selector desplegable obligatorio.
 	\item \textbf{CURP:} Campo de texto opcional.
 	\item \textbf{Parentesco:} Campo de texto obligatorio. Indica la relación del tutor con el NNA (Ej. Padre, Madre).
-	\item \textbf{Nacionalidad:} Campo de texto obligatorio. Valor por defecto: \textit{Mexicana}.
+	\item \textbf{Nacionalidad:} Selector desplegable obligatorio (catálogo CatNacionalidades). Valor por defecto: \textit{Mexicana}.
 	\item \textbf{Es migrante:} Checkbox opcional. Indica si el tutor tiene condición migratoria.
 \end{itemize}
 
@@ -985,14 +984,14 @@ Esta pantalla \IUref{IU13}{Pantalla de Registro de Tutor} es accesible desde el 
 \subsection{Objetivo}
 Permitir a la directora y coordinadora consultar el perfil completo de una Niña, 
 Niño o Adolescente (NNA) registrado en el sistema SICORRE, incluyendo su 
-información personal, tutor, equipo asignado, estatus escolar y domicilio.
+información personal, tutor, equipo asignado, grado escolar y domicilio.
 
 \subsection{Diseño}
 Esta pantalla \IUref{IU14}{Pantalla de Consulta de NNA} es accesible al 
 seleccionar el nombre de un NNA en la tabla correspondiente de la 
 \IUref{IU11}{Pantalla de Consulta de NNAs y Tutores}. Muestra el perfil completo 
 del NNA organizado en las siguientes secciones: \textbf{Información Personal}, 
-\textbf{Tutor}, \textbf{Equipo}, \textbf{Estatus Escolar} y \textbf{Dirección}. 
+\textbf{Tutor}, \textbf{Equipo}, \textbf{Grado Escolar} y \textbf{Dirección}. 
 La pantalla también presenta una fotografía del NNA en el encabezado junto con 
 su nombre completo.
 
@@ -1010,7 +1009,7 @@ su nombre completo.
 	\item \textbf{Tutor:} Nombre completo del tutor asignado al NNA.
 	\item \textbf{Equipo:} Nombre del equipo multidisciplinario asignado, o el 
 	texto \textit{No asignado} si el NNA no cuenta con equipo.
-	\item \textbf{Estatus Escolar:} Situación escolar actual del NNA.
+	\item \textbf{Grado Escolar:} Situación escolar actual del NNA.
 	\item \textbf{Dirección:}
 	\begin{itemize}
 		\item \textbf{Calle:} Nombre de la calle del domicilio.
@@ -1070,7 +1069,7 @@ datos que requieran actualización.
 	\begin{itemize}
 		\item \textbf{Datos personales:} Nombre(s), apellido paterno, apellido 
 		materno, fecha de nacimiento, sexo, CURP y nacionalidad.
-		\item \textbf{Escolaridad y asignación:} Estatus escolar, tutor asignado 
+		\item \textbf{Escolaridad y asignación:} Grado escolar, tutor asignado 
 		y equipo asignado.
 		\item \textbf{Domicilio:} Código postal, calle, número exterior, número 
 		interior, pueblo o comunidad y tipo de vivienda.
@@ -1098,7 +1097,7 @@ datos que requieran actualización.
 	valor actual.
 	\item \textbf{Es migrante:} Checkbox opcional. Precargado con el estado 
 	actual del NNA.
-	\item \textbf{Estatus escolar:} Selector desplegable obligatorio. Precargado 
+	\item \textbf{Grado escolar:} Selector desplegable obligatorio. Precargado 
 	con el valor actual.
 	\item \textbf{Seleccionar tutor:} Selector desplegable obligatorio. Precargado 
 	con el tutor actualmente asignado.
@@ -1191,7 +1190,7 @@ En caso de que un catálogo no cuente con registros, se muestra el mensaje
 \MSGref{MSG27}{Sin registros disponibles} en lugar de la tabla.
 
 Los catálogos presentados son: \textbf{Tipos de vivienda}, \textbf{Vivienda NNA}, 
-\textbf{Estatus escolar}, \textbf{Idiomas}, \textbf{Enfermedades} y 
+\textbf{Grado escolar}, \textbf{Idiomas}, \textbf{Enfermedades} y 
 \textbf{Discapacidades}.
 
 \IUfig[.9]{ConsultaCatalogos}{IU17}{Pantalla de Consulta de Catálogos.}
@@ -1250,15 +1249,11 @@ Urbana, Periurbana), \textbf{Disponibilidad}, \textbf{Descripción de
 	actividad}, \textbf{Pertenece a grupo}, \textbf{¿Cómo contactar?}, y las 
 casillas de verificación \textbf{Líder comunitario} y \textbf{Líder religioso}.
 
-<<<<<<< HEAD
-\IUfig[.9]{RegistrarActor}{IU-41}{Pantalla de Registro de Actor.}
-=======
 \IUfig[.9]{RegistrarActor}{IU41}{Pantalla de Registro de Actor.}
->>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 \subsection{Salidas}
 \begin{itemize}
 	\item Confirmación del registro exitoso del actor en el sistema.
-	\item Mensaje de error \MSGref{MSG??}{Campos obligatorios incompletos} en caso 
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en caso 
 	de que los campos requeridos no hayan sido llenados.
 \end{itemize}
 \subsection{Entradas}
@@ -1306,7 +1301,6 @@ casillas de verificación \textbf{Líder comunitario} y \textbf{Líder religioso
 	\item \IUbutton{Cancelar}: Descarta los datos ingresados y regresa a la 
 	pantalla anterior sin realizar ningún cambio.
 \end{itemize}
-<<<<<<< HEAD
 \section{IU42 Pantalla de Registro de Contactos de Actor}
 \subsection{Objetivo}
 Permitir al usuario registrar la información de contacto asociada a un actor en 
@@ -1331,13 +1325,13 @@ actor.
 El botón \IUbutton{Agregar contacto} permite añadir bloques adicionales de 
 contacto cuando el actor cuenta con más de un medio de comunicación.
 
-\IUfig[.9]{RegistrarContacto}{IU-42}{Pantalla de Registro de Contactos de Actor.}
+\IUfig[.9]{RegistrarContacto}{IU42}{Pantalla de Registro de Contactos de Actor.}
 
 \subsection{Salidas}
 \begin{itemize}
 	\item Avance al siguiente paso del formulario de registro de actor con los 
 	contactos capturados.
-	\item Mensaje de error \MSGref{MSG??}{Campos obligatorios incompletos} en 
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
 	caso de que los campos requeridos no hayan sido llenados.
 \end{itemize}
 
@@ -1395,15 +1389,15 @@ El segundo bloque presenta los campos de dirección detallada: \textbf{Colonia}
 \textbf{No. interior} (opcional), \textbf{Tipo de lugar} (lista desplegable), 
 \textbf{Pueblo / Comunidad} y \textbf{Referencia de ubicación}.
 
-\IUfig[.9]{RegistrarDireccion}{IU-43}{Pantalla de Registro de Dirección de Actor.}
+\IUfig[.9]{RegistrarDireccion}{IU43}{Pantalla de Registro de Dirección de Actor.}
 
 \subsection{Salidas}
 \begin{itemize}
 	\item Avance al siguiente paso del formulario de registro de actor con la 
 	dirección capturada.
-	\item Mensaje de error \MSGref{MSG??}{Campos obligatorios incompletos} en 
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
 	caso de que los campos requeridos no hayan sido llenados.
-	\item Mensaje de error \MSGref{MSG??}{Código postal no encontrado} en caso 
+	\item Mensaje de error \MSGref{MSG09}{Código postal no encontrado} en caso 
 	de que el código postal ingresado no arroje resultados.
 \end{itemize}
 
@@ -1463,13 +1457,13 @@ Cada bloque cuenta con el botón \IUbutton{Eliminar} para remover el programa
 correspondiente de la lista. El botón \IUbutton{Agregar programa} permite añadir 
 bloques adicionales cuando el actor gestiona más de un programa.
 
-\IUfig[.9]{RegistrarProgramas}{IU-44}{Pantalla de Registro de Programas de Actor.}
+\IUfig[.9]{RegistrarProgramas}{IU44}{Pantalla de Registro de Programas de Actor.}
 
 \subsection{Salidas}
 \begin{itemize}
 	\item Avance al siguiente paso del formulario de registro de actor con los 
 	programas capturados.
-	\item Mensaje de error \MSGref{MSG??}{Campos obligatorios incompletos} en 
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
 	caso de que los campos requeridos no hayan sido llenados.
 \end{itemize}
 
@@ -1529,14 +1523,14 @@ Cada bloque cuenta con el botón \IUbutton{Eliminar} para remover el enlace
 correspondiente de la lista. El botón \IUbutton{Agregar enlace} permite añadir 
 bloques adicionales cuando el actor cuenta con más de un representante.
 
-\IUfig[.9]{RegistrarEnlaces}{IU-45}{Pantalla de Registro de Enlaces y Representantes de Actor.}
+\IUfig[.9]{RegistrarEnlaces}{IU45}{Pantalla de Registro de Enlaces y Representantes de Actor.}
 
 \subsection{Salidas}
 \begin{itemize}
 	\item Confirmación del registro exitoso del actor y toda su información 
 	asociada en el sistema, incluyendo los datos capturados en los pasos 
 	anteriores del formulario.
-	\item Mensaje de error \MSGref{MSG??}{Campos obligatorios incompletos} en 
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
 	caso de que los campos requeridos no hayan sido llenados.
 \end{itemize}
 
@@ -1595,9 +1589,9 @@ segundo renglón, seguido de las columnas \textbf{Tipo}, \textbf{Categoría},
 su estatus actual, y la columna \textbf{Administración} agrupa las acciones 
 de gestión administrativa.
 
-\IUfig[.9]{CatalogoActores}{IU-46}{Pantalla de Catálogo de Actores en Materia de Derechos.}
+\IUfig[.9]{CatalogoActores}{IU46}{Pantalla de Catálogo de Actores en Materia de Derechos.}
 
-\IUfig[.9]{CatalogoActoresFiltrado}{IU-46.1}{Pantalla de Catálogo de Actores filtrada por tipo Persona Física.}
+\IUfig[.9]{CatalogoActoresFiltrado}{IU46.1}{Pantalla de Catálogo de Actores filtrada por tipo Persona Física.}
 
 
 \subsection{Salidas}
@@ -1675,7 +1669,7 @@ La quinta sección, \textbf{Enlaces / Representantes}, lista los enlaces o
 representantes del actor. Cada enlace indica si es el enlace principal mediante 
 una marca visual destacada, y presenta su nombre, cargo y notas adicionales.
 
-\IUfig[.9]{ConsultarActor}{IU-48}{Pantalla de Consulta de Actor.}
+\IUfig[.9]{ConsultarActor}{IU48}{Pantalla de Consulta de Actor.}
 
 \subsection{Salidas}
 \begin{itemize}
@@ -1725,7 +1719,7 @@ La pantalla ofrece dos modalidades de guardado: \IUbutton{Guardar cambios}
 para persistir las modificaciones del paso actual sin avanzar, y 
 \IUbutton{Siguiente} para guardar y continuar al siguiente paso del formulario.
 
-\IUfig[.9]{EditarActor}{IU-49}{Pantalla de Edición de Actor.}
+\IUfig[.9]{EditarActor}{IU49}{Pantalla de Edición de Actor.}
 
 \subsection{Salidas}
 \begin{itemize}
@@ -1733,7 +1727,7 @@ para persistir las modificaciones del paso actual sin avanzar, y
 	actual.
 	\item Avance al siguiente paso del formulario de edición al usar el botón 
 	\IUbutton{Siguiente}.
-	\item Mensaje de error \MSGref{MSG??}{Campos obligatorios incompletos} en 
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
 	caso de que los campos requeridos no hayan sido llenados.
 \end{itemize}
 
@@ -1795,7 +1789,7 @@ La pantalla ofrece dos modalidades de guardado: \IUbutton{Guardar cambios}
 para persistir las modificaciones del paso actual sin avanzar, y 
 \IUbutton{Siguiente} para guardar y continuar al siguiente paso del formulario.
 
-\IUfig[.9]{EditarContactos}{IU-50}{Pantalla de Edición de Contactos de Actor.}
+\IUfig[.9]{EditarContactos}{IU50}{Pantalla de Edición de Contactos de Actor.}
 
 \subsection{Salidas}
 \begin{itemize}
@@ -1803,7 +1797,7 @@ para persistir las modificaciones del paso actual sin avanzar, y
 	actual.
 	\item Avance al siguiente paso del formulario de edición al usar el botón 
 	\IUbutton{Siguiente}.
-	\item Mensaje de error \MSGref{MSG??}{Campos obligatorios incompletos} en 
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
 	caso de que los campos requeridos no hayan sido llenados.
 \end{itemize}
 
@@ -1870,7 +1864,7 @@ La pantalla ofrece dos modalidades de guardado: \IUbutton{Guardar cambios}
 para persistir las modificaciones del paso actual sin avanzar, y 
 \IUbutton{Siguiente} para guardar y continuar al siguiente paso del formulario.
 
-\IUfig[.9]{EditarDireccion}{IU-51}{Pantalla de Edición de Dirección de Actor.}
+\IUfig[.9]{EditarDireccion}{IU51}{Pantalla de Edición de Dirección de Actor.}
 
 \subsection{Salidas}
 \begin{itemize}
@@ -1878,9 +1872,9 @@ para persistir las modificaciones del paso actual sin avanzar, y
 	actual.
 	\item Avance al siguiente paso del formulario de edición al usar el botón 
 	\IUbutton{Siguiente}.
-	\item Mensaje de error \MSGref{MSG??}{Campos obligatorios incompletos} en 
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
 	caso de que los campos requeridos no hayan sido llenados.
-	\item Mensaje de error \MSGref{MSG??}{Código postal no encontrado} en caso 
+	\item Mensaje de error \MSGref{MSG09}{Código postal no encontrado} en caso 
 	de que el código postal ingresado no arroje resultados.
 \end{itemize}
 
@@ -1949,13 +1943,13 @@ no presenta el botón \IUbutton{Siguiente} ni \IUbutton{Guardar cambios} de
 forma independiente, siendo el botón \IUbutton{Anterior} el único comando de 
 navegación disponible además de \IUbutton{Cancelar}.
 
-\IUfig[.9]{EditarProgramas}{IU-52}{Pantalla de Edición de Programas de Actor.}
+\IUfig[.9]{EditarProgramas}{IU52}{Pantalla de Edición de Programas de Actor.}
 
 \subsection{Salidas}
 \begin{itemize}
 	\item Confirmación de guardado exitoso de los cambios realizados en el paso 
 	actual.
-	\item Mensaje de error \MSGref{MSG??}{Campos obligatorios incompletos} en 
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
 	caso de que los campos requeridos no hayan sido llenados.
 \end{itemize}
 
@@ -2016,13 +2010,13 @@ Al igual que la pantalla de edición de programas, esta pantalla no presenta los
 botones \IUbutton{Siguiente} ni \IUbutton{Guardar cambios} de forma 
 independiente, constituyendo el último paso del formulario de edición de actor.
 
-\IUfig[.9]{EditarEnlaces}{IU-53}{Pantalla de Edición de Enlaces y Representantes de Actor.}
+\IUfig[.9]{EditarEnlaces}{IU53}{Pantalla de Edición de Enlaces y Representantes de Actor.}
 
 \subsection{Salidas}
 \begin{itemize}
 	\item Confirmación de guardado exitoso de los cambios realizados en el paso 
 	actual.
-	\item Mensaje de error \MSGref{MSG??}{Campos obligatorios incompletos} en 
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
 	caso de que los campos requeridos no hayan sido llenados.
 \end{itemize}
 
@@ -2071,7 +2065,7 @@ sobre el actor dejarán de estar disponibles. Junto al mensaje se muestra el
 estatus actual del actor como dato informativo no editable, seguido del botón 
 de confirmación de la acción.
 
-\IUfig[.9]{DeshabilitarActor}{IU-54}{Pantalla de Deshabilitación de Actor.}
+\IUfig[.9]{DeshabilitarActor}{IU54}{Pantalla de Deshabilitación de Actor.}
 
 \subsection{Salidas}
 \begin{itemize}
@@ -2119,7 +2113,7 @@ de vigencia conformado por la fecha de inicio y, cuando aplica, la fecha de fin,
 el nombre del actor al que pertenece el programa y el tipo de actor 
 correspondiente.
 
-\IUfig[.9]{ConsultarProgramas}{IU-56}{Pantalla de Consulta de Programas de Atención.}
+\IUfig[.9]{ConsultarProgramas}{IU56}{Pantalla de Consulta de Programas de Atención.}
 
 \subsection{Salidas}
 \begin{itemize}
@@ -2148,8 +2142,5 @@ correspondiente.
 	\item \IUbutton{Volver al panel}: Regresa a la pantalla del panel de 
 	administración sin realizar ningún cambio.
 \end{itemize}
-=======
-
->>>>>>> 12e5aa427edb21ed717384f92c5b60790922a256
 
 \input{5-1-Mensajes}

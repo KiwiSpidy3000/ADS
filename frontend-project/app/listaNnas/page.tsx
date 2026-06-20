@@ -86,7 +86,7 @@ useEffect(() => {
                 <th className="py-3 px-4 text-left border">CURP</th>
                 <th className="py-3 px-4 text-left border">Fecha de nacimiento</th>
                 <th className="py-3 px-4 text-left border">Sexo</th>
-                <th className="py-3 px-4 text-left border">Estatus escolar</th>
+                <th className="py-3 px-4 text-left border">Grado escolar</th>
                 <th className="py-3 px-4 text-left border">Equipo asignado</th>
                 <th className="py-3 px-4 text-left border">Estatus</th>
                 <th className="py-3 px-4 text-center border">Acciones</th>
@@ -114,7 +114,7 @@ useEffect(() => {
                     {nna.sexo || "—"}
                   </td>
                   <td className="py-2 px-4 border text-sm">
-                    {nna.estatus_escolar?.descripcion || "—"}
+                    {nna.grado_escolar?.descripcion || "—"}
                   </td>
                   <td className="py-2 px-4 border text-sm">
                     {nna.equipo_asignado?.nombre_equipo || "Sin equipo"}

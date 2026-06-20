@@ -3,22 +3,22 @@
 \section{Catálogo de mensajes}	
 \label{sec:mensajes}
 
-	En esta sección se describen todos los mensajes que aparecen en el sistema. Para cada mensaje se especifica:
-	 
-	\begin{description}\itemsep0em
-		\item[Id:] Identificador del mensaje de la forma ``MSG XX'' y descripción corta del mismo.
-		\item[Tipo:] Tipo del mensaje el cual puede ser: 
-		\begin{description}
-			\item[Normal:] Mensaje que informa al usuario una instrucción o el estado interno que guarda el sistema, suele tener un color {\color{msgNormalColor}Azul}.
-			\item[Éxito:] Mensaje que informa al usuario sobre una acción realizada, sirve para confirmar el correcto funcionamiento del sistema. Se presentan con un color {\color{msgInfoColor}Verde}.
-			\item[Atención:] Mensaje que tiene como finalidad llamar la atención del usuario a una situación que requiere su intervención, por ejemplo cuando una actividad ha generado un efecto colateral o se realizará una acción destructiva y no reversible. Se presentan con un color {\color{msgWarningColor}Naranja}.
-			\item[Error:] Mensaje que informa al usuario un fallo en en una operación o un impedimento para realizarla, por ejemplo: cuando no se puede efectuar la acción solicitada, cuando un dato falta o tiene un formato no aceptado por el sistema. Se presentan con un color {\color{msgErrorColor}Rojo}.
-		\end{description}
-		\item[Propósito:] Explicación del propósito del mensaje.
-		\item[Redacción:] Redacción del mensaje.
-		\item[Parámetros:] En caso de que el mensaje pueda variar se especifican los casos y la forma en que debe adaptarse la redacción
-		\item[Ejemplos:] Ejemplos de como debe renderizarse el mensaje.
+En esta sección se describen todos los mensajes que aparecen en el sistema. Para cada mensaje se especifica:
+
+\begin{description}\itemsep0em
+	\item[Id:] Identificador del mensaje de la forma ``MSG XX'' y descripción corta del mismo.
+	\item[Tipo:] Tipo del mensaje el cual puede ser: 
+	\begin{description}
+		\item[Normal:] Mensaje que informa al usuario una instrucción o el estado interno que guarda el sistema, suele tener un color {\color{msgNormalColor}Azul}.
+		\item[Éxito:] Mensaje que informa al usuario sobre una acción realizada, sirve para confirmar el correcto funcionamiento del sistema. Se presentan con un color {\color{msgInfoColor}Verde}.
+		\item[Atención:] Mensaje que tiene como finalidad llamar la atención del usuario a una situación que requiere su intervención, por ejemplo cuando una actividad ha generado un efecto colateral o se realizará una acción destructiva y no reversible. Se presentan con un color {\color{msgWarningColor}Naranja}.
+		\item[Error:] Mensaje que informa al usuario un fallo en en una operación o un impedimento para realizarla, por ejemplo: cuando no se puede efectuar la acción solicitada, cuando un dato falta o tiene un formato no aceptado por el sistema. Se presentan con un color {\color{msgErrorColor}Rojo}.
 	\end{description}
+	\item[Propósito:] Explicación del propósito del mensaje.
+	\item[Redacción:] Redacción del mensaje.
+	\item[Parámetros:] En caso de que el mensaje pueda variar se especifican los casos y la forma en que debe adaptarse la redacción
+	\item[Ejemplos:] Ejemplos de como debe renderizarse el mensaje.
+\end{description}
 
 
 \subsection{Lista de mensajes}
@@ -27,7 +27,7 @@
 % MENSAJES DE CONTROL DE ACCESO
 %--------------------------------------
 
-\begin{cdtMessage}[msgInfoColor]{MSG-001}{Bienvenida al usuario}
+\begin{cdtMessage}[msgInfoColor]{MSG01}{Bienvenida al usuario}
 	\item[Propósito:] Indicar al usuario que ha ingresado 
 	satisfactoriamente al sistema SICORRE.
 	\item[Redacción:] Bienvenido/a $<$nombre$>$.
@@ -38,7 +38,7 @@
 	\item[Ejemplos:] Bienvenido/a Joji Pérez Ramírez.
 \end{cdtMessage}
 
-\begin{cdtMessage}[msgErrorColor]{MSG-002}{Credenciales incorrectas}
+\begin{cdtMessage}[msgErrorColor]{MSG02}{Credenciales incorrectas}
 	\item[Propósito:] Indicar al usuario que el correo electrónico 
 	o la contraseña ingresados no son válidos.
 	\item[Redacción:] El correo electrónico o la contraseña 
@@ -52,7 +52,7 @@
 	son incorrectos. Verifique sus datos e intente de nuevo.
 \end{cdtMessage}
 
-\begin{cdtMessage}[msgErrorColor]{MSG-003}{Acceso revocado}
+\begin{cdtMessage}[msgErrorColor]{MSG03}{Acceso revocado}
 	\item[Propósito:] Indicar al usuario que su cuenta ha sido 
 	revocada y no puede acceder al sistema.
 	\item[Redacción:] El acceso de $<$nombre$>$ ha sido revocado. 
@@ -70,7 +70,7 @@
 % MENSAJES DE GESTIÓN DE USUARIOS
 %--------------------------------------
 
-\begin{cdtMessage}[msgWarningColor]{MSG-004}{Confirmar revocación de acceso}
+\begin{cdtMessage}[msgWarningColor]{MSG04}{Confirmar revocación de acceso}
 	\item[Propósito:] Solicitar confirmación al administrador 
 	antes de revocar el acceso de un usuario al sistema.
 	\item[Redacción:] ¿Está seguro que desea revocar el acceso 
@@ -86,7 +86,7 @@
 	sistema, pero su historial de actividad se conservará.
 \end{cdtMessage}
 
-\begin{cdtMessage}[msgWarningColor]{MSG-005}{Confirmar eliminación de usuario}
+\begin{cdtMessage}[msgWarningColor]{MSG05}{Confirmar eliminación de usuario}
 	\item[Propósito:] Solicitar confirmación al administrador 
 	antes de eliminar permanentemente el registro de un usuario.
 	\item[Redacción:] ¿Está seguro que desea eliminar el registro 
@@ -100,7 +100,7 @@
 	de Joji Pérez Ramírez? Esta acción no puede deshacerse.
 \end{cdtMessage}
 
-\begin{cdtMessage}[msgInfoColor]{MSG-006}{Registro exitoso de usuario}
+\begin{cdtMessage}[msgInfoColor]{MSG06}{Registro exitoso de usuario}
 	\item[Propósito:] Confirmar al administrador que el nuevo 
 	usuario ha sido registrado correctamente en el sistema.
 	\item[Redacción:] El usuario $<$nombre$>$ ha sido registrado 
@@ -114,7 +114,7 @@
 	registrado exitosamente en el sistema.
 \end{cdtMessage}
 
-\begin{cdtMessage}[msgErrorColor]{MSG-007}{CURP ya registrada}
+\begin{cdtMessage}[msgErrorColor]{MSG07}{CURP ya registrada}
 	\item[Propósito:] Indicar al administrador que la CURP 
 	ingresada ya está asociada a otro usuario en el sistema.
 	\item[Redacción:] La CURP $<$curp$>$ ya se encuentra 
@@ -127,7 +127,7 @@
 	registrada en el sistema.
 \end{cdtMessage}
 
-\begin{cdtMessage}[msgErrorColor]{MSG-008}{Correo ya registrado}
+\begin{cdtMessage}[msgErrorColor]{MSG08}{Correo ya registrado}
 	\item[Propósito:] Indicar al administrador que el correo 
 	electrónico ingresado ya está asociado a otro usuario 
 	en el sistema.
@@ -142,7 +142,7 @@
 	se encuentra registrado en el sistema.
 \end{cdtMessage}
 
-\begin{cdtMessage}[msgErrorColor]{MSG-009}{Código postal no encontrado}
+\begin{cdtMessage}[msgErrorColor]{MSG09}{Código postal no encontrado}
 	\item[Propósito:] Indicar al usuario que el código postal 
 	ingresado no existe en el catálogo SEPOMEX del sistema.
 	\item[Redacción:] El código postal $<$cp$>$ no fue encontrado. 
@@ -155,7 +155,7 @@
 	Verifique e intente de nuevo.
 \end{cdtMessage}
 
-\begin{cdtMessage}[msgErrorColor]{MSG-010}{Campos obligatorios incompletos}
+\begin{cdtMessage}[msgErrorColor]{MSG10}{Campos obligatorios incompletos}
 	\item[Propósito:] Indicar al usuario que existen campos 
 	obligatorios sin completar antes de guardar el formulario.
 	\item[Redacción:] El campo $<$campo$>$ es obligatorio 
@@ -169,7 +169,7 @@
 	y no puede estar vacío.
 \end{cdtMessage}
 
-\begin{cdtMessage}[msgInfoColor]{MSG-011}{Modificación exitosa de usuario}
+\begin{cdtMessage}[msgInfoColor]{MSG11}{Modificación exitosa de usuario}
 	\item[Propósito:] Confirmar al administrador que los datos 
 	del usuario han sido actualizados correctamente en el sistema.
 	\item[Redacción:] Los datos de $<$nombre$>$ han sido 
@@ -186,7 +186,7 @@
 % MENSAJES DE GESTIÓN DE EQUIPOS
 %--------------------------------------
 
-\begin{cdtMessage}[msgWarningColor]{MSG-012}{Sin equipos registrados}
+\begin{cdtMessage}[msgWarningColor]{MSG12}{Sin equipos registrados}
 	\item[Propósito:] Informar al administrador que no existe 
 	ningún equipo multidisciplinario registrado en el sistema.
 	\item[Redacción:] No hay equipos multidisciplinarios 
@@ -199,7 +199,7 @@
 	registrados en el sistema.
 \end{cdtMessage}
 
-\begin{cdtMessage}[msgWarningColor]{MSG-013}{Confirmar eliminación de equipo}
+\begin{cdtMessage}[msgWarningColor]{MSG13}{Confirmar eliminación de equipo}
 	\item[Propósito:] Solicitar confirmación al administrador 
 	antes de eliminar permanentemente el registro de un equipo 
 	multidisciplinario.
@@ -213,7 +213,7 @@
 	Equipo Alpha? Esta acción no puede deshacerse.
 \end{cdtMessage}
 
-\begin{cdtMessage}[msgInfoColor]{MSG-014}{Equipo registrado exitosamente}
+\begin{cdtMessage}[msgInfoColor]{MSG14}{Equipo registrado exitosamente}
 	\item[Propósito:] Confirmar al administrador que el nuevo 
 	equipo multidisciplinario ha sido registrado correctamente 
 	en el sistema.
@@ -227,7 +227,7 @@
 	exitosamente en el sistema.
 \end{cdtMessage}
 
-\begin{cdtMessage}[msgErrorColor]{MSG-015}{Nombre de equipo ya registrado}
+\begin{cdtMessage}[msgErrorColor]{MSG15}{Nombre de equipo ya registrado}
 	\item[Propósito:] Indicar al administrador que el nombre 
 	ingresado para el equipo ya existe en el sistema.
 	\item[Redacción:] El nombre de equipo $<$nombre$>$ ya se 
@@ -241,7 +241,7 @@
 	encuentra registrado en el sistema.
 \end{cdtMessage}
 
-\begin{cdtMessage}[msgWarningColor]{MSG-016}{No hay integrantes disponibles}
+\begin{cdtMessage}[msgWarningColor]{MSG16}{No hay integrantes disponibles}
 	\item[Propósito:] Informar al administrador que todo el 
 	personal activo ya pertenece a un equipo multidisciplinario 
 	y no hay integrantes disponibles para asignar.
@@ -257,7 +257,7 @@
 	a un equipo multidisciplinario.
 \end{cdtMessage}
 
-\begin{cdtMessage}[msgInfoColor]{MSG-017}{Integrante agregado exitosamente}
+\begin{cdtMessage}[msgInfoColor]{MSG17}{Integrante agregado exitosamente}
 	\item[Propósito:] Confirmar al administrador que el integrante 
 	seleccionado ha sido asignado correctamente al equipo 
 	multidisciplinario.
@@ -276,7 +276,7 @@
 % MENSAJES DE CONSULTA GENERAL
 %--------------------------------------
 
-\begin{cdtMessage}[msgWarningColor]{MSG-018}{Sin usuarios registrados}
+\begin{cdtMessage}[msgWarningColor]{MSG18}{Sin usuarios registrados}
 	\item[Propósito:] Informar al administrador que no existe 
 	ningún usuario registrado en el sistema.
 	\item[Redacción:] No hay usuarios registrados en el sistema.
@@ -285,4 +285,57 @@
 		\item Ninguno.
 	\end{itemize}
 	\item[Ejemplos:] No hay usuarios registrados en el sistema.
+\end{cdtMessage}
+\begin{cdtMessage}[msgInfoColor]{MSG19}{Equipo modificado exitosamente}
+	\begin{description}\itemsep0em
+		\item[Descripción:] El nombre del equipo fue actualizado correctamente en el sistema.
+	\end{description}
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgInfoColor]{MSG20}{Integrante eliminado exitosamente}
+	\begin{description}\itemsep0em
+		\item[Descripción:] El integrante fue removido del equipo correctamente.
+	\end{description}
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgWarningColor]{MSG21}{No hay NNAs registrados}
+	\begin{description}\itemsep0em
+		\item[Descripción:] No existen NNAs registrados en el sistema.
+	\end{description}
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgWarningColor]{MSG22}{No hay tutores registrados}
+	\begin{description}\itemsep0em
+		\item[Descripción:] No existen tutores registrados en el sistema.
+	\end{description}
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgInfoColor]{MSG23}{NNA registrado exitosamente}
+	\begin{description}\itemsep0em
+		\item[Descripción:] El registro del NNA fue almacenado correctamente en el sistema.
+	\end{description}
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgErrorColor]{MSG24}{Error al registrar NNA}
+	\begin{description}\itemsep0em
+		\item[Descripción:] Ocurrió un problema al intentar guardar el registro del NNA.
+	\end{description}
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgInfoColor]{MSG25}{Tutor registrado exitosamente}
+	\begin{description}\itemsep0em
+		\item[Descripción:] El registro del tutor fue almacenado correctamente en el sistema.
+	\end{description}
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgErrorColor]{MSG26}{Error al registrar tutor}
+	\begin{description}\itemsep0em
+		\item[Descripción:] Ocurrió un problema al intentar guardar el registro del tutor.
+	\end{description}
+\end{cdtMessage}
+
+\begin{cdtMessage}[msgWarningColor]{MSG27}{Sin registros disponibles}
+	\begin{description}\itemsep0em
+		\item[Descripción:] No hay registros disponibles para mostrar en el catálogo.
+	\end{description}
 \end{cdtMessage}

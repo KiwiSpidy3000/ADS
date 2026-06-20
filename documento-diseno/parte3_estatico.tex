@@ -22,10 +22,11 @@ La funcionalidad de SICORRE se organiza en nueve subsistemas, cada uno responsab
 	\item \textbf{Restitución de Derechos -- Directorio de Actores:} concentra el registro, edición, consulta, búsqueda y filtrado de actores, sus contactos, ubicaciones, programas y enlaces de representantes, además de la consulta y búsqueda del catálogo de programas y la posibilidad de deshabilitar y reactivar tanto actores como programas.
 \end{itemize}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
-	\fbox{\parbox{0.85\linewidth}{\centering\vspace{2cm}[Diagrama de subsistemas]\vspace{2cm}}}
-	\caption{Diagrama de subsistemas.}
+	\includegraphics[width=\textwidth]{img/casosDeUso.png}
+	\caption{Diagrama de subsistemas y casos de uso.}
+	\label{fig:diagrama-subsistemas}
 \end{figure}
 
 \section{Diseño de Módulos}
@@ -164,18 +165,218 @@ Depende del Módulo de Catálogos para la captura de domicilios y de los catálo
 
 El código fuente de SICORRE se organiza en paquetes que reflejan la separación por subsistemas descrita anteriormente, agrupando en cada paquete las clases de modelo, de lógica de negocio y de acceso a datos correspondientes a un mismo módulo. Esta organización busca minimizar el acoplamiento entre módulos, de forma que las dependencias señaladas en la sección anterior se reflejen como relaciones explícitas entre paquetes, facilitando la sustitución o evolución independiente de cada módulo conforme avancen las iteraciones del proyecto.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
-	\fbox{\parbox{0.85\linewidth}{\centering\vspace{2cm}[Diagrama de paquetes]\vspace{2cm}}}
-	\caption{Diagrama de paquetes.}
+	\begin{tikzpicture}[
+		package/.style={draw, thick, fill=azulDoc!10, draw=azulDoc, minimum width=3.2cm, minimum height=0.8cm, align=center, rounded corners=2pt, font=\small},
+		container/.style={draw, dashed, gray, thick, rounded corners=5pt, inner sep=8pt},
+		arrow/.style={->, >=stealth, thick, color=azulDoc}
+	]
+		% Frontend (Stacked Vertically)
+		\node[package] (pages) {Pages (Vistas)};
+		\node[package, below=0.3cm of pages] (components) {Components (UI)};
+		\node[package, below=0.3cm of components] (context) {Context (Estado)};
+		\node[package, below=0.3cm of context] (servicesFE) {Services (API Client)};
+		\node[container, fit=(pages) (components) (context) (servicesFE), label=above:\textbf{Frontend (React SPA)}] (frontend) {};
+
+		% Backend (Stacked Vertically)
+		\node[package, right=2cm of pages] (routers) {Routers (Endpoints)};
+		\node[package, below=0.3cm of routers] (schemas) {Schemas (Pydantic)};
+		\node[package, below=0.3cm of schemas] (servicesBE) {Services (Lógica)};
+		\node[package, below=0.3cm of servicesBE] (models) {Models (SQLAlchemy)};
+		\node[container, fit=(routers) (schemas) (servicesBE) (models), label=above:\textbf{Backend (FastAPI)}] (backend) {};
+
+		% Database (Next to Backend)
+		\node[package, right=2cm of servicesBE] (db) {PostgreSQL 15 \\ (Persistencia)};
+
+		% Relaciones
+		\draw[arrow] (servicesFE) -- node[above, black, font=\small, sloped] {API REST} (routers);
+		\draw[arrow] (models) -- node[above, black, font=\small, sloped] {SQLAlchemy} (db);
+		
+	\end{tikzpicture}
+	\caption{Diagrama de paquetes y flujo de datos de la aplicación.}
+	\label{fig:diagrama-paquetes}
 \end{figure}
 
 \section{Diseño de Clases}
 
-Dentro de cada paquete se definen las clases que implementan los casos de uso correspondientes, especificando sus atributos, métodos y las relaciones de herencia, composición y dependencia que mantienen entre sí y con las clases de otros módulos. El diagrama de clases principal integra las entidades centrales del dominio, como el usuario, el equipo multidisciplinario, el NNA, el expediente y el actor en materia de derechos, mostrando cómo se relacionan entre ellas para dar soporte a los casos de uso descritos en las secciones previas.
+Dentro de cada paquete se definen las clases que implementan los casos de uso correspondientes, especificando sus atributos y relaciones. A continuación se presenta el diagrama de clases principales del sistema (Modelo de Dominio Físico) implementado directamente a partir de los modelos de persistencia del backend.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 	\centering
-	\fbox{\parbox{0.85\linewidth}{\centering\vspace{2cm}[Diagrama de clases]\vspace{2cm}}}
-	\caption{Diagrama de clases principal.}
+	\begin{tikzpicture}[
+		classbox/.style={draw=azulDoc, thick, fill=azulDoc!5, rounded corners=2pt, text width=4.5cm, font=\scriptsize\sffamily, align=left},
+		link/.style={draw=azulDoc, thick, ->, >=stealth}
+	]
+		% Nodes layout
+		\node[classbox] (Usuarios) at (0,4.2) {
+			\textbf{Usuarios} \\
+			\rule{4.3cm}{0.4pt} \\
+			+ id: Integer \\
+			+ nombre: String \\
+			+ primer\_apellido: String \\
+			+ segundo\_apellido: String \\
+			+ curp: String(18) \\
+			+ correo: String(100) \\
+			+ password\_hash: String \\
+			+ activo: Boolean \\
+			+ rol\_id: Integer
+		};
+
+		\node[classbox] (Equipos) at (7,4.2) {
+			\textbf{EquiposMultidisciplinarios} \\
+			\rule{4.3cm}{0.4pt} \\
+			+ id: Integer \\
+			+ nombre\_equipo: String \\
+			+ activo: Boolean \\
+			+ fecha\_creacion: DateTime
+		};
+
+		\node[classbox] (NNA) at (7,0) {
+			\textbf{NNA} \\
+			\rule{4.3cm}{0.4pt} \\
+			+ id: Integer \\
+			+ nombre: String \\
+			+ primer\_apellido: String \\
+			+ segundo\_apellido: String \\
+			+ curp: String(18) \\
+			+ es\_migrante: Boolean \\
+			+ creado\_por: Integer \\
+			+ equipo\_asignado\_id: Integer
+		};
+
+		\node[classbox] (Tutores) at (13,0) {
+			\textbf{Tutores} \\
+			\rule{4.3cm}{0.4pt} \\
+			+ id: Integer \\
+			+ nombre: String \\
+			+ primer\_apellido: String \\
+			+ segundo\_apellido: String \\
+			+ curp: String(18) \\
+			+ es\_tutor\_legal: Boolean \\
+			+ tipo\_tutela\_id: Integer
+		};
+
+		\node[classbox] (Expedientes) at (0,0) {
+			\textbf{Expedientes} \\
+			\rule{4.3cm}{0.4pt} \\
+			+ id: Integer \\
+			+ folio\_fud: String \\
+			+ nna\_id: Integer \\
+			+ estatus\_proceso: String
+		};
+
+		\node[classbox] (Actores) at (0,-4.5) {
+			\textbf{ActoresDerechos} \\
+			\rule{4.3cm}{0.4pt} \\
+			+ id: Integer \\
+			+ nombre: String \\
+			+ tipo\_actor\_id: Integer \\
+			+ tiene\_registro\_oficial: Boolean \\
+			+ activo: Boolean
+		};
+
+		\node[classbox] (Servicios) at (7,-4.5) {
+			\textbf{ServiciosActores} \\
+			\rule{4.3cm}{0.4pt} \\
+			+ id: Integer \\
+			+ actor\_id: Integer \\
+			+ programa\_id: Integer \\
+			+ nombre\_servicio: String \\
+			+ es\_gratuito: Boolean
+		};
+
+		% Connections
+		\draw[link] (Usuarios) -- node[above, black, font=\tiny] {1..*} (Equipos);
+		\draw[link] (Equipos) -- node[left, black, font=\tiny] {1..*} (NNA);
+		\draw[link] (NNA) -- node[above, black, font=\tiny] {1..*} (Tutores);
+		\draw[link] (NNA) -- node[above, black, font=\tiny] {1..1} (Expedientes);
+		\draw[link] (Expedientes) -- node[left, black, font=\tiny] {1..*} (Servicios);
+		\draw[link] (Actores) -- node[above, black, font=\tiny] {1..*} (Servicios);
+	\end{tikzpicture}
+	\caption{Diagrama de clases físicas del núcleo del sistema.}
+	\label{fig:diagrama-clases-fisicas}
 \end{figure}
+
+\subsection{Descripción de las Clases del Dominio}
+
+A continuación se detallan las especificaciones físicas de las clases centrales del sistema, incluyendo sus atributos principales, tipos de datos y descripción de su función dentro de la aplicación.
+
+\subsubsection{Clase: Usuarios}
+Representa a los miembros del personal institucional que acceden y operan el sistema, organizados bajo roles específicos.
+\begin{itemize}
+	\item \textbf{id} (Integer, PK): Identificador único autoincremental.
+	\item \textbf{nombre} (String): Nombre de pila del usuario.
+	\item \textbf{primer\_apellido} (String): Primer apellido del usuario.
+	\item \textbf{segundo\_apellido} (String): Segundo apellido del usuario.
+	\item \textbf{curp} (String(18)): Clave Única de Registro de Población.
+	\item \textbf{rfc} (String(13)): Registro Federal de Contribuyentes.
+	\item \textbf{correo} (String(100)): Dirección de correo electrónico institucional (usado para login).
+	\item \textbf{password\_hash} (String(255)): Hash de la contraseña de acceso.
+	\item \textbf{activo} (Boolean): Indica si el usuario tiene permiso de ingreso activo.
+	\item \textbf{rol\_id} (Integer, FK): Relación con la clase \texttt{CatRoles}.
+\end{itemize}
+
+\subsubsection{Clase: EquiposMultidisciplinarios}
+Agrupa a los especialistas de distintas disciplinas para coordinar la atención y el seguimiento de los casos asignados.
+\begin{itemize}
+	\item \textbf{id} (Integer, PK): Identificador único autoincremental.
+	\item \textbf{nombre\_equipo} (String): Nombre descriptivo del equipo.
+	\item \textbf{activo} (Boolean): Estatus de operación del equipo.
+	\item \textbf{fecha\_creacion} (DateTime): Fecha y hora del registro inicial.
+\end{itemize}
+
+\subsubsection{Clase: NNA}
+Clase central que representa a la niña, niño o adolescente sujeto de atención por parte del sistema.
+\begin{itemize}
+	\item \textbf{id} (Integer, PK): Identificador único autoincremental.
+	\item \textbf{nombre} (String): Nombres del NNA.
+	\item \textbf{primer\_apellido} (String): Primer apellido.
+	\item \textbf{segundo\_apellido} (String): Segundo apellido.
+	\item \textbf{fecha\_nacimiento} (Date): Fecha de nacimiento del NNA.
+	\item \textbf{sexo} (String): Sexo biológico del NNA.
+	\item \textbf{curp} (String(18)): Clave Única de Registro de Población.
+	\item \textbf{es\_migrante} (Boolean): Bandera de condición migratoria.
+	\item \textbf{equipo\_asignado\_id} (Integer, FK): ID del equipo multidisciplinario asignado para su seguimiento.
+\end{itemize}
+
+\subsubsection{Clase: Tutores}
+Modela a las personas encargadas de la tutela, patria potestad o cuidado del NNA.
+\begin{itemize}
+	\item \textbf{id} (Integer, PK): Identificador único autoincremental.
+	\item \textbf{nombre} (String): Nombre del tutor.
+	\item \textbf{primer\_apellido} (String): Primer apellido.
+	\item \textbf{segundo\_apellido} (String): Segundo apellido.
+	\item \textbf{curp} (String(18)): CURP del tutor.
+	\item \textbf{es\_tutor\_legal} (Boolean): Indica si posee la representación jurídica formal.
+	\item \textbf{tipo\_tutela\_id} (Integer, FK): Referencia al catálogo de tipos de tutela.
+\end{itemize}
+
+\subsubsection{Clase: Expedientes}
+Expediente unificado del NNA que agrupa las valoraciones e intervenciones realizadas para la restitución de sus derechos.
+\begin{itemize}
+	\item \textbf{id} (Integer, PK): Identificador único autoincremental.
+	\item \textbf{folio\_fud} (String): Folio Único de Detección.
+	\item \textbf{nna\_id} (Integer, FK): Relación directa de uno a uno con el \texttt{NNA}.
+	\item \textbf{estatus\_proceso} (String): Fase actual de la ruta crítica del expediente (Detección, Valoración, Restitución, etc.).
+\end{itemize}
+
+\subsubsection{Clase: ActoresDerechos}
+Representa a las instituciones, organizaciones civiles o dependencias de gobierno vinculadas a los servicios de restitución de derechos.
+\begin{itemize}
+	\item \textbf{id} (Integer, PK): Identificador único autoincremental.
+	\item \textbf{nombre} (String): Nombre de la institución u organización.
+	\item \textbf{tipo\_actor\_id} (Integer, FK): Relación con el tipo de actor (Público, Privado, Asociación).
+	\item \textbf{tiene\_registro\_oficial} (Boolean): Estatus de acreditación oficial.
+	\item \textbf{activo} (Boolean): Estatus de vigencia en el directorio.
+\end{itemize}
+
+\subsubsection{Clase: ServiciosActores}
+Servicios asistenciales o especializados provistos por los actores para coadyuvar en la restitución de derechos vulnerados.
+\begin{itemize}
+	\item \textbf{id} (Integer, PK): Identificador único autoincremental.
+	\item \textbf{actor\_id} (Integer, FK): Actor que provee el servicio.
+	\item \textbf{programa\_id} (Integer, FK): Programa institucional asociado.
+	\item \textbf{nombre\_servicio} (String): Denominación del servicio ofrecido.
+	\item \textbf{es\_gratuito} (Boolean): Bandera de gratuidad.
+\end{itemize}

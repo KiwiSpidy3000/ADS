@@ -56,15 +56,12 @@ de calidad del sistema, tomando como referencia el modelo \textbf{ISO/IEC 25010}
 \section{Diagrama Arquitectónico}
 % ------------------------------------------------------------
 
-La arquitectura de SICORRE sigue el patrón \textbf{Cliente-Servidor de tres capas}
-(\textit{3-Tier Architecture}), con una separación física clara entre la capa de
-presentación, la capa de lógica de negocio y la capa de persistencia de datos.
-La Figura~\ref{fig:arq-general} ilustra esta estructura.
+La arquitectura de SICORRE sigue el patrón \textbf{Cliente-Servidor Web}, con una separación física clara entre la capa de presentación (frontend), la capa de lógica de negocio (backend) y la capa de persistencia de datos (base de datos). La Figura~\ref{fig:arq-general} ilustra esta estructura.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.9\textwidth]{img/arquitectura.png}
-	\caption{Arquitectura general de SICORRE basada en una arquitectura Cliente-Servidor de tres capas.}
+	\includegraphics[width=0.6\textwidth]{img/arquitectura.png}
+	\caption{Arquitectura general de SICORRE basada en una arquitectura Cliente-Servidor Web.}
 	\label{fig:arq-general}
 \end{figure}
 
@@ -234,7 +231,7 @@ capas durante todo el ciclo de vida del sistema:
 \subsection{Beneficios}
 
 Los siguientes beneficios se derivan directamente de las propiedades de calidad que la
-arquitectura de tres capas con FastAPI, React y PostgreSQL aporta al sistema:
+arquitectura Cliente-Servidor Web con FastAPI, React y PostgreSQL aporta al sistema:
 
 \begin{table}[h!]
 	\centering

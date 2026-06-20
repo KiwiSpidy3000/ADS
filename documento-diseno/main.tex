@@ -16,12 +16,14 @@
 \usepackage{amssymb}   % para \checkmark
 \usepackage{textcomp}  % para \texttimes  (o usa $\times$ en modo math)
 \usepackage{float}
-\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{positioning, fit, calc, babel}
 
 
 \geometry{
 	left=3cm, right=2.5cm,
-	top=3cm, bottom=2.5cm
+	top=3cm, bottom=2.5cm,
+	headheight=15pt
 }
 
 % Color institucional
@@ -42,7 +44,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\small Documento de Diseño}
-\fancyhead[R]{\small\leftmark}
+\fancyhead[R]{\small\nouppercase{\leftmark}}
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 
@@ -51,6 +53,7 @@
 	linkcolor=azulDoc,
 	urlcolor=azulDoc,
 	pdftitle={Documento de Diseño},
+	hypertexnames=false
 }
 
 \begin{document}
@@ -64,14 +67,14 @@
 		\rule{\linewidth}{1pt}
 		\vspace{1cm}
 		{\large SICORRE / Sistema de Control de Registros para la
-			Restitucion de Derechos de niños, niñas y 
-			adolescentes\par}
+			Restitución de Derechos de Niños, Niñas y 
+			Adolescentes\par}
 		\vspace{2cm}
 		{\large Versión de documento  1.0\par}
 		\vspace{1cm}
 		{\large \today\par}
 		\vfill
-		{\normalsize [Pulido Robles Daniel Alfonso, Alison Beatriz Estevez Perez/ NULL]\par}
+		{\normalsize Daniel Alfonso Pulido Robles, Alison Beatriz Estévez Pérez\par}
 	\end{titlepage}
 	
 	% ─── ÍNDICE ────────────────────────────────────────────────────────────────

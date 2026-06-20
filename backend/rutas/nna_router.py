@@ -7,7 +7,7 @@ from datetime import date, datetime
 from typing import Optional
 
 from database import AsyncSessionLocal
-from models import NNA, DireccionNNA
+from models import NNA, DireccionNNA, CatNacionalidades
 
 router = APIRouter(prefix="/nnas", tags=["NNAs"])
 
@@ -37,10 +37,10 @@ class NNACreate(BaseModel):
     fecha_nacimiento: date
     sexo: Optional[str] = None
     curp: Optional[str] = None
-    nacionalidad: Optional[str] = "Mexicana"
+    nacionalidad_id: Optional[int] = None
     es_migrante: Optional[bool] = False
     creado_por: Optional[int] = None
-    estatus_escolar_id: Optional[int] = None
+    grado_escolar_id: Optional[int] = None
     tutor_id: Optional[int] = None
     equipo_asignado_id: Optional[int] = None
     # Dirección
@@ -59,10 +59,10 @@ class NNAUpdate(BaseModel):
     fecha_nacimiento: Optional[date] = None
     sexo: Optional[str] = None
     curp: Optional[str] = None
-    nacionalidad: Optional[str] = None
+    nacionalidad_id: Optional[int] = None
     es_migrante: Optional[bool] = None
     activo: Optional[bool] = None
-    estatus_escolar_id: Optional[int] = None
+    grado_escolar_id: Optional[int] = None
     tutor_id: Optional[int] = None
     equipo_asignado_id: Optional[int] = None
     # Dirección
@@ -102,9 +102,16 @@ class DireccionNNAResponse(BaseModel):
     class Config:
         from_attributes = True
 
-class EstatusEscolarSimple(BaseModel):
+class GradoEscolarSimple(BaseModel):
     id: int
     descripcion: str
+    class Config:
+        from_attributes = True
+
+class NacionalidadSimple(BaseModel):
+    id: int
+    nombre: str
+    codigo: Optional[str] = None
     class Config:
         from_attributes = True
 
@@ -130,17 +137,18 @@ class NNAResponse(BaseModel):
     fecha_nacimiento: date
     sexo: Optional[str]
     curp: Optional[str]
-    nacionalidad: Optional[str]
+    nacionalidad_id: Optional[int]
     es_migrante: bool
     activo: bool
     fecha_registro: datetime
     creado_por: Optional[int]
-    estatus_escolar_id: Optional[int]
+    grado_escolar_id: Optional[int]
     tutor_id: Optional[int]
     direccion_id: Optional[int]
     equipo_asignado_id: Optional[int]
     # Relaciones anidadas
-    estatus_escolar: Optional[EstatusEscolarSimple] = None
+    grado_escolar: Optional[GradoEscolarSimple] = None
+    nacionalidad: Optional[NacionalidadSimple] = None
     tutor: Optional[TutorSimple] = None
     direccion: Optional[DireccionNNAResponse] = None
     equipo_asignado: Optional[EquipoSimple] = None
@@ -151,7 +159,8 @@ class NNAResponse(BaseModel):
 # ── Carga de relaciones reutilizable ─────────────────────────
 def _opciones_carga():
     return [
-        selectinload(NNA.estatus_escolar),
+        selectinload(NNA.grado_escolar),
+        selectinload(NNA.nacionalidad),
         selectinload(NNA.tutor),
         selectinload(NNA.equipo_asignado),
         selectinload(NNA.direccion).selectinload(DireccionNNA.colonia),
@@ -214,10 +223,10 @@ async def registrar_nna(datos: NNACreate, db: AsyncSession = Depends(get_db)):
         fecha_nacimiento=datos.fecha_nacimiento,
         sexo=datos.sexo,
         curp=datos.curp,
-        nacionalidad=datos.nacionalidad,
+        nacionalidad_id=datos.nacionalidad_id,
         es_migrante=datos.es_migrante,
         creado_por=datos.creado_por,
-        estatus_escolar_id=datos.estatus_escolar_id,
+        grado_escolar_id=datos.grado_escolar_id,
         tutor_id=datos.tutor_id,
         equipo_asignado_id=datos.equipo_asignado_id,
         direccion_id=nueva_direccion.id,
@@ -256,8 +265,8 @@ async def modificar_nna(
     # Actualizar campos del NNA
     campos_nna = [
         "nombre", "primer_apellido", "segundo_apellido", "fecha_nacimiento",
-        "sexo", "curp", "nacionalidad", "es_migrante", "activo",
-        "estatus_escolar_id", "tutor_id", "equipo_asignado_id",
+        "sexo", "curp", "nacionalidad_id", "es_migrante", "activo",
+        "grado_escolar_id", "tutor_id", "equipo_asignado_id",
     ]
     for campo in campos_nna:
         valor = getattr(datos, campo)
@@ -322,10 +331,10 @@ class NNAUpdateRequest(BaseModel):
     fecha_nacimiento: date
     sexo: str
     curp: Optional[str]
-    nacionalidad: Optional[str]
+    nacionalidad_id: Optional[int]
     es_migrante: bool
     activo: bool
-    estatus_escolar_id: Optional[int]
+    grado_escolar_id: Optional[int]
     tutor_id: Optional[int]
     equipo_asignado_id: Optional[int]
 
@@ -362,11 +371,11 @@ async def actualizar_nna(
     nna.fecha_nacimiento = datos.fecha_nacimiento
     nna.sexo = datos.sexo
     nna.curp = datos.curp
-    nna.nacionalidad = datos.nacionalidad
+    nna.nacionalidad_id = datos.nacionalidad_id
     nna.es_migrante = datos.es_migrante
     nna.activo = datos.activo
 
-    nna.estatus_escolar_id = datos.estatus_escolar_id
+    nna.grado_escolar_id = datos.grado_escolar_id
     nna.tutor_id = datos.tutor_id
     nna.equipo_asignado_id = datos.equipo_asignado_id
 
@@ -395,4 +404,7 @@ async def actualizar_nna(
     await db.commit()
 
     # ── Retornar completo ──────────────────────
-    return True
+    result = await db.execute(
+        select(NNA).options(*_opciones_carga()).where(NNA.id == nna_id)
+    )
+    return result.scalar_one()

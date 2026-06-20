@@ -101,14 +101,14 @@ class CatNacionalidades(Base):
     nna     = relationship("NNA",     back_populates="nacionalidad")
 
 
-class CatEstatusEscolar(Base):
-    __tablename__ = "cat_estatus_escolar"
-    __table_args__ = (UniqueConstraint("descripcion", name="uq_cat_estatus_escolar_descripcion"),)
+class CatGradoEscolar(Base):
+    __tablename__ = "cat_grado_escolar"
+    __table_args__ = (UniqueConstraint("descripcion", name="uq_cat_grado_escolar_descripcion"),)
 
     id          = Column(Integer, primary_key=True, autoincrement=True)
     descripcion = Column(String, nullable=False)
 
-    nna = relationship("NNA", back_populates="estatus_escolar")
+    nna = relationship("NNA", back_populates="grado_escolar")
 
 
 # =============================================================
@@ -387,14 +387,14 @@ class NNA(Base):
     creado_por              = Column(Integer, ForeignKey("usuarios.id"))
     activo                  = Column(Boolean, default=True)
     fecha_registro          = Column(DateTime, server_default=func.now())
-    estatus_escolar_id      = Column(Integer, ForeignKey("cat_estatus_escolar.id"))
+    grado_escolar_id      = Column(Integer, ForeignKey("cat_grado_escolar.id"))
     direccion_id            = Column(Integer, ForeignKey("direcciones.id"))
     equipo_asignado_id      = Column(Integer, ForeignKey("equipos_multidisciplinarios.id"))
 
     nacionalidad         = relationship("CatNacionalidades",        back_populates="nna")
     municipio_nacimiento = relationship("CatMunicipios")
     creado_por_usuario   = relationship("Usuarios",                 back_populates="nna_creados")
-    estatus_escolar      = relationship("CatEstatusEscolar",        back_populates="nna")
+    grado_escolar      = relationship("CatGradoEscolar",        back_populates="nna")
     equipo_asignado      = relationship("EquiposMultidisciplinarios", back_populates="nna")
     tutores              = relationship("NNATutores",               back_populates="nna")
     enfermedades         = relationship("NNAEnfermedades",          back_populates="nna")

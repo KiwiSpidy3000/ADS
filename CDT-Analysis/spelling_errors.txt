@@ -1,0 +1,152 @@
+=== REPORTE DE ERRORES ORTOGRÁFICOS Y DE ACENTUACIÓN ===
+
+1introduccion.tex:22 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: En el capítulo \ref{cap:alcance} se describe el alcance del sistema, presentando los usuarios y áreas involucradas, los requerimientos del usuario y la arquitectura general del sistema.
+2ModeloDelAlcance.tex:229 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: únicamente a los usuarios autorizados de la fundación, cumpliendo con la normativa
+2ModeloDelAlcance.tex:241 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \section{Usuarios identificados}
+2ModeloDelAlcance.tex:245 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: A continuación se presentan los usuarios identificados que interactuarán directamente
+2ModeloDelAlcance.tex:282 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \item[PR-02] \textbf{Gestión de usuarios y roles.} Proceso administrativo
+2ModeloDelAlcance.tex:383 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: mediante correo electrónico y contraseña para acceder a las
+2ModeloDelAlcance.tex:502 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: {Todos los domicilios capturados en el sistema (NNA, tutor, usuarios
+3ModeloDelNegocio.tex:27 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \item Autorizar el alta y baja de usuarios en el sistema en colaboración
+3ModeloDelNegocio.tex:53 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \item PR-02 Gestión de usuarios y roles.
+3ModeloDelNegocio.tex:100 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \item PR-02 Gestión de usuarios y roles.
+3ModeloDelNegocio.tex:340 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: Actúa como llave única para el registro de NNA y usuarios en
+3ModeloDelNegocio.tex:400 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: tutores, usuarios y actores, garantizando la correcta asociación de
+3ModeloDelNegocio.tex:423 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: con capacidad de gestionar usuarios, equipos y catálogos) y
+3ModeloDelNegocio.tex:472 | Found: 'descripcion' | Suggestion: 'descripción' | Context: \brAttr{descripcion}{Descripción}{varchar(100)}{Descripción del tipo de lugar (urbano, rural, comunidad indígena, etc.).}{Sí}
+3ModeloDelNegocio.tex:492 | Found: 'codigo' | Suggestion: 'código' | Context: \brAttr{codigo}{Código}{varchar(3)}{Código ISO 3166-1 alfa-3 de la nacionalidad. Ejemplo: MEX, USA, GTM.}{No}
+3ModeloDelNegocio.tex:497 | Found: 'descripcion' | Suggestion: 'descripción' | Context: \brAttr{descripcion}{Descripción}{varchar(100)}{Descripción del estatus escolar del NNA (sin escolaridad, primaria, secundaria, bachillerato, etc.).}{Sí}
+3ModeloDelNegocio.tex:519 | Found: 'descripcion' | Suggestion: 'descripción' | Context: \brAttr{descripcion}{Descripción}{text}{Descripción detallada del tratamiento médico, indicaciones y observaciones.}{No}
+3ModeloDelNegocio.tex:530 | Found: 'descripcion' | Suggestion: 'descripción' | Context: \brAttr{descripcion}{Descripción}{varchar(100)}{Descripción del tipo de actor.}{No}
+3ModeloDelNegocio.tex:536 | Found: 'descripcion' | Suggestion: 'descripción' | Context: \brAttr{descripcion}{Descripción}{varchar(255)}{Descripción de la categoría de servicio.}{No}
+3ModeloDelNegocio.tex:545 | Found: 'descripcion' | Suggestion: 'descripción' | Context: \brAttr{descripcion}{Descripción}{text}{Descripción completa del derecho según la LGDNNA.}{No}
+3ModeloDelNegocio.tex:550 | Found: 'descripcion' | Suggestion: 'descripción' | Context: \brAttr{descripcion}{Descripción}{varchar(100)}{Descripción del tipo de tutela (tutela legal, custodia, guardia y custodia provisional, etc.).}{Sí}
+3ModeloDelNegocio.tex:586 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \begin{cdtEntidad}{Usuarios}{usuarios}
+3ModeloDelNegocio.tex:586 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \begin{cdtEntidad}{Usuarios}{usuarios}
+3ModeloDelNegocio.tex:596 | Found: 'Contraseña' | Suggestion: 'contraseña' | Context: \brAttr{password_hash}{Contraseña}{varchar(255)}{Hash seguro de la contraseña generado con bcrypt. No se almacena la contraseña en texto plano.}{Sí}
+3ModeloDelNegocio.tex:596 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: \brAttr{password_hash}{Contraseña}{varchar(255)}{Hash seguro de la contraseña generado con bcrypt. No se almacena la contraseña en texto plano.}{Sí}
+3ModeloDelNegocio.tex:596 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: \brAttr{password_hash}{Contraseña}{varchar(255)}{Hash seguro de la contraseña generado con bcrypt. No se almacena la contraseña en texto plano.}{Sí}
+3ModeloDelNegocio.tex:603 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \brRel{\brRelAgregation}{Direcciones}{Un \hyperlink{Usuarios}{Usuario} tiene una \hyperlink{Direcciones}{Dirección}}
+3ModeloDelNegocio.tex:604 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \brRel{\brRelAgregation}{CatRoles}{Un \hyperlink{Usuarios}{Usuario} tiene un \hyperlink{CatRoles}{Rol}}
+3ModeloDelNegocio.tex:657 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \brRel{\brRelAgregation}{Usuarios}{Un \hyperlink{NNA}{NNA} es registrado por un \hyperlink{Usuarios}{Usuario}}
+3ModeloDelNegocio.tex:657 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \brRel{\brRelAgregation}{Usuarios}{Un \hyperlink{NNA}{NNA} es registrado por un \hyperlink{Usuarios}{Usuario}}
+3ModeloDelNegocio.tex:708 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \brRel{\brRelAgregation}{Usuarios}{Una \hyperlink{Valoraciones}{Valoración} es realizada por un \hyperlink{Usuarios}{Usuario}}
+3ModeloDelNegocio.tex:708 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \brRel{\brRelAgregation}{Usuarios}{Una \hyperlink{Valoraciones}{Valoración} es realizada por un \hyperlink{Usuarios}{Usuario}}
+3ModeloDelNegocio.tex:774 | Found: 'descripcion' | Suggestion: 'descripción' | Context: \brAttr{descripcion}{Descripción}{text}{Descripción del programa: objetivos, beneficiarios y alcance.}{No}
+3ModeloDelNegocio.tex:846 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \brRel{\brRelAgregation}{Usuarios}{Un \hyperlink{IntegrantesEquipo}{Integrante} es un \hyperlink{Usuarios}{Usuario}}
+3ModeloDelNegocio.tex:846 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \brRel{\brRelAgregation}{Usuarios}{Un \hyperlink{IntegrantesEquipo}{Integrante} es un \hyperlink{Usuarios}{Usuario}}
+3-1-reglas.tex:50 | Found: 'numero' | Suggestion: 'número' | Context: \BRitem[Sentencia:] $\text{longitud}(nna.numero\_expediente) \in \{5, 6\} \land \text{esAlfabetico}(nna.numero\_expediente)$.
+3-1-reglas.tex:50 | Found: 'numero' | Suggestion: 'número' | Context: \BRitem[Sentencia:] $\text{longitud}(nna.numero\_expediente) \in \{5, 6\} \land \text{esAlfabetico}(nna.numero\_expediente)$.
+4ModeloDinamico.tex:13 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: a la gestión de usuarios y equipos multidisciplinarios, y la iteración 2,
+4ModeloDinamico.tex:69 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: CU-03 & Recuperar contraseña      & Siguiente iteración \\
+4ModeloDinamico.tex:71 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \multicolumn{3}{|c|}{\textbf{Módulo de Gestión de Usuarios}} \\
+4ModeloDinamico.tex:168 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem \hyperlink{Usuarios.correo}{Correo electrónico}.
+4ModeloDinamico.tex:169 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem \hyperlink{Usuarios.password_hash}{Contraseña}.
+4ModeloDinamico.tex:169 | Found: 'Contraseña' | Suggestion: 'contraseña' | Context: \Titem \hyperlink{Usuarios.password_hash}{Contraseña}.
+4ModeloDinamico.tex:188 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: \Titem {\bf \hypertarget{CU-01.E1}{E1}}: Credenciales incorrectas; el sistema muestra ``Correo o contraseña inválidos'' y regresa al paso \ref{CU-01.ingresaCredenciales}.
+4ModeloDinamico.tex:200 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: \UCpaso[\UCactor] \label{CU-01.ingresaCredenciales} Introduce su correo electrónico y contraseña, y presiona \IUbutton{Ingresar}.
+4ModeloDinamico.tex:260 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: El administrador accede al módulo de gestión de usuarios y captura los datos personales, de domicilio y de acceso de un nuevo miembro del equipo multidisciplinario, asignándole un rol específico. El sistema valida que el correo electrónico y la CURP no estén duplicados y genera una contraseña provisional para el nuevo usuario.
+4ModeloDinamico.tex:260 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: El administrador accede al módulo de gestión de usuarios y captura los datos personales, de domicilio y de acceso de un nuevo miembro del equipo multidisciplinario, asignándole un rol específico. El sistema valida que el correo electrónico y la CURP no estén duplicados y genera una contraseña provisional para el nuevo usuario.
+4ModeloDinamico.tex:270 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem \hyperlink{Usuarios.nombre}{Nombre completo}, \hyperlink{Usuarios.correo}{Correo electrónico}.
+4ModeloDinamico.tex:270 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem \hyperlink{Usuarios.nombre}{Nombre completo}, \hyperlink{Usuarios.correo}{Correo electrónico}.
+4ModeloDinamico.tex:271 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem \hyperlink{Usuarios.curp}{CURP}, \hyperlink{Usuarios.rfc}{RFC}, \hyperlink{Usuarios.fecha_nacimiento}{Fecha de nacimiento}, \hyperlink{Usuarios.sexo}{Sexo}.
+4ModeloDinamico.tex:271 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem \hyperlink{Usuarios.curp}{CURP}, \hyperlink{Usuarios.rfc}{RFC}, \hyperlink{Usuarios.fecha_nacimiento}{Fecha de nacimiento}, \hyperlink{Usuarios.sexo}{Sexo}.
+4ModeloDinamico.tex:271 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem \hyperlink{Usuarios.curp}{CURP}, \hyperlink{Usuarios.rfc}{RFC}, \hyperlink{Usuarios.fecha_nacimiento}{Fecha de nacimiento}, \hyperlink{Usuarios.sexo}{Sexo}.
+4ModeloDinamico.tex:271 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem \hyperlink{Usuarios.curp}{CURP}, \hyperlink{Usuarios.rfc}{RFC}, \hyperlink{Usuarios.fecha_nacimiento}{Fecha de nacimiento}, \hyperlink{Usuarios.sexo}{Sexo}.
+4ModeloDinamico.tex:272 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem \hyperlink{Usuarios.tipo_personal}{Tipo de personal}, \hyperlink{Usuarios.activo}{Estado de cuenta}.
+4ModeloDinamico.tex:272 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem \hyperlink{Usuarios.tipo_personal}{Tipo de personal}, \hyperlink{Usuarios.activo}{Estado de cuenta}.
+4ModeloDinamico.tex:273 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem \hyperlink{Usuarios.rol_id}{Rol del usuario} (Administrador / Especialista).
+4ModeloDinamico.tex:275 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem \hyperlink{Usuarios.password_hash}{Contraseña provisional}.
+4ModeloDinamico.tex:275 | Found: 'Contraseña' | Suggestion: 'contraseña' | Context: \Titem \hyperlink{Usuarios.password_hash}{Contraseña provisional}.
+4ModeloDinamico.tex:285 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Se muestra en la pantalla \IUref{IU03}{Consulta de Usuarios}.
+4ModeloDinamico.tex:286 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Se almacena en la tabla \hyperlink{Usuarios}{usuarios} y \hyperlink{Direcciones}{direcciones\_usuarios}.
+4ModeloDinamico.tex:286 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \Titem Se almacena en la tabla \hyperlink{Usuarios}{usuarios} y \hyperlink{Direcciones}{direcciones\_usuarios}.
+4ModeloDinamico.tex:292 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Se crea un nuevo registro en la tabla \hyperlink{Usuarios}{usuarios} con estado activo.
+4ModeloDinamico.tex:292 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \Titem Se crea un nuevo registro en la tabla \hyperlink{Usuarios}{usuarios} con estado activo.
+4ModeloDinamico.tex:308 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \UCpaso[\UCactor] Selecciona el botón \IUbutton{Registrar personal} en la pantalla \IUref{IU03}{Consulta de Usuarios}.
+4ModeloDinamico.tex:313 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \UCpaso Verifica que el correo electrónico no esté registrado en la tabla \hyperlink{Usuarios}{usuarios}. \ErrorRef{CU-04}{E1}{Correo duplicado}
+4ModeloDinamico.tex:313 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \UCpaso Verifica que el correo electrónico no esté registrado en la tabla \hyperlink{Usuarios}{usuarios}. \ErrorRef{CU-04}{E1}{Correo duplicado}
+4ModeloDinamico.tex:314 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \UCpaso Verifica que la CURP no esté registrada en la tabla \hyperlink{Usuarios}{usuarios}. \ErrorRef{CU-04}{E2}{CURP duplicada}
+4ModeloDinamico.tex:314 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \UCpaso Verifica que la CURP no esté registrada en la tabla \hyperlink{Usuarios}{usuarios}. \ErrorRef{CU-04}{E2}{CURP duplicada}
+4ModeloDinamico.tex:316 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \UCpaso Muestra el mensaje \MSGref{MSG06}{Registro exitoso de usuario} y regresa a la pantalla \IUref{IU03}{Consulta de Usuarios}.
+4ModeloDinamico.tex:322 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: El administrador accede al módulo de gestión de usuarios, visualiza el listado completo del personal registrado y selecciona a un usuario específico para revisar en detalle su información personal, rol asignado, domicilio y estado de cuenta.
+4ModeloDinamico.tex:335 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Botón o nombre del usuario en la tabla de la pantalla \IUref{IU03}{Consulta de Usuarios}.
+4ModeloDinamico.tex:339 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \Titem Mensaje \MSGref{MSG18}{Sin usuarios registrados} si no existe personal en el sistema.
+4ModeloDinamico.tex:351 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \Titem {\bf \hypertarget{CU-05.E1}{E1}}: No existe personal registrado en el sistema; se muestra el mensaje \MSGref{MSG18}{Sin usuarios registrados} y el listado aparece vacío.
+4ModeloDinamico.tex:361 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \UCpaso[\UCactor] Accede al módulo de gestión de usuarios desde el panel del administrador.
+4ModeloDinamico.tex:362 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \UCpaso Muestra la pantalla \IUref{IU03}{Consulta de Usuarios} con el listado de todo el personal registrado. \ErrorRef{CU-05}{E1}{Sin usuarios}
+4ModeloDinamico.tex:362 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \UCpaso Muestra la pantalla \IUref{IU03}{Consulta de Usuarios} con el listado de todo el personal registrado. \ErrorRef{CU-05}{E1}{Sin usuarios}
+4ModeloDinamico.tex:381 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Datos del usuario modificables: \hyperlink{Usuarios.nombre}{Nombre}, \hyperlink{Usuarios.curp}{CURP}, \hyperlink{Usuarios.rfc}{RFC}, \hyperlink{Usuarios.fecha_nacimiento}{Fecha de nacimiento}, \hyperlink{Usuarios.sexo}{Sexo}, \hyperlink{Usuarios.tipo_personal}{Tipo de personal}, \hyperlink{Usuarios.activo}{Estado de cuenta}, \hyperlink{Usuarios.rol_id}{Rol}.
+4ModeloDinamico.tex:381 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Datos del usuario modificables: \hyperlink{Usuarios.nombre}{Nombre}, \hyperlink{Usuarios.curp}{CURP}, \hyperlink{Usuarios.rfc}{RFC}, \hyperlink{Usuarios.fecha_nacimiento}{Fecha de nacimiento}, \hyperlink{Usuarios.sexo}{Sexo}, \hyperlink{Usuarios.tipo_personal}{Tipo de personal}, \hyperlink{Usuarios.activo}{Estado de cuenta}, \hyperlink{Usuarios.rol_id}{Rol}.
+4ModeloDinamico.tex:381 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Datos del usuario modificables: \hyperlink{Usuarios.nombre}{Nombre}, \hyperlink{Usuarios.curp}{CURP}, \hyperlink{Usuarios.rfc}{RFC}, \hyperlink{Usuarios.fecha_nacimiento}{Fecha de nacimiento}, \hyperlink{Usuarios.sexo}{Sexo}, \hyperlink{Usuarios.tipo_personal}{Tipo de personal}, \hyperlink{Usuarios.activo}{Estado de cuenta}, \hyperlink{Usuarios.rol_id}{Rol}.
+4ModeloDinamico.tex:381 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Datos del usuario modificables: \hyperlink{Usuarios.nombre}{Nombre}, \hyperlink{Usuarios.curp}{CURP}, \hyperlink{Usuarios.rfc}{RFC}, \hyperlink{Usuarios.fecha_nacimiento}{Fecha de nacimiento}, \hyperlink{Usuarios.sexo}{Sexo}, \hyperlink{Usuarios.tipo_personal}{Tipo de personal}, \hyperlink{Usuarios.activo}{Estado de cuenta}, \hyperlink{Usuarios.rol_id}{Rol}.
+4ModeloDinamico.tex:381 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Datos del usuario modificables: \hyperlink{Usuarios.nombre}{Nombre}, \hyperlink{Usuarios.curp}{CURP}, \hyperlink{Usuarios.rfc}{RFC}, \hyperlink{Usuarios.fecha_nacimiento}{Fecha de nacimiento}, \hyperlink{Usuarios.sexo}{Sexo}, \hyperlink{Usuarios.tipo_personal}{Tipo de personal}, \hyperlink{Usuarios.activo}{Estado de cuenta}, \hyperlink{Usuarios.rol_id}{Rol}.
+4ModeloDinamico.tex:381 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Datos del usuario modificables: \hyperlink{Usuarios.nombre}{Nombre}, \hyperlink{Usuarios.curp}{CURP}, \hyperlink{Usuarios.rfc}{RFC}, \hyperlink{Usuarios.fecha_nacimiento}{Fecha de nacimiento}, \hyperlink{Usuarios.sexo}{Sexo}, \hyperlink{Usuarios.tipo_personal}{Tipo de personal}, \hyperlink{Usuarios.activo}{Estado de cuenta}, \hyperlink{Usuarios.rol_id}{Rol}.
+4ModeloDinamico.tex:381 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Datos del usuario modificables: \hyperlink{Usuarios.nombre}{Nombre}, \hyperlink{Usuarios.curp}{CURP}, \hyperlink{Usuarios.rfc}{RFC}, \hyperlink{Usuarios.fecha_nacimiento}{Fecha de nacimiento}, \hyperlink{Usuarios.sexo}{Sexo}, \hyperlink{Usuarios.tipo_personal}{Tipo de personal}, \hyperlink{Usuarios.activo}{Estado de cuenta}, \hyperlink{Usuarios.rol_id}{Rol}.
+4ModeloDinamico.tex:381 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Datos del usuario modificables: \hyperlink{Usuarios.nombre}{Nombre}, \hyperlink{Usuarios.curp}{CURP}, \hyperlink{Usuarios.rfc}{RFC}, \hyperlink{Usuarios.fecha_nacimiento}{Fecha de nacimiento}, \hyperlink{Usuarios.sexo}{Sexo}, \hyperlink{Usuarios.tipo_personal}{Tipo de personal}, \hyperlink{Usuarios.activo}{Estado de cuenta}, \hyperlink{Usuarios.rol_id}{Rol}.
+4ModeloDinamico.tex:383 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem \hyperlink{Usuarios.correo}{Correo electrónico} y \hyperlink{Usuarios.password_hash}{Contraseña} (opcional).
+4ModeloDinamico.tex:383 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem \hyperlink{Usuarios.correo}{Correo electrónico} y \hyperlink{Usuarios.password_hash}{Contraseña} (opcional).
+4ModeloDinamico.tex:383 | Found: 'Contraseña' | Suggestion: 'contraseña' | Context: \Titem \hyperlink{Usuarios.correo}{Correo electrónico} y \hyperlink{Usuarios.password_hash}{Contraseña} (opcional).
+4ModeloDinamico.tex:392 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Pantalla \IUref{IU03}{Consulta de Usuarios}.
+4ModeloDinamico.tex:393 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Los cambios se persisten en la tabla \hyperlink{Usuarios}{usuarios} y \hyperlink{Direcciones}{direcciones\_usuarios}.
+4ModeloDinamico.tex:393 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \Titem Los cambios se persisten en la tabla \hyperlink{Usuarios}{usuarios} y \hyperlink{Direcciones}{direcciones\_usuarios}.
+4ModeloDinamico.tex:400 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: \Titem Si la contraseña no se modifica, se conserva la vigente sin cambios.
+4ModeloDinamico.tex:415 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \UCpaso[\UCactor] Selecciona el botón \IUbutton{Modificar} en el perfil del usuario desde la pantalla \IUref{IU03}{Consulta de Usuarios} o \IUref{IU06}{Consulta de Usuario}.
+4ModeloDinamico.tex:421 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \UCpaso Persiste la nueva información en la tabla de usuarios.
+4ModeloDinamico.tex:422 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \UCpaso Muestra el mensaje \MSGref{MSG11}{Modificación exitosa de usuario} y regresa a la pantalla \IUref{IU03}{Consulta de Usuarios}.
+4ModeloDinamico.tex:438 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem \hyperlink{Usuarios.id}{Identificador del usuario} a revocar.
+4ModeloDinamico.tex:442 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Botón \IUbutton{Revocar} en la pantalla \IUref{IU03}{Consulta de Usuarios} o \IUref{IU06}{Consulta de Usuario}.
+4ModeloDinamico.tex:449 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Pantalla \IUref{IU03}{Consulta de Usuarios} con el estado del usuario actualizado.
+4ModeloDinamico.tex:450 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Cambio de estado en la tabla \hyperlink{Usuarios}{usuarios}.
+4ModeloDinamico.tex:450 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \Titem Cambio de estado en la tabla \hyperlink{Usuarios}{usuarios}.
+4ModeloDinamico.tex:470 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \UCpaso[\UCactor] Presiona el botón \IUbutton{Revocar} en la fila del usuario deseado desde la pantalla \IUref{IU03}{Consulta de Usuarios}.
+4ModeloDinamico.tex:473 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \UCpaso Cambia el estado de cuenta del usuario a \textit{Revocado} en la tabla \hyperlink{Usuarios}{usuarios}.
+4ModeloDinamico.tex:473 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \UCpaso Cambia el estado de cuenta del usuario a \textit{Revocado} en la tabla \hyperlink{Usuarios}{usuarios}.
+4ModeloDinamico.tex:474 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \UCpaso Actualiza el estatus visible en la pantalla \IUref{IU03}{Consulta de Usuarios}.
+4ModeloDinamico.tex:490 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem \hyperlink{Usuarios.id}{Identificador del usuario} a eliminar.
+4ModeloDinamico.tex:494 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Botón \IUbutton{Eliminar} en la pantalla \IUref{IU03}{Consulta de Usuarios} o \IUref{IU06}{Consulta de Usuario}.
+4ModeloDinamico.tex:501 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \Titem Pantalla \IUref{IU03}{Consulta de Usuarios} con el listado actualizado.
+4ModeloDinamico.tex:521 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \UCpaso[\UCactor] Presiona el botón \IUbutton{Eliminar} en la fila del usuario desde la pantalla \IUref{IU03}{Consulta de Usuarios}.
+4ModeloDinamico.tex:526 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \UCpaso Redirige a la pantalla \IUref{IU03}{Consulta de Usuarios} con el listado actualizado.
+4ModeloDinamico.tex:1094 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: El sistema permite a cualquier usuario autorizado consultar el catálogo oficial de códigos postales, colonias y municipios de México basado en SEPOMEX para autocompletar y homologar las direcciones en el registro de usuarios, NNA, tutores y actores.
+4ModeloDinamico.tex:1475 | Found: 'direccion' | Suggestion: 'dirección' | Context: \Titem Se crea un registro en la tabla \texttt{direcciones} y se actualiza \texttt{direccion\_id} en \texttt{actores\_derechos}.
+4ModeloDinamico.tex:1494 | Found: 'direccion' | Suggestion: 'dirección' | Context: \UCpaso Crea el registro en la tabla \texttt{direcciones} y asocia el \texttt{direccion\_id} al actor en \texttt{actores\_derechos}.
+4ModeloDinamico.tex:1514 | Found: 'descripcion' | Suggestion: 'descripción' | Context: \Titem \hyperlink{ActorPrograma.descripcion}{Descripción del programa} (opcional).
+4ModeloDinamico.tex:1696 | Found: 'descripcion' | Suggestion: 'descripción' | Context: \Titem \hyperlink{CatTipoActor.descripcion}{Indicador de institución pública} (opcional, para sub-filtrado).
+4ModeloDinamico.tex:1975 | Found: 'descripcion' | Suggestion: 'descripción' | Context: \Titem \hyperlink{ActorPrograma.descripcion}{Descripción} (modificable, opcional).
+5ModeloDeInteraccion.tex:29 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: se puede acceder a la gestión de usuarios, equipos multidisciplinarios,
+5ModeloDeInteraccion.tex:72 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: (correo electrónico y contraseña), redirigiendo al usuario hacia el
+5ModeloDeInteraccion.tex:78 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: correo electrónico institucional y su contraseña en los campos
+5ModeloDeInteraccion.tex:100 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: si el correo o la contraseña no son válidos.
+5ModeloDeInteraccion.tex:110 | Found: 'Contraseña' | Suggestion: 'contraseña' | Context: \item \textbf{Contraseña:} Campo de texto enmascarado donde el
+5ModeloDeInteraccion.tex:111 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: usuario ingresa su contraseña de acceso.
+5ModeloDeInteraccion.tex:127 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: y contraseña, permitiendo al usuario reingresar sus datos.
+5ModeloDeInteraccion.tex:164 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \item \IUbutton{Consultar usuarios}: Redirige a la
+5ModeloDeInteraccion.tex:165 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \IUref{IU03}{Pantalla de Consulta de Usuarios} donde la directora
+5ModeloDeInteraccion.tex:191 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \section{IU03 Pantalla de Consulta de Usuarios}
+5ModeloDeInteraccion.tex:201 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: Esta pantalla \IUref{IU03}{Pantalla de Consulta de Usuarios} es
+5ModeloDeInteraccion.tex:202 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: accesible desde el botón \IUbutton{Consultar usuarios} de la
+5ModeloDeInteraccion.tex:212 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \IUfig[.9]{ListaUsuarios}{IU03}{Pantalla de Consulta de Usuarios.}
+5ModeloDeInteraccion.tex:228 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \item Mensaje \MSGref{MSG03}{Sin usuarios registrados} en caso de
+5ModeloDeInteraccion.tex:280 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \IUref{IU03}{Pantalla de Consulta de Usuarios}.
+5ModeloDeInteraccion.tex:292 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: al sistema: correo electrónico y contraseña provisional.
+5ModeloDeInteraccion.tex:355 | Found: 'Contraseña' | Suggestion: 'contraseña' | Context: \item \textbf{Contraseña Provisional:} Campo de texto enmascarado
+5ModeloDeInteraccion.tex:372 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \IUref{IU03}{Pantalla de Consulta de Usuarios}. Si hay campos
+5ModeloDeInteraccion.tex:380 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \IUref{IU03}{Pantalla de Consulta de Usuarios} sin realizar
+5ModeloDeInteraccion.tex:397 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: usuario en la \IUref{IU03}{Pantalla de Consulta de Usuarios}.
+5ModeloDeInteraccion.tex:409 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: desee cambiar el domicilio. El campo de contraseña se muestra vacío
+5ModeloDeInteraccion.tex:410 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: por seguridad; si se deja vacío al guardar, la contraseña actual
+5ModeloDeInteraccion.tex:477 | Found: 'Contraseña' | Suggestion: 'contraseña' | Context: \item \textbf{Contraseña:} Campo de texto enmascarado opcional.
+5ModeloDeInteraccion.tex:479 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: la contraseña actual del usuario se conserva sin cambios.
+5ModeloDeInteraccion.tex:494 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: y regresa a la \IUref{IU03}{Pantalla de Consulta de Usuarios}.
+5ModeloDeInteraccion.tex:504 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \IUref{IU03}{Pantalla de Consulta de Usuarios} conservando los
+5ModeloDeInteraccion.tex:521 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \IUref{IU03}{Pantalla de Consulta de Usuarios}.
+5ModeloDeInteraccion.tex:559 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: en la \IUref{IU03}{Pantalla de Consulta de Usuarios}.
+5ModeloDeInteraccion.tex:578 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \IUref{IU03}{Pantalla de Consulta de Usuarios}.
+5ModeloDeInteraccion.tex:581 | Found: 'Usuarios' | Suggestion: 'usuarios' | Context: \IUref{IU03}{Pantalla de Consulta de Usuarios} sin realizar
+5-1-Mensajes.tex:43 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: o la contraseña ingresados no son válidos.
+5-1-Mensajes.tex:44 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: \item[Redacción:] El correo electrónico o la contraseña
+5-1-Mensajes.tex:51 | Found: 'contraseña' | Suggestion: 'contraseña' | Context: \item[Ejemplos:] El correo electrónico o la contraseña
+5-1-Mensajes.tex:279 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \begin{cdtMessage}[msgWarningColor]{MSG18}{Sin usuarios registrados}
+5-1-Mensajes.tex:282 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \item[Redacción:] No hay usuarios registrados en el sistema.
+5-1-Mensajes.tex:287 | Found: 'usuarios' | Suggestion: 'usuarios' | Context: \item[Ejemplos:] No hay usuarios registrados en el sistema.

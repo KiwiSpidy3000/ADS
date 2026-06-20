@@ -1,0 +1,411 @@
+Reglas de Negocio — Sistema SICORRE
+Derivadas del análisis de casos de uso (CU-01 al CU-56) y del modelo de base de datos (proyecto_4.png)
+MÓDULO DE ACCESO Y SEGURIDAD
+BR-001: Solo usuarios activos pueden iniciar sesión
+Clasificación: Habilitadora / Condición / Estricta
+
+Descripción: Un usuario solo puede autenticarse en SICORRE si su cuenta está registrada en el sistema y tiene el campo activo = true en la tabla usuarios.
+
+Motivación: Garantizar que ex-empleados o cuentas revocadas no puedan acceder a información sensible de los NNA.
+
+Sentencia: Para que el sistema permita el inicio de sesión, el correo electrónico y contraseña proporcionados deben coincidir con un registro en usuarios cuyo valor de activo sea verdadero.
+
+Ejemplo positivo: La trabajadora social Sofía tiene activo = true; ingresa sus credenciales y accede al sistema.
+
+Ejemplo negativo: El ex-empleado Luis fue revocado (activo = false); al ingresar sus credenciales el sistema muestra el mensaje de error E1 y deniega el acceso.
+
+Referenciado por: Caso de uso CU-01 (Iniciar sesión).
+
+BR-002: El correo electrónico del usuario debe ser único
+Clasificación: Habilitadora / Condición / Estricta
+
+Descripción: No pueden existir dos registros en la tabla usuarios con el mismo valor en el campo correo.
+
+Motivación: El correo electrónico es el identificador de autenticación; si dos cuentas compartieran correo el sistema no podría distinguir a cuál usuario pertenecen las credenciales.
+
+Sentencia: Antes de crear o modificar un usuario, el sistema debe verificar que el correo electrónico no exista en ningún otro registro de usuarios.
+
+Ejemplo positivo: Se registra a María con maria@fundacion.org; ningún otro usuario tiene ese correo, el registro procede.
+
+Ejemplo negativo: Se intenta registrar a un segundo usuario con maria@fundacion.org; el sistema muestra el error E1 de CU-04 y cancela el guardado.
+
+Referenciado por: Casos de uso CU-04 (Registrar usuario) y CU-06 (Modificar usuario).
+
+BR-003: La contraseña nunca se almacena en texto plano
+Clasificación: Derivación / Integridad / Estricta
+
+Descripción: El campo password_hash de la tabla usuarios debe contener exclusivamente el resultado de aplicar una función de hash segura (por ejemplo, bcrypt) a la contraseña. Nunca se almacena la contraseña original.
+
+Motivación: Proteger la información de las cuentas ante posibles vulneraciones de la base de datos, en cumplimiento con los principios de seguridad de la información y protección de datos personales.
+
+Sentencia: En todo proceso de registro o cambio de contraseña, el sistema debe transformar la contraseña mediante una función de hash antes de persistirla; el valor en password_hash nunca es igual al texto original.
+
+Ejemplo positivo: El administrador registra a un nuevo usuario; el sistema almacena $2b$12$... en password_hash.
+
+Ejemplo negativo: Se almacena la cadena "Contraseña123" tal cual en password_hash: esto viola la regla.
+
+Referenciado por: Caso de uso CU-04 (Registrar usuario).
+
+BR-004: Solo el Administrador puede gestionar usuarios
+Clasificación: Habilitadora / Autorización / Estricta
+
+Descripción: Las operaciones de registrar, modificar, revocar y eliminar usuarios del sistema están restringidas al rol Administrador. Los usuarios con rol Especialista no tienen acceso a estas funciones.
+
+Motivación: Centralizar el control de acceso para evitar que los especialistas puedan crear cuentas no autorizadas o manipular perfiles de otros usuarios.
+
+Sentencia: El sistema debe verificar que el usuario en sesión tenga rol_id correspondiente al rol ``Administrador'' antes de permitir cualquier operación sobre la tabla usuarios.
+
+Ejemplo positivo: La directora (rol Administrador) registra a un nuevo trabajador social.
+
+Ejemplo negativo: Una trabajadora social (rol Especialista) intenta acceder al módulo de usuarios; el sistema debe denegar el acceso.
+
+Referenciado por: Casos de uso CU-04 (Registrar usuario), CU-06 (Modificar usuario), CU-07 (Revocar acceso a usuario) y CU-08 (Eliminar usuario).
+
+BR-005: Un usuario con NNA o expedientes asignados no puede eliminarse
+Clasificación: Habilitadora / Integridad / Estricta
+
+Descripción: No se permite eliminar un registro de usuarios si este está referenciado como creado_por en algún NNA, o como integrante activo de un equipo multidisciplinario con NNA asignados.
+
+Motivación: Preservar la integridad referencial del historial de atención de los NNA; eliminar al usuario responsable rompería la trazabilidad del caso.
+
+Sentencia: Antes de eliminar un usuario, el sistema debe verificar que no existan dependencias activas (NNA registrados por ese usuario, integraciones en equipos con casos abiertos). Si existen, debe bloquearse el borrado y ofrecerse la revocación de acceso como alternativa.
+
+Ejemplo positivo: Se elimina un usuario recién creado sin NNA asociados; la eliminación procede sin conflicto.
+
+Ejemplo negativo: Se intenta eliminar a la trabajadora social que registró a 15 NNA; el sistema muestra el error E1 de CU-08 y bloquea la operación.
+
+Referenciado por: Caso de uso CU-08 (Eliminar usuario).
+
+MÓDULO DE EQUIPOS MULTIDISCIPLINARIOS
+BR-006: El nombre de un equipo multidisciplinario debe ser único
+Clasificación: Habilitadora / Integridad / Estricta
+
+Descripción: No pueden coexistir dos registros en equipos_multidisciplinarios con el mismo valor en nombre_equipo.
+
+Motivación: Evitar confusiones operativas al asignar NNA o especialistas a equipos cuando varios equipos comparten el mismo nombre.
+
+Sentencia: Al registrar o modificar un equipo, el sistema debe verificar que el nombre no exista ya en la tabla equipos_multidisciplinarios.
+
+Ejemplo positivo: Se registra el equipo ``Equipo Norte''; no existe otro equipo con ese nombre, el registro procede.
+
+Ejemplo negativo: Se intenta registrar un segundo equipo llamado ``Equipo Norte''; el sistema muestra el error E2 de CU-09 y cancela la operación.
+
+Referenciado por: Casos de uso CU-09 (Registrar equipo multidisciplinario) y CU-11 (Modificar equipo multidisciplinario).
+
+BR-007: Al dar de baja a un integrante se debe registrar el motivo
+Clasificación: Habilitadora / Integridad / Estricta
+
+Descripción: Cuando un usuario es retirado de un equipo multidisciplinario, el campo motivo_cambio de la tabla integrantes_equipo no puede quedar vacío, y debe registrarse también la fecha_salida.
+
+Motivación: Mantener una auditoría completa de los cambios en la composición de los equipos que atienden a los NNA, como lo requieren los procesos de supervisión institucional.
+
+Sentencia: Si se marca la salida de un integrante del equipo, el sistema debe exigir que se proporcione el motivo del cambio antes de persistir la operación.
+
+Ejemplo positivo: Se da de baja al psicólogo Carlos con motivo ``Cambio de adscripción'' y fecha de salida del día actual; el registro procede.
+
+Ejemplo negativo: Se intenta dar de baja a Carlos sin especificar motivo; el sistema muestra el error E3 de CU-11 y detiene la operación.
+
+Referenciado por: Caso de uso CU-11 (Modificar equipo multidisciplinario).
+
+BR-008: Un NNA solo puede estar asignado a un equipo multidisciplinario a la vez
+Clasificación: Habilitadora / Integridad / Estricta
+
+Descripción: El campo equipo_asignado_id de la tabla nna admite un único valor; si un NNA ya tiene equipo y se le asigna uno nuevo, la asignación anterior es reemplazada. No se permite la doble asignación simultánea.
+
+Motivación: Garantizar que la responsabilidad del caso de cada NNA recaiga en un equipo claramente definido, evitando ambigüedad en el seguimiento.
+
+Sentencia: Al asignar un NNA a un equipo, el sistema debe verificar si el NNA ya pertenece al equipo seleccionado. Si es el mismo equipo, la operación se rechaza con el error E3 de CU-12. Si es un equipo distinto, se actualiza equipo_asignado_id con el nuevo valor, notificando al administrador del cambio.
+
+Ejemplo positivo: El NNA Ramón no tiene equipo asignado; se le asigna el ``Equipo Sur'' y la operación procede.
+
+Ejemplo negativo: Se intenta asignar a Ramón al mismo ``Equipo Sur'' al que ya pertenece; el sistema muestra el error E3 de CU-12.
+
+Referenciado por: Caso de uso CU-12 (Asignar NNA a equipo multidisciplinario).
+
+MÓDULO DEL NNA
+BR-009: La CURP debe tener exactamente 18 caracteres y ser única por entidad
+Clasificación: Derivación / Integridad / Estricta
+
+Descripción: Cuando se proporciona CURP para un NNA, tutor, usuario o actor, este campo debe cumplir con el formato oficial de 18 caracteres alfanuméricos definido por RENAPO (4 letras de nombre y apellidos + 6 dígitos de fecha AAMMDD + 1 letra de sexo H/M + 2 letras de entidad de nacimiento + 3 consonantes internas + 2 caracteres de homoclave/dígito verificador). Dentro de cada tabla, el valor debe ser único.
+
+Motivación: La CURP es el identificador personal oficial en México; aceptar valores incorrectos generaría inconsistencias al cruzar datos con dependencias gubernamentales.
+
+Sentencia: Si se captura CURP, el sistema debe validar que tenga exactamente 18 caracteres. Adicionalmente, debe verificar que ese valor no exista ya en la tabla correspondiente (nna, tutores, usuarios, actor_persona_fisica). Si alguna validación falla, se rechaza la operación con el error correspondiente.
+
+Ejemplo positivo: Se captura GARM030512HDFRZN01: 18 caracteres, no existe en el sistema; el registro procede.
+
+Ejemplo negativo: Se captura GARM030512: solo 10 caracteres; el sistema muestra el error de formato (E4 de CU-13).
+
+Referenciado por: Casos de uso CU-13 (Registrar NNA), CU-15 (Modificar datos del NNA), CU-18 (Registrar tutor del NNA), CU-19 (Modificar datos del tutor) y CU-41 (Registrar actor).
+
+BR-010: La fecha de nacimiento no puede ser posterior a la fecha actual
+Clasificación: Derivación / Integridad / Estricta
+
+Descripción: En todos los formularios que capturen fecha de nacimiento (NNA, tutor, usuario, actor persona física), el sistema debe rechazar fechas posteriores al día actual.
+
+Motivación: Una fecha de nacimiento futura es inválida; su aceptación indicaría un error de captura que podría corromper los cálculos de edad y los criterios de elegibilidad de los NNA.
+
+Sentencia: Al guardar un registro, si el campo fecha_nacimiento es mayor que la fecha del sistema en el momento de la operación, el sistema debe mostrar el mensaje de error correspondiente y cancelar el guardado.
+
+Ejemplo positivo: Se registra al NNA con fecha de nacimiento 2015-03-20; la fecha es anterior a hoy, el registro procede.
+
+Ejemplo negativo: Se captura 2030-01-01 como fecha de nacimiento; el sistema muestra el error E3 de CU-13 y cancela.
+
+Referenciado por: Casos de uso CU-13 (Registrar NNA), CU-15 (Modificar datos del NNA), CU-18 (Registrar tutor del NNA), CU-19 (Modificar datos del tutor) y CU-41 (Registrar actor).
+
+BR-011: El tutor debe existir antes de registrar un NNA
+Clasificación: Habilitadora / Condición / Estricta
+
+Descripción: Para completar el registro de un NNA es necesario que el tutor responsable ya esté dado de alta en la tabla tutores. No se puede registrar un NNA sin un tutor vinculado.
+
+Motivación: El tutor es la figura legal de responsabilidad sobre el NNA; su existencia previa garantiza la integridad del expediente desde el momento del registro.
+
+Sentencia: En el flujo de registro del NNA, el especialista debe seleccionar un tutor previamente registrado. Si no existe ningún tutor disponible, el sistema debe indicar que primero debe registrarse al tutor.
+
+Ejemplo positivo: La abuela de Ramón ya fue registrada como tutora; el especialista la selecciona y completa el registro del NNA.
+
+Ejemplo negativo: No existe ningún tutor registrado; el sistema impide avanzar en el formulario del NNA hasta que se cree al menos uno.
+
+Referenciado por: Casos de uso CU-13 (Registrar NNA) y CU-18 (Registrar tutor del NNA).
+
+BR-012: Un NNA migrante puede registrarse sin CURP
+Clasificación: Habilitadora / Condición / Estricta
+
+Descripción: El campo curp en la tabla nna es opcional. Cuando el NNA es extranjero o migrante sin documentación mexicana, el campo puede quedar en blanco, siempre y cuando el campo es_migrante esté marcado como true o se especifique una nacionalidad distinta a la mexicana.
+
+Motivación: La CURP es un documento exclusivo para personas mexicanas; exigirla sin excepción excluiría del sistema a NNA migrantes que requieren atención.
+
+Sentencia: Si el campo curp está vacío, el sistema solo debe permitir el registro si la nacionalidad_id corresponde a un país distinto a México o si es_migrante = true.
+
+Ejemplo positivo: Se registra a Sofía, niña guatemalteca con es_migrante = true y sin CURP; el registro procede.
+
+Ejemplo negativo: Se registra a un NNA de nacionalidad mexicana sin CURP y con es_migrante = false; el sistema debe solicitar la CURP o el motivo de su ausencia.
+
+Referenciado por: Casos de uso CU-13 (Registrar NNA) y CU-18 (Registrar tutor del NNA).
+
+BR-013: El sistema registra automáticamente quién creó el NNA y cuándo
+Clasificación: Derivación / Integridad / Estricta
+
+Descripción: Al crear un registro de NNA, el sistema debe poblar automáticamente los campos creado_por (con el id del usuario en sesión) y fecha_registro (con la marca de tiempo del sistema). El usuario no los captura manualmente.
+
+Motivación: Mantener la trazabilidad y responsabilidad sobre la creación de registros sensibles, como lo exige la normatividad de protección de datos y la supervisión institucional.
+
+Sentencia: En el momento en que el sistema persiste un nuevo NNA, debe asignar automáticamente creado_por = id del usuario en sesión y fecha_registro = timestamp actual.
+
+Ejemplo positivo: La trabajadora social Sofía guarda el registro del NNA; el sistema asigna creado_por = 5 (el id de Sofía) y fecha_registro = 2025-06-10 14:23:00.
+
+Ejemplo negativo: El sistema guarda el NNA sin asignar creado_por; queda sin responsable identificado, lo que viola la trazabilidad requerida.
+
+Referenciado por: Caso de uso CU-13 (Registrar NNA).
+
+BR-014: Un NNA puede tener múltiples discapacidades o enfermedades registradas
+Clasificación: Habilitadora / Condición / Estricta
+
+Descripción: Las tablas nna_discapacidades y personas_enfermedades permiten múltiples registros vinculados a un mismo NNA o tutor. No existe restricción de unicidad por persona; sí existe unicidad por par (persona, discapacidad/enfermedad) para evitar duplicados del mismo padecimiento.
+
+Motivación: Un NNA puede presentar comorbilidades o múltiples discapacidades simultáneas; el modelo debe reflejar fielmente su situación de salud.
+
+Sentencia: Al registrar una discapacidad o enfermedad, el sistema debe verificar que no exista ya esa combinación (nna_id + discapacidad_id) para el mismo individuo. Si no existe, permite el registro; si ya existe, lo rechaza como duplicado.
+
+Ejemplo positivo: Se registra discapacidad auditiva y visual para el mismo NNA: dos registros distintos, ambos permitidos.
+
+Ejemplo negativo: Se intenta registrar por segunda vez la discapacidad auditiva para el mismo NNA; el sistema lo rechaza como duplicado.
+
+Referenciado por: Casos de uso CU-34 (Registrar discapacidad de NNA o tutor) y CU-36 (Registrar enfermedad de NNA o tutor).
+
+MÓDULO DE CATÁLOGOS Y DOMICILIOS
+BR-015: La colonia determina automáticamente el municipio y estado
+Clasificación: Derivación / Integridad / Estricta
+
+Descripción: Al seleccionar una colonia del catálogo cat_colonias, el sistema debe poblar automáticamente los campos de municipio y estado en la interfaz, derivándolos de las relaciones cat_colonias → cat_municipios → cat_estados. El usuario no puede capturar municipio ni estado de forma independiente.
+
+Motivación: Homologar las direcciones conforme al catálogo de SEPOMEX y eliminar errores ortográficos o inconsistencias geográficas al capturar domicilios.
+
+Sentencia: Cuando el usuario selecciona una colonia_id, el sistema obtiene automáticamente el municipio_id y estado_id de las tablas de catálogo y los presenta como campos de solo lectura o los almacena implícitamente.
+
+Ejemplo positivo: Se selecciona la colonia Del Valle'' (CP 03100); el sistema autocompleta municipio Benito Juárez'' y estado ``Ciudad de México''.
+
+Ejemplo negativo: El usuario escribe manualmente ``Benito Juárez'' en el campo municipio sin haber seleccionado una colonia; este flujo no debe estar permitido en el sistema.
+
+Referenciado por: Casos de uso CU-32 (Consultar catálogo de domicilios (SEPOMEX)), CU-43 (Registrar ubicación del actor) y CU-51 (Editar ubicación del actor).
+
+BR-016: El código postal tiene exactamente 5 dígitos
+Clasificación: Derivación / Integridad / Estricta
+
+Descripción: El campo codigo_postal en la tabla cat_colonias debe contener exactamente 5 caracteres numéricos, conforme al estándar de SEPOMEX en México.
+
+Motivación: Garantizar la homologación del catálogo postal y evitar búsquedas fallidas por variaciones en la longitud del código.
+
+Sentencia: El sistema debe validar, al cargar o actualizar el catálogo SEPOMEX, que ningún código postal tenga más o menos de 5 dígitos numéricos.
+
+Ejemplo positivo: El código postal 06600 es válido (5 dígitos).
+
+Ejemplo negativo: El código postal 6600 (4 dígitos) o 066000 (6 dígitos) no son válidos.
+
+Referenciado por: Caso de uso CU-32 (Consultar catálogo de domicilios (SEPOMEX)).
+
+BR-017: El RFC de persona física debe tener exactamente 13 caracteres
+Clasificación: Derivación / Integridad / Estricta
+
+Descripción: El campo rfc en las tablas usuarios y actor_persona_fisica debe contener exactamente 13 caracteres alfanuméricos con el formato del SAT para personas físicas (4 letras + 6 dígitos de fecha + 3 caracteres de homoclave).
+
+Motivación: El RFC es un identificador fiscal oficial; un formato incorrecto genera inconsistencias al vincular la información con dependencias fiscales o al validar la identidad del actor.
+
+Sentencia: Si se captura RFC, el sistema debe validar que tenga exactamente 13 caracteres alfanuméricos antes de persistirlo. Adicionalmente, el valor debe ser único dentro de la tabla correspondiente.
+
+Ejemplo positivo: MERC850312AB1: 13 caracteres; es válido y único.
+
+Ejemplo negativo: MERC850312: solo 10 caracteres; el sistema muestra el error E3 de CU-41 y cancela.
+
+Referenciado por: Caso de uso CU-41 (Registrar actor).
+
+MÓDULO DE ACTORES EN MATERIA DE DERECHOS
+BR-018: El nombre del actor en el directorio es obligatorio y no puede repetirse
+Clasificación: Habilitadora / Condición / Estricta
+
+Descripción: El campo nombre en la tabla actores_derechos no puede quedar vacío, y no pueden coexistir dos actores con el mismo nombre dentro del directorio.
+
+Motivación: El nombre del actor es su identificador principal en el directorio; la duplicidad generaría confusión al vincular servicios a expedientes de NNA.
+
+Sentencia: Al registrar o editar un actor, el sistema debe validar que el campo nombre no esté vacío y que su valor no exista en otro registro de actores_derechos.
+
+Ejemplo positivo: Se registra ``Fundación Crecer A.C.'': nombre no vacío y único; el registro procede.
+
+Ejemplo negativo: Se intenta registrar un segundo actor con el nombre ``Fundación Crecer A.C.''; el sistema muestra el error E1 de CU-41.
+
+Referenciado por: Casos de uso CU-41 (Registrar actor) y CU-49 (Editar actor).
+
+BR-019: Si un servicio no es gratuito, el costo debe especificarse
+Clasificación: Habilitadora / Condición / Estricta
+
+Descripción: En la tabla servicios_actores, si el campo es_gratuito = false, el campo costo debe tener un valor mayor a cero. No se permite registrar un servicio con costo que no tenga monto definido.
+
+Motivación: La información de costo es indispensable para que los especialistas puedan evaluar la accesibilidad económica del servicio al vincularlo con un NNA.
+
+Sentencia: Al guardar un servicio, si es_gratuito = false y costo está vacío o es igual a cero, el sistema debe mostrar el error E3 de CU-44 y cancelar el guardado.
+
+Ejemplo positivo: Se registra el servicio ``Terapia psicológica'' con es_gratuito = false y costo = 350.00; el registro procede.
+
+Ejemplo negativo: Se registra ``Terapia psicológica'' con es_gratuito = false y costo vacío; el sistema muestra el error E3 de CU-44.
+
+Referenciado por: Casos de uso CU-44 (Registrar programas del actor) y CU-52 (Editar programas del actor).
+
+BR-020: Solo puede existir un contacto principal por actor o enlace
+Clasificación: Habilitadora / Condición / Estricta
+
+Descripción: En la tabla contactos, para un mismo actor_id (o enlace_id), solo un registro puede tener es_principal = true en un momento dado. Si se marca un nuevo contacto como principal, el sistema debe desmarcar automáticamente el que anteriormente tenía ese indicador.
+
+Motivación: Garantizar que los especialistas sepan cuál es el medio de contacto prioritario del actor al coordinar servicios para los NNA.
+
+Sentencia: Al guardar o actualizar un contacto con es_principal = true, el sistema debe actualizar a false el campo es_principal de todos los demás contactos del mismo actor_id o enlace_id.
+
+Ejemplo positivo: El actor tiene dos contactos; se marca el segundo como principal y el sistema automáticamente desmarca el primero.
+
+Ejemplo negativo: Quedan dos contactos con es_principal = true para el mismo actor; el sistema no puede identificar cuál es el prioritario.
+
+Referenciado por: Casos de uso CU-42 (Registrar contactos del actor), CU-50 (Editar contactos del actor), CU-45 (Registrar enlaces representantes) y CU-53 (Editar enlaces representantes).
+
+BR-021: El teléfono de contacto no puede exceder 15 caracteres
+Clasificación: Derivación / Integridad / Estricta
+
+Descripción: Los campos tel_principal y tel_secundario de la tabla contactos admiten máximo 15 caracteres, suficientes para el formato nacional de 10 dígitos o el formato internacional E.164 con código de país (por ejemplo, +52 55 1234 5678).
+
+Motivación: Estandarizar la longitud de los teléfonos para facilitar su uso en comunicaciones automatizadas y garantizar la compatibilidad con el formato E.164 de la UIT.
+
+Sentencia: Al capturar o modificar un teléfono, el sistema debe revisar valores que excedan los 15 caracteres (incluyendo el símbolo + y espacios, si se almacenan).
+
+Ejemplo positivo: 5512345678 (10 caracteres): válido.
+
+Ejemplo negativo: +521234567890123 (16 caracteres): excede el límite; el sistema muestra el error E1 de CU-42.
+
+Referenciado por: Casos de uso CU-42 (Registrar contactos del actor) y CU-50 (Editar contactos del actor).
+
+BR-022: El correo electrónico de contacto debe tener formato válido
+Clasificación: Derivación / Integridad / Estricta
+
+Descripción: Los campos correo en las tablas contactos y usuarios deben seguir el formato usuario@dominio.tld y no pueden exceder el tamaño máximo definido (150 caracteres en contactos, 100 en usuarios).
+
+Motivación: Un correo con formato inválido provocaría fallos en las comunicaciones automatizadas del sistema (envío de contraseñas temporales, notificaciones, etc.).
+
+Sentencia: Al guardar un correo electrónico, el sistema debe validar que cumpla con el formato estándar de dirección de correo y no supere la longitud máxima permitida.
+
+Ejemplo positivo: coordinadora@fundacion.org.mx: formato válido y dentro del límite.
+
+Ejemplo negativo: coordinadora@fundacion: falta la extensión de dominio (.tld); el sistema muestra el error E2 de CU-42.
+
+Referenciado por: Casos de uso CU-04 (Registrar usuario), CU-06 (Modificar usuario), CU-42 (Registrar contactos del actor) y CU-50 (Editar contactos del actor).
+
+BR-023: La deshabilitación de un actor es lógica, no física
+Clasificación: Habilitadora / Condición / Estricta
+
+Descripción: Al deshabilitar un actor (CU-54), el sistema actualiza actores_derechos.activo = false pero no elimina ningún registro de la base de datos. El historial de vinculaciones en expediente_vinculacion_servicios se conserva íntegro.
+
+Motivación: Los actores deshabilitados pueden haber atendido NNA en el pasado; eliminar sus registros comprometería la integridad y la auditabilidad de los expedientes históricos.
+
+Sentencia: La operación de deshabilitar un actor solo debe modificar el campo activo a false. Los servicios del actor dejan de aparecer en búsquedas y en el catálogo de vinculación, pero su información y sus vinculaciones históricas permanecen accesibles para consulta.
+
+Ejemplo positivo: Se deshabilita ``DIF Municipal''; el actor ya no aparece en búsquedas nuevas, pero los expedientes vinculados a sus servicios siguen mostrando ese registro históricamente.
+
+Ejemplo negativo: Se elimina físicamente el registro del actor; los expedientes que lo referenciaban pierden su información de vinculación.
+
+Referenciado por: Caso de uso CU-54 (Deshabilitar actor).
+
+BR-024: El catálogo de programas solo muestra registros activos
+Clasificación: Habilitadora / Condición / Estricta
+
+Descripción: La consulta del catálogo de programas (CU-56) y las búsquedas de actores (CU-46) solo deben retornar actores con activos_derechos.activo = true, programas con actor_programa.activo_programa = true y servicios con servicios_actores.activo_servicio = true.
+
+Motivación: Garantizar que los especialistas solo visualicen y vinculen servicios que están operativos en el momento de la atención del NNA.
+
+Sentencia: Toda consulta o búsqueda de actores, programas y servicios debe aplicar el filtro de activo correspondiente en cada tabla involucrada.
+
+Ejemplo positivo: El programa ``Becas escolares'' tiene activo_programa = true; aparece en el catálogo.
+
+Ejemplo negativo: El programa ``Talleres de verano'' tiene activo_programa = false; no debe aparecer en el catálogo aunque el actor esté activo.
+
+Referenciado por: Casos de uso CU-46 (Buscar actores) y CU-56 (Consultar catálogo de programas).
+
+BR-025: El catálogo de idiomas debe consultarse antes de registrar idiomas del NNA
+Clasificación: Habilitadora / Condición / Estricta
+
+Descripción: Los idiomas o lenguas registrados para un NNA o tutor deben seleccionarse del catálogo cat_idiomas, cargado con base en el catálogo oficial del INALI. No se permite registrar un idioma que no exista en dicho catálogo sin autorización del administrador.
+
+Motivación: Homologar la denominación de idiomas y lenguas indígenas conforme a la norma del INALI, facilitando el cruce de datos con otras instituciones y garantizando la correcta identificación de NNA que requieren intérprete.
+
+Sentencia: Al registrar el idioma de un NNA, el sistema solo debe permitir la selección de valores existentes en cat_idiomas. Si el idioma no existe, debe ofrecerse la opción ``Otro'' con campo de texto libre y notificación al administrador para que lo incluya en el catálogo.
+
+Ejemplo positivo: El especialista selecciona ``Náhuatl - Variante del Balsas'' del catálogo INALI; el idioma queda registrado con su identificador oficial.
+
+Ejemplo negativo: El especialista escribe libremente ``Nahuatl'' (sin homologar); el sistema debe validar contra el catálogo y no permitir la inserción directa.
+
+Referenciado por: Caso de uso CU-33 (Consultar catálogo de idiomas (INALI)).
+
+BR-026: Solo pueden asignarse NNA a equipos multidisciplinarios activos
+Clasificación: Habilitadora / Condición / Estricta
+
+Descripción: En el proceso de asignación (CU-12), el sistema solo debe mostrar en la lista de equipos disponibles aquellos cuyo campo activo = true en la tabla equipos\_multidisciplinarios.
+
+Motivación: Asignar un NNA a un equipo inactivo significaría que ningún especialista activo estaría a cargo de su caso, dejándolo sin atención efectiva.
+
+Sentencia: La lista de equipos disponibles para asignación debe filtrar por equipos_multidisciplinarios.activo = true.
+
+Ejemplo positivo: El ``Equipo Norte'' está activo; aparece en la lista de asignación.
+
+Ejemplo negativo: El ``Equipo Beta'' fue desactivado; no aparece en la lista de asignación aunque exista en la base de datos.
+
+Referenciado por: Caso de uso CU-12 (Asignar NNA a equipo multidisciplinario).
+
+BR-027: Las fracciones del artículo 13 LGDNNA tienen máximo 5 caracteres
+Clasificación: Derivación / Integridad / Estricta
+
+Descripción: El campo fraccion_art13 en la tabla cat_derecho_lgdnna admite máximo 5 caracteres, suficientes para representar cualquier fracción romana del artículo 13 de la LGDNNA (por ejemplo, I, XII, XVIII). El valor debe ser único en el catálogo.
+
+Motivación: El artículo 13 de la LGDNNA enumera los derechos de los NNA en fracciones; estandarizar su formato garantiza la correcta referencia normativa en los expedientes.
+
+Sentencia: Al registrar o actualizar un derecho, el sistema debe validar que fraccion_art13 no exceda los 5 caracteres y que su valor no exista en otro registro del catálogo.
+
+Ejemplo positivo: XVIII: 5 caracteres, valor único; el registro procede.
+
+Ejemplo negativo: XXIII: 5 caracteres (justo en el límite); válido. Si fueran 6 (XXVIII), el sistema lo rechazaría.
+
+Referenciado por: Entidad CatDerechoLGDNNA del modelo de dominio.

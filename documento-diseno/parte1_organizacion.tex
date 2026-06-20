@@ -70,14 +70,14 @@ que gestiona.
 \begin{itemize}
 	\item El sistema deberá operar en la infraestructura existente de la Fundación o en
 	un entorno de nube de bajo costo, por lo que el diseño evitará dependencias de
-	plataformas propietarias de alto costo o terceros, enfocandoce en un entorno donde solo 
+	plataformas propietarias de alto costo o terceros, enfocándose en un entorno donde solo 
 	tenga acceso personal autorizado de la organización.
 	\item El backend será desarrollado exclusivamente con \textbf{FastAPI} (Python $\geq$ 3.11)
 	y el frontend con \textbf{React} (Node.js $\geq$ 20 LTS), utilizando
 	\textbf{PostgreSQL 15} como motor de base de datos relacional.
 	\item La comunicación entre el frontend y el backend se realizará únicamente a través
 	de la API REST documentada; no se permitirán accesos directos a la base de datos
-	desde el cliente, no se permitira acceso a la API por terceros.
+	desde el cliente, no se permitirá acceso a la API por terceros.
 	\item El sistema deberá soportar al menos 30 usuarios concurrentes en la fase inicial
 	de despliegue.
 \end{itemize}
@@ -88,17 +88,12 @@ que gestiona.
 
 \subsection*{Metodología de diseño}
 
-El diseño de SICORRE adopta un enfoque \textbf{orientado a componentes} alineado con el
-patrón arquitectónico \textbf{MVC (Modelo-Vista-Controlador)}, adaptado a la separación
-física de capas que impone la arquitectura elegida:
+El diseño de SICORRE adopta un enfoque de \textbf{arquitectura Cliente-Servidor Web}, el cual organiza los componentes de software de acuerdo con la separación física y lógica que imponen las tecnologías utilizadas:
 
 \begin{itemize}
-	\item \textbf{Modelo:} representado por los esquemas de base de datos en PostgreSQL y
-	los modelos ORM definidos con \textit{SQLAlchemy} en el backend.
-	\item \textbf{Vista:} implementada como una Single Page Application (SPA) en
-	\textit{React}, que consume los recursos expuestos por la API REST.
-	\item \textbf{Controlador:} materializado en los \textit{routers} y \textit{servicios}
-	de FastAPI, que encapsulan la lógica de negocio y orquestan el acceso a los datos.
+	\item \textbf{Capa de Presentación:} implementada en el frontend utilizando una Single Page Application (SPA) con \textit{React} (Next.js), encargada de la interfaz de usuario y la interacción directa con los operadores.
+	\item \textbf{Capa de Lógica de Negocio:} materializada en el backend mediante servicios y endpoints REST desarrollados con \textit{FastAPI} (Python), encargados de validar las reglas de negocio y orquestar el acceso a los datos.
+	\item \textbf{Capa de Persistencia:} representada por la base de datos relacional \textit{PostgreSQL}, que almacena la información estructurada de manera segura e íntegra.
 \end{itemize}
 
 El proceso de diseño sigue un ciclo iterativo-incremental, en el cual cada módulo
@@ -119,7 +114,7 @@ prototipado, revisado y refinado antes de pasar a la fase de construcción.
 	críticos, como el registro de un nuevo expediente o la actualización de un
 	diagnóstico.
 	\item \textbf{Wireframes y prototipos de baja fidelidad} para validar la experiencia
-	de usuario antes de la implementación de la interfaz en React o por su parte HTML antes de desarrollo y aprobación.
+	de usuario antes de la implementación de la interfaz en React o mediante prototipos HTML previos para su desarrollo y aprobación.
 \end{itemize}
 
 \subsection*{Herramientas}
@@ -127,7 +122,7 @@ prototipado, revisado y refinado antes de pasar a la fase de construcción.
 \begin{table}[h!]
 	\centering
 	\caption{Herramientas utilizadas en el diseño de SICORRE}
-	\begin{tabular}{|l|l|l|}
+	\begin{tabular}{|p{3.5cm}|p{4cm}|p{6.5cm}|}
 		\hline
 		\textbf{Categoría}        & \textbf{Herramienta}          & \textbf{Propósito}                          \\ \hline
 		Modelado UML              & draw.io / PlantUML            & Diagramas de casos de uso, secuencia, etc.  \\ \hline
@@ -135,7 +130,7 @@ prototipado, revisado y refinado antes de pasar a la fase de construcción.
 		Modelado de BD            & dbdiagram.io / pgAdmin        & Diseño del esquema relacional               \\ \hline
 		Prototipado UI            & Figma / HTML 				  & Wireframes y flujos de navegación           \\ \hline
 		Control de versiones      & Git / GitHub                  & Gestión del código fuente                   \\ \hline
-		Gestión del proyecto      & Teams / whatsapp              & Seguimiento de tareas e iteraciones         \\ \hline
+		Gestión del proyecto      & Teams / WhatsApp              & Seguimiento de tareas e iteraciones         \\ \hline
 		Documentación             & \LaTeX                        & Elaboración del presente documento          \\ \hline
 	\end{tabular}
 	\label{tab:herramientas}
@@ -194,17 +189,17 @@ Los siguientes subsistemas y módulos son cubiertos por este documento de diseñ
 	\item \textbf{Gestión de usuarios y roles:} administración de cuentas de acceso,
 	asignación de roles (administrador, coordinador, trabajador social) y control
 	de permisos.
-	\item \textbf{Gestión de equipos multidisciplnarios} administración de equipos compuestos
-	por diferentes usuarios y roles previamente registrados para dar seguimiento a los diagnosticos y
-	planes para la resitución de derechos.
-	\item \textbf{Gestión y registro de tutores} : administración y nuevos registros para tutores 
-	con sus respectivos datos de contacto y asociación con los nnas.
-	\item \textbf{Gestión y registro de nnas } : Gestión y registro principal de niños niñas y 
+	\item \textbf{Gestión de equipos multidisciplinarios:} administración de equipos compuestos
+	por diferentes usuarios y roles previamente registrados para dar seguimiento a los diagnósticos y
+	planes para la restitución de derechos.
+	\item \textbf{Gestión y registro de tutores:} administración y nuevos registros para tutores 
+	con sus respectivos datos de contacto y asociación con los NNA.
+	\item \textbf{Gestión y registro de NNA:} Gestión y registro principal de niños, niñas y 
 	adolescentes en el sistema.
-	\item \textbf{Modulo de Restitución de derechos} : Modulo utilizado para consultar programas y actores en 
-	materia de derechos que sirvan de ayuda para la restitución de los mismos para los nnas.
-	\item \textbf{Consulta de catalogos} : consultas de catalogos establecidos previamente por la organización como 
-	roles existentes, enfermedades, discapacidades, idiomas, domicilios (SEPOMEX). 
+	\item \textbf{Módulo de Restitución de Derechos:} módulo utilizado para consultar programas y actores en 
+	materia de derechos que sirvan de ayuda para la restitución de los mismos para los NNA.
+	\item \textbf{Consulta de catálogos:} consultas de catálogos establecidos previamente por la organización como 
+	roles existentes, enfermedades, discapacidades, idiomas, y domicilios (SEPOMEX). 
 	\item \textbf{API REST:} especificación completa de los servicios que expone el
 	backend FastAPI para consumo del frontend React.
 	\item \textbf{Esquema de base de datos:} diseño del modelo relacional en PostgreSQL
@@ -225,8 +220,7 @@ Los siguientes aspectos \textbf{no} son cubiertos por el presente documento de d
 	\item Infraestructura de despliegue en producción (configuración de servidores,
 	balanceo de carga, DNS).
 	\item Migración de expedientes físicos históricos en papel; este proceso se realizará
-	de forma manual y operativa fuera del alcance del sistema o por asistencia de modelos de IA propuestos 
-	hechos.
+	de forma manual y operativa fuera del alcance del sistema o con asistencia de los modelos de IA propuestos.
 \end{itemize}
 
 \bigskip

@@ -1,53 +1,1040 @@
-\chapter{Diseño de la Persistencia de la Información}
+\chapter[Persistencia de la Información]{Diseño de la Persistencia de la Información}
 
 \section{Modelo Relacional}
-Presentar el modelo entidad-relación o el esquema relacional del sistema.
 
-\begin{figure}[h!]
+El diseño de la base de datos relacional de SICORRE está estructurado para garantizar consistencia, integridad referencial y rendimiento. El esquema PostgreSQL está completamente normalizado y se organiza en los siguientes bloques principales:
+\begin{itemize}
+	\item \textbf{Catálogos Geográficos y de Dirección:} Permiten estandarizar ubicaciones mediante las tablas \texttt{cat\_estados}, \texttt{cat\_municipios} y \texttt{cat\_colonias} (SEPOMEX), asociadas a la tabla central \texttt{direcciones}.
+	\item \textbf{Control de Acceso:} Administra el personal mediante las tablas \texttt{usuarios} y \texttt{cat\_roles}.
+	\item \textbf{Núcleo del Negocio (NNA y Tutores):} Tabla central \texttt{nna} para menores, vinculada a sus respectivos \texttt{tutores} mediante la tabla relacional \texttt{nna\_tutores}, además de registrar antecedentes en \texttt{hechos\_victimales} y \texttt{victima\_directa}.
+	\item \textbf{Operación y Expedientes:} Tablas de \texttt{expedientes}, \texttt{valoraciones} de especialistas y registro de \texttt{derechos\_vulnerados}.
+	\item \textbf{Directorio de Actores:} Controla dependencias e instituciones externas de apoyo en materia de restitución mediante las tablas \texttt{actores\_derechos}, \texttt{servicios\_actores} y \texttt{contactos}.
+\end{itemize}
+
+A continuación, la Figura~\ref{fig:modelo-relacional} ilustra el diagrama entidad-relación físico con sus correspondientes claves primarias, foráneas y cardinalidades de asociación.
+
+\begin{figure}[H]
 	\centering
-	\fbox{\parbox{0.85\linewidth}{\centering\vspace{3cm}[Diagrama del modelo relacional]\vspace{3cm}}}
-	\caption{Modelo relacional de la base de datos.}
+	\includegraphics[angle=90,width=0.92\textwidth,height=0.82\textheight,keepaspectratio]{img/diagramaBD.png}
+	\caption{Modelo relacional de la base de datos (PostgreSQL).}
+	\label{fig:modelo-relacional}
 \end{figure}
 
 \section{Diccionario de Datos}
 
-\begin{table}[h!]
+La siguiente sección presenta detalladamente el diccionario de datos de la base de datos de SICORRE, estructurado a partir del modelo conceptual y físico. Para cada tabla, se detallan los nombres de los atributos físicos, su tipo de dato, longitud máxima, obligatoriedad y una breve descripción explicativa. Todas las tablas se configuran con anchos de columna fijos y tamaño de fuente compacto para garantizar un ajuste perfecto en los márgenes de página.
+
+\begin{table}[H]
 	\centering
-	\caption{Diccionario de datos --- Tabla \texttt{usuarios}}
-	\begin{tabular}{>{\ttfamily}l l l l p{5cm}}
+	\caption{Diccionario de datos --- Tabla \texttt{cat\_estados} (CatEstados)}
+	\label{tab:data-dict-cat_estados}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
-		id\_usuario  & INT       & 11  & NO  & Identificador único del usuario (PK). \\
-		nombre       & VARCHAR   & 100 & NO  & Nombre completo del usuario. \\
-		email        & VARCHAR   & 150 & NO  & Correo electrónico (único). \\
-		contrasena   & VARCHAR   & 255 & NO  & Hash de la contraseña. \\
-		fecha\_alta  & DATETIME  & --  & NO  & Fecha y hora de registro. \\
-		activo       & TINYINT   & 1   & NO  & 1 = activo, 0 = inactivo. \\
+		id & INTEGER & -- & NO & Identificador único del estado. Clave primaria autoincremental. \\
+		nombre & VARCHAR & 100 & NO & Nombre del estado de la república mexicana. \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
-% Repetir la tabla para cada entidad del modelo
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{cat\_municipios} (CatMunicipios)}
+	\label{tab:data-dict-cat_municipios}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del municipio. Clave primaria autoincremental. \\
+		nombre & VARCHAR & 100 & NO & Nombre del municipio. \\
+		estado\_id & INTEGER & -- & NO & Identificador del estado al que pertenece el municipio. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{cat\_colonias} (CatColonias)}
+	\label{tab:data-dict-cat_colonias}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único de la colonia. Clave primaria autoincremental. \\
+		nombre & VARCHAR & 100 & NO & Nombre de la colonia. \\
+		codigo\_postal & VARCHAR & 5 & NO & Código postal de la colonia conforme a SEPOMEX. Formato: 5 dígitos numéricos, ejemplo: 06600. \\
+		municipio\_id & INTEGER & -- & NO & Identificador del municipio al que pertenece la colonia. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{cat\_tipo\_lugar} (CatTipoLugar)}
+	\label{tab:data-dict-cat_tipo_lugar}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del tipo de lugar. Clave primaria autoincremental. \\
+		descripcion & VARCHAR & 100 & NO & Descripción del tipo de lugar (urbano, rural, comunidad indígena, etc.). \\
+		aplica\_nna & BOOLEAN & -- & SÍ & Indica si el tipo de lugar aplica para NNA. true = aplica. \\
+		aplica\_persona & BOOLEAN & -- & SÍ & Indica si el tipo de lugar aplica para personas. true = aplica. \\
+		aplica\_actor & BOOLEAN & -- & SÍ & Indica si el tipo de lugar aplica para actores en materia de derechos. true = aplica. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{cat\_plataforma\_red\_social} (CatPlataformaRedSocial)}
+	\label{tab:data-dict-cat_plataforma_red_social}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único de la plataforma. Clave primaria autoincremental. \\
+		nombre & VARCHAR & 100 & NO & Nombre de la red social o plataforma digital (Facebook, Instagram, X, etc.). \\
+		url\_base & VARCHAR & 255 & SÍ & URL base de la plataforma. Ejemplo: https://www.facebook.com/ \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{cat\_roles} (CatRoles)}
+	\label{tab:data-dict-cat_roles}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del rol. Clave primaria autoincremental. \\
+		nombre\_rol & VARCHAR & 100 & NO & Nombre del rol de usuario en el sistema. Valores: Administrador, Especialista. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{cat\_nacionalidades} (CatNacionalidades)}
+	\label{tab:data-dict-cat_nacionalidades}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único de la nacionalidad. Clave primaria autoincremental. \\
+		nombre & VARCHAR & 100 & NO & Nombre de la nacionalidad. \\
+		codigo & VARCHAR & 3 & SÍ & Código ISO 3166-1 alfa-3 de la nacionalidad. Ejemplo: MEX, USA, GTM. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{cat\_grado\_escolar} (CatGradoEscolar)}
+	\label{tab:data-dict-cat_grado_escolar}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del grado escolar. Clave primaria autoincremental. \\
+		descripcion & VARCHAR & 100 & NO & Descripción del grado escolar del NNA (sin escolaridad, preescolar, primaria, secundaria, bachillerato, etc.). \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{cat\_idiomas} (CatIdiomas)}
+	\label{tab:data-dict-cat_idiomas}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del idioma. Clave primaria autoincremental. \\
+		nombre & VARCHAR & 100 & NO & Nombre del idioma o lengua conforme al catálogo INALI. \\
+		variante & VARCHAR & 100 & SÍ & Variante dialectal del idioma según catálogo INALI. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{cat\_nivel\_idioma} (CatNivelIdioma)}
+	\label{tab:data-dict-cat_nivel_idioma}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del nivel de idioma. Clave primaria autoincremental. \\
+		nivel & VARCHAR & 100 & NO & Descripción del nivel de dominio del idioma (básico, intermedio, avanzado). \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{cat\_enfermedades} (CatEnfermedades)}
+	\label{tab:data-dict-cat_enfermedades}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único de la enfermedad. Clave primaria autoincremental. \\
+		nombre & VARCHAR & 100 & NO & Nombre de la enfermedad conforme al catálogo CIE-10. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{cat\_tratamientos} (CatTratamientos)}
+	\label{tab:data-dict-cat_tratamientos}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del tratamiento. Clave primaria autoincremental. \\
+		nombre & VARCHAR & 100 & NO & Nombre del tratamiento médico. \\
+		descripcion & TEXT & -- & SÍ & Descripción detallada del tratamiento médico, indicaciones y observaciones. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{cat\_discapacidades} (CatDiscapacidades)}
+	\label{tab:data-dict-cat_discapacidades}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único de la discapacidad. Clave primaria autoincremental. \\
+		nombre & VARCHAR & 100 & NO & Nombre de la discapacidad. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{cat\_tipo\_actor} (CatTipoActor)}
+	\label{tab:data-dict-cat_tipo_actor}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del tipo de actor. Clave primaria autoincremental. \\
+		nom\_tipo & VARCHAR & 100 & NO & Nombre del tipo de actor (gubernamental, no gubernamental, persona física). \\
+		descripcion & VARCHAR & 100 & SÍ & Descripción del tipo de actor. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{cat\_categoria\_servicio} (CatCategoriaServicio)}
+	\label{tab:data-dict-cat_categoria_servicio}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id\_cat\_serv & INTEGER & -- & NO & Identificador único de la categoría de servicio. Clave primaria autoincremental. \\
+		nom\_categoria & VARCHAR & 100 & NO & Nombre de la categoría de servicio. \\
+		descripcion & VARCHAR & 255 & SÍ & Descripción de la categoría de servicio. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{cat\_derecho\_lgdnna} (CatDerechoLGDNNA)}
+	\label{tab:data-dict-cat_derecho_lgdnna}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id\_derecho & INTEGER & -- & NO & Identificador único del derecho. Clave primaria autoincremental. \\
+		fraccion\_art13 & VARCHAR & 100 & NO & Fracción del artículo 13 de la LGDNNA correspondiente al derecho. \\
+		nom\_derecho & VARCHAR & 100 & NO & Nombre del derecho conforme a la LGDNNA. \\
+		capitulo\_lgdnna & VARCHAR & 100 & SÍ & Capítulo de la LGDNNA en que se enmarca el derecho. \\
+		articulo\_ref & VARCHAR & 100 & SÍ & Artículo de referencia de la LGDNNA. \\
+		descripcion & TEXT & -- & SÍ & Descripción completa del derecho según la LGDNNA. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{cat\_tipo\_tutela} (CatTipoTutela)}
+	\label{tab:data-dict-cat_tipo_tutela}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del tipo de tutela. Clave primaria autoincremental. \\
+		descripcion & VARCHAR & 100 & NO & Descripción del tipo de tutela (tutela legal, custodia, guardia y custodia provisional, etc.). \\
+		requiere\_resolucion\_judicial & BOOLEAN & -- & SÍ & Indica si el tipo de tutela requiere resolución judicial. true = requiere. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{direcciones} (Direcciones)}
+	\label{tab:data-dict-direcciones}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único de la dirección. Clave primaria autoincremental. \\
+		calle & VARCHAR & 100 & SÍ & Nombre de la calle o vialidad. \\
+		no\_exterior & VARCHAR & 20 & SÍ & Número exterior del domicilio. \\
+		no\_interior & VARCHAR & 20 & SÍ & Número interior del domicilio (departamento, piso, letra, etc.). \\
+		colonia\_id & INTEGER & -- & SÍ & Identificador de la colonia a la que pertenece la dirección. \\
+		tipo\_lugar\_id & INTEGER & -- & SÍ & Identificador del tipo de lugar de la dirección. \\
+		pueblo\_comunidad & VARCHAR & 100 & SÍ & Nombre del pueblo o comunidad indígena, cuando aplique. \\
+		referencia\_ubicacion & TEXT & -- & SÍ & Referencia adicional de ubicación para facilitar la localización del domicilio. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{contactos} (Contactos)}
+	\label{tab:data-dict-contactos}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del contacto. Clave primaria autoincremental. \\
+		tel\_principal & VARCHAR & 20 & SÍ & Número telefónico principal (fijo o celular, con lada). \\
+		tel\_secundario & VARCHAR & 20 & SÍ & Número telefónico secundario o de emergencia. \\
+		correo & VARCHAR & 255 & SÍ & Correo electrónico. Debe contener el símbolo @. Formato: usuario@dominio.com \\
+		pagina\_web & VARCHAR & 255 & SÍ & URL de la página web. Ejemplo: https://www.ejemplo.com \\
+		red\_social\_id & INTEGER & -- & SÍ & Identificador de la plataforma de red social asociada. \\
+		tutor\_id & INTEGER & -- & SÍ & Identificador del tutor al que pertenece este contacto. \\
+		actor\_id & INTEGER & -- & SÍ & Identificador del actor en materia de derechos al que pertenece. \\
+		enlace\_id & INTEGER & -- & SÍ & Identificador del enlace institucional al que pertenece. \\
+		es\_principal & BOOLEAN & -- & SÍ & Indica si es el medio de contacto principal. true = principal. \\
+		observaciones & VARCHAR & 255 & SÍ & Observaciones adicionales sobre el medio de contacto. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{usuarios} (Usuarios)}
+	\label{tab:data-dict-usuarios}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del usuario. Clave primaria autoincremental. \\
+		nombre & VARCHAR & 100 & NO & Nombre(s) del usuario del sistema. \\
+		primer\_apellido & VARCHAR & 100 & NO & Primer apellido del usuario. \\
+		segundo\_apellido & VARCHAR & 100 & NO & Segundo apellido del usuario. \\
+		fecha\_nacimiento & DATE & -- & NO & Fecha de nacimiento del usuario. Formato: AAAA-MM-DD. \\
+		sexo & VARCHAR & 20 & SÍ & Sexo del usuario (Masculino, Femenino). \\
+		curp & VARCHAR & 18 & NO & Clave Única de Registro de Población. Formato: 4 letras + 6 dígitos + 6 letras + 2 caracteres; 18 caracteres alfanuméricos en total. Ejemplo: GOMA850101HDFRRR02. \\
+		rfc & VARCHAR & 13 & NO & Registro Federal de Contribuyentes para persona física. Formato: 4 letras + 6 dígitos + 3 caracteres de homoclave; 13 caracteres en total. Ejemplo: GOMA850101AB2. \\
+		correo & VARCHAR & 255 & NO & Correo electrónico institucional. Debe contener el símbolo @. Formato: usuario@dominio.org \\
+		password\_hash & VARCHAR & 255 & NO & Hash seguro de la contraseña generado con bcrypt. No se almacena la contraseña en texto plano. \\
+		tipo\_personal & BOOLEAN & -- & SÍ & Indica el tipo de personal. true = administrativo, false = especialista. \\
+		activo & BOOLEAN & -- & SÍ & Indica si la cuenta está activa. true = activo. \\
+		fecha\_registro & DATE & -- & SÍ & Fecha de alta del usuario en el sistema. Formato: AAAA-MM-DD. \\
+		direccion\_id & INTEGER & -- & SÍ & Identificador de la dirección domiciliaria del usuario. \\
+		rol\_id & INTEGER & -- & SÍ & Identificador del rol asignado al usuario en el sistema. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{equipos\_multidisciplinarios} (EquiposMultidisciplinarios)}
+	\label{tab:data-dict-equipos_multidisciplinarios}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del equipo. Clave primaria autoincremental. \\
+		nombre\_equipo & VARCHAR & 100 & NO & Nombre asignado al equipo multidisciplinario. \\
+		activo & BOOLEAN & -- & SÍ & Indica si el equipo se encuentra activo. true = activo. \\
+		fecha\_creacion & DATE & -- & SÍ & Fecha de creación del equipo. Formato: AAAA-MM-DD. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{tutores} (Tutores)}
+	\label{tab:data-dict-tutores}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del tutor. Clave primaria autoincremental. \\
+		nombre & VARCHAR & 100 & NO & Nombre(s) del tutor o responsable del NNA. \\
+		primer\_apellido & VARCHAR & 100 & NO & Primer apellido del tutor. \\
+		segundo\_apellido & VARCHAR & 100 & NO & Segundo apellido del tutor. \\
+		fecha\_nacimiento & DATE & -- & NO & Fecha de nacimiento del tutor. Formato: AAAA-MM-DD. \\
+		sexo & VARCHAR & 20 & SÍ & Sexo del tutor (Masculino, Femenino). \\
+		curp & VARCHAR & 18 & SÍ & Clave Única de Registro de Población del tutor. Formato: 4 letras + 6 dígitos + 6 letras + 2 caracteres; 18 caracteres alfanuméricos. \\
+		nacionalidad\_id & INTEGER & -- & SÍ & Identificador de la nacionalidad del tutor. \\
+		escolaridad & VARCHAR & 100 & SÍ & Nivel de escolaridad alcanzado por el tutor. \\
+		ocupacion & VARCHAR & 100 & SÍ & Ocupación o actividad laboral del tutor. \\
+		es\_tutor\_legal & BOOLEAN & -- & SÍ & Indica si el tutor cuenta con reconocimiento legal de tutela. true = tutor legal. \\
+		tipo\_tutela\_id & INTEGER & -- & SÍ & Identificador del tipo de tutela que ejerce sobre el NNA. \\
+		resolucion\_tutela & VARCHAR & 100 & SÍ & Número o referencia de la resolución judicial de tutela, si aplica. \\
+		fecha\_inicio\_tutela & DATE & -- & SÍ & Fecha de inicio de la tutela. Formato: AAAA-MM-DD. \\
+		direccion\_id & INTEGER & -- & SÍ & Identificador de la dirección domiciliaria del tutor. \\
+		municipio\_nacimiento\_id & INTEGER & -- & SÍ & Identificador del municipio de nacimiento del tutor. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{nna} (NNA)}
+	\label{tab:data-dict-nna}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del NNA. Clave primaria autoincremental. \\
+		nombre & VARCHAR & 100 & NO & Nombre(s) del NNA. \\
+		primer\_apellido & VARCHAR & 100 & NO & Primer apellido del NNA. \\
+		segundo\_apellido & VARCHAR & 100 & NO & Segundo apellido del NNA. \\
+		fecha\_nacimiento & DATE & -- & NO & Fecha de nacimiento del NNA. Formato: AAAA-MM-DD. \\
+		sexo & VARCHAR & 20 & SÍ & Sexo del NNA (Masculino, Femenino). \\
+		curp & VARCHAR & 18 & SÍ & Clave Única de Registro de Población del NNA. Formato: 4 letras + 6 dígitos + 6 letras + 2 caracteres; 18 caracteres. Actúa como identificador único del expediente e impide duplicados. \\
+		nacionalidad\_id & INTEGER & -- & SÍ & Identificador de la nacionalidad del NNA. \\
+		municipio\_nacimiento\_id & INTEGER & -- & SÍ & Identificador del municipio de nacimiento del NNA. \\
+		es\_migrante & BOOLEAN & -- & SÍ & Indica si el NNA es migrante o proviene de otra entidad federativa. true = migrante. \\
+		creado\_por & INTEGER & -- & SÍ & Identificador del usuario que realizó el registro inicial del NNA en el sistema. \\
+		activo & BOOLEAN & -- & SÍ & Indica si el NNA está activo en el sistema. true = activo. \\
+		fecha\_registro & DATE & -- & SÍ & Fecha de registro del NNA en el sistema. Formato: AAAA-MM-DD. \\
+		grado\_escolar\_id & INTEGER & -- & SÍ & Identificador del grado escolar actual del NNA. \\
+		direccion\_id & INTEGER & -- & SÍ & Identificador de la dirección de residencia del NNA. \\
+		equipo\_asignado\_id & INTEGER & -- & SÍ & Identificador del equipo multidisciplinario asignado para atender al NNA. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{victima\_directa} (VictimaDirecta)}
+	\label{tab:data-dict-victima_directa}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único de la víctima directa. Clave primaria autoincremental. \\
+		nombre & VARCHAR & 100 & NO & Nombre(s) de la víctima directa (madre del NNA fallecida por feminicidio). \\
+		primer\_apellido & VARCHAR & 100 & NO & Primer apellido de la víctima directa. \\
+		segundo\_apellido & VARCHAR & 100 & SÍ & Segundo apellido de la víctima directa. \\
+		curp & VARCHAR & 18 & SÍ & Clave Única de Registro de Población de la víctima. Formato: 4 letras + 6 dígitos + 6 letras + 2 caracteres; 18 caracteres alfanuméricos. \\
+		fecha\_nacimiento & DATE & -- & SÍ & Fecha de nacimiento de la víctima directa. Formato: AAAA-MM-DD. \\
+		fecha\_fallecimiento & DATE & -- & SÍ & Fecha de fallecimiento de la víctima directa. Formato: AAAA-MM-DD. \\
+		modalidad\_feminicidio & VARCHAR & 100 & SÍ & Modalidad del feminicidio conforme a la tipificación legal vigente. \\
+		causa\_certificada\_muerte & TEXT & -- & SÍ & Causa certificada de muerte conforme al acta o certificado médico oficial. \\
+		descripcion\_hecho & TEXT & -- & SÍ & Descripción narrativa del hecho victimal y circunstancias del feminicidio. \\
+		nna\_id & INTEGER & -- & SÍ & Identificador del NNA que quedó en orfandad a causa del feminicidio. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{hechos\_victimales} (HechosVictimales)}
+	\label{tab:data-dict-hechos_victimales}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del hecho victimal. Clave primaria autoincremental. \\
+		nna\_id & INTEGER & -- & SÍ & Identificador del NNA al que corresponde el hecho victimal. \\
+		nombre\_victima\_directa & VARCHAR & 100 & SÍ & Nombre completo de la víctima directa del feminicidio (nombre de la madre). \\
+		fecha\_hecho & DATE & -- & SÍ & Fecha en que ocurrió el hecho victimal. Formato: AAAA-MM-DD. \\
+		descripcion\_delito & TEXT & -- & SÍ & Descripción narrativa del delito, circunstancias y datos del expediente jurídico. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{expedientes} (Expedientes)}
+	\label{tab:data-dict-expedientes}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del expediente. Clave primaria autoincremental. \\
+		folio\_fud & VARCHAR & 100 & NO & Folio único del expediente derivado del Formato Único de Declaración oficial. Relaciona el expediente digital con el trámite físico o institucional. \\
+		nna\_id & INTEGER & -- & SÍ & Identificador del NNA al que pertenece el expediente. \\
+		estatus\_proceso & VARCHAR & 100 & SÍ & Estatus actual del proceso de restitución de derechos del NNA. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{valoraciones} (Valoraciones)}
+	\label{tab:data-dict-valoraciones}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único de la valoración. Clave primaria autoincremental. \\
+		expediente\_id & INTEGER & -- & SÍ & Identificador del expediente sobre el que se realiza la valoración. \\
+		especialista\_id & INTEGER & -- & SÍ & Identificador del usuario especialista que registra la valoración. \\
+		area\_evaluacion & VARCHAR & 100 & NO & Área disciplinaria de evaluación (social, legal, psicológica, médica). \\
+		hallazgos\_dictamen & TEXT & -- & NO & Hallazgos, diagnóstico y dictamen del especialista sobre el caso. \\
+		medidas\_sugeridas & TEXT & -- & SÍ & Medidas de intervención sugeridas por el especialista para el caso. \\
+		fecha\_valoracion & DATE & -- & SÍ & Fecha en que se realizó la valoración. Formato: AAAA-MM-DD. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{derechos\_vulnerados} (DerechosVulnerados)}
+	\label{tab:data-dict-derechos_vulnerados}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del registro. Clave primaria autoincremental. \\
+		expediente\_id & INTEGER & -- & SÍ & Identificador del expediente al que corresponde el derecho vulnerado. \\
+		derecho\_id & INTEGER & -- & SÍ & Identificador del derecho de la LGDNNA que fue vulnerado. \\
+		esta\_vulnerado & BOOLEAN & -- & SÍ & Indica si el derecho está actualmente vulnerado. true = vulnerado. \\
+		observaciones & TEXT & -- & SÍ & Observaciones del equipo multidisciplinario sobre el derecho vulnerado. \\
+		creado\_por & INTEGER & -- & SÍ & Identificador del usuario que registró el derecho vulnerado. \\
+		fecha\_registro & DATE & -- & SÍ & Fecha de registro del derecho vulnerado. Formato: AAAA-MM-DD. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{actores\_derechos} (ActoresDerechos)}
+	\label{tab:data-dict-actores_derechos}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del actor en materia de derechos. Clave primaria autoincremental. \\
+		nombre & VARCHAR & 100 & NO & Nombre del actor (institución, organización o persona). \\
+		tipo\_actor\_id & INTEGER & -- & SÍ & Identificador del tipo de actor en materia de derechos. \\
+		tiene\_registro\_oficial & BOOLEAN & -- & SÍ & Indica si el actor cuenta con registro oficial ante autoridad competente. true = tiene registro. \\
+		registro\_oficial\_num & VARCHAR & 100 & SÍ & Número de registro oficial del actor ante la autoridad competente, si aplica. \\
+		horario\_atencion & VARCHAR & 100 & SÍ & Horario de atención del actor para recibir casos. \\
+		observaciones & TEXT & -- & SÍ & Observaciones adicionales sobre el actor en materia de derechos. \\
+		activo & BOOLEAN & -- & SÍ & Indica si el actor está activo en el catálogo del sistema. true = activo. \\
+		fecha\_registro & DATE & -- & SÍ & Fecha de alta del actor en el sistema. Formato: AAAA-MM-DD. \\
+		direccion\_id & INTEGER & -- & SÍ & Identificador de la dirección del actor. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{actor\_persona\_fisica} (ActorPersonaFisica)}
+	\label{tab:data-dict-actor_persona_fisica}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id\_actor & INTEGER & -- & NO & Identificador del actor persona física. Clave primaria y foránea hacia \hyperlink{ActoresDerechos}{actores\_derechos}. \\
+		curp & VARCHAR & 18 & SÍ & Clave Única de Registro de Población del actor. Formato: 4 letras + 6 dígitos + 6 letras + 2 caracteres; 18 caracteres alfanuméricos. \\
+		rfc & VARCHAR & 13 & SÍ & Registro Federal de Contribuyentes. Formato: 4 letras + 6 dígitos + 3 caracteres de homoclave; 13 caracteres para persona física. \\
+		fecha\_nacimiento & DATE & -- & SÍ & Fecha de nacimiento del actor persona física. Formato: AAAA-MM-DD. \\
+		sexo & VARCHAR & 20 & SÍ & Sexo del actor persona física (Masculino, Femenino). \\
+		direccion\_id & INTEGER & -- & SÍ & Identificador de una dirección adicional del actor persona física. \\
+		escolaridad & VARCHAR & 100 & SÍ & Nivel de escolaridad alcanzado por el actor persona física. \\
+		ocupacion\_oficio & VARCHAR & 100 & SÍ & Ocupación u oficio del actor persona física. \\
+		descripcion\_actividad & TEXT & -- & SÍ & Descripción de la actividad que realiza en materia de derechos de NNA. \\
+		disponibilidad & VARCHAR & 100 & SÍ & Disponibilidad de tiempo del actor para atención de casos. \\
+		es\_lider\_comunitario & BOOLEAN & -- & SÍ & Indica si el actor es reconocido como líder comunitario. true = líder comunitario. \\
+		es\_lider\_religioso & BOOLEAN & -- & SÍ & Indica si el actor es reconocido como líder religioso. true = líder religioso. \\
+		pertenece\_grupo & VARCHAR & 100 & SÍ & Nombre del grupo o colectivo al que pertenece el actor. \\
+		como\_contactar & TEXT & -- & SÍ & Instrucciones o indicaciones para contactar al actor. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{actor\_enlace} (ActorEnlace)}
+	\label{tab:data-dict-actor_enlace}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id\_enlace & INTEGER & -- & NO & Identificador único del enlace institucional. Clave primaria autoincremental. \\
+		actor\_id & INTEGER & -- & SÍ & Identificador del actor al que pertenece la persona enlace. \\
+		nom\_enlace & VARCHAR & 100 & NO & Nombre completo de la persona enlace de la institución. \\
+		cargo\_enlace & VARCHAR & 100 & SÍ & Cargo o puesto de la persona enlace en la institución. \\
+		es\_principal\_contacto & BOOLEAN & -- & SÍ & Indica si la persona enlace es el contacto principal del actor. true = principal. \\
+		notas\_enlace & TEXT & -- & SÍ & Notas adicionales sobre la persona enlace y su disponibilidad. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{actor\_programa} (ActorPrograma)}
+	\label{tab:data-dict-actor_programa}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id\_programa & INTEGER & -- & NO & Identificador único del programa. Clave primaria autoincremental. \\
+		actor\_id & INTEGER & -- & SÍ & Identificador del actor que ofrece el programa de apoyo. \\
+		nom\_programa & VARCHAR & 100 & NO & Nombre del programa de apoyo o servicio. \\
+		descripcion & TEXT & -- & SÍ & Descripción del programa: objetivos, beneficiarios y alcance. \\
+		fecha\_inicio & DATE & -- & SÍ & Fecha de inicio del programa. Formato: AAAA-MM-DD. \\
+		fecha\_fin & DATE & -- & SÍ & Fecha de término del programa. Formato: AAAA-MM-DD. \\
+		activo\_programa & BOOLEAN & -- & SÍ & Indica si el programa está vigente y activo. true = activo. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{servicios\_actores} (ServiciosActores)}
+	\label{tab:data-dict-servicios_actores}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del servicio. Clave primaria autoincremental. \\
+		actor\_id & INTEGER & -- & SÍ & Identificador del actor que ofrece el servicio. \\
+		programa\_id & INTEGER & -- & SÍ & Identificador del programa al que pertenece el servicio, si aplica. \\
+		categoria\_id & INTEGER & -- & SÍ & Identificador de la categoría del servicio. \\
+		nombre\_servicio & VARCHAR & 100 & NO & Nombre del servicio ofrecido por el actor. \\
+		descripcion\_servicio & TEXT & -- & SÍ & Descripción detallada del servicio, alcances y limitaciones. \\
+		modalidad & VARCHAR & 100 & SÍ & Modalidad de prestación del servicio (presencial, en línea, mixto). \\
+		es\_gratuito & BOOLEAN & -- & SÍ & Indica si el servicio es gratuito. true = gratuito. \\
+		costo & DECIMAL & 10,2 & SÍ & Costo del servicio en pesos mexicanos (MXN), si no es gratuito. \\
+		duracion & VARCHAR & 100 & SÍ & Duración estimada del servicio (horas, semanas, meses). \\
+		disponibilidad & VARCHAR & 100 & SÍ & Disponibilidad horaria y días de atención del servicio. \\
+		requisitos\_tramites & TEXT & -- & SÍ & Requisitos y trámites necesarios para acceder al servicio. \\
+		poblacion\_objetivo & VARCHAR & 100 & SÍ & Descripción de la población objetivo del servicio. \\
+		cupos\_disponibles & INTEGER & -- & SÍ & Número de cupos disponibles para el servicio. \\
+		activo\_servicio & BOOLEAN & -- & SÍ & Indica si el servicio está activo y disponible. true = activo. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{servicio\_derecho} (ServicioDerecho)}
+	\label{tab:data-dict-servicio_derecho}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		servicio\_id & INTEGER & -- & NO & Identificador del servicio vinculado. Clave foránea hacia \hyperlink{ServiciosActores}{servicios\_actores}. \\
+		derecho\_id & INTEGER & -- & NO & Identificador del derecho vinculado. Clave foránea hacia \hyperlink{CatDerechoLGDNNA}{cat\_derecho\_lgdnna}. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{expediente\_vinculacion\_servicios} (ExpedienteVinculacionServicios)}
+	\label{tab:data-dict-expediente_vinculacion_servicios}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único de la vinculación. Clave primaria autoincremental. \\
+		expediente\_id & INTEGER & -- & SÍ & Identificador del expediente vinculado al servicio. \\
+		servicio\_actor\_id & INTEGER & -- & SÍ & Identificador del servicio del actor vinculado al expediente. \\
+		fecha\_vinculacion & DATE & -- & SÍ & Fecha en que se realizó la vinculación servicio-expediente. Formato: AAAA-MM-DD. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{nna\_tutores} (NNATutores)}
+	\label{tab:data-dict-nna_tutores}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único de la relación NNA-Tutor. Clave primaria autoincremental. \\
+		nna\_id & INTEGER & -- & SÍ & Identificador del NNA en la relación. \\
+		tutor\_id & INTEGER & -- & SÍ & Identificador del tutor en la relación. \\
+		parentesco & VARCHAR & 100 & NO & Parentesco o relación del tutor con el NNA (padre, madre, abuelo, tío, hermano, etc.). \\
+		es\_principal & BOOLEAN & -- & SÍ & Indica si es el tutor principal del NNA. true = tutor principal. \\
+		fecha\_inicio & DATE & -- & SÍ & Fecha de inicio de la relación tutor-NNA. Formato: AAAA-MM-DD. \\
+		fecha\_fin & DATE & -- & SÍ & Fecha de término de la relación tutor-NNA. Formato: AAAA-MM-DD. \\
+		observaciones & TEXT & -- & SÍ & Observaciones adicionales sobre la relación NNA-Tutor. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{integrantes\_equipo} (IntegrantesEquipo)}
+	\label{tab:data-dict-integrantes_equipo}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del registro de integrante. Clave primaria autoincremental. \\
+		equipo\_id & INTEGER & -- & SÍ & Identificador del equipo multidisciplinario. \\
+		usuario\_id & INTEGER & -- & SÍ & Identificador del usuario especialista integrante del equipo. \\
+		fecha\_ingreso & DATE & -- & SÍ & Fecha de ingreso del usuario al equipo. Formato: AAAA-MM-DD. \\
+		fecha\_salida & DATE & -- & SÍ & Fecha de salida del usuario del equipo. Formato: AAAA-MM-DD. \\
+		motivo\_cambio & TEXT & -- & SÍ & Motivo del cambio o salida del integrante del equipo. \\
+		estatus\_integrante & VARCHAR & 100 & SÍ & Estatus actual del integrante en el equipo (activo, inactivo). \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{personas\_enfermedades} (PersonasEnfermedades)}
+	\label{tab:data-dict-personas_enfermedades}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del registro de padecimiento. Clave primaria autoincremental. \\
+		nna\_id & INTEGER & -- & SÍ & Identificador del NNA al que corresponde el padecimiento, si aplica. \\
+		tutor\_id & INTEGER & -- & SÍ & Identificador del tutor al que corresponde el padecimiento, si aplica. \\
+		enfermedad\_id & INTEGER & -- & SÍ & Identificador de la enfermedad registrada conforme al catálogo CIE-10. \\
+		tratamiento\_id & INTEGER & -- & SÍ & Identificador del tratamiento médico asociado al padecimiento. \\
+		es\_cronica & BOOLEAN & -- & SÍ & Indica si la enfermedad es de carácter crónico. true = crónica. \\
+		esta\_controlada & BOOLEAN & -- & SÍ & Indica si la enfermedad está controlada con tratamiento. true = controlada. \\
+		requiere\_medicamento & BOOLEAN & -- & SÍ & Indica si el padecimiento requiere medicamento continuo. true = requiere medicamento. \\
+		nombre\_medicamento & VARCHAR & 100 & SÍ & Nombre del medicamento requerido de forma continua, si aplica. \\
+		observaciones & TEXT & -- & SÍ & Observaciones clínicas adicionales sobre el padecimiento. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{personas\_idiomas} (PersonasIdiomas)}
+	\label{tab:data-dict-personas_idiomas}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del registro de idioma. Clave primaria autoincremental. \\
+		nna\_id & INTEGER & -- & SÍ & Identificador del NNA al que corresponde el idioma, si aplica. \\
+		tutor\_id & INTEGER & -- & SÍ & Identificador del tutor al que corresponde el idioma, si aplica. \\
+		idioma\_id & INTEGER & -- & SÍ & Identificador del idioma o lengua registrada conforme al catálogo INALI. \\
+		nivel\_habla\_id & INTEGER & -- & SÍ & Identificador del nivel de dominio al hablar el idioma. \\
+		nivel\_comprension\_id & INTEGER & -- & SÍ & Identificador del nivel de comprensión auditiva del idioma. \\
+		nivel\_escritura\_id & INTEGER & -- & SÍ & Identificador del nivel de dominio en escritura del idioma. \\
+		requiere\_traductor & BOOLEAN & -- & SÍ & Indica si la persona requiere intérprete o traductor. true = requiere traductor. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de datos --- Tabla \texttt{nna\_discapacidades} (NNADiscapacidades)}
+	\label{tab:data-dict-nna_discapacidades}
+	\footnotesize
+	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+		\toprule
+		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
+		\midrule
+		id & INTEGER & -- & NO & Identificador único del registro de discapacidad. Clave primaria autoincremental. \\
+		nna\_id & INTEGER & -- & SÍ & Identificador del NNA al que pertenece el registro de discapacidad. \\
+		discapacidad\_id & INTEGER & -- & SÍ & Identificador de la discapacidad registrada. \\
+		tipo\_discapacidad & VARCHAR & 100 & SÍ & Tipo de discapacidad del NNA (motriz, intelectual, auditiva, visual, psicosocial). \\
+		grado\_dependencia & VARCHAR & 100 & SÍ & Grado de dependencia derivado de la discapacidad (leve, moderado, severo). \\
+		observaciones & TEXT & -- & SÍ & Observaciones adicionales sobre la discapacidad del NNA. \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
 
 \section{Diseño de las Consultas}
 
-\subsection*{Diccionario de Consultas}
+El sistema SICORRE utiliza consultas SQL parametrizadas a través del ORM de SQLAlchemy para interactuar con la base de datos PostgreSQL. A continuación se presenta el diccionario de consultas agrupado por módulos operativos del sistema, detallando el identificador de la consulta, su descripción y la sentencia lógica SQL correspondiente. Todas las tablas se presentan en un tamaño de fuente compacto para garantizar que no excedan los márgenes de página.
 
-\begin{table}[h!]
+\subsection{Módulo de Control de Acceso y Gestión de Usuarios}
+
+\begin{table}[H]
 	\centering
-	\caption{Diccionario de consultas}
-	\begin{tabular}{l p{4cm} p{5.5cm}}
+	\caption{Diccionario de consultas --- Gestión de Usuarios}
+	\label{tab:consultas-usuarios}
+	\footnotesize
+	\begin{tabular}{l p{4.5cm} p{8.5cm}}
 		\toprule
 		\textbf{ID} & \textbf{Descripción} & \textbf{Sentencia SQL} \\
 		\midrule
-		Q-001 & Autenticar usuario por email y contraseña &
-		\texttt{SELECT * FROM usuarios WHERE email=? AND contrasena=? AND activo=1} \\
+		Q-001 & Autenticar usuario por correo y estado activo. & 
+		\texttt{SELECT * FROM usuarios WHERE correo = ? AND activo = true;} \\
 		\addlinespace
-		Q-002 & Obtener perfil del usuario por ID &
-		\texttt{SELECT id\_usuario, nombre, email FROM usuarios WHERE id\_usuario=?} \\
+		Q-002 & Obtener detalles de perfil de usuario por ID. & 
+		\texttt{SELECT id, nombre, primer\_apellido, correo, rol\_id FROM usuarios WHERE id = ?;} \\
 		\addlinespace
-		Q-003 & [Descripción de la consulta] & \texttt{[sentencia SQL]} \\
+		Q-003 & Registrar nuevo usuario en el sistema. & 
+		\texttt{INSERT INTO usuarios (nombre, primer\_apellido, segundo\_apellido, fecha\_nacimiento, sexo, curp, rfc, correo, password\_hash, tipo\_personal, activo, direccion\_id, rol\_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, true, ?, ?);} \\
+		\addlinespace
+		Q-004 & Listar usuarios activos con su rol correspondiente. & 
+		\texttt{SELECT u.*, r.nombre\_rol FROM usuarios u JOIN cat\_roles r ON u.rol\_id = r.id WHERE u.activo = true;} \\
+		\addlinespace
+		Q-005 & Modificar información personal y laboral del usuario. & 
+		\texttt{UPDATE usuarios SET nombre=?, primer\_apellido=?, segundo\_apellido=?, fecha\_nacimiento=?, sexo=?, curp=?, rfc=?, correo=?, rol\_id=?, activo=? WHERE id=?;} \\
+		\addlinespace
+		Q-006 & Revocar de manera lógica el acceso a un usuario. & 
+		\texttt{UPDATE usuarios SET activo = false WHERE id = ?;} \\
+		\addlinespace
+		Q-007 & Eliminar físicamente el registro de un usuario. & 
+		\texttt{DELETE FROM usuarios WHERE id = ?;} \\
+		\addlinespace
+		Q-008 & Comprobar duplicidad de correo o CURP en el registro. & 
+		\texttt{SELECT id FROM usuarios WHERE curp = ? OR correo = ?;} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsection{Módulo de Equipos Multidisciplinarios}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de consultas --- Equipos Multidisciplinarios}
+	\label{tab:consultas-equipos}
+	\footnotesize
+	\begin{tabular}{l p{4.5cm} p{8.5cm}}
+		\toprule
+		\textbf{ID} & \textbf{Descripción} & \textbf{Sentencia SQL} \\
+		\midrule
+		Q-009 & Registrar un nuevo equipo multidisciplinario. & 
+		\texttt{INSERT INTO equipos\_multidisciplinarios (nombre\_equipo, activo, fecha\_creacion) VALUES (?, true, ?);} \\
+		\addlinespace
+		Q-010 & Consultar todos los equipos multidisciplinarios activos. & 
+		\texttt{SELECT * FROM equipos\_multidisciplinarios WHERE activo = true;} \\
+		\addlinespace
+		Q-011 & Listar integrantes especialistas de un equipo activo. & 
+		\texttt{SELECT ie.*, u.nombre, u.primer\_apellido, r.nombre\_rol FROM integrantes\_equipo ie JOIN usuarios u ON ie.usuario\_id = u.id JOIN cat\_roles r ON u.rol\_id = r.id WHERE ie.equipo\_id = ? AND ie.estatus\_integrante = 'Activo';} \\
+		\addlinespace
+		Q-012 & Asignar un usuario especialista a un equipo. & 
+		\texttt{INSERT INTO integrantes\_equipo (equipo\_id, usuario\_id, fecha\_ingreso, estatus\_integrante) VALUES (?, ?, ?, 'Activo');} \\
+		\addlinespace
+		Q-013 & Registrar la salida o baja de un integrante del equipo. & 
+		\texttt{UPDATE integrantes\_equipo SET estatus\_integrante = 'Inactivo', fecha\_salida = ?, motivo\_cambio = ? WHERE equipo\_id = ? AND usuario\_id = ?;} \\
+		\addlinespace
+		Q-014 & Vincular un NNA a un equipo multidisciplinario. & 
+		\texttt{UPDATE nna SET equipo\_asignado\_id = ? WHERE id = ?;} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsection{Módulo de NNA y Tutores}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de consultas --- NNA, Tutores e Idiomas/Salud}
+	\label{tab:consultas-nna-tutores}
+	\footnotesize
+	\begin{tabular}{l p{4.5cm} p{8.5cm}}
+		\toprule
+		\textbf{ID} & \textbf{Descripción} & \textbf{Sentencia SQL} \\
+		\midrule
+		Q-015 & Registrar un niño, niña o adolescente en el sistema. & 
+		\texttt{INSERT INTO nna (nombre, primer\_apellido, segundo\_apellido, fecha\_nacimiento, sexo, curp, nacionalidad\_id, municipio\_nacimiento\_id, es\_migrante, creado\_por, activo, fecha\_registro, grado\_escolar\_id, direccion\_id, equipo\_asignado\_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, true, ?, ?, ?, ?);} \\
+		\addlinespace
+		Q-016 & Buscar un NNA en el sistema por nombre o CURP. & 
+		\texttt{SELECT * FROM nna WHERE (nombre LIKE ? OR curp = ?) AND activo = true;} \\
+		\addlinespace
+		Q-017 & Actualizar la ficha de identidad e información escolar de NNA. & 
+		\texttt{UPDATE nna SET nombre=?, primer\_apellido=?, segundo\_apellido=?, fecha\_nacimiento=?, sexo=?, curp=?, nacionalidad\_id=?, municipio\_nacimiento\_id=?, es\_migrante=?, grado\_escolar\_id=?, direccion\_id=? WHERE id=?;} \\
+		\addlinespace
+		Q-018 & Registrar un hecho victimal asociado al NNA. & 
+		\texttt{INSERT INTO hechos\_victimales (nna\_id, nombre\_victima\_directa, fecha\_hecho, descripcion\_delito) VALUES (?, ?, ?, ?);} \\
+		\addlinespace
+		Q-019 & Registrar un tutor o responsable legal en el sistema. & 
+		\texttt{INSERT INTO tutores (nombre, primer\_apellido, segundo\_apellido, fecha\_nacimiento, sexo, curp, nacionalidad\_id, municipio\_nacimiento\_id, escolaridad, ocupacion, es\_tutor\_legal, tipo\_tutela\_id, resolucion\_tutela, fecha\_inicio\_tutela, direccion\_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);} \\
+		\addlinespace
+		Q-020 & Crear una relación de tutoría NNA-Tutor. & 
+		\texttt{INSERT INTO nna\_tutores (nna\_id, tutor\_id, parentesco, es\_principal, fecha\_inicio) VALUES (?, ?, ?, ?, ?);} \\
+		\addlinespace
+		Q-021 & Modificar los datos generales e información de tutela del tutor. & 
+		\texttt{UPDATE tutores SET nombre=?, primer\_apellido=?, segundo\_apellido=?, fecha\_nacimiento=?, sexo=?, curp=?, nacionalidad\_id=?, municipio\_nacimiento\_id=?, escolaridad=?, ocupacion=?, es\_tutor\_legal=?, tipo\_tutela\_id=?, resolucion\_tutela=?, fecha\_inicio\_tutela=?, direccion\_id=? WHERE id=?;} \\
+		\addlinespace
+		Q-022 & Registrar un idioma o dialecto del NNA. & 
+		\texttt{INSERT INTO nna\_idiomas (nna\_id, idioma\_id, nivel\_habla\_id, nivel\_comprension\_id, nivel\_escritura\_id, requiere\_traductor) VALUES (?, ?, ?, ?, ?, ?);} \\
+		\addlinespace
+		Q-023 & Consultar idiomas registrados del NNA. & 
+		\texttt{SELECT ni.*, i.nombre FROM nna\_idiomas ni JOIN cat\_idiomas i ON ni.idioma\_id = i.id WHERE ni.nna\_id = ?;} \\
+		\addlinespace
+		Q-024 & Registrar un idioma del Tutor. & 
+		\texttt{INSERT INTO tutor\_idiomas (tutor\_id, idioma\_id, nivel\_habla\_id, nivel\_comprension\_id, nivel\_escritura\_id, requiere\_traductor) VALUES (?, ?, ?, ?, ?, ?);} \\
+		\addlinespace
+		Q-025 & Consultar idiomas registrados del Tutor. & 
+		\texttt{SELECT ti.*, i.nombre FROM tutor\_idiomas ti JOIN cat\_idiomas i ON ti.idioma\_id = i.id WHERE ti.tutor\_id = ?;} \\
+		\addlinespace
+		Q-026 & Registrar una discapacidad asociada al NNA. & 
+		\texttt{INSERT INTO nna\_discapacidades (nna\_id, discapacidad\_id, tipo\_discapacidad, grado\_dependencia, observaciones) VALUES (?, ?, ?, ?, ?);} \\
+		\addlinespace
+		Q-027 & Consultar las discapacidades del NNA. & 
+		\texttt{SELECT nd.*, d.nombre FROM nna\_discapacidades nd JOIN cat\_discapacidades d ON nd.discapacidad\_id = d.id WHERE nd.nna\_id = ?;} \\
+		\addlinespace
+		Q-028 & Registrar una enfermedad crónica o padecimiento (NNA/Tutor). & 
+		\texttt{INSERT INTO personas\_enfermedades (nna\_id, tutor\_id, enfermedad\_id, tratamiento\_id, es\_cronica, esta\_controlada, requiere\_medicamento, nombre\_medicamento, observaciones) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);} \\
+		\addlinespace
+		Q-029 & Consultar enfermedades activas registradas para el menor o tutor. & 
+		\texttt{SELECT pe.*, e.nombre FROM personas\_enfermedades pe JOIN cat\_enfermedades e ON pe.enfermedad\_id = e.id WHERE pe.nna\_id = ? OR pe.tutor\_id = ?;} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsection{Módulo de Expedientes y Valoraciones}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de consultas --- Expedientes y Valoraciones}
+	\label{tab:consultas-expedientes}
+	\footnotesize
+	\begin{tabular}{l p{4.5cm} p{8.5cm}}
+		\toprule
+		\textbf{ID} & \textbf{Descripción} & \textbf{Sentencia SQL} \\
+		\midrule
+		Q-030 & Crear / Abrir expediente de atención para un NNA. & 
+		\texttt{INSERT INTO expedientes (folio\_fud, nna\_id, estatus\_proceso) VALUES (?, ?, 'Detección');} \\
+		\addlinespace
+		Q-031 & Consultar la información básica del expediente de un NNA. & 
+		\texttt{SELECT * FROM expedientes WHERE id = ? OR folio\_fud = ?;} \\
+		\addlinespace
+		Q-032 & Registrar una valoración multidisciplinaria de especialista. & 
+		\texttt{INSERT INTO valoraciones (expediente\_id, especialista\_id, area\_evaluacion, hallazgos\_dictamen, medidas\_sugeridas, fecha\_valoracion) VALUES (?, ?, ?, ?, ?, ?);} \\
+		\addlinespace
+		Q-033 & Registrar la vulneración de un derecho de la LGDNNA. & 
+		\texttt{INSERT INTO derechos\_vulnerados (expediente\_id, derecho\_id, esta\_vulnerado, observaciones, creado\_por, fecha\_registro) VALUES (?, ?, true, ?, ?, ?);} \\
+		\addlinespace
+		Q-034 & Actualizar el estado de vulneración/restitución de un derecho. & 
+		\texttt{UPDATE derechos\_vulnerados SET esta\_vulnerado = ?, observaciones = ? WHERE id = ?;} \\
+		\addlinespace
+		Q-035 & Obtener el historial de valoraciones del expediente. & 
+		\texttt{SELECT v.*, u.nombre FROM valoraciones v JOIN usuarios u ON v.especialista\_id = u.id WHERE v.expediente\_id = ? ORDER BY v.fecha\_valoracion DESC;} \\
+		\addlinespace
+		Q-036 & Obtener la lista de derechos vulnerados activos. & 
+		\texttt{SELECT dv.*, d.nom\_derecho FROM derechos\_vulnerados dv JOIN cat\_derecho\_lgdnna d ON dv.derecho\_id = d.id\_derecho WHERE dv.expediente\_id = ? AND dv.esta\_vulnerado = true;} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\subsection{Módulo de Directorio de Actores y Catálogos}
+
+\begin{table}[H]
+	\centering
+	\caption{Diccionario de consultas --- Directorio de Actores y Catálogos}
+	\label{tab:consultas-actores}
+	\footnotesize
+	\begin{tabular}{l p{4.5cm} p{8.5cm}}
+		\toprule
+		\textbf{ID} & \textbf{Descripción} & \textbf{Sentencia SQL} \\
+		\midrule
+		Q-037 & Registrar una nueva institución / actor de derechos. & 
+		\texttt{INSERT INTO actores\_derechos (nombre, tipo\_actor\_id, tiene\_registro\_oficial, registro\_oficial\_num, horario\_atencion, observaciones, activo, fecha\_registro, direccion\_id) VALUES (?, ?, ?, ?, ?, ?, true, ?, ?);} \\
+		\addlinespace
+		Q-038 & Registrar medios de contacto de un actor. & 
+		\texttt{INSERT INTO contactos (tel\_principal, tel\_secundario, correo, pagina\_web, red\_social\_id, red\_social\_usuario, actor\_id, es\_principal) VALUES (?, ?, ?, ?, ?, ?, ?, ?);} \\
+		\addlinespace
+		Q-039 & Registrar una dirección o ubicación de actor o persona. & 
+		\texttt{INSERT INTO direcciones (calle, no\_exterior, no\_interior, colonia\_id, tipo\_lugar\_id, pueblo\_comunidad, referencia\_ubicacion) VALUES (?, ?, ?, ?, ?, ?, ?);} \\
+		\addlinespace
+		Q-040 & Registrar datos específicos de Persona Física en el Directorio. & 
+		\texttt{INSERT INTO actor\_persona\_fisica (id\_actor, curp, rfc, fecha\_nacimiento, sexo, municipio\_id, escolaridad, ocupacion\_oficio, descripcion\_actividad, disponibilidad, es\_lider\_comunitario, es\_lider\_religioso, pertenece\_grupo, como\_contactar) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);} \\
+		\addlinespace
+		Q-041 & Registrar enlace o representante institucional del actor. & 
+		\texttt{INSERT INTO actor\_enlace (actor\_id, nom\_enlace, cargo\_enlace, es\_principal\_contacto, notas\_enlace) VALUES (?, ?, ?, ?, ?);} \\
+		\addlinespace
+		Q-042 & Consultar la lista de enlaces registrados para un actor. & 
+		\texttt{SELECT * FROM actor\_enlace WHERE actor\_id = ?;} \\
+		\addlinespace
+		Q-043 & Registrar un programa de apoyo ofrecido por el actor. & 
+		\texttt{INSERT INTO actor\_programa (actor\_id, nom\_programa, descripcion, fecha\_inicio, activo\_programa) VALUES (?, ?, ?, ?, true);} \\
+		\addlinespace
+		Q-044 & Registrar un servicio de apoyo asociado a un programa. & 
+		\texttt{INSERT INTO servicios\_actores (actor\_id, programa\_id, categoria\_id, nombre\_servicio, descripcion\_servicio, modalidad, es\_gratuito, costo, duracion, disponibilidad, requisitos\_tramites, poblacion\_objetivo, activo\_servicio) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, true);} \\
+		\addlinespace
+		Q-045 & Vincular un derecho de LGDNNA con un servicio de actor. & 
+		\texttt{INSERT INTO servicio\_derecho (servicio\_id, derecho\_id) VALUES (?, ?);} \\
+		\addlinespace
+		Q-046 & Vincular un servicio a un expediente (Canalización activa). & 
+		\texttt{INSERT INTO expediente\_vinculacion\_servicios (expediente\_id, servicio\_actor\_id, fecha\_vinculacion) VALUES (?, ?, ?);} \\
+		\addlinespace
+		Q-047 & Consultar las canalizaciones de servicios activas del expediente. & 
+		\texttt{SELECT evs.*, sa.nombre\_servicio, ad.nombre FROM expediente\_vinculacion\_servicios evs JOIN servicios\_actores sa ON evs.servicio\_actor\_id = sa.id JOIN actores\_derechos ad ON sa.actor\_id = ad.id WHERE evs.expediente\_id = ?;} \\
+		\addlinespace
+		Q-048 & Filtrar actores por municipio y categoría de servicio. & 
+		\texttt{SELECT a.*, sa.nombre\_servicio FROM actores\_derechos a JOIN direcciones d ON a.direccion\_id = d.id JOIN cat\_colonias c ON d.colonia\_id = c.id JOIN cat\_municipios m ON c.municipio\_id = m.id JOIN servicios\_actores sa ON sa.actor\_id = a.id WHERE m.id = ? AND sa.categoria\_id = ? AND a.activo = true;} \\
+		\addlinespace
+		Q-049 & Deshabilitar un actor de manera lógica. & 
+		\texttt{UPDATE actores\_derechos SET activo = false WHERE id = ?;} \\
+		\addlinespace
+		Q-050 & Reactivar un actor inhabilitado. & 
+		\texttt{UPDATE actores\_derechos SET activo = true WHERE id = ?;} \\
+		\addlinespace
+		Q-051 & Deshabilitar lógicamente un programa de actor. & 
+		\texttt{UPDATE actor\_programa SET activo\_programa = false WHERE id\_programa = ?;} \\
+		\addlinespace
+		Q-052 & Consultar colonias y municipios por Código Postal (SEPOMEX). & 
+		\texttt{SELECT col.id, col.nombre, mun.id, mun.nombre, est.id, est.nombre FROM cat\_colonias col JOIN cat\_municipios mun ON col.municipio\_id = mun.id JOIN cat\_estados est ON mun.estado\_id = est.id WHERE col.codigo\_postal = ?;} \\
+		\addlinespace
+		Q-053 & Obtener catálogo de idiomas INALI. & 
+		\texttt{SELECT id, nombre, variante FROM cat\_idiomas ORDER BY nombre ASC;} \\
+		\addlinespace
+		Q-054 & Consultar eventos programados en calendario mensual. & 
+		\texttt{SELECT * FROM eventos\_calendario WHERE fecha\_inicio >= ? AND fecha\_fin <= ?;} \\
+		\addlinespace
+		Q-055 & Registrar un nuevo evento o cita en la agenda del calendario. & 
+		\texttt{INSERT INTO eventos\_calendario (titulo, descripcion, fecha\_inicio, fecha\_fin, expediente\_id) VALUES (?, ?, ?, ?, ?);} \\
+		\addlinespace
+		Q-056 & Modificar datos u horarios de un evento en el calendario. & 
+		\texttt{UPDATE eventos\_calendario SET titulo=?, descripcion=?, fecha\_inicio=?, fecha\_fin=? WHERE id=?;} \\
 		\bottomrule
 	\end{tabular}
 \end{table}

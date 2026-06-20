@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -14,11 +14,19 @@ export default function RegistrarTutor() {
     fecha_nacimiento: "",
     sexo: "",
     curp: "",
-    nacionalidad: "Mexicana",
+    nacionalidad_id: "1", // Mexicana por defecto
     parentesco: "",
   });
 
+  const [nacionalidades, setNacionalidades] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/catalogos/nacionalidades")
+      .then(res => res.json())
+      .then(data => setNacionalidades(data))
+      .catch(err => console.error("Error loading nationalities", err));
+  }, []);
 
   const handleChange = (e: any) => {
     setForm({
@@ -31,13 +39,19 @@ export default function RegistrarTutor() {
     e.preventDefault();
     setLoading(true);
 
+    const payload = {
+      ...form,
+      nacionalidad_id: form.nacionalidad_id ? Number(form.nacionalidad_id) : null,
+    };
+    delete (payload as any).nacionalidad;
+
     try {
       const res = await fetch("http://localhost:8000/tutores/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       });
 
       if (!res.ok) {
@@ -130,12 +144,17 @@ export default function RegistrarTutor() {
             className="w-full border p-2 rounded"
           />
 
-          <input
-            name="nacionalidad"
-            value={form.nacionalidad}
+          <select
+            name="nacionalidad_id"
+            value={form.nacionalidad_id}
             onChange={handleChange}
             className="w-full border p-2 rounded"
-          />
+          >
+            <option value="">Selecciona nacionalidad</option>
+            {nacionalidades.map((n: any) => (
+              <option key={n.id} value={n.id}>{n.nombre}</option>
+            ))}
+          </select>
 
           <button
             type="submit"

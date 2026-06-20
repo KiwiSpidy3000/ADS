@@ -12,6 +12,7 @@ export default function EditarNNA() {
   const [equipos, setEquipos] = useState([]);
   const [tutores, setTutores] = useState([]);
   const [tiposVivienda, setTiposVivienda] = useState([]);
+  const [nacionalidades, setNacionalidades] = useState([]);
 
   const [cpInput, setCpInput] = useState("");
   const [datosCP, setDatosCP] = useState<any>(null);
@@ -23,7 +24,7 @@ export default function EditarNNA() {
     fecha_nacimiento: "",
     sexo: "",
     curp: "",
-    nacionalidad: "Mexicana",
+    nacionalidad_id: "",
     es_migrante: false,
     activo: true,
     estatus_escolar_id: "",
@@ -54,10 +55,11 @@ export default function EditarNNA() {
           viviendaRes
         ] = await Promise.all([
           fetch(`http://localhost:8000/nnas/${id}`),
-          fetch("http://localhost:8000/catalogos/estatus-escolar"),
+          fetch("http://localhost:8000/catalogos/grado-escolar"),
           fetch("http://localhost:8000/equipos/"),
           fetch("http://localhost:8000/tutores/"),
           fetch("http://localhost:8000/catalogos/tipos-vivienda-nna"),
+          fetch("http://localhost:8000/catalogos/nacionalidades"),
         ]);
 
         const nna = await nnaRes.json();
@@ -69,12 +71,12 @@ export default function EditarNNA() {
           fecha_nacimiento: nna.fecha_nacimiento?.split("T")[0] || "",
           sexo: nna.sexo || "",
           curp: nna.curp || "",
-          nacionalidad: nna.nacionalidad || "Mexicana",
+          nacionalidad_id: nna.nacionalidad?.id || "",
           es_migrante: nna.es_migrante || false,
           activo: nna.activo ?? true,
-          estatus_escolar_id: nna.estatus_escolar?.id || "",
+          estatus_escolar_id: nna.grado_escolar?.id || "",
           tutor_id: nna.tutor?.id || "",
-          equipo_asignado_id: nna.equipo?.id || "",
+          equipo_asignado_id: nna.equipo_asignado?.id || "",
           calle: nna.direccion?.calle || "",
           num_exterior: nna.direccion?.num_exterior || "",
           num_interior: nna.direccion?.num_interior || "",
@@ -87,6 +89,7 @@ export default function EditarNNA() {
         setEquipos(await equiposRes.json());
         setTutores(await tutoresRes.json());
         setTiposVivienda(await viviendaRes.json());
+        setNacionalidades(await nacRes.json());
         
 
       } catch (error) {
@@ -133,12 +136,15 @@ export default function EditarNNA() {
 
     const payload = {
       ...formData,
-      estatus_escolar_id: Number(formData.estatus_escolar_id) || null,
+      nacionalidad_id: Number(formData.nacionalidad_id) || null,
+      grado_escolar_id: Number(formData.estatus_escolar_id) || null,
       tutor_id: Number(formData.tutor_id) || null,
       equipo_asignado_id: Number(formData.equipo_asignado_id) || null,
       colonia_id: Number(formData.colonia_id) || null,
       vivienda_nna_id: Number(formData.vivienda_nna_id) || null,
     };
+    delete (payload as any).estatus_escolar_id;
+    delete (payload as any).nacionalidad;
 
     try {
       const res = await fetch(`http://localhost:8000/nnas/${id}`, {
@@ -231,8 +237,13 @@ export default function EditarNNA() {
 
     <div>
       <label className="text-sm text-gray-600">Nacionalidad</label>
-      <input name="nacionalidad" value={formData.nacionalidad} onChange={handleChange}
-        className="w-full border p-2 rounded" />
+      <select name="nacionalidad_id" value={formData.nacionalidad_id} onChange={handleChange}
+        className="w-full border p-2 rounded">
+        <option value="">Seleccionar nacionalidad</option>
+        {nacionalidades.map((n: any) => (
+          <option key={n.id} value={n.id}>{n.nombre}</option>
+        ))}
+      </select>
     </div>
 
     <div className="flex items-center gap-2 mt-6">
@@ -258,7 +269,7 @@ export default function EditarNNA() {
   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
     <div>
-      <label className="text-sm text-gray-600">Estatus escolar</label>
+      <label className="text-sm text-gray-600">Grado escolar</label>
       <select name="estatus_escolar_id"
         value={formData.estatus_escolar_id}
         onChange={handleChange}

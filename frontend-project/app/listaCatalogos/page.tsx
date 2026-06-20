@@ -15,7 +15,7 @@ interface ViviendaNNA {
   descripcion?: string;
 }
 
-interface EstatusEscolar {
+interface GradoEscolar {
   id: number;
   descripcion: string;
 }
@@ -112,7 +112,7 @@ export default function CatalogosPage() {
 
   const [tiposVivienda, setTiposVivienda] = useState<TipoVivienda[]>([]);
   const [viviendasNNA, setViviendasNNA] = useState<ViviendaNNA[]>([]);
-  const [estatusEscolar, setEstatusEscolar] = useState<EstatusEscolar[]>([]);
+  const [estatusEscolar, setEstatusEscolar] = useState<GradoEscolar[]>([]);
   const [idiomas, setIdiomas] = useState<Idioma[]>([]);
   const [enfermedades, setEnfermedades] = useState<Enfermedad[]>([]);
   const [discapacidades, setDiscapacidades] = useState<Discapacidad[]>([]);
@@ -146,7 +146,7 @@ export default function CatalogosPage() {
   useEffect(() => {
     fetchCatalogo<TipoVivienda>("/catalogos/tipo-vivienda/", setTiposVivienda, "tiposVivienda");
     fetchCatalogo<ViviendaNNA>("/catalogos/vivienda-nna/", setViviendasNNA, "viviendasNNA");
-    fetchCatalogo<EstatusEscolar>("/catalogos/estatus-escolar/", setEstatusEscolar, "estatusEscolar");
+    fetchCatalogo<GradoEscolar>("/catalogos/grado-escolar/", setEstatusEscolar, "estatusEscolar");
     fetchCatalogo<Idioma>("/catalogos/idiomas/", setIdiomas, "idiomas");
     fetchCatalogo<Enfermedad>("/catalogos/enfermedades/", setEnfermedades, "enfermedades");
     fetchCatalogo<Discapacidad>("/catalogos/discapacidades/", setDiscapacidades, "discapacidades");
@@ -210,9 +210,9 @@ export default function CatalogosPage() {
             )}
           />
 
-          {/* Estatus escolar */}
-          <CatalogoTabla<EstatusEscolar>
-            titulo="Estatus escolar"
+          {/* Grado escolar */}
+          <CatalogoTabla<GradoEscolar>
+            titulo="Grado escolar"
             columnas={["ID", "Descripción"]}
             datos={estatusEscolar}
             cargando={cargando.estatusEscolar}

@@ -128,6 +128,7 @@ export default function PerfilNNA() {
                   <p><b>Fecha de nacimiento:</b> {fechaNacimiento}</p>
                   <p><b>Sexo:</b> {nna.sexo}</p>
                   <p><b>CURP:</b> {nna.curp}</p>
+                  <p><b>Nacionalidad:</b> {nna.nacionalidad?.nombre || "No especificada"}</p>
                 </div>
               </div>
 
@@ -153,12 +154,12 @@ export default function PerfilNNA() {
                 </p>
               </div>
 
-              {/* ESTATUS ESCOLAR */}
+              {/* GRADO ESCOLAR */}
               <div className="border-t pt-6">
-                <h3 className="text-xl font-bold mb-4">Estatus Escolar</h3>
+                <h3 className="text-xl font-bold mb-4">Grado Escolar</h3>
 
                 <p>
-                  {nna.estatus_escolar?.descripcion || "No definido"}
+                  {nna.grado_escolar?.descripcion || "No definido"}
                 </p>
               </div>
 {/* DIRECCIÓN */}

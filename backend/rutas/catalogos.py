@@ -6,7 +6,7 @@ from sqlalchemy import select
 from typing import List
 from pydantic import BaseModel
 
-from models import CatRoles, CatTipoLugar, CatEstados, CatColonias, CatMunicipios, CatEstatusEscolar,CatTipoActor
+from models import CatRoles, CatTipoLugar, CatEstados, CatColonias, CatMunicipios, CatGradoEscolar, CatTipoActor, CatNacionalidades
 # from schemas import CatalogoBaseEstado, CatalogoBaseRol,CatalogoBaseTipoVivienda
 
 # from schemas import ColoniaResponse, CodigoPostalResponse, MunicipioResponse
@@ -107,17 +107,32 @@ async def obtener_tipo_vivienda(tipo_id: int, db: AsyncSession = Depends(get_db)
 
 from pydantic import BaseModel
 
-class CatEstatusEscolarResponse(BaseModel):
+class CatGradoEscolarResponse(BaseModel):
     id: int
     descripcion: str
 
     class Config:
         from_attributes = True
 
-@router.get("/estatus-escolar", response_model=list[CatEstatusEscolarResponse])
-async def obtener_estatus_escolar(db: AsyncSession = Depends(get_db)):
+@router.get("/grado-escolar", response_model=list[CatGradoEscolarResponse])
+async def obtener_grado_escolar(db: AsyncSession = Depends(get_db)):
     result = await db.execute(
-        select(CatEstatusEscolar).order_by(CatEstatusEscolar.descripcion)
+        select(CatGradoEscolar).order_by(CatGradoEscolar.descripcion)
+    )
+    return result.scalars().all()
+
+class CatNacionalidadResponse(BaseModel):
+    id: int
+    nombre: str
+    codigo: Optional[str] = None
+
+    class Config:
+        from_attributes = True
+
+@router.get("/nacionalidades", response_model=list[CatNacionalidadResponse])
+async def obtener_nacionalidades(db: AsyncSession = Depends(get_db)):
+    result = await db.execute(
+        select(CatNacionalidades).order_by(CatNacionalidades.nombre)
     )
     return result.scalars().all()
 

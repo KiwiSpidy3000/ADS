@@ -8,6 +8,7 @@ export default function RegistrarNNA() {
   const [equipos, setEquipos]               = useState([]);
   const [tutores, setTutores]               = useState([]);
   const [tiposVivienda, setTiposVivienda]   = useState([]);
+  const [nacionalidades, setNacionalidades] = useState([]);
 
   const [cpInput, setCpInput]   = useState("");
   const [datosCP, setDatosCP]   = useState<any>(null);
@@ -21,7 +22,7 @@ export default function RegistrarNNA() {
     fecha_nacimiento: "",
     sexo: "",
     curp: "",
-    nacionalidad: "Mexicana",
+    nacionalidad_id: "1", // Por defecto Mexicana (ID 1)
     es_migrante: false,
     estatus_escolar_id: "",
     tutor_id: "",
@@ -42,16 +43,18 @@ export default function RegistrarNNA() {
   // ── Cargar catálogos ────────────────────────────────────────
   useEffect(() => {
     const cargar = async () => {
-      const [escolarRes, equiposRes, tutoresRes, viviendaRes] = await Promise.all([
-        fetch("http://localhost:8000/catalogos/estatus-escolar"),
+      const [escolarRes, equiposRes, tutoresRes, viviendaRes, nacRes] = await Promise.all([
+        fetch("http://localhost:8000/catalogos/grado-escolar"),
         fetch("http://localhost:8000/equipos/"),
         fetch("http://localhost:8000/tutores/"),
         fetch("http://localhost:8000/catalogos/tipos-vivienda-nna"),
+        fetch("http://localhost:8000/catalogos/nacionalidades"),
       ]);
       setEstatusEscolar(await escolarRes.json());
       setEquipos(await equiposRes.json());
       setTutores(await tutoresRes.json());
       setTiposVivienda(await viviendaRes.json());
+      setNacionalidades(await nacRes.json());
     };
     cargar();
   }, []);
@@ -100,12 +103,14 @@ export default function RegistrarNNA() {
 
     const payload = {
       ...formData,
-      estatus_escolar_id: formData.estatus_escolar_id ? Number(formData.estatus_escolar_id) : null,
+      nacionalidad_id:    formData.nacionalidad_id    ? Number(formData.nacionalidad_id)    : null,
+      grado_escolar_id:   formData.estatus_escolar_id ? Number(formData.estatus_escolar_id) : null,
       tutor_id:           formData.tutor_id           ? Number(formData.tutor_id)           : null,
       equipo_asignado_id: formData.equipo_asignado_id ? Number(formData.equipo_asignado_id) : null,
       colonia_id:         formData.colonia_id         ? Number(formData.colonia_id)         : null,
       vivienda_nna_id:    formData.vivienda_nna_id    ? Number(formData.vivienda_nna_id)    : null,
     };
+    delete (payload as any).estatus_escolar_id;
 
     const res = await fetch("http://localhost:8000/nnas/", {
       method: "POST",
@@ -162,9 +167,12 @@ export default function RegistrarNNA() {
               </select>
               <input name="curp" maxLength={18} placeholder="CURP (opcional)"
                 className="w-full border p-2 rounded" onChange={handleChange} />
-              <input name="nacionalidad" placeholder="Nacionalidad"
-                defaultValue="Mexicana"
-                className="w-full border p-2 rounded" onChange={handleChange} />
+              <select name="nacionalidad_id" className="w-full border p-2 rounded" onChange={handleChange} value={formData.nacionalidad_id}>
+                <option value="">Seleccionar nacionalidad</option>
+                {nacionalidades.map((n: any) => (
+                  <option key={n.id} value={n.id}>{n.nombre}</option>
+                ))}
+              </select>
               <label className="flex items-center gap-2 text-sm text-gray-700 self-center">
                 <input type="checkbox" name="es_migrante" onChange={handleChange}
                   className="w-4 h-4" />
@@ -181,7 +189,7 @@ export default function RegistrarNNA() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <select name="estatus_escolar_id" className="w-full border p-2 rounded"
                 onChange={handleChange}>
-                <option value="">Estatus escolar</option>
+                <option value="">Grado escolar</option>
                 {estatusEscolar.map((e: any) => (
                   <option key={e.id} value={e.id}>{e.descripcion}</option>
                 ))}

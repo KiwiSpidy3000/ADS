@@ -27,7 +27,7 @@ class TutorCreate(BaseModel):
     fecha_nacimiento: date
     sexo: Optional[str] = None
     curp: Optional[str] = None
-    nacionalidad: Optional[str] = "Mexicana"
+    nacionalidad_id: Optional[int] = None
     parentesco: Optional[str] = None
     direccion_id: Optional[int] = None
 
@@ -39,7 +39,7 @@ class TutorResponse(BaseModel):
     fecha_nacimiento: date
     sexo: Optional[str]
     curp: Optional[str]
-    nacionalidad: Optional[str]
+    nacionalidad_id: Optional[int]
     parentesco: Optional[str]
     direccion_id: Optional[int]
 
@@ -88,7 +88,7 @@ async def crear_tutor(
         fecha_nacimiento=datos.fecha_nacimiento,
         sexo=datos.sexo,
         curp=datos.curp,
-        nacionalidad=datos.nacionalidad,
+        nacionalidad_id=datos.nacionalidad_id,
         parentesco=datos.parentesco,
         direccion_id=datos.direccion_id
     )

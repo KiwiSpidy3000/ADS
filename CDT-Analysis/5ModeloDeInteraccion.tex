@@ -1,0 +1,2146 @@
+% !TeX root = proyecto.tex
+%=========================================================
+\chapter{Modelo de la interacción}	
+\label{cap:modInteraccion}
+
+\cdtInstrucciones{Introduzca el capítulo indicando su contenido y organización.}
+Este capítulo describe el modelo de interfaces de usuario del sistema SICORRE, 
+detallando la interacción entre el usuario y el sistema. Se presentan el mapa 
+de navegación general del sistema, los elementos comunes a todas las pantallas 
+y la especificación detallada de cada interfaz, incluyendo sus objetivos, 
+entradas, y salidas.
+
+
+%---------------------------------------------------------
+\section{Modelo de navegación}
+
+La navegación del sistema SICORRE está basada en una arquitectura de tipo 
+jerárquica con acceso centralizado desde un panel principal diferenciado por 
+rol. Todos los flujos de navegación parten de la pantalla de inicio de sesión 
+(\IUref{IU01}{Pantalla de Inicio de Sesión}), desde la cual el sistema 
+redirige automáticamente al usuario hacia su panel correspondiente según 
+el perfil autenticado.
+
+El sistema cuenta con dos flujos de navegación principales:
+
+\begin{description}
+	\item[Flujo de Administrador:] Accesible para la directora y la 
+	coordinadora. Desde la \IUref{IU02}{Pantalla del Panel de Administrador} 
+	se puede acceder a la gestión de usuarios, equipos multidisciplinarios, 
+	catálogo de actores en materia de derechos y consulta de expedientes.
+	
+	\item[Flujo de Especialista:] Accesible para el trabajador social, 
+	abogado, psicólogo y médico. Desde la 
+	Pantalla del Panel de Especialista se puede acceder al 
+	registro y consulta de NNA's, gestión de expedientes, registro de 
+	valoraciones y consulta del calendario de casos.
+\end{description}
+
+Ambos flujos comparten elementos comunes de navegación presentes en todas 
+las pantallas del sistema:
+
+\begin{description}
+	\item[Barra superior:] Presente en todas las pantallas posteriores al 
+	inicio de sesión. Muestra el logotipo del sistema SICORRE, el nombre 
+	completo del usuario autenticado, su rol y el botón 
+	\IUbutton{Cerrar sesión}.
+\end{description}
+
+La navegación entre pantallas se muestra en la figura~\ref{fig:mapa}, en 
+ella se ilustra el flujo completo de interacción del usuario con el sistema, 
+desde el acceso inicial hasta las funcionalidades de cada módulo, 
+diferenciando los caminos disponibles según el rol autenticado.
+
+\begin{figure}[htbp!]
+	\begin{center}
+		\includegraphics[width=.95\textwidth]{images/flujo}
+		\caption{Mapa de navegación del sistema SICORRE.}
+		\label{fig:mapa}
+	\end{center}
+\end{figure}
+
+\clearpage
+%---------------------------------------------------------
+
+
+%--------------------------------------
+\section{IU01 Pantalla de Inicio de Sesión}
+
+\subsection{Objetivo}
+Permitir al personal autorizado de la Fundación Futuro con Derecho 
+autenticarse en el sistema SICORRE mediante sus credenciales de acceso 
+(correo electrónico y contraseña), redirigiendo al usuario hacia el 
+panel correspondiente a su rol una vez validada la identidad.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU01}{Pantalla de Inicio de Sesión} es la primera 
+que aparece al acceder al sistema SICORRE. El usuario debe ingresar su 
+correo electrónico institucional y su contraseña en los campos 
+correspondientes y presionar el botón \IUbutton{Ingresar} para 
+autenticarse. En caso de que las credenciales sean incorrectas, el 
+sistema mostrará un mensaje de error sin especificar cuál de los dos 
+campos es incorrecto, por razones de seguridad. Si la autenticación 
+es exitosa, el sistema redirigirá automáticamente al usuario hacia 
+su panel según su rol: la directora y coordinadora serán dirigidas 
+a la \IUref{IU02}{Pantalla del Panel de Administrador}, mientras que 
+los especialistas serán dirigidos a la Pantalla del Panel de Especialista.
+
+\IUfig[.7]{IU1-IniciarSesion}{IU01}{Pantalla de Inicio de Sesión.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Mensaje de bienvenida con el nombre del usuario autenticado.
+	\item Redirección a la \IUref{IU02}{Pantalla del Panel de 
+		Administrador} si el usuario tiene rol de administrador 
+	(directora o coordinadora).
+	\item Redirección a la Pantalla del Panel de 
+	Especialista (por programar) si el usuario tiene rol de especialista 
+	(trabajador social, abogado, psicólogo o médico).
+	\item Mensaje de error \MSGref{MSG01}{Credenciales incorrectas} 
+	si el correo o la contraseña no son válidos.
+	\item Mensaje de error \MSGref{MSG02}{Usuario inactivo} si la 
+	cuenta del usuario ha sido revocada por el administrador.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Correo electrónico:} Campo de texto donde el usuario 
+	ingresa su dirección de correo electrónico institucional registrada 
+	en el sistema.
+	\item \textbf{Contraseña:} Campo de texto enmascarado donde el 
+	usuario ingresa su contraseña de acceso.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Ingresar}: Valida las credenciales ingresadas 
+	contra la base de datos del sistema. Si la validación es exitosa 
+	y el usuario tiene rol de administrador, muestra la 
+	\IUref{IU02}{Pantalla del Panel de Administrador}. Si el usuario 
+	tiene rol de especialista, muestra la 
+	Pantalla del Panel de Especialista. Si las 
+	credenciales son incorrectas, muestra el mensaje 
+	\MSGref{MSG01}{Credenciales incorrectas}. Si la cuenta está 
+	revocada, muestra el mensaje \MSGref{MSG02}{Usuario inactivo}.
+	
+	\item \IUbutton{Cancelar}: Limpia los campos de correo electrónico 
+	y contraseña, permitiendo al usuario reingresar sus datos.
+\end{itemize}
+
+
+\section{IU02 Pantalla del Panel de Administrador}
+
+\subsection{Objetivo}
+Proporcionar a la directora y coordinadora un panel central de navegación 
+desde el cual puedan acceder a los cuatro módulos principales del sistema 
+SICORRE disponibles para el rol de administrador.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU02}{Pantalla del Panel de Administrador} aparece 
+inmediatamente después de que la directora o coordinadora inicia sesión 
+correctamente desde la \IUref{IU01}{Pantalla de Inicio de Sesión}. 
+
+En la parte superior se muestra la barra de navegación con el nombre del 
+usuario autenticado, su rol y el botón \IUbutton{Cerrar sesión}. El área 
+central presenta cuatro botones de acceso directo a los módulos del sistema, 
+organizados de forma clara para facilitar la navegación sin necesidad de 
+conocimientos técnicos previos.
+
+\IUfig[.9]{DashAdmin}{IU02}{Pantalla del Panel de Administrador.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Nombre y rol del usuario autenticado en la barra superior.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item No requiere entradas del usuario. La información del usuario 
+	autenticado se carga automáticamente al iniciar sesión.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Consultar usuarios}: Redirige a la 
+	\IUref{IU03}{Pantalla de Consulta de Usuarios} donde la directora 
+	o coordinadora puede visualizar, modificar, revocar y eliminar 
+	el acceso del personal registrado en el sistema.
+	
+	\item \IUbutton{Consultar equipos}: Redirige a la 
+	\IUref{IU07}{Pantalla de Consulta de Equipos Multidisciplinarios} 
+	donde se pueden visualizar y gestionar los equipos de trabajo 
+	registrados en el sistema.
+	
+	\item \IUbutton{Consultar NNAs y Tutores}: Redirige a la 
+	\IUref{IU11}{Pantalla de Consulta de NNAs y Tutores} donde se 
+	puede visualizar el listado de niñas, niños y adolescentes 
+	registrados en el sistema junto con los datos de sus tutores.
+	
+	\item \IUbutton{Restitución de Derechos}: Redirige a la 
+	\IUref{IU16}{Pantalla del Panel de Restitución de Derechos} donde se 
+	puede consultar el estado de los expedientes activos y los 
+	derechos vulnerados identificados para cada NNA.
+	
+	\item \IUbutton{Cerrar sesión}: Cierra la sesión activa del 
+	usuario y regresa a la \IUref{IU01}{Pantalla de Inicio de Sesión}.
+\end{itemize}
+
+
+% !TeX root = ../proyecto.tex
+%--------------------------------------
+\section{IU03 Pantalla de Consulta de Usuarios}
+
+\subsection{Objetivo}
+Permitir a la directora y coordinadora visualizar el listado completo 
+del personal registrado en el sistema SICORRE, así como acceder a las 
+opciones de gestión de cada usuario: modificar sus datos, revocar su 
+acceso o eliminar su registro. También permite iniciar el flujo de 
+registro de un nuevo integrante del equipo.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU03}{Pantalla de Consulta de Usuarios} es 
+accesible desde el botón \IUbutton{Consultar usuarios} de la 
+\IUref{IU02}{Pantalla del Panel de Administrador}. 
+
+Presenta una tabla con el listado de todo el personal registrado 
+en el sistema. Cada fila corresponde a un usuario e incluye su 
+nombre completo, rol asignado dentro del equipo multidisciplinario, 
+estatus de cuenta y las opciones de acción disponibles. En la parte 
+superior de la pantalla se encuentra el botón 
+\IUbutton{Registrar personal} para dar de alta un nuevo integrante.
+
+\IUfig[.9]{ListaUsuarios}{IU03}{Pantalla de Consulta de Usuarios.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Tabla con el listado del personal registrado en el sistema, 
+	mostrando por cada usuario:
+	\begin{itemize}
+		\item \textbf{Nombre:} Nombre completo del usuario registrado.
+		\item \textbf{Rol:} Perfil asignado al usuario dentro del 
+		equipo multidisciplinario (Administrador, Trabajador Social, 
+		Abogado, Psicólogo o Médico).
+		\item \textbf{Activo:} Estatus actual de la cuenta del usuario 
+		(Activo o Revocado).
+		\item \textbf{Opciones:} Acciones disponibles para cada usuario 
+		(Modificar, Revocar, Eliminar).
+	\end{itemize}
+	\item Mensaje \MSGref{MSG03}{Sin usuarios registrados} en caso de 
+	que no exista personal registrado en el sistema.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item No requiere entradas directas del usuario. El listado se 
+	carga automáticamente al acceder a la pantalla.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Registrar personal}: Redirige a la 
+	\IUref{IU04}{Pantalla de Registro de Personal} donde el 
+	administrador puede capturar los datos de un nuevo integrante 
+	del equipo multidisciplinario.
+	
+	\item \IUbutton{Modificar}: Disponible por cada fila de usuario 
+	en la tabla. Redirige a la 
+	\IUref{IU05}{Pantalla de Modificación de Usuario} donde se 
+	pueden editar los datos del usuario seleccionado.
+	
+	\item \IUbutton{Revocar}: Disponible por cada fila de usuario 
+	activo en la tabla. Muestra un mensaje de confirmación 
+	\MSGref{MSG04}{Confirmar revocación de acceso} antes de 
+	proceder. Al confirmar, el estatus del usuario cambia a 
+	\textit{Revocado} y se actualiza en la tabla sin eliminar 
+	su historial de actividad en el sistema.
+	
+	\item \IUbutton{Eliminar}: Disponible por cada fila de usuario 
+	en la tabla. Muestra un mensaje de confirmación 
+	\MSGref{MSG05}{Confirmar eliminación de usuario} antes de 
+	proceder. Al confirmar, el registro del usuario es eliminado 
+	permanentemente del sistema.
+	
+	\item \IUbutton{Volver}: Regresa a la 
+	\IUref{IU02}{Pantalla del Panel de Administrador}.
+\end{itemize}
+
+
+% !TeX root = ../proyecto.tex
+%--------------------------------------
+\section{IU04 Pantalla de Registro de Personal}
+
+\subsection{Objetivo}
+Permitir a la directora y coordinadora registrar un nuevo integrante 
+del equipo multidisciplinario en el sistema SICORRE, capturando sus 
+datos personales, de domicilio y de acceso al sistema.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU04}{Pantalla de Registro de Personal} es 
+accesible desde el botón \IUbutton{Registrar personal} de la 
+\IUref{IU03}{Pantalla de Consulta de Usuarios}.
+
+El formulario se organiza en dos secciones principales: 
+\textbf{Datos personales}, que incluye nombre, CURP, RFC, fecha 
+de nacimiento, sexo, tipo de personal, empleado, estado de cuenta 
+y rol; y \textbf{Dirección}, que utiliza el catálogo de códigos 
+postales de SEPOMEX para autocompletar el estado, municipio y 
+colonia una vez ingresado el código postal. Al presionar 
+\IUbutton{Buscar} con un código postal válido, los campos de 
+Estado y Municipio/Alcaldía se llenan automáticamente y el campo 
+Colonia muestra un selector con las colonias disponibles para 
+dicho código postal. Finalmente se capturan los datos de acceso 
+al sistema: correo electrónico y contraseña provisional.
+
+\IUfig[.9]{RegistroPersonal}{IU04}{Pantalla de Registro de Personal.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Campos de \textbf{Estado} y \textbf{Municipio/Alcaldía} 
+	autocompletados al ingresar un código postal válido y presionar 
+	\IUbutton{Buscar}.
+	\item Selector de \textbf{Colonia} poblado con las colonias 
+	correspondientes al código postal ingresado.
+	\item Mensaje \MSGref{MSG06}{Registro exitoso} al guardar 
+	correctamente el nuevo usuario.
+	\item Mensaje \MSGref{MSG07}{CURP ya registrada} si la CURP 
+	ingresada ya existe en el sistema.
+	\item Mensaje \MSGref{MSG08}{Correo ya registrado} si el correo 
+	electrónico ingresado ya está asociado a otro usuario.
+	\item Mensaje \MSGref{MSG09}{Código postal no encontrado} si el 
+	código postal ingresado no existe en el catálogo SEPOMEX.
+	\item Mensaje \MSGref{MSG10}{Campos obligatorios incompletos} si 
+	el usuario intenta guardar sin completar todos los campos 
+	requeridos.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Nombre(s):} Campo de texto obligatorio. Nombre o 
+	nombres del nuevo integrante.
+	\item \textbf{Apellido Paterno:} Campo de texto obligatorio.
+	\item \textbf{Apellido Materno:} Campo de texto obligatorio.
+	\item \textbf{CURP:} Campo de texto obligatorio. Debe tener 
+	18 caracteres con formato válido de CURP mexicana.
+	\item \textbf{RFC:} Campo de texto obligatorio. Debe tener 
+	13 caracteres con formato válido de RFC mexicano.
+	\item \textbf{Fecha de nacimiento:} Campo de fecha obligatorio 
+	con formato dd/mm/aaaa.
+	\item \textbf{Seleccionar Sexo:} Lista desplegable obligatoria 
+	con las opciones disponibles.
+	\item \textbf{Tipo de personal:} Lista desplegable obligatoria. 
+	Por defecto muestra la opción \textit{Empleado}.
+	\item \textbf{Estado de cuenta:} Lista desplegable obligatoria. 
+	Por defecto muestra la opción \textit{Activo}.
+	\item \textbf{Calle:} Campo de texto obligatorio correspondiente 
+	a la calle del domicilio.
+	\item \textbf{Número Exterior:} Campo de texto obligatorio.
+	\item \textbf{Número Interior:} Campo de texto opcional.
+	\item \textbf{Código Postal:} Campo de texto obligatorio. 
+	Acepta 5 dígitos numéricos. Ejemplo: 06600.
+	\item \textbf{Estado:} Campo de texto de solo lectura. 
+	Se autocompleta al buscar el código postal.
+	\item \textbf{Municipio / Alcaldía:} Campo de texto de solo 
+	lectura. Se autocompleta al buscar el código postal.
+	\item \textbf{Colonia:} Lista desplegable que se habilita 
+	únicamente después de realizar una búsqueda de código postal 
+	exitosa. Muestra el mensaje \textit{Busca un código postal 
+		primero} mientras no se haya realizado la búsqueda.
+	\item \textbf{Tipo de Vivienda:} Lista desplegable obligatoria 
+	con los tipos de vivienda disponibles en el catálogo del sistema.
+	\item \textbf{Rol:} Lista desplegable obligatoria con los roles 
+	disponibles en el sistema (Administrador, Trabajador Social, 
+	Abogado, Psicólogo, Médico).
+	\item \textbf{Correo:} Campo de texto obligatorio con formato 
+	de correo electrónico válido.
+	\item \textbf{Contraseña Provisional:} Campo de texto enmascarado 
+	obligatorio que será asignada al nuevo usuario para su primer 
+	acceso al sistema.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Buscar}: Consulta el catálogo SEPOMEX con el 
+	código postal ingresado. Si es válido, autocompleta los campos 
+	de Estado y Municipio/Alcaldía y habilita el selector de Colonia 
+	con las opciones correspondientes. Si no es válido, muestra el 
+	mensaje \MSGref{MSG09}{Código postal no encontrado}.
+	
+	\item \IUbutton{Guardar}: Valida que todos los campos obligatorios 
+	estén completos y con formato correcto. Si la validación es 
+	exitosa, registra al nuevo usuario en el sistema, muestra el 
+	mensaje \MSGref{MSG06}{Registro exitoso} y regresa a la 
+	\IUref{IU03}{Pantalla de Consulta de Usuarios}. Si hay campos 
+	incompletos muestra el mensaje 
+	\MSGref{MSG10}{Campos obligatorios incompletos}. Si la CURP ya 
+	existe muestra \MSGref{MSG07}{CURP ya registrada}. Si el correo 
+	ya existe muestra \MSGref{MSG08}{Correo ya registrado}.
+	
+	\item \IUbutton{Cancelar}: Descarta todos los datos ingresados 
+	en el formulario y regresa a la 
+	\IUref{IU03}{Pantalla de Consulta de Usuarios} sin realizar 
+	ningún cambio en el sistema.
+\end{itemize}
+
+
+% !TeX root = ../proyecto.tex
+%--------------------------------------
+\section{IU05 Pantalla de Modificación de Usuario}
+
+\subsection{Objetivo}
+Permitir a la directora y coordinadora editar los datos personales, 
+de domicilio y de acceso de un integrante del equipo multidisciplinario 
+previamente registrado en el sistema SICORRE.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU05}{Pantalla de Modificación de Usuario} es 
+accesible desde el botón \IUbutton{Modificar} correspondiente a un 
+usuario en la \IUref{IU03}{Pantalla de Consulta de Usuarios}.
+
+Al acceder, el sistema recupera automáticamente los datos actuales 
+del usuario seleccionado y los presenta precargados en todos los 
+campos del formulario, permitiendo al administrador identificar 
+y modificar únicamente la información que requiera actualización. 
+
+La estructura del formulario es idéntica a la de la 
+\IUref{IU04}{Pantalla de Registro de Personal}, organizada en dos 
+secciones: \textbf{Datos personales} y \textbf{Dirección}. El campo 
+de Colonia se muestra ya seleccionado con el valor actual del usuario, 
+sin necesidad de volver a buscar el código postal a menos que se 
+desee cambiar el domicilio. El campo de contraseña se muestra vacío 
+por seguridad; si se deja vacío al guardar, la contraseña actual 
+del usuario se conserva sin cambios.
+
+\IUfig[.9]{ModificarUsuario}{IU05}{Pantalla de Modificación de Usuario.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Todos los campos del formulario precargados con los datos 
+	actuales del usuario seleccionado.
+	\item Campos de \textbf{Estado} y \textbf{Municipio/Alcaldía} 
+	autocompletados si se realiza una nueva búsqueda por código postal.
+	\item Selector de \textbf{Colonia} actualizado si se realiza 
+	una nueva búsqueda por código postal.
+	\item Mensaje \MSGref{MSG11}{Modificación exitosa} al guardar 
+	los cambios correctamente.
+	\item Mensaje \MSGref{MSG07}{CURP ya registrada} si la CURP 
+	modificada ya pertenece a otro usuario en el sistema.
+	\item Mensaje \MSGref{MSG08}{Correo ya registrado} si el correo 
+	modificado ya está asociado a otro usuario en el sistema.
+	\item Mensaje \MSGref{MSG09}{Código postal no encontrado} si el 
+	código postal ingresado no existe en el catálogo SEPOMEX.
+	\item Mensaje \MSGref{MSG10}{Campos obligatorios incompletos} si 
+	se intenta guardar sin completar todos los campos requeridos.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Nombre(s):} Campo de texto obligatorio. 
+	Precargado con el valor actual.
+	\item \textbf{Apellido Paterno:} Campo de texto obligatorio. 
+	Precargado con el valor actual.
+	\item \textbf{Apellido Materno:} Campo de texto obligatorio. 
+	Precargado con el valor actual.
+	\item \textbf{CURP:} Campo de texto obligatorio de 18 caracteres. 
+	Precargado con el valor actual.
+	\item \textbf{RFC:} Campo de texto obligatorio de 13 caracteres. 
+	Precargado con el valor actual.
+	\item \textbf{Fecha de nacimiento:} Campo de fecha obligatorio 
+	con formato dd/mm/aaaa. Precargado con el valor actual.
+	\item \textbf{Seleccionar Sexo:} Lista desplegable obligatoria. 
+	Precargada con el valor actual.
+	\item \textbf{Tipo de personal:} Lista desplegable obligatoria. 
+	Precargada con el valor actual.
+	\item \textbf{Estado de cuenta:} Lista desplegable obligatoria. 
+	Precargada con el valor actual.
+	\item \textbf{Calle:} Campo de texto obligatorio. 
+	Precargado con el valor actual.
+	\item \textbf{Número Exterior:} Campo de texto obligatorio. 
+	Precargado con el valor actual.
+	\item \textbf{Número Interior:} Campo de texto opcional. 
+	Precargado con el valor actual si existe.
+	\item \textbf{Código Postal:} Campo de texto obligatorio de 
+	5 dígitos. Precargado con el valor actual.
+	\item \textbf{Estado:} Campo de solo lectura. Precargado con 
+	el valor actual. Se actualiza si se realiza una nueva búsqueda 
+	de código postal.
+	\item \textbf{Municipio / Alcaldía:} Campo de solo lectura. 
+	Precargado con el valor actual. Se actualiza si se realiza 
+	una nueva búsqueda de código postal.
+	\item \textbf{Colonia:} Lista desplegable obligatoria. 
+	Precargada con el valor actual del usuario.
+	\item \textbf{Tipo de Vivienda:} Lista desplegable obligatoria. 
+	Precargada con el valor actual.
+	\item \textbf{Rol:} Lista desplegable obligatoria. 
+	Precargada con el valor actual.
+	\item \textbf{Correo:} Campo de texto obligatorio. 
+	Precargado con el valor actual.
+	\item \textbf{Contraseña:} Campo de texto enmascarado opcional. 
+	Se muestra vacío por seguridad. Si se deja vacío al guardar, 
+	la contraseña actual del usuario se conserva sin cambios.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Buscar}: Consulta el catálogo SEPOMEX con el 
+	código postal ingresado. Si es válido, actualiza los campos de 
+	Estado y Municipio/Alcaldía y recarga el selector de Colonia 
+	con las opciones correspondientes. Si no es válido, muestra 
+	el mensaje \MSGref{MSG09}{Código postal no encontrado}.
+	
+	\item \IUbutton{Guardar cambios}: Valida que todos los campos 
+	obligatorios estén completos y con formato correcto. Si la 
+	validación es exitosa, actualiza los datos del usuario en el 
+	sistema, muestra el mensaje \MSGref{MSG11}{Modificación exitosa} 
+	y regresa a la \IUref{IU03}{Pantalla de Consulta de Usuarios}. 
+	Si hay campos incompletos muestra 
+	\MSGref{MSG10}{Campos obligatorios incompletos}. Si la CURP 
+	modificada pertenece a otro usuario muestra 
+	\MSGref{MSG07}{CURP ya registrada}. Si el correo modificado 
+	pertenece a otro usuario muestra 
+	\MSGref{MSG08}{Correo ya registrado}.
+	
+	\item \IUbutton{Cancelar}: Descarta todos los cambios realizados 
+	en el formulario y regresa a la 
+	\IUref{IU03}{Pantalla de Consulta de Usuarios} conservando los 
+	datos originales del usuario sin modificación alguna.
+\end{itemize}
+
+% !TeX root = ../proyecto.tex
+%--------------------------------------
+\section{IU06 Pantalla de Consulta de Usuario}
+
+\subsection{Objetivo}
+Permitir a la directora y coordinadora visualizar el detalle completo 
+de los datos de un integrante del equipo multidisciplinario registrado 
+en el sistema SICORRE, así como acceder a las opciones de gestión 
+disponibles para dicho usuario.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU06}{Pantalla de Consulta de Usuario} es 
+accesible al seleccionar el nombre de un usuario en la tabla de la 
+\IUref{IU03}{Pantalla de Consulta de Usuarios}.
+
+Al acceder, el sistema recupera y presenta todos los datos del usuario 
+seleccionado organizados en tres secciones de solo lectura:
+
+\begin{description}
+	\item[Datos personales:] Nombre completo, CURP, RFC, fecha de 
+	nacimiento, sexo, tipo de personal y estado de cuenta.
+	\item[Dirección:] Calle, número exterior, número interior, 
+	código postal, estado, municipio o alcaldía, colonia y tipo 
+	de vivienda.
+	\item[Datos del sistema:] Rol asignado, correo electrónico 
+	y fecha de registro en el sistema.
+\end{description}
+
+En la parte inferior de la pantalla se presentan los botones de 
+acción disponibles para gestionar al usuario consultado.
+
+\IUfig[.9]{ConsultaUsaurios.png}{IU06}{Pantalla de Consulta de Usuario.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Datos personales completos del usuario seleccionado 
+	en modo de solo lectura.
+	\item Datos de domicilio completos del usuario seleccionado 
+	en modo de solo lectura.
+	\item Datos del sistema del usuario seleccionado en modo 
+	de solo lectura.
+	\item Mensaje \MSGref{MSG04}{Confirmar revocación de acceso} 
+	al presionar \IUbutton{Revocar}.
+	\item Mensaje \MSGref{MSG05}{Confirmar eliminación de usuario} 
+	al presionar \IUbutton{Eliminar}.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item No requiere entradas del usuario. Todos los datos se 
+	cargan automáticamente a partir del usuario seleccionado 
+	en la \IUref{IU03}{Pantalla de Consulta de Usuarios}.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Modificar}: Redirige a la 
+	\IUref{IU05}{Pantalla de Modificación de Usuario} con los 
+	datos del usuario actual precargados en el formulario.
+	
+	\item \IUbutton{Revocar}: Muestra el mensaje de confirmación 
+	\MSGref{MSG04}{Confirmar revocación de acceso}. Al confirmar, 
+	el estatus de la cuenta del usuario cambia a \textit{Revocado}, 
+	impidiendo su acceso al sistema sin eliminar su historial de 
+	actividad. La pantalla se actualiza reflejando el nuevo estatus.
+	
+	\item \IUbutton{Eliminar}: Muestra el mensaje de confirmación 
+	\MSGref{MSG05}{Confirmar eliminación de usuario}. Al confirmar, 
+	el registro del usuario es eliminado permanentemente del sistema 
+	y redirige a la 
+	\IUref{IU03}{Pantalla de Consulta de Usuarios}.
+	
+	\item \IUbutton{Volver}: Regresa a la 
+	\IUref{IU03}{Pantalla de Consulta de Usuarios} sin realizar 
+	ningún cambio.
+\end{itemize}
+
+
+% !TeX root = ../proyecto.tex
+%--------------------------------------
+\section{IU07 Pantalla de Consulta de Equipos Multidisciplinarios}
+
+\subsection{Objetivo}
+Permitir a la directora y coordinadora visualizar el listado completo 
+de los equipos multidisciplinarios registrados en el sistema SICORRE, 
+así como acceder a las opciones de gestión de cada equipo.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU07}{Pantalla de Consulta de Equipos 
+	Multidisciplinarios} es accesible desde el botón 
+\IUbutton{Consultar equipos} de la 
+\IUref{IU02}{Pantalla del Panel de Administrador}.
+
+Presenta una tabla con el listado de todos los equipos 
+multidisciplinarios registrados en el sistema. Cada fila corresponde 
+a un equipo e incluye su nombre, estatus, el listado de integrantes 
+que lo conforman y las opciones de acción disponibles. En la parte 
+superior de la pantalla se encuentra el botón 
+\IUbutton{Registrar equipo} para dar de alta un nuevo equipo 
+multidisciplinario.
+
+\IUfig[.9]{ConsultaEquipo}{IU07}{Pantalla de Consulta de Equipos 
+	Multidisciplinarios.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Tabla con el listado de equipos multidisciplinarios 
+	registrados en el sistema, mostrando por cada equipo:
+	\begin{itemize}
+		\item \textbf{Nombre:} Nombre del equipo multidisciplinario.
+		\item \textbf{Estatus:} Estado actual del equipo 
+		(Activo o Inactivo).
+		\item \textbf{Integrantes:} Listado de los integrantes 
+		que conforman el equipo con su rol correspondiente.
+		\item \textbf{Opciones:} Acciones disponibles para cada 
+		equipo (Modificar, Eliminar).
+	\end{itemize}
+	\item Mensaje \MSGref{MSG12}{Sin equipos registrados} en caso 
+	de que no exista ningún equipo registrado en el sistema.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item No requiere entradas directas del usuario. El listado 
+	se carga automáticamente al acceder a la pantalla.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Registrar equipo}: Redirige a la 
+	\IUref{IU08}{Pantalla de Registro de Equipo} donde el 
+	administrador puede capturar los datos de un nuevo equipo 
+	multidisciplinario y asignar sus integrantes.
+	
+	\item \IUbutton{Modificar}: Disponible por cada fila de equipo 
+	en la tabla. Redirige a la 
+	\IUref{IU10}{Pantalla de Modificación de Equipo} donde se 
+	pueden editar los datos del equipo seleccionado y gestionar 
+	sus integrantes.
+	
+	\item \IUbutton{Eliminar}: Disponible por cada fila de equipo 
+	en la tabla. Muestra el mensaje de confirmación 
+	\MSGref{MSG13}{Confirmar eliminación de equipo} antes de 
+	proceder. Al confirmar, el registro del equipo es eliminado 
+	permanentemente del sistema y la tabla se actualiza.
+	
+	\item \IUbutton{Volver}: Regresa a la 
+	\IUref{IU02}{Pantalla del Panel de Administrador}.
+\end{itemize}
+
+
+
+% !TeX root = ../proyecto.tex
+%--------------------------------------
+\section{IU08 Pantalla de Registro de Equipo}
+
+\subsection{Objetivo}
+Permitir a la directora y coordinadora registrar un nuevo equipo 
+multidisciplinario en el sistema SICORRE asignándole un nombre 
+único que lo identifique.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU08}{Pantalla de Registro de Equipo} es 
+accesible desde el botón \IUbutton{Registrar equipo} de la 
+\IUref{IU07}{Pantalla de Consulta de Equipos Multidisciplinarios}.
+
+Presenta un formulario simple con un único campo de texto para 
+capturar el nombre del nuevo equipo multidisciplinario y los 
+botones de acción correspondientes.
+
+\IUfig[.9]{RegistroEquipo}{IU08}{Pantalla de Registro de Equipo.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Mensaje \MSGref{MSG14}{Equipo registrado exitosamente} 
+	al guardar correctamente el nuevo equipo.
+	\item Mensaje \MSGref{MSG15}{Nombre de equipo ya registrado} 
+	si el nombre ingresado ya existe en el sistema.
+	\item Mensaje \MSGref{MSG10}{Campos obligatorios incompletos} 
+	si se intenta guardar sin ingresar el nombre del equipo.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Nombre del equipo:} Campo de texto obligatorio 
+	con el nombre que identificará al nuevo equipo 
+	multidisciplinario dentro del sistema.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Guardar}: Valida que el campo de nombre esté 
+	completo y no esté duplicado. Si la validación es exitosa, 
+	registra el nuevo equipo en el sistema con estatus 
+	\textit{Activo}, muestra el mensaje 
+	\MSGref{MSG14}{Equipo registrado exitosamente} y regresa a 
+	la \IUref{IU07}{Pantalla de Consulta de Equipos 
+		Multidisciplinarios}. Si el campo está vacío muestra 
+	\MSGref{MSG10}{Campos obligatorios incompletos}. Si el nombre 
+	ya existe muestra 
+	\MSGref{MSG15}{Nombre de equipo ya registrado}.
+	
+	\item \IUbutton{Cancelar}: Descarta el dato ingresado y 
+	regresa a la \IUref{IU07}{Pantalla de Consulta de Equipos 
+		Multidisciplinarios} sin realizar ningún cambio en el sistema.
+\end{itemize}
+
+
+% !TeX root = ../proyecto.tex
+%--------------------------------------
+\section{IU09 Pantalla de Añadir Integrantes a Equipo}
+
+\subsection{Objetivo}
+Permitir a la directora y coordinadora asignar integrantes 
+disponibles a un equipo multidisciplinario registrado en el 
+sistema SICORRE, mostrando únicamente el personal que no 
+pertenece a ningún equipo activo.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU09}{Pantalla de Añadir Integrantes a Equipo} 
+es accesible desde el botón \IUbutton{Modificar} de un equipo en la 
+\IUref{IU07}{Pantalla de Consulta de Equipos Multidisciplinarios}.
+
+Presenta una tabla con el listado del personal disponible, es decir, 
+los integrantes registrados en el sistema que actualmente no 
+pertenecen a ningún equipo multidisciplinario activo. Cada fila 
+muestra el nombre completo del integrante y su rol, junto con un 
+botón \IUbutton{Agregar} para asignarlo al equipo actual.
+
+En caso de que todo el personal ya esté asignado a un equipo, 
+la tabla mostrará el mensaje 
+\MSGref{MSG16}{No hay integrantes disponibles}.
+
+\IUfig[.9]{AnadirIntegrantes}{IU09}{Pantalla de Añadir Integrantes 
+	a Equipo.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Nombre del equipo al que se están asignando integrantes, 
+	mostrado en el encabezado de la pantalla.
+	\item Tabla con el listado del personal disponible mostrando 
+	por cada integrante:
+	\begin{itemize}
+		\item \textbf{Nombre:} Nombre completo del integrante 
+		disponible.
+		\item \textbf{Rol:} Perfil del integrante dentro del 
+		equipo multidisciplinario.
+		\item \textbf{Opciones:} Botón \IUbutton{Agregar} 
+		por cada fila.
+	\end{itemize}
+	\item Mensaje \MSGref{MSG16}{No hay integrantes disponibles} 
+	si todo el personal activo ya pertenece a un equipo.
+	\item Mensaje \MSGref{MSG17}{Integrante agregado exitosamente} 
+	al asignar correctamente un integrante al equipo.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item No requiere entradas directas del usuario. El listado 
+	de integrantes disponibles se carga automáticamente al 
+	acceder a la pantalla.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Agregar}: Disponible por cada fila de 
+	integrante en la tabla. Asigna al integrante seleccionado 
+	al equipo actual, muestra el mensaje 
+	\MSGref{MSG17}{Integrante agregado exitosamente} y actualiza 
+	la tabla eliminando al integrante recién asignado de la 
+	lista de disponibles.
+	
+	\item \IUbutton{Volver}: Regresa a la 
+	\IUref{IU07}{Pantalla de Consulta de Equipos 
+		Multidisciplinarios} sin realizar cambios adicionales.
+\end{itemize}
+
+
+% !TeX root = ../proyecto.tex
+\section{IU10 Pantalla de Modificación de Equipo}
+
+\subsection{Objetivo}
+Permitir a la directora y coordinadora modificar el nombre de un equipo multidisciplinario registrado en el sistema SICORRE, así como eliminar integrantes que actualmente pertenecen a dicho equipo.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU10}{Pantalla de Modificación de Equipo} es accesible desde el botón \IUbutton{Modificar} de un equipo en la \IUref{IU07}{Pantalla de Consulta de Equipos Multidisciplinarios}. Presenta un campo de texto editable con el nombre actual del equipo, permitiendo al usuario actualizarlo. Además, muestra una tabla con los integrantes que actualmente pertenecen al equipo, donde cada fila contiene el nombre completo del integrante, su rol y un botón \IUbutton{Eliminar} para removerlo del equipo. En caso de que el equipo no cuente con integrantes registrados, la tabla mostrará el mensaje \MSGref{MSG18}{No hay integrantes en el equipo}.
+
+\IUfig[.9]{ModificarEquipo}{IU10}{Pantalla de Modificación de Equipo.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Campo de texto con el nombre actual del equipo, disponible para edición.
+	\item Tabla con el listado de integrantes actuales del equipo, mostrando por cada integrante:
+	\begin{itemize}
+		\item \textbf{Nombre:} Nombre completo del integrante.
+		\item \textbf{Rol:} Perfil del integrante dentro del equipo multidisciplinario.
+		\item \textbf{Opciones:} Botón \IUbutton{Eliminar} por cada fila.
+	\end{itemize}
+	\item Mensaje \MSGref{MSG18}{No hay integrantes en el equipo} si el equipo no tiene integrantes asignados.
+	\item Mensaje \MSGref{MSG19}{Equipo modificado exitosamente} al guardar los cambios correctamente.
+	\item Mensaje \MSGref{MSG20}{Integrante eliminado exitosamente} al remover correctamente un integrante del equipo.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Nombre del equipo:} Campo de texto editable con el nombre actual del equipo. El usuario puede modificarlo para actualizarlo.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Guardar}: Almacena el nuevo nombre del equipo en el sistema, muestra el mensaje \MSGref{MSG19}{Equipo modificado exitosamente} y permanece en la pantalla actual con los datos actualizados.
+	\item \IUbutton{Eliminar}: Disponible por cada fila de integrante en la tabla. Remueve al integrante seleccionado del equipo, muestra el mensaje \MSGref{MSG20}{Integrante eliminado exitosamente} y actualiza la tabla eliminando la fila correspondiente.
+	\item \IUbutton{Volver}: Regresa a la \IUref{IU07}{Pantalla de Consulta de Equipos Multidisciplinarios} sin realizar cambios adicionales.
+\end{itemize}
+
+
+% !TeX root = ../proyecto.tex
+%--------------------------------------
+\section{IU11 Pantalla de Consulta de NNAs y Tutores}
+
+\subsection{Objetivo}
+Permitir a la directora y coordinadora consultar el listado de Niñas, Niños y Adolescentes (NNAs) y sus tutores registrados en el sistema SICORRE, así como acceder a la edición o eliminación de los registros de NNAs.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU11}{Pantalla de Consulta de NNAs y Tutores} es accesible desde la \IUref{IU02}{Pantalla del Panel de Administrador}. Presenta dos tablas independientes: la primera corresponde al listado de NNAs y la segunda al listado de tutores registrados en el sistema.
+
+La tabla de NNAs muestra por cada registro el nombre completo, CURP, fecha de nacimiento, sexo, grado escolar, equipo asignado y estatus, junto con dos columnas de operaciones: \textbf{Acciones}, que contiene el botón \IUbutton{Editar}, y \textbf{Gestión}, que contiene el botón \IUbutton{Eliminar}.
+
+La tabla de Tutores muestra por cada registro el nombre completo, CURP, parentesco y sexo, siendo únicamente de consulta sin acciones disponibles.
+
+En caso de no existir NNAs registrados, la tabla correspondiente mostrará el mensaje \MSGref{MSG21}{No hay NNAs registrados}. De igual forma, si no existen tutores registrados, se mostrará el mensaje \MSGref{MSG22}{No hay tutores registrados}.
+
+\IUfig[.9]{ConsultaNNAsTutores}{IU11}{Pantalla de Consulta de NNAs y Tutores.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Tabla de NNAs con los siguientes campos por registro:
+	\begin{itemize}
+		\item \textbf{Nombre:} Nombre completo del NNA.
+		\item \textbf{CURP:} Clave Única de Registro de Población del NNA.
+		\item \textbf{Fecha de nacimiento:} Fecha de nacimiento del NNA.
+		\item \textbf{Sexo:} Sexo del NNA.
+		\item \textbf{Grado escolar:} Situación escolar actual del NNA.
+		\item \textbf{Equipo asignado:} Nombre del equipo multidisciplinario asignado al NNA.
+		\item \textbf{Estatus:} Estado actual del registro del NNA en el sistema.
+		\item \textbf{Acciones:} Botón \IUbutton{Editar} por cada fila.
+		\item \textbf{Gestión:} Botón \IUbutton{Eliminar} por cada fila.
+	\end{itemize}
+	\item Tabla de Tutores con los siguientes campos por registro:
+	\begin{itemize}
+		\item \textbf{Nombre:} Nombre completo del tutor.
+		\item \textbf{CURP:} Clave Única de Registro de Población del tutor.
+		\item \textbf{Parentesco:} Relación del tutor con el NNA.
+		\item \textbf{Sexo:} Sexo del tutor.
+	\end{itemize}
+	\item Mensaje \MSGref{MSG21}{No hay NNAs registrados} si no existen NNAs en el sistema.
+	\item Mensaje \MSGref{MSG22}{No hay tutores registrados} si no existen tutores en el sistema.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item No requiere entradas directas del usuario. Ambos listados se cargan automáticamente al acceder a la pantalla.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Editar}: Disponible por cada fila de la tabla de NNAs en la columna Acciones. Redirige a la pantalla de modificación del NNA seleccionado.
+	\item \IUbutton{Eliminar}: Disponible por cada fila de la tabla de NNAs en la columna Gestión. Elimina el registro del NNA seleccionado del sistema y actualiza la tabla.
+	\item \IUbutton{Volver}: Regresa a la \IUref{IU02}{Pantalla del Panel de Administrador}.
+\end{itemize}
+
+
+% !TeX root = ../proyecto.tex
+%--------------------------------------
+\section{IU12 Pantalla de Registro de NNA}
+
+\subsection{Objetivo}
+Permitir a la directora y coordinadora registrar en el sistema SICORRE los datos personales, escolares y de domicilio de una Niña, Niño o Adolescente (NNA), así como asignarle un tutor y un equipo multidisciplinario.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU12}{Pantalla de Registro de NNA} es accesible desde la \IUref{IU11}{Pantalla de Consulta de NNAs y Tutores}. El formulario se organiza en tres secciones: \textbf{Datos personales}, \textbf{Escolaridad y asignación} y \textbf{Domicilio}.
+
+La sección de \textbf{Datos personales} contiene campos para ingresar el nombre, apellido paterno, apellido materno, fecha de nacimiento, sexo, CURP (opcional) y nacionalidad del NNA. Adicionalmente, presenta el checkbox \IUbutton{Es migrante} para indicar si el NNA tiene condición migratoria.
+
+La sección de \textbf{Escolaridad y asignación} contiene un selector de grado escolar, un selector de tutor y un selector de equipo asignado.
+
+La sección de \textbf{Domicilio} permite ingresar el código postal y utilizar el botón \IUbutton{Buscar} para autocompletar los campos de la dirección. Una vez ejecutada la búsqueda, se habilitan los campos de calle, número exterior, número interior, pueblo o comunidad y tipo de vivienda.
+
+\IUfig[.9]{RegistroNNA}{IU12}{Pantalla de Registro de NNA.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Formulario con los campos del NNA organizados en tres secciones:
+	\begin{itemize}
+		\item \textbf{Datos personales:} Nombre(s), apellido paterno, apellido materno, fecha de nacimiento, sexo, CURP y nacionalidad.
+		\item \textbf{Escolaridad y asignación:} Grado escolar, tutor asignado y equipo asignado.
+		\item \textbf{Domicilio:} Código postal, calle, número exterior, número interior, pueblo o comunidad y tipo de vivienda.
+	\end{itemize}
+	\item Mensaje \MSGref{MSG23}{NNA registrado exitosamente} al guardar el registro correctamente.
+	\item Mensaje \MSGref{MSG24}{Error al registrar NNA} si ocurre un problema al guardar el registro.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Nombre(s):} Campo de texto obligatorio. Nombre(s) del NNA.
+	\item \textbf{Apellido paterno:} Campo de texto obligatorio.
+	\item \textbf{Apellido materno:} Campo de texto obligatorio.
+	\item \textbf{Fecha de nacimiento:} Campo de fecha obligatorio con formato dd/mm/aaaa.
+	\item \textbf{Sexo:} Selector desplegable obligatorio.
+	\item \textbf{CURP:} Campo de texto opcional.
+	\item \textbf{Nacionalidad:} Selector desplegable obligatorio (catálogo CatNacionalidades). Valor por defecto: \textit{Mexicana}.
+	\item \textbf{Es migrante:} Checkbox opcional. Indica si el NNA tiene condición migratoria.
+	\item \textbf{Grado escolar:} Selector desplegable obligatorio.
+	\item \textbf{Seleccionar tutor:} Selector desplegable obligatorio.
+	\item \textbf{Equipo asignado:} Selector desplegable obligatorio.
+	\item \textbf{Código postal:} Campo de texto obligatorio. Se utiliza junto con el botón \IUbutton{Buscar} para autocompletar los campos de domicilio.
+	\item \textbf{Calle:} Campo de texto obligatorio. Se autocompleta al buscar por código postal.
+	\item \textbf{Núm. exterior:} Campo de texto obligatorio.
+	\item \textbf{Núm. interior:} Campo de texto opcional.
+	\item \textbf{Pueblo / Comunidad:} Campo de texto obligatorio. Se autocompleta al buscar por código postal.
+	\item \textbf{Tipo de vivienda:} Selector desplegable obligatorio.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Buscar}: Localiza el código postal ingresado y autocompleta los campos de domicilio correspondientes.
+	\item \IUbutton{Guardar registro}: Valida los campos del formulario y almacena el registro del NNA en el sistema. Muestra el mensaje \MSGref{MSG23}{NNA registrado exitosamente} si el proceso concluye correctamente.
+	\item \IUbutton{Cancelar}: Descarta los datos ingresados y regresa a la \IUref{IU11}{Pantalla de Consulta de NNAs y Tutores} sin realizar cambios.
+\end{itemize}
+
+
+
+
+
+% !TeX root = ../proyecto.tex
+%--------------------------------------
+\section{IU13 Pantalla de Registro de Tutor}
+
+\subsection{Objetivo}
+Permitir a la directora y coordinadora registrar en el sistema SICORRE los datos personales de un tutor vinculado a una Niña, Niño o Adolescente (NNA).
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU13}{Pantalla de Registro de Tutor} es accesible desde el botón \IUbutton{Registrar Tutor} ubicado en la sección de tutores de la \IUref{IU11}{Pantalla de Consulta de NNAs y Tutores}. Presenta un formulario con los datos personales del tutor: nombre, primer apellido, segundo apellido, fecha de nacimiento, sexo, CURP, parentesco y nacionalidad. Adicionalmente, incluye el checkbox \IUbutton{Es migrante} para indicar si el tutor tiene condición migratoria.
+
+{\tiny }\IUfig[.9]{RegistroTutor}{IU13}{Pantalla de Registro de Tutor.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Formulario con los datos personales del tutor.
+	\item Mensaje \MSGref{MSG25}{Tutor registrado exitosamente} al guardar el registro correctamente.
+	\item Mensaje \MSGref{MSG26}{Error al registrar tutor} si ocurre un problema al guardar el registro.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Nombre:} Campo de texto obligatorio. Nombre(s) del tutor.
+	\item \textbf{Primer apellido:} Campo de texto obligatorio.
+	\item \textbf{Segundo apellido:} Campo de texto obligatorio.
+	\item \textbf{Fecha de nacimiento:} Campo de fecha obligatorio con formato dd/mm/aaaa.
+	\item \textbf{Sexo:} Selector desplegable obligatorio.
+	\item \textbf{CURP:} Campo de texto opcional.
+	\item \textbf{Parentesco:} Campo de texto obligatorio. Indica la relación del tutor con el NNA (Ej. Padre, Madre).
+	\item \textbf{Nacionalidad:} Selector desplegable obligatorio (catálogo CatNacionalidades). Valor por defecto: \textit{Mexicana}.
+	\item \textbf{Es migrante:} Checkbox opcional. Indica si el tutor tiene condición migratoria.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Guardar registro}: Valida los campos del formulario y almacena el registro del tutor en el sistema. Muestra el mensaje \MSGref{MSG25}{Tutor registrado exitosamente} si el proceso concluye correctamente.
+	\item \IUbutton{Cancelar}: Descarta los datos ingresados y regresa a la \IUref{IU11}{Pantalla de Consulta de NNAs y Tutores} sin realizar cambios.
+\end{itemize}
+
+% !TeX root = ../proyecto.tex
+%--------------------------------------
+\section{IU14 Pantalla de Consulta de NNA}
+
+\subsection{Objetivo}
+Permitir a la directora y coordinadora consultar el perfil completo de una Niña, 
+Niño o Adolescente (NNA) registrado en el sistema SICORRE, incluyendo su 
+información personal, tutor, equipo asignado, grado escolar y domicilio.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU14}{Pantalla de Consulta de NNA} es accesible al 
+seleccionar el nombre de un NNA en la tabla correspondiente de la 
+\IUref{IU11}{Pantalla de Consulta de NNAs y Tutores}. Muestra el perfil completo 
+del NNA organizado en las siguientes secciones: \textbf{Información Personal}, 
+\textbf{Tutor}, \textbf{Equipo}, \textbf{Grado Escolar} y \textbf{Dirección}. 
+La pantalla también presenta una fotografía del NNA en el encabezado junto con 
+su nombre completo.
+
+\IUfig[.9]{ConsultaNNA}{IU14}{Pantalla de Consulta de NNA.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Fotografía y nombre completo del NNA en el encabezado.
+	\item \textbf{Información Personal:}
+	\begin{itemize}
+		\item \textbf{Fecha de nacimiento:} Fecha de nacimiento del NNA.
+		\item \textbf{Sexo:} Sexo del NNA.
+		\item \textbf{CURP:} Clave Única de Registro de Población del NNA.
+	\end{itemize}
+	\item \textbf{Tutor:} Nombre completo del tutor asignado al NNA.
+	\item \textbf{Equipo:} Nombre del equipo multidisciplinario asignado, o el 
+	texto \textit{No asignado} si el NNA no cuenta con equipo.
+	\item \textbf{Grado Escolar:} Situación escolar actual del NNA.
+	\item \textbf{Dirección:}
+	\begin{itemize}
+		\item \textbf{Calle:} Nombre de la calle del domicilio.
+		\item \textbf{No. Exterior:} Número exterior del domicilio.
+		\item \textbf{No. Interior:} Número interior del domicilio.
+		\item \textbf{Colonia:} Colonia del domicilio.
+		\item \textbf{Código Postal:} Código postal del domicilio.
+		\item \textbf{Pueblo/Comunidad:} Pueblo o comunidad del domicilio, o el 
+		texto \textit{No especificado} si no fue proporcionado.
+		\item \textbf{Tipo de vivienda:} Tipo de vivienda del domicilio.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item No requiere entradas directas del usuario. La información se carga 
+	automáticamente al seleccionar el NNA desde la 
+	\IUref{IU11}{Pantalla de Consulta de NNAs y Tutores}.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Modificar}: Redirige a la 
+	\IUref{IU15}{Pantalla de Modificación de NNA} para editar los datos 
+	del NNA actual.
+	\item \IUbutton{Eliminar}: Elimina el registro del NNA del sistema y 
+	regresa a la \IUref{IU11}{Pantalla de Consulta de NNAs y Tutores}.
+	\item \IUbutton{Volver}: Regresa a la 
+	\IUref{IU11}{Pantalla de Consulta de NNAs y Tutores} sin realizar cambios.
+\end{itemize}
+
+
+% !TeX root = ../proyecto.tex
+%--------------------------------------
+\section{IU15 Pantalla de Modificación de NNA}
+
+\subsection{Objetivo}
+Permitir a la directora y coordinadora actualizar los datos personales, escolares 
+y de domicilio de una Niña, Niño o Adolescente (NNA) previamente registrado en 
+el sistema SICORRE.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU15}{Pantalla de Modificación de NNA} es accesible desde 
+el botón \IUbutton{Modificar} de la \IUref{IU14}{Pantalla de Consulta de NNA}. 
+Presenta el mismo formulario que la \IUref{IU12}{Pantalla de Registro de NNA}, 
+organizado en tres secciones: \textbf{Datos personales}, \textbf{Escolaridad y 
+	asignación} y \textbf{Domicilio}. Todos los campos se cargan automáticamente con 
+la información actual del NNA, permitiendo al usuario modificar únicamente los 
+datos que requieran actualización.
+
+\IUfig[.9]{ModificacionNNA}{IU15}{Pantalla de Modificación de NNA.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Formulario con los campos del NNA precargados con su información actual, 
+	organizados en tres secciones:
+	\begin{itemize}
+		\item \textbf{Datos personales:} Nombre(s), apellido paterno, apellido 
+		materno, fecha de nacimiento, sexo, CURP y nacionalidad.
+		\item \textbf{Escolaridad y asignación:} Grado escolar, tutor asignado 
+		y equipo asignado.
+		\item \textbf{Domicilio:} Código postal, calle, número exterior, número 
+		interior, pueblo o comunidad y tipo de vivienda.
+	\end{itemize}
+	\item Mensaje \MSGref{MSG25}{NNA actualizado exitosamente} al guardar los 
+	cambios correctamente.
+	\item Mensaje \MSGref{MSG26}{Error al actualizar NNA} si ocurre un problema 
+	al guardar los cambios.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Nombre(s):} Campo de texto obligatorio. Precargado con el 
+	nombre actual del NNA.
+	\item \textbf{Apellido paterno:} Campo de texto obligatorio. Precargado con 
+	el valor actual.
+	\item \textbf{Apellido materno:} Campo de texto obligatorio. Precargado con 
+	el valor actual.
+	\item \textbf{Fecha de nacimiento:} Campo de fecha obligatorio con formato 
+	dd/mm/aaaa. Precargado con el valor actual.
+	\item \textbf{Sexo:} Selector desplegable obligatorio. Precargado con el 
+	valor actual.
+	\item \textbf{CURP:} Campo de texto opcional. Precargado con el valor actual.
+	\item \textbf{Nacionalidad:} Campo de texto obligatorio. Precargado con el 
+	valor actual.
+	\item \textbf{Es migrante:} Checkbox opcional. Precargado con el estado 
+	actual del NNA.
+	\item \textbf{Grado escolar:} Selector desplegable obligatorio. Precargado 
+	con el valor actual.
+	\item \textbf{Seleccionar tutor:} Selector desplegable obligatorio. Precargado 
+	con el tutor actualmente asignado.
+	\item \textbf{Equipo asignado:} Selector desplegable obligatorio. Precargado 
+	con el equipo actualmente asignado.
+	\item \textbf{Código postal:} Campo de texto obligatorio. Precargado con el 
+	valor actual.
+	\item \textbf{Calle:} Campo de texto obligatorio. Precargado con el valor 
+	actual.
+	\item \textbf{Núm. exterior:} Campo de texto obligatorio. Precargado con el 
+	valor actual.
+	\item \textbf{Núm. interior:} Campo de texto opcional. Precargado con el 
+	valor actual.
+	\item \textbf{Pueblo / Comunidad:} Campo de texto obligatorio. Precargado 
+	con el valor actual.
+	\item \textbf{Tipo de vivienda:} Selector desplegable obligatorio. Precargado 
+	con el valor actual.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Buscar}: Localiza el código postal ingresado y autocompleta 
+	los campos de domicilio correspondientes.
+	\item \IUbutton{Actualizar}: Valida los campos del formulario y almacena los 
+	cambios del NNA en el sistema. Muestra el mensaje 
+	\MSGref{MSG25}{NNA actualizado exitosamente} si el proceso concluye 
+	correctamente.
+	\item \IUbutton{Cancelar}: Descarta los cambios realizados y regresa a la 
+	\IUref{IU14}{Pantalla de Consulta de NNA} sin modificar ningún dato.
+\end{itemize}
+
+
+% !TeX root = ../proyecto.tex
+%--------------------------------------
+\section{IU16 Pantalla del Panel de Restitución de Derechos}
+
+\subsection{Objetivo}
+Permitir a la directora y coordinadora acceder a las funcionalidades relacionadas 
+con la restitución de derechos en el sistema SICORRE, mediante la navegación hacia 
+la consulta de catálogos y la consulta de actores en materia de derechos.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU16}{Pantalla del Panel de Restitución de Derechos} es 
+accesible desde la \IUref{IU02}{Pantalla del Panel de Administrador}. Presenta 
+dos botones de navegación: \IUbutton{Consultar Catálogos} y 
+\IUbutton{Consultar Actores en Materia de Derechos}. Actualmente únicamente se 
+encuentra habilitado el botón \IUbutton{Consultar Catálogos}.
+
+\IUfig[.9]{PanelRestitucion}{IU16}{Pantalla del Panel de Restitución de Derechos.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Botón \IUbutton{Consultar Catálogos} habilitado para acceder a la 
+	consulta de discapacidades, enfermedades y domicilios.
+	\item Botón \IUbutton{Consultar Actores en Materia de Derechos} deshabilitado 
+	en la iteración actual del sistema.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item No requiere entradas del usuario.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Consultar Catálogos}: Redirige a la 
+	\IUref{IU17}{Pantalla de Consulta de Catálogos}.
+	\item \IUbutton{Consultar Actores en Materia de Derechos}: No disponible en 
+	la iteración actual del sistema.
+	\item \IUbutton{Volver}: Regresa a la \IUref{IU02}{Pantalla del Panel de 
+		Administrador}.
+\end{itemize}
+
+% !TeX root = ../proyecto.tex
+%--------------------------------------
+\section{IU17 Pantalla de Consulta de Catálogos}
+
+\subsection{Objetivo}
+Permitir a la directora y coordinadora consultar los catálogos utilizados en los 
+formularios del sistema SICORRE, mostrando los valores disponibles para cada 
+categoría.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU17}{Pantalla de Consulta de Catálogos} es accesible desde 
+el botón \IUbutton{Consultar Catálogos} de la \IUref{IU16}{Pantalla del Panel de 
+	Restitución de Derechos}. Presenta una serie de tablas, una por cada catálogo del 
+sistema, cada una encabezada por el nombre del catálogo y el número de registros 
+disponibles. Cada tabla muestra dos columnas: \textbf{ID} y \textbf{Descripción}. 
+En caso de que un catálogo no cuente con registros, se muestra el mensaje 
+\MSGref{MSG27}{Sin registros disponibles} en lugar de la tabla.
+
+Los catálogos presentados son: \textbf{Tipos de vivienda}, \textbf{Vivienda NNA}, 
+\textbf{Grado escolar}, \textbf{Idiomas}, \textbf{Enfermedades} y 
+\textbf{Discapacidades}.
+
+\IUfig[.9]{ConsultaCatalogos}{IU17}{Pantalla de Consulta de Catálogos.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Serie de tablas por cada catálogo del sistema, mostrando para cada una:
+	\begin{itemize}
+		\item \textbf{Nombre del catálogo} y número de registros en el encabezado.
+		\item \textbf{ID:} Identificador numérico del registro.
+		\item \textbf{Descripción:} Valor descriptivo del registro.
+	\end{itemize}
+	\item Mensaje \MSGref{MSG27}{Sin registros disponibles} en los catálogos que 
+	no cuenten con registros.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item No requiere entradas del usuario. Los catálogos se cargan 
+	automáticamente al acceder a la pantalla.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Volver al panel}: Regresa a la 
+	\IUref{IU16}{Pantalla del Panel de Restitución de Derechos}.
+\end{itemize}
+
+% !TeX root = ../proyecto.tex
+%--------------------------------------
+\section{IU41 Pantalla de Registro de Actor}
+\subsection{Objetivo}
+Permitir al usuario registrar un nuevo actor en el sistema, capturando tanto sus 
+datos generales como, en caso de ser persona física, su información personal 
+detallada.
+\subsection{Diseño}
+Esta pantalla \IUref{IU41}{Pantalla de Registro de Actor} es accesible desde 
+el botón \IUbutton{Registrar Actor} de la pantalla correspondiente al catálogo 
+de actores. El formulario se organiza en dos secciones claramente diferenciadas.
+
+La primera sección, \textbf{Datos generales}, es común a todos los tipos de 
+actor y presenta los campos: \textbf{Nombre / Razón social} (obligatorio), 
+\textbf{Tipo de actor} (obligatorio, con opciones: organización privada, 
+organización pública, persona física), \textbf{Horario de atención}, 
+\textbf{Responsable de contacto}, \textbf{Tiene registro oficial}, y 
+\textbf{Observaciones}.
+
+La segunda sección, \textbf{Datos de persona física}, se habilita únicamente 
+cuando el tipo de actor seleccionado es \textit{persona física}, y presenta los 
+campos: \textbf{CURP}, \textbf{RFC}, \textbf{Fecha de nacimiento}, 
+\textbf{Sexo} (con opciones: Masculino, Femenino, No binario, Prefiero no 
+especificar), \textbf{Escolaridad} (con opciones: Primaria, Secundaria, 
+Preparatoria, Técnico, Licenciatura, Posgrado), \textbf{Ocupación / Oficio}, 
+\textbf{Zona geográfica} (con opciones: Norte, Sur, Este, Oeste, Centro, Rural, 
+Urbana, Periurbana), \textbf{Disponibilidad}, \textbf{Descripción de 
+	actividad}, \textbf{Pertenece a grupo}, \textbf{¿Cómo contactar?}, y las 
+casillas de verificación \textbf{Líder comunitario} y \textbf{Líder religioso}.
+
+\IUfig[.9]{RegistrarActor}{IU41}{Pantalla de Registro de Actor.}
+\subsection{Salidas}
+\begin{itemize}
+	\item Confirmación del registro exitoso del actor en el sistema.
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en caso 
+	de que los campos requeridos no hayan sido llenados.
+\end{itemize}
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Sección Datos generales:}
+	\begin{itemize}
+		\item \textbf{Nombre / Razón social:} Texto libre. Campo obligatorio.
+		\item \textbf{Tipo de actor:} Lista desplegable con opciones: 
+		\textit{organización privada}, \textit{organización pública}, 
+		\textit{persona física}. Campo obligatorio.
+		\item \textbf{Horario de atención:} Texto libre. Opcional.
+		\item \textbf{Responsable de contacto:} Texto libre. Opcional.
+		\item \textbf{Tiene registro oficial:} Casilla de verificación. Opcional.
+		\item \textbf{Observaciones:} Texto libre. Opcional.
+	\end{itemize}
+	\item \textbf{Sección Datos de persona física} (visible únicamente si el tipo 
+	de actor es \textit{persona física}):
+	\begin{itemize}
+		\item \textbf{CURP:} Texto. Opcional.
+		\item \textbf{RFC:} Texto. Opcional.
+		\item \textbf{Fecha de nacimiento:} Fecha. Opcional.
+		\item \textbf{Sexo:} Lista desplegable con opciones: \textit{Masculino}, 
+		\textit{Femenino}, \textit{No binario}, \textit{Prefiero no especificar}. 
+		Opcional.
+		\item \textbf{Escolaridad:} Lista desplegable con opciones: 
+		\textit{Primaria}, \textit{Secundaria}, \textit{Preparatoria}, 
+		\textit{Técnico}, \textit{Licenciatura}, \textit{Posgrado}. Opcional.
+		\item \textbf{Ocupación / Oficio:} Texto libre. Opcional.
+		\item \textbf{Zona geográfica:} Lista desplegable con opciones: 
+		\textit{Norte}, \textit{Sur}, \textit{Este}, \textit{Oeste}, 
+		\textit{Centro}, \textit{Rural}, \textit{Urbana}, \textit{Periurbana}. 
+		Opcional.
+		\item \textbf{Disponibilidad:} Texto libre. Opcional.
+		\item \textbf{Descripción de actividad:} Texto libre. Opcional.
+		\item \textbf{Pertenece a grupo:} Texto libre. Opcional.
+		\item \textbf{¿Cómo contactar?:} Texto libre. Opcional.
+		\item \textbf{Líder comunitario:} Casilla de verificación. Opcional.
+		\item \textbf{Líder religioso:} Casilla de verificación. Opcional.
+	\end{itemize}
+\end{itemize}
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Registrar}: Valida los campos obligatorios y, si son 
+	correctos, guarda el nuevo actor en el sistema.
+	\item \IUbutton{Cancelar}: Descarta los datos ingresados y regresa a la 
+	pantalla anterior sin realizar ningún cambio.
+\end{itemize}
+\section{IU42 Pantalla de Registro de Contactos de Actor}
+\subsection{Objetivo}
+Permitir al usuario registrar la información de contacto asociada a un actor en 
+el sistema, capturando uno o más contactos con sus respectivos datos de 
+comunicación.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU42}{Pantalla de Registro de Contactos de Actor} forma 
+parte del flujo de registro de actor y es accesible tras completar la pantalla 
+anterior del formulario. La sección presenta un bloque de campos de contacto 
+que puede replicarse para registrar múltiples contactos asociados a un mismo 
+actor.
+
+Cada bloque de contacto presenta los campos: \textbf{Teléfono principal} 
+(obligatorio), \textbf{Teléfono secundario} (opcional), \textbf{Correo 
+	electrónico} (obligatorio), \textbf{Página web} (opcional), \textbf{Red social} 
+(opcional, con valor por defecto \textit{Ninguna}), \textbf{Observaciones} 
+(opcional), y la casilla de verificación \textbf{Contacto principal} para 
+indicar cuál de los contactos registrados es el de referencia principal del 
+actor.
+
+El botón \IUbutton{Agregar contacto} permite añadir bloques adicionales de 
+contacto cuando el actor cuenta con más de un medio de comunicación.
+
+\IUfig[.9]{RegistrarContacto}{IU42}{Pantalla de Registro de Contactos de Actor.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Avance al siguiente paso del formulario de registro de actor con los 
+	contactos capturados.
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
+	caso de que los campos requeridos no hayan sido llenados.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Sección Contactos:} Permite registrar uno o más contactos 
+	asociados al actor. Cada bloque de contacto contiene los siguientes campos:
+	\begin{itemize}
+		\item \textbf{Teléfono principal:} Texto numérico. Campo obligatorio.
+		\item \textbf{Teléfono secundario:} Texto numérico. Opcional.
+		\item \textbf{Correo electrónico:} Texto con formato de correo 
+		electrónico (\textit{ejemplo@dominio.org}). Campo obligatorio.
+		\item \textbf{Página web:} Texto con formato de URL 
+		(\textit{https://...}). Opcional.
+		\item \textbf{Red social:} Lista desplegable. Valor por defecto: 
+		\textit{Ninguna}. Opcional.
+		\item \textbf{Observaciones:} Texto libre. Opcional.
+		\item \textbf{Contacto principal:} Casilla de verificación que indica 
+		si el contacto es el principal del actor. Opcional.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Agregar contacto}: Añade un nuevo bloque de campos de 
+	contacto a la sección, permitiendo registrar múltiples contactos para un 
+	mismo actor.
+	\item \IUbutton{Siguiente}: Valida los campos obligatorios del paso actual 
+	y, si son correctos, avanza al siguiente paso del formulario de registro de 
+	actor.
+	\item \IUbutton{Cancelar}: Descarta los datos ingresados y regresa a la 
+	pantalla anterior sin realizar ningún cambio.
+\end{itemize}
+
+\section{IU43 Pantalla de Registro de Dirección de Actor}
+\subsection{Objetivo}
+Permitir al usuario registrar la dirección física asociada a un actor en el 
+sistema, facilitando la búsqueda y autocompletado de datos geográficos mediante 
+código postal.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU43}{Pantalla de Registro de Dirección de Actor} forma 
+parte del flujo de registro de actor y es accesible tras completar la pantalla 
+de registro de contactos. La sección presenta un formulario de dirección 
+organizado en dos bloques funcionales.
+
+El primer bloque corresponde a la \textbf{Búsqueda por Código Postal}, que 
+permite al usuario ingresar un código postal y, al ejecutar la búsqueda, 
+autocompletar automáticamente los campos \textbf{Estado} y \textbf{Municipio / 
+	Alcaldía}, así como habilitar la lista de colonias disponibles para ese código 
+postal.
+
+El segundo bloque presenta los campos de dirección detallada: \textbf{Colonia} 
+(habilitada tras la búsqueda por CP), \textbf{Calle}, \textbf{No. exterior}, 
+\textbf{No. interior} (opcional), \textbf{Tipo de lugar} (lista desplegable), 
+\textbf{Pueblo / Comunidad} y \textbf{Referencia de ubicación}.
+
+\IUfig[.9]{RegistrarDireccion}{IU43}{Pantalla de Registro de Dirección de Actor.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Avance al siguiente paso del formulario de registro de actor con la 
+	dirección capturada.
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
+	caso de que los campos requeridos no hayan sido llenados.
+	\item Mensaje de error \MSGref{MSG09}{Código postal no encontrado} en caso 
+	de que el código postal ingresado no arroje resultados.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Sección Dirección:}
+	\begin{itemize}
+		\item \textbf{Código postal:} Texto numérico utilizado como criterio de 
+		búsqueda para autocompletar los campos geográficos. Campo obligatorio.
+		\item \textbf{Estado:} Texto. Se autocompleta a partir del código postal 
+		ingresado. No editable manualmente. Campo obligatorio.
+		\item \textbf{Municipio / Alcaldía:} Texto. Se autocompleta a partir del 
+		código postal ingresado. No editable manualmente. Campo obligatorio.
+		\item \textbf{Colonia:} Lista desplegable habilitada únicamente tras 
+		realizar una búsqueda por código postal exitosa. Campo obligatorio.
+		\item \textbf{Calle:} Texto libre. Campo obligatorio.
+		\item \textbf{No. exterior:} Texto alfanumérico. Campo obligatorio.
+		\item \textbf{No. interior:} Texto alfanumérico. Opcional.
+		\item \textbf{Tipo de lugar:} Lista desplegable. Opcional.
+		\item \textbf{Pueblo / Comunidad:} Texto libre. Opcional.
+		\item \textbf{Referencia de ubicación:} Texto libre para indicar 
+		referencias geográficas cercanas al lugar. Opcional.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Buscar}: Ejecuta la búsqueda del código postal ingresado y, 
+	si es válido, autocompleta los campos \textbf{Estado} y \textbf{Municipio / 
+		Alcaldía}, y habilita la lista de colonias disponibles.
+	\item \IUbutton{Siguiente}: Valida los campos obligatorios del paso actual 
+	y, si son correctos, avanza al siguiente paso del formulario de registro de 
+	actor.
+	\item \IUbutton{Cancelar}: Descarta los datos ingresados y regresa a la 
+	pantalla anterior sin realizar ningún cambio.
+\end{itemize}
+
+\section{IU44 Pantalla de Registro de Programas de Actor}
+\subsection{Objetivo}
+Permitir al usuario registrar uno o más programas asociados a un actor en el 
+sistema, capturando la información descriptiva y temporal de cada programa.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU44}{Pantalla de Registro de Programas de Actor} forma 
+parte del flujo de registro de actor y es accesible tras completar la pantalla 
+de registro de dirección. La sección presenta un bloque de campos de programa 
+que puede replicarse para registrar múltiples programas asociados a un mismo 
+actor.
+
+Cada bloque de programa presenta los campos: \textbf{Nombre del programa} 
+(obligatorio), \textbf{Descripción} (opcional), \textbf{Fecha de inicio} 
+(opcional), \textbf{Fecha de fin} (opcional), y la casilla de verificación 
+\textbf{Programa activo} para indicar si el programa se encuentra vigente al 
+momento del registro.
+
+Cada bloque cuenta con el botón \IUbutton{Eliminar} para remover el programa 
+correspondiente de la lista. El botón \IUbutton{Agregar programa} permite añadir 
+bloques adicionales cuando el actor gestiona más de un programa.
+
+\IUfig[.9]{RegistrarProgramas}{IU44}{Pantalla de Registro de Programas de Actor.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Avance al siguiente paso del formulario de registro de actor con los 
+	programas capturados.
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
+	caso de que los campos requeridos no hayan sido llenados.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Sección Programas:} Permite registrar uno o más programas 
+	asociados al actor. Cada bloque de programa contiene los siguientes campos:
+	\begin{itemize}
+		\item \textbf{Nombre del programa:} Texto libre. Campo obligatorio.
+		\item \textbf{Descripción:} Texto libre para describir el objetivo y 
+		alcance del programa. Opcional.
+		\item \textbf{Fecha de inicio:} Fecha con formato \textit{dd/mm/aaaa}. 
+		Opcional.
+		\item \textbf{Fecha de fin:} Fecha con formato \textit{dd/mm/aaaa}. 
+		Opcional.
+		\item \textbf{Programa activo:} Casilla de verificación que indica si 
+		el programa se encuentra vigente. Opcional.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Eliminar}: Remueve el bloque de programa correspondiente de 
+	la lista. Disponible en cada bloque de programa registrado.
+	\item \IUbutton{Agregar programa}: Añade un nuevo bloque de campos de 
+	programa a la sección, permitiendo registrar múltiples programas para un 
+	mismo actor.
+	\item \IUbutton{Siguiente}: Valida los campos obligatorios del paso actual 
+	y, si son correctos, avanza al siguiente paso del formulario de registro de 
+	actor.
+	\item \IUbutton{Cancelar}: Descarta los datos ingresados y regresa a la 
+	pantalla anterior sin realizar ningún cambio.
+\end{itemize}
+
+
+\section{IU45 Pantalla de Registro de Enlaces y Representantes de Actor}
+\subsection{Objetivo}
+Permitir al usuario registrar uno o más enlaces o representantes asociados a un 
+actor en el sistema, constituyendo el último paso del formulario de registro de 
+actor.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU45}{Pantalla de Registro de Enlaces y Representantes de 
+	Actor} forma parte del flujo de registro de actor y es accesible tras completar 
+la pantalla de registro de programas. Al ser el último paso del formulario 
+compuesto, esta pantalla concentra la acción final de persistencia de todos los 
+datos capturados en los pasos anteriores.
+
+La sección presenta un bloque de campos de enlace que puede replicarse para 
+registrar múltiples representantes asociados a un mismo actor. Cada bloque 
+presenta los campos: \textbf{Nombre del enlace} (obligatorio), \textbf{Cargo} 
+(opcional), \textbf{Notas} (opcional), y la casilla de verificación 
+\textbf{Enlace principal} para indicar cuál de los representantes registrados 
+es el de referencia principal del actor.
+
+Cada bloque cuenta con el botón \IUbutton{Eliminar} para remover el enlace 
+correspondiente de la lista. El botón \IUbutton{Agregar enlace} permite añadir 
+bloques adicionales cuando el actor cuenta con más de un representante.
+
+\IUfig[.9]{RegistrarEnlaces}{IU45}{Pantalla de Registro de Enlaces y Representantes de Actor.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Confirmación del registro exitoso del actor y toda su información 
+	asociada en el sistema, incluyendo los datos capturados en los pasos 
+	anteriores del formulario.
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
+	caso de que los campos requeridos no hayan sido llenados.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Sección Enlaces / Representantes:} Permite registrar uno o 
+	más enlaces o representantes asociados al actor. Cada bloque contiene los 
+	siguientes campos:
+	\begin{itemize}
+		\item \textbf{Nombre del enlace:} Texto libre. Campo obligatorio.
+		\item \textbf{Cargo:} Texto libre. Opcional.
+		\item \textbf{Notas:} Texto libre para registrar información adicional 
+		sobre el enlace o representante. Opcional.
+		\item \textbf{Enlace principal:} Casilla de verificación que indica si 
+		el representante es el enlace principal del actor. Opcional.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Eliminar}: Remueve el bloque de enlace correspondiente de 
+	la lista. Disponible en cada bloque de enlace registrado.
+	\item \IUbutton{Agregar enlace}: Añade un nuevo bloque de campos de enlace 
+	a la sección, permitiendo registrar múltiples representantes para un mismo 
+	actor.
+	\item \IUbutton{Anterior}: Regresa al paso anterior del formulario de 
+	registro de actor conservando los datos ingresados hasta el momento.
+	\item \IUbutton{Registrar Actor}: Valida los campos obligatorios de todos 
+	los pasos del formulario y, si son correctos, guarda el actor y toda su 
+	información asociada en el sistema.
+	\item \IUbutton{Cancelar}: Descarta todos los datos ingresados en el 
+	formulario y regresa a la pantalla anterior sin realizar ningún cambio.
+\end{itemize}
+
+
+\section{IU46 Pantalla de Catálogo de Actores en Materia de Derechos}
+\subsection{Objetivo}
+Permitir al usuario consultar, filtrar y administrar el catálogo de actores en 
+materia de derechos registrados en el sistema, así como acceder a las acciones 
+de gestión disponibles para cada registro.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU46}{Pantalla de Catálogo de Actores en Materia de 
+	Derechos} presenta el listado completo de actores registrados en el sistema 
+en formato de tabla. En la parte superior se muestra el total de registros 
+encontrados y un conjunto de filtros de tipo que permiten acotar la vista: 
+\textbf{Todos}, \textbf{Persona Física} y \textbf{Asociación}. El botón 
+\IUbutton{Registrar Actor} da acceso al flujo de registro descrito a partir de 
+la \IUref{IU41}{Pantalla de Registro de Actor}.
+
+La tabla presenta una fila por actor registrado. Cada fila muestra el nombre 
+del actor junto con el nombre de su enlace o representante principal en 
+segundo renglón, seguido de las columnas \textbf{Tipo}, \textbf{Categoría}, 
+\textbf{Registro oficial}, \textbf{Horario}, y \textbf{Estatus}. La columna 
+\textbf{Acciones} presenta las operaciones disponibles para cada registro según 
+su estatus actual, y la columna \textbf{Administración} agrupa las acciones 
+de gestión administrativa.
+
+\IUfig[.9]{CatalogoActores}{IU46}{Pantalla de Catálogo de Actores en Materia de Derechos.}
+
+\IUfig[.9]{CatalogoActoresFiltrado}{IU46.1}{Pantalla de Catálogo de Actores filtrada por tipo Persona Física.}
+
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Listado de actores registrados en el sistema con sus datos 
+	principales, filtrado según el tipo seleccionado.
+	\item Indicador del número total de registros encontrados.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Filtros de tipo:} Selector de opción única que acota el 
+	listado según la clasificación del actor. Las opciones disponibles son:
+	\begin{itemize}
+		\item \textbf{Todos:} Muestra la totalidad de actores registrados, 
+		independientemente de su tipo.
+		\item \textbf{Persona Física:} Muestra únicamente los actores 
+		clasificados como persona física.
+		\item \textbf{Asociación:} Muestra únicamente los actores clasificados 
+		como asociación.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Registrar Actor}: Redirige al primer paso del formulario de 
+	registro de actor \IUref{IU41}{Pantalla de Registro de Actor}.
+	\item \IUbutton{Modificar}: Redirige a la pantalla de edición del actor 
+	correspondiente.
+	\item \IUbutton{Activar}: Cambia el estatus del actor a \textit{Activo}. 
+	Disponible únicamente para actores con estatus \textit{Inactivo}.
+	\item \IUbutton{Desactivar}: Cambia el estatus del actor a 
+	\textit{Inactivo}. Disponible únicamente para actores con estatus 
+	\textit{Activo}.
+	\item \IUbutton{Eliminar}: Remueve el registro del actor del sistema. 
+	Disponible para todos los actores independientemente de su estatus.
+\end{itemize}
+
+
+\section{IU48 Pantalla de Consulta de Actor}
+\subsection{Objetivo}
+Permitir al usuario consultar la información completa de un actor registrado en 
+el sistema, incluyendo sus datos generales, dirección, contactos, programas y 
+enlaces o representantes, tanto para actores de tipo institución como para 
+personas físicas.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU48}{Pantalla de Consulta de Actor} es accesible desde 
+el botón \IUbutton{Modificar} del catálogo de actores \IUref{IU46}{Pantalla de 
+	Catálogo de Actores en Materia de Derechos}. La pantalla presenta la 
+información del actor en modo de solo lectura, organizada en cinco secciones 
+claramente diferenciadas.
+
+En la parte superior se muestra el encabezado del actor con su nombre o razón 
+social, tipo de actor, indicador de registro oficial y clave de registro cuando 
+aplica. Desde este encabezado se accede a las acciones \IUbutton{Editar} y 
+\IUbutton{Volver}.
+
+La primera sección, \textbf{Datos generales}, presenta el responsable de 
+contacto, el horario de atención y las observaciones del actor.
+
+La segunda sección, \textbf{Dirección}, muestra la dirección completa del actor 
+incluyendo calle, número exterior, número interior y colonia, así como la 
+referencia de ubicación.
+
+La tercera sección, \textbf{Contactos}, lista los contactos registrados del 
+actor. Cada contacto indica si es el contacto principal mediante una marca 
+visual destacada, y presenta el teléfono y correo electrónico correspondientes.
+
+La cuarta sección, \textbf{Programas}, lista los programas asociados al actor. 
+Cada programa muestra su nombre, estatus de actividad, descripción, y el rango 
+de fechas de vigencia conformado por la fecha de inicio y la fecha de fin.
+
+La quinta sección, \textbf{Enlaces / Representantes}, lista los enlaces o 
+representantes del actor. Cada enlace indica si es el enlace principal mediante 
+una marca visual destacada, y presenta su nombre, cargo y notas adicionales.
+
+\IUfig[.9]{ConsultarActor}{IU48}{Pantalla de Consulta de Actor.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Información completa del actor seleccionado presentada en modo de 
+	solo lectura, organizada en las secciones: \textbf{Datos generales}, 
+	\textbf{Dirección}, \textbf{Contactos}, \textbf{Programas} y 
+	\textbf{Enlaces / Representantes}.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item Esta pantalla no captura datos. Toda la información mostrada 
+	corresponde al registro del actor seleccionado desde el catálogo.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Editar}: Redirige a la pantalla de edición del actor, 
+	permitiendo modificar la información del registro consultado.
+	\item \IUbutton{Volver}: Regresa a la pantalla del catálogo de actores 
+	\IUref{IU46}{Pantalla de Catálogo de Actores en Materia de Derechos} sin 
+	realizar ningún cambio.
+\end{itemize}
+
+\section{IU49 Pantalla de Edición de Actor}
+\subsection{Objetivo}
+Permitir al usuario modificar la información de un actor previamente registrado 
+en el sistema, conservando la misma estructura de pasos del formulario de 
+registro original.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU49}{Pantalla de Edición de Actor} es accesible desde el 
+botón \IUbutton{Editar} de la pantalla de consulta de actor 
+\IUref{IU48}{Pantalla de Consulta de Actor}. El formulario de edición conserva 
+la misma organización por pasos que el formulario de registro, permitiendo 
+navegar entre secciones mediante los botones de avance y retroceso.
+
+La pantalla presenta en la parte superior el tipo de actor actual como dato 
+informativo no modificable. El resto de la sección \textbf{Datos generales} 
+presenta los campos en modo editable, incluyendo el campo \textbf{Tipo de 
+	actor} como lista desplegable que permite reclasificar al actor en caso de ser 
+necesario. Cuando el campo \textbf{Tiene registro oficial} se encuentra 
+activado, se habilita el campo \textbf{Número de registro oficial} para capturar 
+la clave correspondiente.
+
+La pantalla ofrece dos modalidades de guardado: \IUbutton{Guardar cambios} 
+para persistir las modificaciones del paso actual sin avanzar, y 
+\IUbutton{Siguiente} para guardar y continuar al siguiente paso del formulario.
+
+\IUfig[.9]{EditarActor}{IU49}{Pantalla de Edición de Actor.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Confirmación de guardado exitoso de los cambios realizados en el paso 
+	actual.
+	\item Avance al siguiente paso del formulario de edición al usar el botón 
+	\IUbutton{Siguiente}.
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
+	caso de que los campos requeridos no hayan sido llenados.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Sección Datos generales:}
+	\begin{itemize}
+		\item \textbf{Tipo de actor} (informativo): Muestra el tipo de actor 
+		actual como dato no editable en el encabezado de la sección.
+		\item \textbf{Nombre / Razón social:} Texto libre. Campo obligatorio.
+		\item \textbf{Tipo de actor:} Lista desplegable con opciones: 
+		\textit{organización privada}, \textit{organización pública}, 
+		\textit{persona física}. Campo obligatorio.
+		\item \textbf{Horario de atención:} Texto libre. Opcional.
+		\item \textbf{Responsable de contacto:} Texto libre. Opcional.
+		\item \textbf{Tiene registro oficial:} Casilla de verificación. 
+		Opcional.
+		\item \textbf{Número de registro oficial:} Texto libre. Se habilita 
+		únicamente cuando la casilla \textbf{Tiene registro oficial} se 
+		encuentra activada. Opcional.
+		\item \textbf{Observaciones:} Texto libre. Opcional.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Guardar cambios}: Valida los campos obligatorios del paso 
+	actual y, si son correctos, persiste las modificaciones realizadas sin 
+	avanzar al siguiente paso.
+	\item \IUbutton{Siguiente}: Valida los campos obligatorios del paso actual 
+	y, si son correctos, guarda los cambios y avanza al siguiente paso del 
+	formulario de edición.
+	\item \IUbutton{Cancelar}: Descarta los cambios realizados en el paso actual 
+	y regresa a la pantalla de consulta del actor \IUref{IU48}{Pantalla de 
+		Consulta de Actor} sin realizar ninguna modificación.
+\end{itemize}
+
+\section{IU50 Pantalla de Edición de Contactos de Actor}
+\subsection{Objetivo}
+Permitir al usuario modificar la información de contacto asociada a un actor 
+previamente registrado en el sistema, conservando la misma estructura de la 
+pantalla de registro de contactos.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU50}{Pantalla de Edición de Contactos de Actor} forma 
+parte del flujo de edición de actor y es accesible tras completar el paso de 
+datos generales. La estructura es equivalente a la pantalla de registro de 
+contactos \IUref{IU42}{Pantalla de Registro de Contactos de Actor}, con la 
+diferencia de que los campos se presentan precargados con la información 
+actualmente registrada para el actor.
+
+Cada bloque de contacto muestra una marca visual destacada cuando el contacto 
+corresponde al principal del actor. La sección permite agregar nuevos contactos, 
+modificar los existentes o eliminarlos según sea necesario. El botón 
+\IUbutton{Agregar contacto} permite añadir bloques adicionales cuando el actor 
+cuenta con más de un medio de comunicación.
+
+La pantalla ofrece dos modalidades de guardado: \IUbutton{Guardar cambios} 
+para persistir las modificaciones del paso actual sin avanzar, y 
+\IUbutton{Siguiente} para guardar y continuar al siguiente paso del formulario.
+
+\IUfig[.9]{EditarContactos}{IU50}{Pantalla de Edición de Contactos de Actor.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Confirmación de guardado exitoso de los cambios realizados en el paso 
+	actual.
+	\item Avance al siguiente paso del formulario de edición al usar el botón 
+	\IUbutton{Siguiente}.
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
+	caso de que los campos requeridos no hayan sido llenados.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Sección Contactos:} Presenta los contactos actualmente 
+	registrados del actor con sus campos precargados y editables. Cada bloque 
+	de contacto contiene los siguientes campos:
+	\begin{itemize}
+		\item \textbf{Teléfono principal:} Texto numérico. Campo obligatorio.
+		\item \textbf{Teléfono secundario:} Texto numérico. Opcional.
+		\item \textbf{Correo electrónico:} Texto con formato de correo 
+		electrónico (\textit{ejemplo@dominio.org}). Campo obligatorio.
+		\item \textbf{Página web:} Texto con formato de URL 
+		(\textit{https://...}). Opcional.
+		\item \textbf{Red social:} Lista desplegable. Valor por defecto: 
+		\textit{Ninguna}. Opcional.
+		\item \textbf{Observaciones:} Texto libre. Opcional.
+		\item \textbf{Contacto principal:} Casilla de verificación que indica 
+		si el contacto es el principal del actor. Opcional.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Agregar contacto}: Añade un nuevo bloque de campos de 
+	contacto a la sección, permitiendo registrar contactos adicionales para el 
+	actor.
+	\item \IUbutton{Anterior}: Regresa al paso anterior del formulario de 
+	edición conservando los cambios guardados hasta el momento.
+	\item \IUbutton{Guardar cambios}: Valida los campos obligatorios del paso 
+	actual y, si son correctos, persiste las modificaciones realizadas sin 
+	avanzar al siguiente paso.
+	\item \IUbutton{Siguiente}: Valida los campos obligatorios del paso actual 
+	y, si son correctos, guarda los cambios y avanza al siguiente paso del 
+	formulario de edición.
+	\item \IUbutton{Cancelar}: Descarta los cambios realizados en el paso actual 
+	y regresa a la pantalla de consulta del actor \IUref{IU48}{Pantalla de 
+		Consulta de Actor} sin realizar ninguna modificación.
+\end{itemize}
+
+
+\section{IU51 Pantalla de Edición de Dirección de Actor}
+\subsection{Objetivo}
+Permitir al usuario modificar la dirección física asociada a un actor 
+previamente registrado en el sistema, conservando la misma estructura de la 
+pantalla de registro de dirección.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU51}{Pantalla de Edición de Dirección de Actor} forma 
+parte del flujo de edición de actor y es accesible tras completar el paso de 
+edición de contactos. La estructura es equivalente a la pantalla de registro 
+de dirección \IUref{IU43}{Pantalla de Registro de Dirección de Actor}, con la 
+diferencia de que los campos se presentan precargados con la información 
+actualmente registrada para el actor.
+
+El bloque de \textbf{Búsqueda por Código Postal} permite relanzar una búsqueda 
+para actualizar los campos geográficos en caso de que la dirección haya 
+cambiado de ubicación. Al ejecutar una nueva búsqueda, los campos \textbf{Estado} 
+y \textbf{Municipio / Alcaldía} se actualizan automáticamente y la lista de 
+colonias disponibles se regenera conforme al nuevo código postal.
+
+La pantalla ofrece dos modalidades de guardado: \IUbutton{Guardar cambios} 
+para persistir las modificaciones del paso actual sin avanzar, y 
+\IUbutton{Siguiente} para guardar y continuar al siguiente paso del formulario.
+
+\IUfig[.9]{EditarDireccion}{IU51}{Pantalla de Edición de Dirección de Actor.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Confirmación de guardado exitoso de los cambios realizados en el paso 
+	actual.
+	\item Avance al siguiente paso del formulario de edición al usar el botón 
+	\IUbutton{Siguiente}.
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
+	caso de que los campos requeridos no hayan sido llenados.
+	\item Mensaje de error \MSGref{MSG09}{Código postal no encontrado} en caso 
+	de que el código postal ingresado no arroje resultados.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Sección Dirección:} Presenta los datos de dirección 
+	actualmente registrados del actor con sus campos precargados y editables:
+	\begin{itemize}
+		\item \textbf{Código postal:} Texto numérico utilizado como criterio de 
+		búsqueda para actualizar los campos geográficos. Campo obligatorio.
+		\item \textbf{Estado:} Texto. Se autocompleta a partir del código postal 
+		ingresado. No editable manualmente. Campo obligatorio.
+		\item \textbf{Municipio / Alcaldía:} Texto. Se autocompleta a partir del 
+		código postal ingresado. No editable manualmente. Campo obligatorio.
+		\item \textbf{Colonia:} Lista desplegable habilitada únicamente tras 
+		realizar una búsqueda por código postal exitosa. Campo obligatorio.
+		\item \textbf{Calle:} Texto libre. Campo obligatorio.
+		\item \textbf{No. exterior:} Texto alfanumérico. Campo obligatorio.
+		\item \textbf{No. interior:} Texto alfanumérico. Opcional.
+		\item \textbf{Tipo de lugar:} Lista desplegable. Opcional.
+		\item \textbf{Pueblo / Comunidad:} Texto libre. Opcional.
+		\item \textbf{Referencia de ubicación:} Texto libre para indicar 
+		referencias geográficas cercanas al lugar. Opcional.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Buscar}: Ejecuta la búsqueda del código postal ingresado y, 
+	si es válido, actualiza los campos \textbf{Estado} y \textbf{Municipio / 
+		Alcaldía}, y regenera la lista de colonias disponibles.
+	\item \IUbutton{Anterior}: Regresa al paso anterior del formulario de 
+	edición conservando los cambios guardados hasta el momento.
+	\item \IUbutton{Guardar cambios}: Valida los campos obligatorios del paso 
+	actual y, si son correctos, persiste las modificaciones realizadas sin 
+	avanzar al siguiente paso.
+	\item \IUbutton{Siguiente}: Valida los campos obligatorios del paso actual 
+	y, si son correctos, guarda los cambios y avanza al siguiente paso del 
+	formulario de edición.
+	\item \IUbutton{Cancelar}: Descarta los cambios realizados en el paso actual 
+	y regresa a la pantalla de consulta del actor \IUref{IU48}{Pantalla de 
+		Consulta de Actor} sin realizar ninguna modificación.
+\end{itemize}
+
+\section{IU52 Pantalla de Edición de Programas de Actor}
+\subsection{Objetivo}
+Permitir al usuario modificar los programas asociados a un actor previamente 
+registrado en el sistema, conservando la misma estructura de la pantalla de 
+registro de programas.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU52}{Pantalla de Edición de Programas de Actor} forma 
+parte del flujo de edición de actor y es accesible tras completar el paso de 
+edición de dirección. La estructura es equivalente a la pantalla de registro 
+de programas \IUref{IU44}{Pantalla de Registro de Programas de Actor}, con la 
+diferencia de que los bloques se presentan precargados con los programas 
+actualmente registrados para el actor.
+
+Cada bloque de programa presenta sus campos editables y cuenta con el botón 
+\IUbutton{Eliminar} para remover el programa correspondiente de la lista. El 
+botón \IUbutton{Agregar programa} permite añadir nuevos bloques cuando el actor 
+gestiona programas adicionales no registrados previamente.
+
+A diferencia de los pasos anteriores del formulario de edición, esta pantalla 
+no presenta el botón \IUbutton{Siguiente} ni \IUbutton{Guardar cambios} de 
+forma independiente, siendo el botón \IUbutton{Anterior} el único comando de 
+navegación disponible además de \IUbutton{Cancelar}.
+
+\IUfig[.9]{EditarProgramas}{IU52}{Pantalla de Edición de Programas de Actor.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Confirmación de guardado exitoso de los cambios realizados en el paso 
+	actual.
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
+	caso de que los campos requeridos no hayan sido llenados.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Sección Programas:} Presenta los programas actualmente 
+	registrados del actor con sus campos precargados y editables. Cada bloque 
+	de programa contiene los siguientes campos:
+	\begin{itemize}
+		\item \textbf{Nombre del programa:} Texto libre. Campo obligatorio.
+		\item \textbf{Descripción:} Texto libre para describir el objetivo y 
+		alcance del programa. Opcional.
+		\item \textbf{Fecha de inicio:} Fecha con formato \textit{dd/mm/aaaa}. 
+		Opcional.
+		\item \textbf{Fecha de fin:} Fecha con formato \textit{dd/mm/aaaa}. 
+		Opcional.
+		\item \textbf{Programa activo:} Casilla de verificación que indica si 
+		el programa se encuentra vigente. Opcional.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Eliminar}: Remueve el bloque de programa correspondiente de 
+	la lista. Disponible en cada bloque de programa registrado.
+	\item \IUbutton{Agregar programa}: Añade un nuevo bloque de campos de 
+	programa a la sección, permitiendo registrar programas adicionales para el 
+	actor.
+	\item \IUbutton{Anterior}: Regresa al paso anterior del formulario de 
+	edición conservando los cambios guardados hasta el momento.
+	\item \IUbutton{Cancelar}: Descarta los cambios realizados en el paso actual 
+	y regresa a la pantalla de consulta del actor \IUref{IU48}{Pantalla de 
+		Consulta de Actor} sin realizar ninguna modificación.
+\end{itemize}
+
+\section{IU53 Pantalla de Edición de Enlaces y Representantes de Actor}
+\subsection{Objetivo}
+Permitir al usuario modificar los enlaces o representantes asociados a un actor 
+previamente registrado en el sistema, conservando la misma estructura de la 
+pantalla de registro de enlaces y representantes.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU53}{Pantalla de Edición de Enlaces y Representantes de 
+	Actor} forma parte del flujo de edición de actor y es accesible tras completar 
+el paso de edición de programas. La estructura es equivalente a la pantalla de 
+registro de enlaces \IUref{IU45}{Pantalla de Registro de Enlaces y 
+	Representantes de Actor}, con la diferencia de que los bloques se presentan 
+precargados con los enlaces actualmente registrados para el actor.
+
+Cada bloque de enlace muestra una marca visual destacada cuando el representante 
+corresponde al enlace principal del actor. Los campos se presentan editables y 
+cada bloque cuenta con el botón \IUbutton{Eliminar} para remover el enlace 
+correspondiente de la lista. El botón \IUbutton{Agregar enlace} permite añadir 
+nuevos bloques cuando el actor cuenta con representantes adicionales no 
+registrados previamente.
+
+Al igual que la pantalla de edición de programas, esta pantalla no presenta los 
+botones \IUbutton{Siguiente} ni \IUbutton{Guardar cambios} de forma 
+independiente, constituyendo el último paso del formulario de edición de actor.
+
+\IUfig[.9]{EditarEnlaces}{IU53}{Pantalla de Edición de Enlaces y Representantes de Actor.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Confirmación de guardado exitoso de los cambios realizados en el paso 
+	actual.
+	\item Mensaje de error \MSGref{MSG10}{Campos obligatorios incompletos} en 
+	caso de que los campos requeridos no hayan sido llenados.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Sección Enlaces / Representantes:} Presenta los enlaces 
+	actualmente registrados del actor con sus campos precargados y editables. 
+	Cada bloque de enlace contiene los siguientes campos:
+	\begin{itemize}
+		\item \textbf{Nombre del enlace:} Texto libre. Campo obligatorio.
+		\item \textbf{Cargo:} Texto libre. Opcional.
+		\item \textbf{Notas:} Texto libre para registrar información adicional 
+		sobre el enlace o representante. Opcional.
+		\item \textbf{Enlace principal:} Casilla de verificación que indica si 
+		el representante es el enlace principal del actor. Opcional.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Eliminar}: Remueve el bloque de enlace correspondiente de 
+	la lista. Disponible en cada bloque de enlace registrado.
+	\item \IUbutton{Agregar enlace}: Añade un nuevo bloque de campos de enlace 
+	a la sección, permitiendo registrar representantes adicionales para el actor.
+	\item \IUbutton{Anterior}: Regresa al paso anterior del formulario de 
+	edición conservando los cambios guardados hasta el momento.
+	\item \IUbutton{Cancelar}: Descarta los cambios realizados en el paso actual 
+	y regresa a la pantalla de consulta del actor \IUref{IU48}{Pantalla de 
+		Consulta de Actor} sin realizar ninguna modificación.
+\end{itemize}
+
+
+\section{IU54 Pantalla de Deshabilitación de Actor}
+\subsection{Objetivo}
+Permitir al usuario cambiar el estatus de un actor a inactivo, informando 
+previamente sobre las implicaciones que esta acción tendrá sobre los programas 
+y planes asociados al actor.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU54}{Pantalla de Deshabilitación de Actor} es accesible 
+desde el botón \IUbutton{Desactivar} de la pantalla del catálogo de actores 
+\IUref{IU46}{Pantalla de Catálogo de Actores en Materia de Derechos}. La 
+pantalla presenta un mensaje de advertencia que informa al usuario que, de 
+continuar, los programas y planes que ejecutan tareas de restitución de derechos 
+sobre el actor dejarán de estar disponibles. Junto al mensaje se muestra el 
+estatus actual del actor como dato informativo no editable, seguido del botón 
+de confirmación de la acción.
+
+\IUfig[.9]{DeshabilitarActor}{IU54}{Pantalla de Deshabilitación de Actor.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Confirmación del cambio de estatus exitoso del actor a 
+	\textit{Inactivo} en el sistema.
+	\item Redirección a la pantalla del catálogo de actores 
+	\IUref{IU46}{Pantalla de Catálogo de Actores en Materia de Derechos} tras 
+	ejecutar la acción.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item Esta pantalla no captura datos. El único dato presentado es el estatus 
+	actual del actor como información de contexto no editable.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Deshabilitar Actor}: Confirma el cambio de estatus del actor 
+	a \textit{Inactivo}, dejando sin disponibilidad los programas y planes 
+	asociados que ejecutan tareas de restitución de derechos sobre dicha entidad.
+\end{itemize}
+
+
+\section{IU56 Pantalla de Consulta de Programas de Atención}
+\subsection{Objetivo}
+Permitir al usuario consultar el listado consolidado de todos los programas de 
+atención registrados en el sistema para la restitución de derechos, con 
+indicadores de resumen y opciones de filtrado por estatus.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU56}{Pantalla de Consulta de Programas de Atención} es 
+accesible desde el panel de administración mediante el botón 
+\IUbutton{Volver al panel}. La pantalla presenta en la parte superior un bloque 
+de indicadores de resumen con el total de programas registrados, el número de 
+programas activos y el número de programas inactivos.
+
+Debajo de los indicadores se encuentra un selector de filtro con las opciones 
+\textbf{Todos}, \textbf{Activo} e \textbf{Inactivo}, que acota el listado según 
+el estatus de los programas.
+
+El listado presenta una tarjeta por cada programa registrado. Cada tarjeta 
+muestra el nombre del programa, su estatus, la descripción, el rango de fechas 
+de vigencia conformado por la fecha de inicio y, cuando aplica, la fecha de fin, 
+el nombre del actor al que pertenece el programa y el tipo de actor 
+correspondiente.
+
+\IUfig[.9]{ConsultarProgramas}{IU56}{Pantalla de Consulta de Programas de Atención.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Listado de programas de atención registrados en el sistema, filtrado 
+	según el estatus seleccionado.
+	\item Indicadores de resumen con el total de programas registrados, 
+	programas activos y programas inactivos.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Filtro de estatus:} Selector de opción única que acota el 
+	listado según el estatus del programa. Las opciones disponibles son:
+	\begin{itemize}
+		\item \textbf{Todos:} Muestra la totalidad de programas registrados 
+		independientemente de su estatus.
+		\item \textbf{Activo:} Muestra únicamente los programas con estatus 
+		\textit{Activo}.
+		\item \textbf{Inactivo:} Muestra únicamente los programas con estatus 
+		\textit{Inactivo}.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Volver al panel}: Regresa a la pantalla del panel de 
+	administración sin realizar ningún cambio.
+\end{itemize}
+
+\input{5-1-Mensajes}

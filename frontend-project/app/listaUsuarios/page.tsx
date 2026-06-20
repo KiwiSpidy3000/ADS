@@ -1,0 +1,154 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
+
+export default function Home() {
+  const [usuarios, setUsuarios] = useState([]);
+  const router = useRouter();
+  const eliminarUsuario = async (id: number) => {
+  const confirmar = confirm("¿Está seguro que desea eliminar este usuario?");
+
+  if (!confirmar) return;
+
+  try {
+    const response = await fetch(`http://localhost:8000/usuarios/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      throw new Error("Error al eliminar");
+    }
+
+    alert("Usuario eliminado correctamente");
+
+
+    window.location.reload();
+
+
+  } catch (error) {
+    console.error(error);
+    alert("Hubo un error al eliminar");
+  }
+};
+
+  useEffect(() => {
+    const obtenerUsuarios = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/usuarios");
+        const data = await response.json();
+        setUsuarios(data);
+      } catch (error) {
+        console.error("Error al obtener usuarios:", error);
+      }
+    };
+
+    obtenerUsuarios();
+  }, []);
+
+  return (
+    <body className="bg-gray-100">
+      <nav className="bg-blue-600 p-4 text-white flex justify-between">
+        <a href="/admin"
+            className=" text-white px-4 py-2 rounded hover:bg-blue-600">
+        <h1 className="font-bold text-xl">!Null - Sistema SIGERD</h1>
+          </a>
+        <span>Bienvenido, Administrador</span>
+
+      </nav>
+
+      <div className="container mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
+        <div className="flex justify-between mb-6">
+          <h2 className="text-2xl font-semibold text-gray-800">Personal</h2>
+          
+          <a
+            href="/registrarUsuario"
+            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+          >
+            + Registrar Personal
+          </a>
+        </div>
+
+        <table className="min-w-full bg-white border">
+          <thead>
+            <tr className="bg-gray-200 text-gray-700">
+              <th className="py-3 px-4 text-left border">Nombre</th>
+              <th className="py-3 px-4 text-left border">Rol</th>
+              <th className="py-3 px-4 text-left border">Estatus</th>
+              <th className="py-3 px-4 text-center border">Acciones</th>
+              <th className="py-3 px-4 text-center border">Administracion</th>
+            </tr>
+          </thead>
+          <tbody>
+            {usuarios.map((usuario: any) => (
+              <tr key={usuario.id}>
+
+
+                <td className="py-2 px-4 border">
+                 
+                  <Link href={`/perfilUsuario/${usuario.id}`}>
+                    <span className="text-blue-600 cursor-pointer hover:underline">
+                        {usuario.nombre} {usuario.primer_apellido} {usuario.segundo_apellido}
+                    </span>
+                </Link>
+                </td>
+
+                <td className="py-2 px-4 border">
+                  {usuario.rol?.nombre_rol || "Sin rol"}
+                </td>
+
+                <td className="py-2 px-4 border">
+                  {usuario.activo ? (
+                    <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">
+                      Activo
+                    </span>
+                  ) : (
+                    <span className="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">
+                      Inactivo
+                    </span>
+                  )}
+                </td>
+                  <td className="py-2 px-4 border text-center">
+                    <div className="flex justify-center items-center gap-4">
+                      
+                        <Link href={`/modificarUsuario/${usuario.id}`}>
+                          <span className="text-blue-600 cursor-pointer hover:underline">
+                            Modificar
+                          </span>
+                        </Link>
+
+                      {usuario.activo ? (
+                        <Link href={`/revocarAcceso/${usuario.id}`}>
+                          <span className="text-red-600 cursor-pointer hover:underline">
+                            Revocar
+                          </span>
+                        </Link>
+                      ) : (
+                        <span className="text-green-600 cursor-pointer hover:underline">
+                          Activar
+                        </span>
+                      )}
+
+
+                    </div>
+                  </td>
+                  <td className="py-2 px-4 border text-center">
+                    <div className="flex justify-center items-center gap-4">
+                      <button
+                        onClick={() => eliminarUsuario(usuario.id)}
+                        className="text-red-700 hover:text-red cursor-pointer hover:underline">
+                        Eliminar
+                      </button>
+
+                    </div>
+                  </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </body>
+  );
+}

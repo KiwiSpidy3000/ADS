@@ -1,0 +1,299 @@
+% ============================================================
+%  SICORRE — Sistema de Control de Registros para la
+%  Restitución de Derechos de NNA
+%  Documento de Diseño — Capítulo 2: Diseño Arquitectónico
+%
+
+% ============================================================
+
+\chapter{Diseño Arquitectónico}
+
+El diseño arquitectónico de SICORRE establece la estructura de alto nivel del sistema,
+definiendo las capas que lo componen, las tecnologías asignadas a cada una y las reglas
+de comunicación entre ellas. Este capítulo describe el propósito de la arquitectura
+elegida, presenta su representación visual, explica cada uno de sus elementos y concluye
+con un análisis de los beneficios y limitaciones que conlleva.
+
+% ------------------------------------------------------------
+\section{Propósito y Objetivo de la Arquitectura}
+% ------------------------------------------------------------
+
+La arquitectura de SICORRE tiene como propósito central proveer una plataforma
+\textbf{segura, modular y mantenible} que permita a la Fundación digitalizar y controlar
+los procesos de gestión de expedientes, diagnósticos y seguimiento de casos de Niños,
+Niñas y Adolescentes (NNA), sustituyendo el flujo de trabajo basado en papel por uno
+digital, auditable y con acceso controlado por roles.
+
+Los objetivos arquitectónicos se expresan en términos de las siguientes propiedades
+de calidad del sistema, tomando como referencia el modelo \textbf{ISO/IEC 25010}:
+
+\begin{table}[h!]
+	\centering
+	\caption{Propiedades de calidad objetivo de la arquitectura SICORRE}
+	\renewcommand{\arraystretch}{1.4}
+	\begin{tabular}{|p{3.5cm}|p{9.5cm}|}
+		\hline
+		\textbf{Propiedad}          & \textbf{Objetivo arquitectónico}                                                                 \\ \hline
+		\textbf{Seguridad}          & Garantizar la confidencialidad e integridad de los datos de NNA mediante autenticación JWT,
+		control de acceso basado en roles (RBAC) y comunicación cifrada TLS.                             \\ \hline
+		\textbf{Mantenibilidad}     & Facilitar la evolución independiente de cada capa (presentación, lógica de negocio,
+		persistencia) mediante bajo acoplamiento e interfaces bien definidas (API REST/OpenAPI).          \\ \hline
+		\textbf{Disponibilidad}     & Asegurar la continuidad operativa del sistema con estrategias de respaldo periódico de la
+		base de datos y procedimientos documentados de recuperación.                                      \\ \hline
+		\textbf{Usabilidad}         & Proveer una interfaz web responsiva e intuitiva que no requiera formación técnica
+		especializada por parte del personal de la Fundación.                                             \\ \hline
+		\textbf{Escalabilidad}      & Permitir la incorporación de nuevos módulos y el aumento de la carga de usuarios
+		sin rediseñar la estructura base del sistema.                                                     \\ \hline
+		\textbf{Trazabilidad}       & Registrar de forma automática cada operación sobre un expediente, garantizando
+		un historial completo de auditoría.                                                               \\ \hline
+		\textbf{Portabilidad}       & Asegurar que el sistema pueda desplegarse tanto en infraestructura local como en
+		entornos de nube, sin dependencias de plataformas propietarias.                                  \\ \hline
+	\end{tabular}
+	\label{tab:propiedades-arq}
+\end{table}
+
+% ------------------------------------------------------------
+\section{Diagrama Arquitectónico}
+% ------------------------------------------------------------
+
+La arquitectura de SICORRE sigue el patrón \textbf{Cliente-Servidor Web}, con una separación física clara entre la capa de presentación (frontend), la capa de lógica de negocio (backend) y la capa de persistencia de datos (base de datos). La Figura~\ref{fig:arq-general} ilustra esta estructura.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.6\textwidth]{img/arquitectura.png}
+	\caption{Arquitectura general de SICORRE basada en una arquitectura Cliente-Servidor Web.}
+	\label{fig:arq-general}
+\end{figure}
+
+
+% ------------------------------------------------------------
+\section{Explicación de la Arquitectura}
+% ------------------------------------------------------------
+
+\subsection{Elementos}
+
+La arquitectura de SICORRE está compuesta por los siguientes elementos principales:
+
+\subsubsection*{Capa de Presentación — React SPA}
+
+\begin{itemize}
+	\item \textbf{Tecnología:} React (biblioteca de UI de JavaScript), ejecutada sobre
+	Node.js $\geq$ 20 LTS para el entorno de desarrollo y empaquetado.
+	\item \textbf{Responsabilidad:} Renderizar la interfaz de usuario en el navegador del
+	cliente y gestionar la navegación entre vistas sin recarga completa de página
+	(\textit{Single Page Application}).
+	\item \textbf{Componentes clave:}
+	\begin{itemize}
+		\item \textit{React Router:} manejo de rutas del lado del cliente
+		(\texttt{/expedientes}, \texttt{/diagnosticos}, \texttt{/usuarios}, etc.).
+		\item \textit{Axios / Fetch API:} cliente HTTP encargado de consumir los
+		endpoints de la API REST del backend.
+		\item \textit{Context API / Redux:} gestión del estado global de la aplicación
+		(sesión activa, permisos del usuario, datos en caché).
+		\item \textit{Formularios controlados:} captura y validación de datos antes de
+		su envío al backend.
+	\end{itemize}
+	\item \textbf{Patrón interno:} Arquitectura basada en componentes reutilizables,
+	organizados en páginas (\textit{pages}), componentes de UI (\textit{components})
+	y servicios de acceso a la API (\textit{services}).
+\end{itemize}
+
+\subsubsection*{Capa de Lógica de Negocio — FastAPI}
+
+\begin{itemize}
+	\item \textbf{Tecnología:} FastAPI (framework web Python asíncrono), Python
+	$\geq$ 3.11.
+	\item \textbf{Responsabilidad:} Exponer la API REST, aplicar las reglas de negocio,
+	gestionar la autenticación y autorización, y orquestar el acceso a la base de
+	datos.
+	\item \textbf{Componentes clave:}
+	\begin{itemize}
+		\item \textit{Routers:} agrupan los endpoints por dominio funcional
+		(\texttt{/expedientes}, \texttt{/diagnosticos}, \texttt{/usuarios},
+		\texttt{/reportes}).
+		\item \textit{Servicios (Services):} encapsulan la lógica de negocio e
+		interactúan con la capa de persistencia.
+		\item \textit{Esquemas Pydantic:} validan y serializan los datos de entrada y
+		salida de cada endpoint.
+		\item \textit{Dependencias (Dependencies):} implementan la inyección de
+		dependencias para la verificación de tokens JWT y la obtención de sesiones
+		de base de datos.
+		\item \textit{SQLAlchemy ORM:} abstrae el acceso a PostgreSQL mediante modelos
+		de Python, facilitando las operaciones CRUD y las consultas complejas.
+		\item \textit{Módulo de autenticación:} gestiona el ciclo de vida de los tokens
+		JWT (\textit{access token} + \textit{refresh token}) y la validación de
+		roles de usuario.
+	\end{itemize}
+	\item \textbf{Patrón interno:} Arquitectura en capas
+	\textit{Router → Service → Repository → Model}, que separa la exposición de
+	la API, la lógica de negocio, el acceso a datos y los modelos de dominio.
+\end{itemize}
+
+\subsubsection*{Capa de Persistencia — PostgreSQL}
+
+\begin{itemize}
+	\item \textbf{Tecnología:} PostgreSQL 15, motor de base de datos relacional de código
+	abierto.
+	\item \textbf{Responsabilidad:} Almacenar de forma estructurada y persistente todos
+	los datos del sistema: expedientes, diagnósticos, usuarios, roles, documentos
+	adjuntos (metadatos) y registros de auditoría.
+	\item \textbf{Componentes clave:}
+	\begin{itemize}
+		\item \textit{Esquema relacional normalizado:} tablas con relaciones de clave
+		foránea que garantizan integridad referencial.
+		\item \textit{Triggers de auditoría:} registran automáticamente las
+		modificaciones a los expedientes en una tabla de historial.
+		\item \textit{Roles de base de datos:} el backend accede con un usuario de BD
+		de mínimos privilegios; no se permiten conexiones directas desde el cliente.
+		\item \textit{Respaldos:} mediante \texttt{pg\_dump} programado (cron) con
+		almacenamiento en repositorio seguro (local o S3-compatible).
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{Capa transversal — Seguridad}
+
+Aunque no constituye una capa física independiente, la seguridad es un elemento
+transversal que atraviesa todas las capas:
+
+\begin{itemize}
+	\item \textbf{TLS/HTTPS:} cifra toda la comunicación entre el navegador y el servidor.
+	\item \textbf{JWT (JSON Web Tokens):} provee autenticación sin estado entre el
+	frontend y el backend.
+	\item \textbf{RBAC:} cada endpoint verifica el rol del usuario (administrador,
+	coordinador, trabajador social) antes de ejecutar la operación.
+	\item \textbf{CORS:} el backend configura las políticas de origen cruzado para
+	permitir únicamente solicitudes del dominio autorizado del frontend.
+\end{itemize}
+
+\subsection{Relaciones entre elementos}
+
+\begin{enumerate}
+	\item \textbf{Usuario $\to$ Capa de Presentación:} el usuario interactúa con la
+	SPA de React a través del navegador web mediante HTTPS. No existe instalación
+	de software en el equipo del usuario.
+	
+	\item \textbf{Capa de Presentación $\leftrightarrow$ Capa de Lógica de Negocio:}
+	React se comunica con FastAPI exclusivamente a través de la API REST documentada
+	en OpenAPI 3.x. Los mensajes viajan en formato JSON sobre HTTPS. Esta relación
+	es bidireccional: el frontend envía solicitudes y el backend responde con datos
+	o confirmaciones.
+	
+	\item \textbf{Capa de Lógica de Negocio $\leftrightarrow$ Capa de Persistencia:}
+	FastAPI accede a PostgreSQL a través de SQLAlchemy ORM mediante el protocolo
+	TCP/IP interno del servidor. Ningún componente externo al backend puede
+	escribir directamente en la base de datos.
+	
+	\item \textbf{Módulo de autenticación $\to$ todas las capas:} el token JWT generado
+	en el backend es almacenado en el frontend (memoria o \textit{httpOnly cookie})
+	y enviado en cada solicitud HTTP; el backend lo valida antes de procesar
+	cualquier operación.
+\end{enumerate}
+
+\subsection{Reglas arquitectónicas}
+
+Las siguientes reglas son de cumplimiento obligatorio y rigen las interacciones entre
+capas durante todo el ciclo de vida del sistema:
+
+\begin{enumerate}
+	\item \textbf{Sentido único de dependencia:} la capa de presentación depende de la
+	capa de lógica de negocio; la capa de lógica de negocio depende de la capa de
+	persistencia. Nunca en sentido inverso.
+	
+	\item \textbf{Acceso exclusivo por API:} el frontend solo puede comunicarse con la
+	base de datos a través de los endpoints del backend. Está prohibido exponer
+	cadenas de conexión o credenciales de PostgreSQL en el cliente.
+	
+	\item \textbf{Validación en dos niveles:} los datos de entrada son validados en el
+	frontend (formularios React) y nuevamente en el backend (esquemas Pydantic)
+	antes de persistirse. La validación del backend es la autoritativa.
+	
+	\item \textbf{Autenticación obligatoria:} todos los endpoints de la API, excepto
+	\texttt{POST /auth/login}, requieren un token JWT válido. El rol del usuario
+	determina qué operaciones puede ejecutar.
+	
+	\item \textbf{Sin lógica de negocio en el frontend:} las reglas de negocio
+	(cálculo de estados, validaciones de flujo, permisos) residen exclusivamente
+	en el backend. El frontend solo presenta datos y captura entradas.
+	
+	\item \textbf{Versionado de la API:} todos los endpoints se agrupan bajo el prefijo
+	\texttt{/api/v1/} para facilitar la evolución de la API sin romper clientes
+	existentes.
+	
+	\item \textbf{Registro de auditoría:} toda escritura sobre las tablas de expedientes
+	y diagnósticos debe registrarse en la tabla de auditoría con usuario, timestamp
+	y tipo de operación.
+\end{enumerate}
+
+% ------------------------------------------------------------
+\section{Beneficios y Limitaciones de la Arquitectura}
+% ------------------------------------------------------------
+
+\subsection{Beneficios}
+
+Los siguientes beneficios se derivan directamente de las propiedades de calidad que la
+arquitectura Cliente-Servidor Web con FastAPI, React y PostgreSQL aporta al sistema:
+
+\begin{table}[h!]
+	\centering
+	\caption{Beneficios de la arquitectura en términos de propiedades de calidad}
+	\renewcommand{\arraystretch}{1.4}
+	\begin{tabular}{|p{3.2cm}|p{9.8cm}|}
+		\hline
+		\textbf{Propiedad}          & \textbf{Beneficio}                                                                                 \\ \hline
+		\textbf{Mantenibilidad}     & La separación estricta de capas permite modificar o reemplazar el frontend (React)
+		sin alterar el backend, y viceversa, reduciendo el riesgo de regresiones.             \\ \hline
+		\textbf{Escalabilidad}      & FastAPI soporta ejecución asíncrona (\texttt{async/await}), lo que permite atender
+		múltiples solicitudes concurrentes con un consumo de recursos reducido.                \\ \hline
+		\textbf{Seguridad}          & La arquitectura centraliza los controles de seguridad en el backend (JWT, RBAC, CORS),
+		minimizando la superficie de ataque accesible desde el cliente.                        \\ \hline
+		\textbf{Productividad}      & FastAPI genera automáticamente documentación interactiva (Swagger UI / ReDoc) a partir
+		de los esquemas Pydantic, acelerando el desarrollo y las pruebas de la API.           \\ \hline
+		\textbf{Confiabilidad}      & PostgreSQL ofrece transacciones ACID, garantizando la integridad de los datos de los
+		expedientes incluso ante fallos parciales del sistema.                                  \\ \hline
+		\textbf{Portabilidad}       & El uso de tecnologías de código abierto (Python, React, PostgreSQL) facilita el
+		despliegue en múltiples entornos: servidores locales, VPS o nube pública.              \\ \hline
+		\textbf{Trazabilidad}       & La capa de auditoría en PostgreSQL registra automáticamente cada cambio en los
+		expedientes, cumpliendo con requisitos de transparencia y rendición de cuentas.        \\ \hline
+		\textbf{Usabilidad}         & React permite construir interfaces responsivas e interactivas con experiencia de usuario
+		fluida, sin recargas completas de página.                                              \\ \hline
+	\end{tabular}
+	\label{tab:beneficios-arq}
+\end{table}
+
+\subsection{Limitaciones}
+
+Toda decisión arquitectónica implica compromisos (\textit{trade-offs}). A continuación
+se documentan las limitaciones identificadas y las estrategias de mitigación propuestas:
+
+\begin{table}[h!]
+	\centering
+	\caption{Limitaciones de la arquitectura y estrategias de mitigación}
+	\renewcommand{\arraystretch}{1.4}
+	\begin{tabular}{|p{3.2cm}|p{5.5cm}|p{4.3cm}|}
+		\hline
+		\textbf{Limitación}             & \textbf{Descripción}                                                                  & \textbf{Mitigación}                              \\ \hline
+		\textbf{Punto único de falla}   & Si el servidor donde reside el backend cae, toda la aplicación deja de operar.
+		La arquitectura de un solo servidor no ofrece redundancia nativa.                  & Implementar respaldos automáticos y documentar
+		un plan de recuperación ante desastres (RTO/RPO
+		definidos).                                       \\ \hline
+		\textbf{Latencia de red}        & Al ser una SPA, la carga inicial puede ser lenta en conexiones de baja velocidad,
+		ya que el navegador descarga todo el bundle de React antes de renderizar.          & Aplicar \textit{code splitting} y carga diferida
+		(\texttt{React.lazy}) para reducir el tamaño del
+		bundle inicial.                                   \\ \hline
+		\textbf{Complejidad operativa}  & Gestionar tres capas tecnológicas (React, FastAPI, PostgreSQL) requiere competencias
+		en múltiples lenguajes y herramientas (Python, JavaScript, SQL).                   & Documentar los procedimientos de despliegue y
+		usar contenedores Docker para simplificar la
+		configuración del entorno.                        \\ \hline
+		\textbf{Sin modo fuera de línea}& Al depender de la conexión al servidor, el sistema no puede operar sin acceso
+		a la red. Esto puede afectar al personal en trabajo de campo.                      & Definir como trabajo futuro un módulo de
+		sincronización offline (PWA o app móvil).         \\ \hline
+		\textbf{Escalabilidad vertical} & PostgreSQL en un solo nodo puede convertirse en cuello de botella si el volumen
+		de datos o de consultas crece significativamente.                                  & Planificar particionamiento de tablas y, a largo
+		plazo, migración a una solución con réplicas de
+		lectura.                                          \\ \hline
+		\textbf{Gestión de sesiones}    & El uso de JWT sin estado dificulta la revocación inmediata de sesiones ante
+		compromisos de seguridad.                                                          & Implementar una lista negra de tokens en
+		caché (Redis o tabla en BD) con TTL controlado.   \\ \hline
+	\end{tabular}
+	\label{tab:limitaciones-arq}
+\end{table}

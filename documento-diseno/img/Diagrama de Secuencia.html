@@ -1,0 +1,1843 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagramas de Secuencia — SICORRE</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; font-size: 12px; background: #e8edf2; }
+.shell   { display: flex; height: 100vh; overflow: hidden; }
+
+/* sidebar */
+.sidebar { width: 250px; background: #1b3a5c; display: flex; flex-direction: column; overflow: hidden; flex-shrink: 0; }
+.sb-head { padding: 10px 12px; background: #0f2338; border-bottom: 1px solid #0a1a2b; }
+.sb-title{ color: #fff; font-weight: bold; font-size: 13px; letter-spacing:.3px; }
+.sb-sub  { color: #7aadd4; font-size: 9px; margin-top: 3px; }
+.sb-search{ padding: 6px 8px; background: #142d47; }
+.sb-search input{ width:100%; padding:4px 7px; border:1px solid #2a5580; border-radius:2px;
+  background:#1b3a5c; color:#cce; font-size:11px; outline:none; }
+.sb-list { flex:1; overflow-y:auto; }
+.sb-group{ padding:4px 10px; font-size:9px; font-weight:bold; color:#7aadd4;
+  background:#142d47; text-transform:uppercase; letter-spacing:.6px;
+  border-bottom:1px solid #0f2338; }
+.sb-item { padding:5px 10px; cursor:pointer; display:flex; align-items:flex-start;
+  gap:6px; border-bottom:1px solid #1a3654; color:#bbd4ee; }
+.sb-item:hover  { background:#1f4a78; }
+.sb-item.active { background:#2563a8; color:#fff; }
+.sb-badge{ font-size:8px; padding:2px 4px; border-radius:2px; min-width:38px;
+  text-align:center; font-weight:bold; background:#0f2338; color:#7aadd4;
+  flex-shrink:0; margin-top:1px; }
+.sb-item.active .sb-badge{ background:rgba(255,255,255,.15); color:#fff; }
+.sb-name { font-size:10.5px; line-height:1.4; }
+
+/* main */
+.main    { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+.toolbar { background:#fff; border-bottom:1px solid #d0d7e0; padding:6px 14px;
+  display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.tb-id   { background:#1b3a5c; color:#fff; padding:2px 8px; border-radius:2px;
+  font-size:10px; font-weight:bold; }
+.tb-name { font-size:13px; font-weight:bold; color:#111; }
+
+/* legend */
+.legend  { background:#f7f9fb; border-bottom:1px solid #dde3ea;
+  padding:4px 14px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.leg-item{ display:flex; align-items:center; gap:5px; font-size:9px; color:#555; }
+
+/* diagram */
+.diagram-wrap{ flex:1; overflow:auto; padding:16px; background:#e8edf2; }
+.diagram-box { background:#fff; border:1px solid #bbb; display:inline-block; min-width:100%; }
+.sd-titlebar { background:#ADC6E5; padding:3px 10px; font-size:11px; font-weight:bold;
+  border-bottom:1px solid #8AAABF; display:flex; align-items:center; gap:7px; }
+.sd-tag  { background:#1b3a5c; color:#fff; padding:1px 6px; border-radius:1px;
+  font-size:9px; font-style:italic; font-weight:bold; }
+
+/* download buttons */
+.btn-dl {
+  background: #1b3a5c;
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.2s;
+}
+.btn-dl:hover {
+  background: #2563a8;
+}
+.btn-dl-sec {
+  background: #fff;
+  color: #1b3a5c;
+  border: 1px solid #1b3a5c;
+}
+.btn-dl-sec:hover {
+  background: #f0f4f8;
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="sb-head">
+    <div class="sb-title">SICORRE</div>
+    <div class="sb-sub">Next.js · FastAPI · SQLAlchemy · PostgreSQL</div>
+  </div>
+  <div class="sb-search"><input id="srch" placeholder="Buscar…" oninput="buildMenu(this.value)"></div>
+  <div class="sb-list" id="menu"></div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="toolbar">
+    <span class="tb-id"  id="tb-id"></span>
+    <span class="tb-name" id="tb-name"></span>
+    <div style="margin-left: auto; display: flex; gap: 8px;">
+      <button onclick="downloadPNG()" class="btn-dl">Descargar PNG</button>
+      <button onclick="downloadSVG()" class="btn-dl btn-dl-sec">Descargar SVG</button>
+    </div>
+  </div>
+
+  <!-- Leyenda de símbolos -->
+  <div class="legend" id="legend"></div>
+
+  <div class="diagram-wrap">
+    <div class="diagram-box" id="dbox">
+      <div class="sd-titlebar">
+        <span class="sd-tag">sd</span>
+        <span id="sd-lbl"></span>
+      </div>
+      <div id="svg-out"></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════════════
+// PARTICIPANTES — siempre 4, mismo orden
+//  [0] Actor (usuario/rol)      → stickman
+//  [1] React  page.tsx          → boundary (línea+círculo)
+//  [2] FastAPI router.py        → control  (círculo+flecha)
+//  [3] PostgreSQL via SQLAlchemy→ database (cilindro)
+//
+// TIPOS DE MENSAJE
+//  kind:"sync"   → flecha sólida rellena  ►
+//  kind:"return" → flecha punteada abierta ⇢  (dashed)
+//  kind:"self"   → lazo sobre el mismo participante
+// ═══════════════════════════════════════════════════════════════════════════
+
+const GROUPS = [
+  { label:"🔐 Autenticación",               ids:["CU-01","CU-02","CU-03"] },
+  { label:"👥 Gestión de Usuarios",         ids:["CU-04","CU-05","CU-06","CU-07","CU-08"] },
+  { label:"🏥 Equipos Multidisciplinarios", ids:["CU-09","CU-10","CU-11","CU-12"] },
+  { label:"👶 NNA y Tutores",               ids:["CU-13","CU-14","CU-15","CU-16","CU-17","CU-18","CU-19"] },
+  { label:"📮 Catálogos",                   ids:["CU-32","CU-33","CU-34","CU-35","CU-36","CU-37"] },
+  { label:"📂 Expedientes",                 ids:["CU-20","CU-21","CU-22","CU-23","CU-24","CU-25"] },
+  { label:"⚖️ Actores de Derechos",         ids:["CU-26","CU-27","CU-28","CU-29","CU-30","CU-31"] },
+  { label:"🏢 Directorio de Actores",       ids:["CU-41","CU-42","CU-43","CU-44","CU-45","CU-46","CU-47","CU-48","CU-49","CU-50","CU-51","CU-52","CU-53","CU-54","CU-55","CU-56","CU-57","CU-58","CU-59"] },
+  { label:"📅 Calendario",                 ids:["CU-38","CU-39","CU-40"] }
+];
+
+const CUS = [
+
+// ── CU-01 ──────────────────────────────────────────────────────────────────
+{ id:"CU-01", name:"Iniciar sesión",
+  parts:[
+    {name:"Usuario",                          type:"actor"},
+    {name:"app/page.tsx\nHome()",             type:"boundary"},
+    {name:"usuarios.py\nPOST /usuarios/login\nlogin()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nusuarios",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"escribe correo y contraseña",   kind:"sync"},
+    {f:0,t:1, label:"presiona Ingresar",              kind:"sync"},
+    {f:1,t:2, label:"fetch POST /usuarios/login\n{ correo, password }",kind:"sync"},
+    {f:2,t:2, label:"valida: UsuarioCreate",          kind:"self"},
+    {f:2,t:3, label:"session.execute(\nSELECT usuarios WHERE correo)",kind:"sync"},
+    {f:3,t:2, label:"row Usuario",                    kind:"return"},
+    {f:2,t:2, label:"bcrypt.verify(password, hash)",  kind:"self"},
+    {f:2,t:2, label:"construye UsuarioResponse",      kind:"self"},
+    {f:2,t:1, label:"200 OK { token, UsuarioResponse }",kind:"return"},
+    {f:1,t:0, label:"router.push('/admin')",          kind:"return"},
+  ]
+},
+
+// ── CU-02 ──────────────────────────────────────────────────────────────────
+{ id:"CU-02", name:"Cerrar sesión",
+  parts:[
+    {name:"Usuario",                          type:"actor"},
+    {name:"app/layout.tsx\nNavbar",           type:"boundary"},
+    {name:"(sin llamada a FastAPI)",          type:"control"},
+    {name:"—",                                type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"presiona Cerrar sesión",         kind:"sync"},
+    {f:1,t:1, label:"localStorage.removeItem('token')",kind:"self"},
+    {f:1,t:0, label:"router.push('/')",               kind:"return"},
+  ]
+},
+
+// ── CU-04 ──────────────────────────────────────────────────────────────────
+{ id:"CU-04", name:"Registrar usuario",
+  parts:[
+    {name:"Administrador",                    type:"actor"},
+    {name:"app/registrarUsuario/\npage.tsx\nNuevoRegistro()",type:"boundary"},
+    {name:"usuarios.py\nPOST /usuarios/\nregistrar_usuario()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nusuarios · direcciones_usuarios",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"navega a /registrarUsuario",     kind:"sync"},
+    {f:1,t:2, label:"fetch GET /catalogos/roles\nfetch GET /catalogos/tipos-vivienda",kind:"sync"},
+    {f:2,t:3, label:"session.execute(SELECT cat_roles)\nsession.execute(SELECT cat_tipos_vivienda)",kind:"sync"},
+    {f:3,t:2, label:"[roles] [tipos_vivienda]",       kind:"return"},
+    {f:2,t:1, label:"200 OK [catálogos]",             kind:"return"},
+    {f:1,t:1, label:"cargarCatalogos() → setRoles / setTipos",kind:"self"},
+    {f:0,t:1, label:"escribe CP → buscarPorCodigoPostal()", kind:"sync"},
+    {f:1,t:2, label:"fetch GET /catalogos/\npor-codigo-postal/{cp}",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT colonias JOIN municipios\nJOIN estados WHERE cp)",kind:"sync"},
+    {f:3,t:2, label:"{estado, municipio, colonias}",  kind:"return"},
+    {f:2,t:1, label:"200 OK {estado,municipio,colonias}",kind:"return"},
+    {f:0,t:1, label:"completa formulario → handleSubmit(e)",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /usuarios/\n{nombre,curp,correo,password,\n rol_id,calle,colonia_id,…}",kind:"sync"},
+    {f:2,t:2, label:"valida: UsuarioCreate",          kind:"self"},
+    {f:2,t:3, label:"session.execute(\nSELECT WHERE curp|rfc|correo)",kind:"sync"},
+    {f:3,t:2, label:"None (sin duplicado)",           kind:"return"},
+    {f:2,t:3, label:"session.add(DireccionUsuario(…))\nsession.add(Usuario(password_hash=bcrypt))\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"id usuario",                     kind:"return"},
+    {f:2,t:2, label:"construye UsuarioResponse",      kind:"self"},
+    {f:2,t:1, label:"201 Created { UsuarioResponse }", kind:"return"},
+    {f:1,t:0, label:"redirect /listaUsuarios",        kind:"return"},
+  ]
+},
+
+// ── CU-05 ──────────────────────────────────────────────────────────────────
+{ id:"CU-05", name:"Consultar usuarios",
+  parts:[
+    {name:"Administrador",                    type:"actor"},
+    {name:"app/listaUsuarios/\npage.tsx\nHome()",type:"boundary"},
+    {name:"usuarios.py\nGET /usuarios/\nobtener_usuarios()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nusuarios",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"navega a /listaUsuarios",        kind:"sync"},
+    {f:1,t:1, label:"useEffect → obtenerUsuarios()",  kind:"self"},
+    {f:1,t:2, label:"fetch GET /usuarios",            kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT usuarios\nJOIN rol JOIN direcciones)",kind:"sync"},
+    {f:3,t:2, label:"[rows]",                         kind:"return"},
+    {f:2,t:2, label:"construye List[UsuarioResponse]",kind:"self"},
+    {f:2,t:1, label:"200 OK [ UsuarioResponse ]",     kind:"return"},
+    {f:1,t:0, label:"setUsuarios(data) → render tabla",kind:"return"},
+  ]
+},
+
+// ── CU-06 ──────────────────────────────────────────────────────────────────
+{ id:"CU-06", name:"Modificar usuario",
+  parts:[
+    {name:"Administrador",                    type:"actor"},
+    {name:"app/modificarUsuario/[id]/\npage.tsx",type:"boundary"},
+    {name:"usuarios.py\nGET /usuarios/{id}\nPUT /usuarios/{id}\nobtener_usuario()\nactualizar_usuario()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nusuarios",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"navega a /modificarUsuario/{id}", kind:"sync"},
+    {f:1,t:2, label:"fetch GET /usuarios/{id}",        kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT usuarios WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Usuario",                     kind:"return"},
+    {f:2,t:2, label:"construye UsuarioResponse",       kind:"self"},
+    {f:2,t:1, label:"200 OK { UsuarioResponse }",      kind:"return"},
+    {f:1,t:1, label:"setFormData(data) — precarga campos",kind:"self"},
+    {f:0,t:1, label:"modifica y presiona Guardar → handleSubmit(e)",kind:"sync"},
+    {f:1,t:2, label:"fetch PUT /usuarios/{id}\n{ UsuarioUpdate }",kind:"sync"},
+    {f:2,t:2, label:"valida: UsuarioUpdate",           kind:"self"},
+    {f:2,t:3, label:"session.execute(\nUPDATE usuarios SET … WHERE id)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                              kind:"return"},
+    {f:2,t:2, label:"construye UsuarioResponse",       kind:"self"},
+    {f:2,t:1, label:"200 OK { UsuarioResponse }",      kind:"return"},
+    {f:1,t:0, label:"'Modificación exitosa' + redirect",kind:"return"},
+  ]
+},
+
+// ── CU-07 ──────────────────────────────────────────────────────────────────
+{ id:"CU-07", name:"Revocar acceso a usuario",
+  parts:[
+    {name:"Administrador",                    type:"actor"},
+    {name:"app/revocarAcceso/[id]/\npage.tsx",type:"boundary"},
+    {name:"usuarios.py\nPATCH /usuarios/{id}/revocar\nrevocar_acceso()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nusuarios",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"presiona Revocar → confirma",    kind:"sync"},
+    {f:1,t:2, label:"fetch PATCH /usuarios/{id}/revocar",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT usuarios WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Usuario",                    kind:"return"},
+    {f:2,t:3, label:"session.execute(\nUPDATE usuarios SET activo=false)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                             kind:"return"},
+    {f:2,t:2, label:"construye UsuarioResponse",      kind:"self"},
+    {f:2,t:1, label:"200 OK { UsuarioResponse, activo:false }",kind:"return"},
+    {f:1,t:0, label:"redirect /listaUsuarios",        kind:"return"},
+  ]
+},
+
+// ── CU-08 ──────────────────────────────────────────────────────────────────
+{ id:"CU-08", name:"Eliminar usuario",
+  parts:[
+    {name:"Administrador",                    type:"actor"},
+    {name:"app/listaUsuarios/\npage.tsx\nHome()",type:"boundary"},
+    {name:"usuarios.py\nDELETE /usuarios/{id}\neliminar_usuario()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nusuarios",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"presiona Eliminar → confirma\neliminarUsuario(id)",kind:"sync"},
+    {f:1,t:2, label:"fetch DELETE /usuarios/{id}",    kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT usuarios WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Usuario",                    kind:"return"},
+    {f:2,t:3, label:"session.delete(usuario)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                             kind:"return"},
+    {f:2,t:1, label:"200 OK { message:'eliminado' }", kind:"return"},
+    {f:1,t:1, label:"window.location.reload()",       kind:"self"},
+  ]
+},
+
+// ── CU-09 ──────────────────────────────────────────────────────────────────
+{ id:"CU-09", name:"Registrar equipo multidisciplinario",
+  parts:[
+    {name:"Administrador",                    type:"actor"},
+    {name:"app/registrarEquipo/\npage.tsx\nRegistrarEquipo()",type:"boundary"},
+    {name:"equipos_router.py\nPOST /equipos/\ncrear_equipo()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nequipos",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"ingresa nombre → handleSubmit(e)",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /equipos/\n{ nombre_equipo, … }",kind:"sync"},
+    {f:2,t:2, label:"valida: EquipoCreate",            kind:"self"},
+    {f:2,t:3, label:"session.add(Equipo(…))\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"id equipo",                       kind:"return"},
+    {f:2,t:2, label:"construye EquipoResponse",        kind:"self"},
+    {f:2,t:1, label:"201 Created { EquipoResponse }",  kind:"return"},
+    {f:1,t:0, label:"redirect /listaEquipos",          kind:"return"},
+  ]
+},
+
+// ── CU-10 ──────────────────────────────────────────────────────────────────
+{ id:"CU-10", name:"Consultar equipos multidisciplinarios",
+  parts:[
+    {name:"Usuario",                          type:"actor"},
+    {name:"app/listaEquipos/\npage.tsx\nConsultarEquipos()",type:"boundary"},
+    {name:"equipos_router.py\nGET /equipos/\nobtener_equipos()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nequipos · usuarios",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"navega a /listaEquipos",         kind:"sync"},
+    {f:1,t:1, label:"useEffect → cargar()",           kind:"self"},
+    {f:1,t:2, label:"fetch GET /equipos/",            kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT equipos\n+ selectinload(integrantes))",kind:"sync"},
+    {f:3,t:2, label:"[rows]",                         kind:"return"},
+    {f:2,t:2, label:"construye List[EquipoResponse]", kind:"self"},
+    {f:2,t:1, label:"200 OK [ EquipoResponse ]",      kind:"return"},
+    {f:1,t:0, label:"setEquipos(data) → render tabla",kind:"return"},
+  ]
+},
+
+// ── CU-11 ──────────────────────────────────────────────────────────────────
+{ id:"CU-11", name:"Modificar equipo multidisciplinario",
+  parts:[
+    {name:"Administrador",                    type:"actor"},
+    {name:"app/admin/equipos/[id]/\neditar/page.tsx",type:"boundary"},
+    {name:"equipos_router.py\nGET /equipos/{id}\nPUT /equipos/{id}\nobtener_equipo()\nactualizar_equipo()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nequipos",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"navega a /admin/equipos/{id}/editar",kind:"sync"},
+    {f:1,t:2, label:"fetch GET /equipos/{id}",        kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT equipos WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Equipo",                     kind:"return"},
+    {f:2,t:2, label:"construye EquipoResponse",       kind:"self"},
+    {f:2,t:1, label:"200 OK { EquipoResponse }",      kind:"return"},
+    {f:1,t:1, label:"precarga formulario",            kind:"self"},
+    {f:0,t:1, label:"modifica y presiona Guardar",    kind:"sync"},
+    {f:1,t:2, label:"fetch PUT /equipos/{id}\n{ EquipoCreate }",kind:"sync"},
+    {f:2,t:2, label:"valida: EquipoCreate",           kind:"self"},
+    {f:2,t:3, label:"session.execute(\nUPDATE equipos SET … WHERE id)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                             kind:"return"},
+    {f:2,t:2, label:"construye EquipoResponse",       kind:"self"},
+    {f:2,t:1, label:"200 OK { EquipoResponse }",      kind:"return"},
+    {f:1,t:0, label:"redirect lista equipos",         kind:"return"},
+  ]
+},
+
+// ── CU-12 ──────────────────────────────────────────────────────────────────
+{ id:"CU-12", name:"Agregar integrante a equipo",
+  parts:[
+    {name:"Administrador",                    type:"actor"},
+    {name:"app/admin/equipos/[id]/\nagregar-integrante/page.tsx",type:"boundary"},
+    {name:"equipos_router.py\nGET /equipos/usuarios-sin-equipo\nPOST /equipos/{id}/integrantes\nusuarios_sin_equipo()\nagregar_integrante()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nequipos · usuarios",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"navega a agregar-integrante/{id}",kind:"sync"},
+    {f:1,t:2, label:"fetch GET /equipos/usuarios-sin-equipo",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT usuarios WHERE equipo_id IS NULL)",kind:"sync"},
+    {f:3,t:2, label:"[rows disponibles]",             kind:"return"},
+    {f:2,t:2, label:"construye List[UsuarioResumenResponse]",kind:"self"},
+    {f:2,t:1, label:"200 OK [ UsuarioResumenResponse ]",kind:"return"},
+    {f:0,t:1, label:"selecciona usuario → presiona Agregar",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /equipos/{id}/integrantes\n{ usuario_id }",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nUPDATE usuarios SET equipo_id={id})\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                             kind:"return"},
+    {f:2,t:2, label:"construye EquipoResponse",       kind:"self"},
+    {f:2,t:1, label:"200 OK { EquipoResponse }",      kind:"return"},
+    {f:1,t:0, label:"redirect + 'Integrante asignado'",kind:"return"},
+  ]
+},
+
+// ── CU-13 ──────────────────────────────────────────────────────────────────
+{ id:"CU-13", name:"Registrar NNA",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/nnas/registrar/\npage.tsx\nRegistrarNNA()",type:"boundary"},
+    {name:"nna_router.py\nPOST /nnas/\nregistrar_nna()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nnna",    type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"navega a /nnas/registrar",       kind:"sync"},
+    {f:1,t:2, label:"fetch GET /catalogos/estatus-escolar\n+ GET /equipos/\n+ GET /tutores/\n+ GET /catalogos/tipos-vivienda-nna",kind:"sync"},
+    {f:2,t:3, label:"session.execute(SELECT cat_estatus_escolar)\nsession.execute(SELECT equipos)\nsession.execute(SELECT tutores)\nsession.execute(SELECT cat_tipos_vivienda_nna)",kind:"sync"},
+    {f:3,t:2, label:"[catálogos]",                    kind:"return"},
+    {f:2,t:1, label:"200 OK [catálogos]",             kind:"return"},
+    {f:0,t:1, label:"escribe CP → buscarCP()",        kind:"sync"},
+    {f:1,t:2, label:"fetch GET /catalogos/\npor-codigo-postal/{cp}",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT colonias JOIN municipios\nJOIN estados WHERE cp)",kind:"sync"},
+    {f:3,t:2, label:"{estado,municipio,colonias}",    kind:"return"},
+    {f:2,t:1, label:"200 OK {colonias}",              kind:"return"},
+    {f:0,t:1, label:"completa formulario → handleSubmit(e)",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /nnas/\n{nombre,curp,fecha_nacimiento,\n equipo_asignado_id,tutor_id,…}",kind:"sync"},
+    {f:2,t:2, label:"valida: NNACreate",              kind:"self"},
+    {f:2,t:3, label:"session.execute(\nSELECT nna WHERE curp)",kind:"sync"},
+    {f:3,t:2, label:"None (sin duplicado)",           kind:"return"},
+    {f:2,t:3, label:"session.add(NNA(…))\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"id nna",                         kind:"return"},
+    {f:2,t:2, label:"construye NNAResponse",          kind:"self"},
+    {f:2,t:1, label:"200 OK { NNAResponse }",         kind:"return"},
+    {f:1,t:0, label:"redirect /listaNnas",            kind:"return"},
+  ]
+},
+
+// ── CU-14 ──────────────────────────────────────────────────────────────────
+{ id:"CU-14", name:"Consultar NNA",
+  parts:[
+    {name:"Usuario",                          type:"actor"},
+    {name:"app/listaNnas/\npage.tsx\nConsultarNNAs()",type:"boundary"},
+    {name:"nna_router.py\nGET /nnas/\nconsultar_nnas()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nnna · tutores",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"navega a /listaNnas",            kind:"sync"},
+    {f:1,t:1, label:"useEffect → cargar()",           kind:"self"},
+    {f:1,t:2, label:"fetch GET /nnas/\nfetch GET /tutores/",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT nna + relaciones)\nsession.execute(\nSELECT tutores)",kind:"sync"},
+    {f:3,t:2, label:"[rows]",                         kind:"return"},
+    {f:2,t:2, label:"construye List[NNAResponse]\nList[TutorResponse]",kind:"self"},
+    {f:2,t:1, label:"200 OK [ NNAResponse ]",         kind:"return"},
+    {f:1,t:0, label:"setNnas(data) → render tabla",   kind:"return"},
+  ]
+},
+
+// ── CU-15 ──────────────────────────────────────────────────────────────────
+{ id:"CU-15", name:"Modificar datos del NNA",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/nnas/editar/[id]/\npage.tsx",  type:"boundary"},
+    {name:"nna_router.py\nGET /nnas/{id}\nPATCH /nnas/{id}\nconsultar_nna()\nmodificar_nna()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nnna",    type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"navega a /nnas/editar/{id}",    kind:"sync"},
+    {f:1,t:2, label:"fetch GET /nnas/{id}",           kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT nna WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row NNA",                        kind:"return"},
+    {f:2,t:2, label:"construye NNAResponse",          kind:"self"},
+    {f:2,t:1, label:"200 OK { NNAResponse }",         kind:"return"},
+    {f:1,t:1, label:"precarga formulario",            kind:"self"},
+    {f:0,t:1, label:"edita campos → presiona Actualizar",kind:"sync"},
+    {f:1,t:2, label:"fetch PATCH /nnas/{id}\n{ NNAUpdate }",kind:"sync"},
+    {f:2,t:2, label:"valida: NNAUpdate",              kind:"self"},
+    {f:2,t:3, label:"session.execute(\nUPDATE nna SET … WHERE id)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                             kind:"return"},
+    {f:2,t:2, label:"construye NNAResponse",          kind:"self"},
+    {f:2,t:1, label:"200 OK { NNAResponse }",         kind:"return"},
+    {f:1,t:0, label:"redirect + 'Actualización exitosa'",kind:"return"},
+  ]
+},
+
+// ── CU-18 ──────────────────────────────────────────────────────────────────
+{ id:"CU-18", name:"Registrar tutor del NNA",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/tutores/registrar/\npage.tsx\nRegistrarTutor()",type:"boundary"},
+    {name:"tutores.py\nPOST /tutores/\ncrear_tutor()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\ntutores", type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"navega a /tutores/registrar",    kind:"sync"},
+    {f:0,t:1, label:"completa formulario → registrarTutor(e)",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /tutores/\n{nombre,curp,fecha_nacimiento,…}",kind:"sync"},
+    {f:2,t:2, label:"valida: TutorCreate",            kind:"self"},
+    {f:2,t:3, label:"session.add(Tutor(…))\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"id tutor",                       kind:"return"},
+    {f:2,t:2, label:"construye TutorResponse",        kind:"self"},
+    {f:2,t:1, label:"200 OK { TutorResponse }",       kind:"return"},
+    {f:1,t:0, label:"router.push('/admin')",          kind:"return"},
+  ]
+},
+
+// ── CU-32 ──────────────────────────────────────────────────────────────────
+{ id:"CU-32", name:"Consultar catálogo SEPOMEX (CP)",
+  parts:[
+    {name:"Usuario",                          type:"actor"},
+    {name:"app/.../page.tsx\nbuscarPorCodigoPostal()\nbuscarCP()",type:"boundary"},
+    {name:"catalogos.py\nGET /catalogos/por-codigo-postal/{cp}\nbuscar_por_cp()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\ncolonias·municipios·estados",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"escribe CP → presiona Enter / Buscar CP",kind:"sync"},
+    {f:1,t:2, label:"fetch GET /catalogos/\npor-codigo-postal/{cp}",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT colonias\nJOIN municipios JOIN estados\nWHERE codigo_postal = cp)",kind:"sync"},
+    {f:3,t:2, label:"{estado,municipio,colonias:[]}",  kind:"return"},
+    {f:2,t:2, label:"construye { estado,municipio,colonias:[ColoniaOut] }",kind:"self"},
+    {f:2,t:1, label:"200 OK { estado,municipio,colonias }",kind:"return"},
+    {f:1,t:1, label:"setColonias(data.colonias)\nsetDir({estado,municipio})",kind:"self"},
+    {f:0,t:1, label:"selecciona colonia del select",  kind:"sync"},
+  ]
+},
+
+// ── CU-41 ──────────────────────────────────────────────────────────────────
+{ id:"CU-41", name:"Registrar actor en Directorio",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actoresDerechos/registrar/\npage.tsx\nNuevoActorDerechos()",type:"boundary"},
+    {name:"actores_router.py\nPOST /actores\ncrear_actor()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactores_derechos·direcciones\ncontactos·actor_programas\nactor_enlaces",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"navega a /actoresDerechos/registrar",kind:"sync"},
+    {f:1,t:2, label:"fetch GET /catalogos/tipos-actor\nfetch GET /catalogos/redes-sociales",kind:"sync"},
+    {f:2,t:3, label:"session.execute(SELECT cat_tipos_actor)\nsession.execute(SELECT cat_redes_sociales)",kind:"sync"},
+    {f:3,t:2, label:"[catálogos]",                    kind:"return"},
+    {f:2,t:1, label:"200 OK [TipoActorOut][RedSocialOut]",kind:"return"},
+    {f:0,t:1, label:"escribe CP → buscarCP()",        kind:"sync"},
+    {f:1,t:2, label:"fetch GET /catalogos/\npor-codigo-postal/{cp}",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT colonias JOIN … WHERE cp)",kind:"sync"},
+    {f:3,t:2, label:"{colonias}",                     kind:"return"},
+    {f:2,t:1, label:"200 OK {colonias}",              kind:"return"},
+    {f:0,t:1, label:"completa pasos (Tipo→Datos→Dir→Contactos\n→Programas→Enlaces) → handleSubmit(e)",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /actores\n{tipo,nombre,tipo_actor_id,\n direccion,contactos,\n programas,enlaces}",kind:"sync"},
+    {f:2,t:2, label:"valida: ActorCreate\n(ActorPersonaFisicaCreate\n | ActorAsociacionCreate)",kind:"self"},
+    {f:2,t:3, label:"session.add(Direcciones(…)); session.flush()\nsession.add(ActoresDerechos(…)); session.flush()\nsession.add(Contactos) + ActorPrograma\n+ ActorEnlace; session.commit()",kind:"sync"},
+    {f:3,t:2, label:"ids generados",                  kind:"return"},
+    {f:2,t:2, label:"construye ActorOut\n(ActorPersonaFisicaOut\n | ActorAsociacionOut)",kind:"self"},
+    {f:2,t:1, label:"201 Created { ActorOut }",       kind:"return"},
+    {f:1,t:0, label:"render éxito + 'Ver lista'",     kind:"return"},
+  ]
+},
+
+// ── CU-46 ──────────────────────────────────────────────────────────────────
+{ id:"CU-46", name:"Consultar / Buscar actores",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actoresDerechos/\npage.tsx\nActoresPage()",type:"boundary"},
+    {name:"actores_router.py\nGET /actores\nobtener_actores()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactores_derechos",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"navega a /actoresDerechos",      kind:"sync"},
+    {f:1,t:1, label:"useEffect → obtenerActores()",   kind:"self"},
+    {f:1,t:2, label:"fetch GET /actores",             kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT actores_derechos\n+ joinedload(direccion)\n+ selectinload(contactos,\n  programas,enlaces))",kind:"sync"},
+    {f:3,t:2, label:"[rows]",                         kind:"return"},
+    {f:2,t:2, label:"construye List[ActorOut]",       kind:"self"},
+    {f:2,t:1, label:"200 OK [ ActorOut ]",            kind:"return"},
+    {f:1,t:1, label:"setActores(data)",               kind:"self"},
+    {f:0,t:1, label:"clic filtro tipo actor",         kind:"sync"},
+    {f:1,t:1, label:"setFiltro(tipo)\nactores.filter(a => a.tipo===tipo)\n(sin nueva llamada al API)",kind:"self"},
+    {f:1,t:0, label:"re-render tabla filtrada",       kind:"return"},
+  ]
+},
+
+// ── CU-48 ──────────────────────────────────────────────────────────────────
+{ id:"CU-48", name:"Consultar actor (detalle)",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actoresDerechos/[id]/\npage.tsx",type:"boundary"},
+    {name:"actores_router.py\nGET /actores/{id}\nobtener_actor()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactores_derechos\n+relaciones",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"clic en nombre del actor",       kind:"sync"},
+    {f:1,t:2, label:"fetch GET /actores/{actor_id}",  kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT actores_derechos WHERE id\n+ joinedload(direccion)\n+ selectinload(contactos)\n+ selectinload(programas)\n+ selectinload(enlaces))",kind:"sync"},
+    {f:3,t:2, label:"row Actor completo",             kind:"return"},
+    {f:2,t:2, label:"construye ActorPersonaFisicaOut\n| ActorAsociacionOut",kind:"self"},
+    {f:2,t:1, label:"200 OK { ActorOut }",            kind:"return"},
+    {f:1,t:0, label:"render perfil completo actor",   kind:"return"},
+  ]
+},
+
+// ── CU-49 ──────────────────────────────────────────────────────────────────
+{ id:"CU-49", name:"Editar actor",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actoresDerechos/[id]/\neditar/page.tsx",type:"boundary"},
+    {name:"actores_router.py\nGET /actores/{id}\nPUT /actores/{id}\nobtener_actor()\nactualizar_actor()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactores_derechos",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"clic 'Editar' en perfil actor",  kind:"sync"},
+    {f:1,t:2, label:"fetch GET /actores/{id}",         kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT actores_derechos WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Actor",                       kind:"return"},
+    {f:2,t:2, label:"construye ActorOut",              kind:"self"},
+    {f:2,t:1, label:"200 OK { ActorOut }",             kind:"return"},
+    {f:1,t:1, label:"precarga formulario",             kind:"self"},
+    {f:0,t:1, label:"modifica → presiona Guardar",     kind:"sync"},
+    {f:1,t:2, label:"fetch PUT /actores/{id}\n{ ActorCreate }",kind:"sync"},
+    {f:2,t:2, label:"valida: ActorCreate",             kind:"self"},
+    {f:2,t:3, label:"session.execute(\nUPDATE actores_derechos\nSET … WHERE id)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                              kind:"return"},
+    {f:2,t:2, label:"construye ActorOut",              kind:"self"},
+    {f:2,t:1, label:"200 OK { ActorOut }",             kind:"return"},
+    {f:1,t:0, label:"redirect lista actores",          kind:"return"},
+  ]
+},
+
+// ── CU-54 ──────────────────────────────────────────────────────────────────
+{ id:"CU-54", name:"Deshabilitar actor",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actoresDerechos/\npage.tsx\nActoresPage()",type:"boundary"},
+    {name:"actores_router.py\nDELETE /actores/{id}\neliminar_actor()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactores_derechos",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"presiona 'Eliminar/Desactivar'\neliminarActor(id)",kind:"sync"},
+    {f:1,t:2, label:"fetch DELETE /actores/{id}",      kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT actores_derechos WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Actor",                       kind:"return"},
+    {f:2,t:3, label:"session.delete(actor)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                              kind:"return"},
+    {f:2,t:1, label:"200 OK { message:'Actor eliminado' }",kind:"return"},
+    {f:1,t:1, label:"window.location.reload()",        kind:"self"},
+  ]
+},
+
+// ── CU-55 ──────────────────────────────────────────────────────────────────
+{ id:"CU-55", name:"Reactivar actor",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actoresDerechos/\npage.tsx\nActoresPage()",type:"boundary"},
+    {name:"actores_router.py\nPATCH /actores/{id}/reactivar\nreactivar_actor()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactores_derechos",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"presiona 'Reactivar' → confirma\nreactivarActor(id)",kind:"sync"},
+    {f:1,t:2, label:"fetch PATCH /actores/{id}/reactivar",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT actores_derechos WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Actor",                       kind:"return"},
+    {f:2,t:3, label:"session.execute(\nUPDATE actores_derechos SET activo=true)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                              kind:"return"},
+    {f:2,t:1, label:"200 OK { ActorOut, activo:true }",kind:"return"},
+    {f:1,t:1, label:"window.location.reload()",        kind:"self"},
+  ]
+},
+
+// ── CU-56 ──────────────────────────────────────────────────────────────────
+{ id:"CU-56", name:"Consultar catálogo de programas",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/programas/\npage.tsx\nProgramasPage()",type:"boundary"},
+    {name:"actores_router.py\nGET /actores\nobtener_actores()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactores_derechos\nactor_programas",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"navega a /programas",             kind:"sync"},
+    {f:1,t:1, label:"useEffect → fetchProgramas()",    kind:"self"},
+    {f:1,t:2, label:"fetch GET /actores",              kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT actores_derechos\n+ selectinload(programas))",kind:"sync"},
+    {f:3,t:2, label:"[rows + programas]",              kind:"return"},
+    {f:2,t:2, label:"construye List[ActorOut]\n(con programas cargados)",kind:"self"},
+    {f:1,t:0, label:"render catálogo de programas activos",kind:"return"},
+  ]
+},
+
+// ── CU-57 ──────────────────────────────────────────────────────────────────
+{ id:"CU-57", name:"Buscar programas",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/programas/\npage.tsx\nProgramasPage()",type:"boundary"},
+    {name:"actores_router.py\nGET /actores?q={termino}\nobtener_actores()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactores_derechos\nactor_programas",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"ingresa término en barra de búsqueda",kind:"sync"},
+    {f:1,t:2, label:"fetch GET /actores?q={termino}",  kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT actores JOIN programas\nWHERE nombre LIKE %t% OR prog LIKE %t%)",kind:"sync"},
+    {f:3,t:2, label:"[rows Actor + programas]",        kind:"return"},
+    {f:2,t:2, label:"construye List[ActorOut]",       kind:"self"},
+    {f:2,t:1, label:"200 OK [ ActorOut ]",            kind:"return"},
+    {f:1,t:0, label:"render listado filtrado",        kind:"return"},
+  ]
+},
+
+// ── CU-58 ──────────────────────────────────────────────────────────────────
+{ id:"CU-58", name:"Deshabilitar programa",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actoresDerechos/[id]/\npage.tsx\nPerfilActor()",type:"boundary"},
+    {name:"actores_router.py\nPATCH /programas/{id}/desactivar\ndesactivar_programa()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactor_programa",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"presiona 'Deshabilitar' en programa",kind:"sync"},
+    {f:1,t:2, label:"fetch PATCH /programas/{id}/desactivar",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT actor_programa WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Program",                     kind:"return"},
+    {f:2,t:3, label:"session.execute(\nUPDATE actor_programa SET activo=false)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                              kind:"return"},
+    {f:2,t:1, label:"200 OK { ProgramaOut, activo:false }",kind:"return"},
+    {f:1,t:1, label:"window.location.reload()",        kind:"self"},
+  ]
+},
+
+// ── CU-59 ──────────────────────────────────────────────────────────────────
+{ id:"CU-59", name:"Reactivar programa",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actoresDerechos/[id]/\npage.tsx\nPerfilActor()",type:"boundary"},
+    {name:"actores_router.py\nPATCH /programas/{id}/reactivar\nreactivar_programa()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactor_programa",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"presiona 'Reactivar' en programa",kind:"sync"},
+    {f:1,t:2, label:"fetch PATCH /programas/{id}/reactivar",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT actor_programa WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Program",                     kind:"return"},
+    {f:2,t:3, label:"session.execute(\nUPDATE actor_programa SET activo=true)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                              kind:"return"},
+    {f:2,t:1, label:"200 OK { ProgramaOut, activo:true }",kind:"return"},
+    {f:1,t:1, label:"window.location.reload()",        kind:"self"},
+  ]
+},
+
+// ── CU-19 ──────────────────────────────────────────────────────────────────
+{ id:"CU-19", name:"Modificar datos del tutor",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/tutores/editar/[id]/\npage.tsx\nEditarTutor()",type:"boundary"},
+    {name:"tutores.py\nGET /tutores/{id}\nPUT /tutores/{id}\nobtener_tutor()\nactualizar_tutor()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\ntutores",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona Modificar tutor",     kind:"sync"},
+    {f:1,t:2, label:"fetch GET /tutores/{id}",        kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT tutores WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Tutor",                      kind:"return"},
+    {f:2,t:1, label:"200 OK { TutorResponse }",       kind:"return"},
+    {f:1,t:1, label:"precarga formulario",            kind:"self"},
+    {f:0,t:1, label:"modifica datos → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch PUT /tutores/{id}\n{ TutorUpdate }",kind:"sync"},
+    {f:2,t:2, label:"valida: TutorUpdate",            kind:"self"},
+    {f:2,t:3, label:"session.execute(\nUPDATE tutores SET ... WHERE id)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                             kind:"return"},
+    {f:2,t:1, label:"200 OK { TutorResponse }",       kind:"return"},
+    {f:1,t:0, label:"redirect + 'Tutor actualizado'", kind:"return"},
+  ]
+},
+
+// ── CU-33 ──────────────────────────────────────────────────────────────────
+{ id:"CU-33", name:"Consultar catálogo de idiomas (INALI)",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/.../page.tsx\n(captura NNA/tutor)",type:"boundary"},
+    {name:"catalogos_router.py\nGET /catalogos/idiomas\nlistar_idiomas()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\ncat_idiomas",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"escribe fragmento del idioma / despliega lista",kind:"sync"},
+    {f:1,t:2, label:"fetch GET /catalogos/idiomas",   kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT cat_idiomas)",kind:"sync"},
+    {f:3,t:2, label:"[rows Idioma]",                  kind:"return"},
+    {f:2,t:2, label:"construye List[IdiomaOut]",      kind:"self"},
+    {f:2,t:1, label:"200 OK [ IdiomaOut ]",           kind:"return"},
+    {f:1,t:1, label:"render listado / autocompleta",  kind:"self"},
+    {f:0,t:1, label:"selecciona idioma",              kind:"sync"},
+  ]
+},
+
+// ── CU-34 ──────────────────────────────────────────────────────────────────
+{ id:"CU-34", name:"Registrar discapacidad de NNA o tutor",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/nnas/[id]/salud/\npage.tsx\nCondicionesSalud()",type:"boundary"},
+    {name:"catalogos_router.py\nGET /catalogos/discapacidades\nPOST /nnas/{id}/discapacidades\nlistar_discapacidades()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\ncat_discapacidades · nna_discapacidades",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"presiona Agregar discapacidad",  kind:"sync"},
+    {f:1,t:2, label:"fetch GET /catalogos/discapacidades",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT cat_discapacidades)",kind:"sync"},
+    {f:3,t:2, label:"[rows Discapacidad]",            kind:"return"},
+    {f:2,t:1, label:"200 OK [ DiscapacidadOut ]",     kind:"return"},
+    {f:1,t:1, label:"render listado en modal",        kind:"self"},
+    {f:0,t:1, label:"selecciona discapacidad → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /nnas/{id}/discapacidades\n{ discapacidad_id, observaciones }",kind:"sync"},
+    {f:2,t:2, label:"valida: NNADiscapacidadCreate",  kind:"self"},
+    {f:2,t:3, label:"session.add(NNADiscapacidades(…))\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                             kind:"return"},
+    {f:2,t:1, label:"201 Created",                    kind:"return"},
+    {f:1,t:0, label:"render nueva discapacidad",      kind:"return"},
+  ]
+},
+
+// ── CU-36 ──────────────────────────────────────────────────────────────────
+{ id:"CU-36", name:"Registrar enfermedad de NNA o tutor",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/nnas/[id]/salud/\npage.tsx\nCondicionesSalud()",type:"boundary"},
+    {name:"catalogos_router.py\nGET /catalogos/enfermedades\nPOST /nnas/{id}/enfermedades\nlistar_enfermedades()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\ncat_enfermedades · nna_enfermedades",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"presiona Agregar enfermedad",    kind:"sync"},
+    {f:1,t:2, label:"fetch GET /catalogos/enfermedades",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT cat_enfermedades)",kind:"sync"},
+    {f:3,t:2, label:"[rows Enfermedad]",              kind:"return"},
+    {f:2,t:1, label:"200 OK [ EnfermedadOut ]",       kind:"return"},
+    {f:1,t:1, label:"render listado en modal",        kind:"self"},
+    {f:0,t:1, label:"selecciona enfermedad → presiona Registrar",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /nnas/{id}/enfermedades\n{ enfermedad_id, observaciones }",kind:"sync"},
+    {f:2,t:2, label:"valida: NNAEnfermedadCreate",    kind:"self"},
+    {f:2,t:3, label:"session.add(NNAEnfermedades(…))\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                             kind:"return"},
+    {f:2,t:1, label:"201 Created",                    kind:"return"},
+    {f:1,t:0, label:"render nueva enfermedad",        kind:"return"},
+  ]
+},
+
+// ── CU-42 ──────────────────────────────────────────────────────────────────
+{ id:"CU-42", name:"Registrar contactos del actor",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actoresDerechos/[id]/contactos/nuevo/\npage.tsx\nNuevoContacto()",type:"boundary"},
+    {name:"actores_router.py\nPOST /actores/{id}/contactos\ncrear_contacto()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\ncontactos",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona Agregar contacto",    kind:"sync"},
+    {f:1,t:0, label:"render formulario",              kind:"return"},
+    {f:0,t:1, label:"escribe datos → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /actores/{id}/contactos\n{ tel_principal, correo, ... }",kind:"sync"},
+    {f:2,t:2, label:"valida: ContactoCreate",          kind:"self"},
+    {f:2,t:3, label:"session.execute(\nSELECT contactos WHERE actor_id)\nsession.add(Contacto(…))\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"id contacto",                    kind:"return"},
+    {f:2,t:1, label:"201 Created { ContactoOut }",    kind:"return"},
+    {f:1,t:0, label:"redirect + 'Contacto registrado'",kind:"return"},
+  ]
+},
+
+// ── CU-43 ──────────────────────────────────────────────────────────────────
+{ id:"CU-43", name:"Registrar ubicación del actor",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actoresDerechos/[id]/ubicacion/nueva/\npage.tsx\nNuevaUbicacion()",type:"boundary"},
+    {name:"actores_router.py\nPOST /actores/{id}/direccion\ncrear_direccion()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\ndirecciones · actores_derechos",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona Agregar ubicación",   kind:"sync"},
+    {f:1,t:2, label:"fetch GET /catalogos/tipos-lugar",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT cat_tipos_lugar)",kind:"sync"},
+    {f:3,t:2, label:"[tipos_lugar]",                  kind:"return"},
+    {f:2,t:1, label:"200 OK [tipos_lugar]",           kind:"return"},
+    {f:0,t:1, label:"escribe CP → buscarCP()",        kind:"sync"},
+    {f:1,t:2, label:"fetch GET /catalogos/\npor-codigo-postal/{cp}",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT colonias WHERE cp)",kind:"sync"},
+    {f:3,t:2, label:"{estado, municipio, colonias}",  kind:"return"},
+    {f:2,t:1, label:"200 OK {colonias}",              kind:"return"},
+    {f:0,t:1, label:"completa formulario → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /actores/{id}/direccion\n{ calle, no_exterior, colonia_id, ... }",kind:"sync"},
+    {f:2,t:2, label:"valida: DireccionCreate",        kind:"self"},
+    {f:2,t:3, label:"session.add(Direccion())\nsession.flush()",kind:"sync"},
+    {f:3,t:2, label:"id direccion",                   kind:"return"},
+    {f:2,t:3, label:"session.execute(\nUPDATE actores_derechos SET direccion_id)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                             kind:"return"},
+    {f:2,t:1, label:"201 Created { DireccionOut }",   kind:"return"},
+    {f:1,t:0, label:"redirect + 'Ubicación registrada'",kind:"return"},
+  ]
+},
+
+// ── CU-44 ──────────────────────────────────────────────────────────────────
+{ id:"CU-44", name:"Registrar programas del actor",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actoresDerechos/[id]/programas/nuevo/\npage.tsx\nNuevoPrograma()",type:"boundary"},
+    {name:"actores_router.py\nPOST /actores/{id}/programas\ncrear_programa()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactor_programa · servicios_actores",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona Agregar programa",    kind:"sync"},
+    {f:1,t:2, label:"fetch GET /catalogos/categorias-servicio",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT cat_categorias_servicio)",kind:"sync"},
+    {f:3,t:2, label:"[categorias]",                   kind:"return"},
+    {f:2,t:1, label:"200 OK [categorias]",            kind:"return"},
+    {f:0,t:1, label:"completa formulario → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /actores/{id}/programas\n{ nom_programa, servicios }",kind:"sync"},
+    {f:2,t:2, label:"valida: ProgramaCreate",          kind:"self"},
+    {f:2,t:3, label:"session.add(ActorPrograma(…))\nsession.flush()\nsession.add(ServicioActor(…))\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ids creados",                    kind:"return"},
+    {f:2,t:1, label:"201 Created { ProgramaOut }",    kind:"return"},
+    {f:1,t:0, label:"redirect + 'Programa registrado'",kind:"return"},
+  ]
+},
+
+// ── CU-45 ──────────────────────────────────────────────────────────────────
+{ id:"CU-45", name:"Registrar enlaces representantes",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actoresDerechos/[id]/enlaces/nuevo/\npage.tsx\nNuevoEnlace()",type:"boundary"},
+    {name:"actores_router.py\nPOST /actores/{id}/enlaces\ncrear_enlace()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactor_enlace",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona Agregar enlace representante",kind:"sync"},
+    {f:1,t:0, label:"render formulario",              kind:"return"},
+    {f:0,t:1, label:"escribe datos → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /actores/{id}/enlaces\n{ nom_enlace, cargo, ... }",kind:"sync"},
+    {f:2,t:2, label:"valida: EnlaceCreate",            kind:"self"},
+    {f:2,t:3, label:"session.execute(\nSELECT enlaces WHERE actor_id)\nsession.add(ActorEnlace(…))\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"id enlace",                      kind:"return"},
+    {f:2,t:1, label:"201 Created { EnlaceOut }",       kind:"return"},
+    {f:1,t:0, label:"redirect + 'Enlace registrado'",  kind:"return"},
+  ]
+},
+
+// ── CU-47 ──────────────────────────────────────────────────────────────────
+{ id:"CU-47", name:"Filtrar actores por tipo",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actoresDerechos/\npage.tsx\nActoresPage()",type:"boundary"},
+    {name:"actores_router.py\nGET /actores?tipo_actor_id={id}\nobtener_actores()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactores_derechos",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona tipo de actor en panel de filtros",kind:"sync"},
+    {f:1,t:2, label:"fetch GET /actores?tipo_actor_id={id}",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT actores JOIN cat_tipo_actor\nWHERE tipo_actor_id = id)",kind:"sync"},
+    {f:3,t:2, label:"[rows Actor]",                   kind:"return"},
+    {f:2,t:1, label:"200 OK [ ActorOut ]",            kind:"return"},
+    {f:1,t:0, label:"render tabla filtrada",          kind:"return"},
+  ]
+},
+
+// ── CU-50 ──────────────────────────────────────────────────────────────────
+{ id:"CU-50", name:"Editar contactos del actor",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actoresDerechos/[id]/contactos/[contacto_id]/\neditar/page.tsx",type:"boundary"},
+    {name:"actores_router.py\nGET /contactos/{contacto_id}\nPUT /contactos/{contacto_id}\nobtener_contacto()\nactualizar_contacto()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\ncontactos",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona contacto → presiona Editar",kind:"sync"},
+    {f:1,t:2, label:"fetch GET /contactos/{contacto_id}",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT contactos WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Contacto",                    kind:"return"},
+    {f:2,t:1, label:"200 OK { ContactoOut }",          kind:"return"},
+    {f:1,t:1, label:"precarga formulario",             kind:"self"},
+    {f:0,t:1, label:"modifica datos → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch PUT /contactos/{contacto_id}\n{ ContactoUpdate }",kind:"sync"},
+    {f:2,t:2, label:"valida: ContactoUpdate",          kind:"self"},
+    {f:2,t:3, label:"session.execute(\nUPDATE contactos SET … WHERE id)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                              kind:"return"},
+    {f:2,t:1, label:"200 OK { ContactoOut }",          kind:"return"},
+    {f:1,t:0, label:"redirect + 'Contacto actualizado'",kind:"return"},
+  ]
+},
+
+// ── CU-51 ──────────────────────────────────────────────────────────────────
+{ id:"CU-51", name:"Editar ubicación del actor",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actoresDerechos/[id]/ubicacion/[dir_id]/\neditar/page.tsx",type:"boundary"},
+    {name:"actores_router.py\nGET /direcciones/{dir_id}\nPUT /direcciones/{dir_id}\nobtener_direccion()\nactualizar_direccion()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\ndirecciones",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona Editar ubicación",     kind:"sync"},
+    {f:1,t:2, label:"fetch GET /direcciones/{dir_id}", kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT direcciones WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Direccion",                   kind:"return"},
+    {f:2,t:1, label:"200 OK { DireccionOut }",         kind:"return"},
+    {f:1,t:1, label:"precarga formulario",             kind:"self"},
+    {f:0,t:1, label:"escribe CP → buscarCP()",         kind:"sync"},
+    {f:1,t:2, label:"fetch GET /catalogos/\npor-codigo-postal/{cp}",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT colonias WHERE cp)",kind:"sync"},
+    {f:3,t:2, label:"{colonias}",                      kind:"return"},
+    {f:2,t:1, label:"200 OK {colonias}",               kind:"return"},
+    {f:0,t:1, label:"modifica datos → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch PUT /direcciones/{dir_id}\n{ DireccionUpdate }",kind:"sync"},
+    {f:2,t:2, label:"valida: DireccionUpdate",         kind:"self"},
+    {f:2,t:3, label:"session.execute(\nUPDATE direcciones SET … WHERE id)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                              kind:"return"},
+    {f:2,t:1, label:"200 OK { DireccionOut }",         kind:"return"},
+    {f:1,t:0, label:"redirect + 'Ubicación actualizada'",kind:"return"},
+  ]
+},
+
+// ── CU-52 ──────────────────────────────────────────────────────────────────
+{ id:"CU-52", name:"Editar programas del actor",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actoresDerechos/[id]/programas/[prog_id]/\neditar/page.tsx",type:"boundary"},
+    {name:"actores_router.py\nGET /programas/{prog_id}\nPUT /programas/{prog_id}\nobtener_programa()\nactualizar_programa()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactor_programa · servicios_actores",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona programa → presiona Editar",kind:"sync"},
+    {f:1,t:2, label:"fetch GET /programas/{prog_id}",  kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT actor_programa JOIN servicios_actores\nWHERE id = prog_id)",kind:"sync"},
+    {f:3,t:2, label:"row Program + Servicios",        kind:"return"},
+    {f:2,t:1, label:"200 OK { ProgramaOut }",          kind:"return"},
+    {f:1,t:1, label:"precarga formulario",             kind:"self"},
+    {f:0,t:1, label:"modifica datos → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch PUT /programas/{prog_id}\n{ ProgramaUpdate }",kind:"sync"},
+    {f:2,t:2, label:"valida: ProgramaUpdate",          kind:"self"},
+    {f:2,t:3, label:"session.execute(\nUPDATE actor_programa SET …\nUPDATE servicios_actores SET …)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                              kind:"return"},
+    {f:2,t:1, label:"200 OK { ProgramaOut }",          kind:"return"},
+    {f:1,t:0, label:"redirect + 'Programa actualizado'",kind:"return"},
+  ]
+},
+
+// ── CU-53 ──────────────────────────────────────────────────────────────────
+{ id:"CU-53", name:"Editar enlaces representantes",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actoresDerechos/[id]/enlaces/[enlace_id]/\neditar/page.tsx",type:"boundary"},
+    {name:"actores_router.py\nGET /enlaces/{enlace_id}\nPUT /enlaces/{enlace_id}\nobtener_enlace()\nactualizar_enlace()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactor_enlace",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona enlace → presiona Editar",kind:"sync"},
+    {f:1,t:2, label:"fetch GET /enlaces/{enlace_id}",  kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT actor_enlace WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Enlace",                      kind:"return"},
+    {f:2,t:1, label:"200 OK { EnlaceOut }",            kind:"return"},
+    {f:1,t:1, label:"precarga formulario",             kind:"self"},
+    {f:0,t:1, label:"modifica datos → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch PUT /enlaces/{enlace_id}\n{ EnlaceUpdate }",kind:"sync"},
+    {f:2,t:2, label:"valida: EnlaceUpdate",            kind:"self"},
+    {f:2,t:3, label:"session.execute(\nUPDATE actor_enlace SET … WHERE id)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                              kind:"return"},
+    {f:2,t:1, label:"200 OK { EnlaceOut }",            kind:"return"},
+    {f:1,t:0, label:"redirect + 'Enlace actualizado'",  kind:"return"},
+  ]
+},
+
+// ── CU-03 ──────────────────────────────────────────────────────────────────
+{ id:"CU-03", name:"Recuperar contraseña",
+  parts:[
+    {name:"Usuario",                          type:"actor"},
+    {name:"app/recuperar-password/\npage.tsx\nRecuperarPassword()",type:"boundary"},
+    {name:"usuarios.py\nPOST /usuarios/\nrecuperar-password\nrecuperar_password()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nusuarios",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"ingresa correo → presiona Recuperar",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /usuarios/recuperar-password\n{ correo }",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT usuarios WHERE correo)",kind:"sync"},
+    {f:3,t:2, label:"row Usuario",                    kind:"return"},
+    {f:2,t:2, label:"genera token de restablecimiento",kind:"self"},
+    {f:2,t:2, label:"envía correo con enlace",         kind:"self"},
+    {f:2,t:1, label:"200 OK { message: 'Correo enviado' }",kind:"return"},
+    {f:1,t:0, label:"muestra confirmación en pantalla",kind:"return"},
+  ]
+},
+
+// ── CU-16 ──────────────────────────────────────────────────────────────────
+{ id:"CU-16", name:"Registrar hecho victimal",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/nnas/[id]/hechos/nuevo/\npage.tsx\nNuevoHecho()",type:"boundary"},
+    {name:"nna_router.py\nPOST /nnas/{id}/hechos\nregistrar_hecho_victimal()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nhechos_victimales",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"ingresa datos del hecho → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /nnas/{id}/hechos\n{ fecha, descripcion, tipo_violencia }",kind:"sync"},
+    {f:2,t:2, label:"valida: HechoVictimalCreate",     kind:"self"},
+    {f:2,t:3, label:"session.add(HechoVictimal(…))\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"id hecho",                       kind:"return"},
+    {f:2,t:1, label:"201 Created { HechoResponse }",  kind:"return"},
+    {f:1,t:0, label:"redirect a perfil de NNA",       kind:"return"},
+  ]
+},
+
+// ── CU-17 ──────────────────────────────────────────────────────────────────
+{ id:"CU-17", name:"Modificar hecho victimal",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/nnas/[id]/hechos/[hecho_id]/\neditar/page.tsx",type:"boundary"},
+    {name:"nna_router.py\nGET /hechos/{hecho_id}\nPUT /hechos/{hecho_id}\nobtener_hecho()\nactualizar_hecho()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nhechos_victimales",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"navega a editar hecho",          kind:"sync"},
+    {f:1,t:2, label:"fetch GET /hechos/{hecho_id}",   kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT hechos_victimales WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row HechoVictimal",              kind:"return"},
+    {f:2,t:1, label:"200 OK { HechoResponse }",       kind:"return"},
+    {f:1,t:1, label:"precarga formulario",            kind:"self"},
+    {f:0,t:1, label:"modifica datos → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch PUT /hechos/{hecho_id}\n{ HechoUpdate }",kind:"sync"},
+    {f:2,t:2, label:"valida: HechoUpdate",            kind:"self"},
+    {f:2,t:3, label:"session.execute(\nUPDATE hechos_victimales SET … WHERE id)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                             kind:"return"},
+    {f:2,t:1, label:"200 OK { HechoResponse }",       kind:"return"},
+    {f:1,t:0, label:"redirect a perfil de NNA",       kind:"return"},
+  ]
+},
+
+// ── CU-20 ──────────────────────────────────────────────────────────────────
+{ id:"CU-20", name:"Abrir expediente",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/expedientes/nuevo/\npage.tsx\nNuevoExpediente()",type:"boundary"},
+    {name:"expedientes_router.py\nPOST /expedientes\nabrir_expediente()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nexpedientes",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona NNA y escribe observaciones → presiona Abrir",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /expedientes\n{ nna_id, observaciones }",kind:"sync"},
+    {f:2,t:2, label:"valida: ExpedienteCreate",       kind:"self"},
+    {f:2,t:3, label:"session.execute(\nSELECT expedientes WHERE nna_id)",kind:"sync"},
+    {f:3,t:2, label:"None (sin duplicado)",           kind:"return"},
+    {f:2,t:3, label:"session.add(Expediente(…))\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"id expediente",                  kind:"return"},
+    {f:2,t:1, label:"201 Created { ExpedienteResponse }",kind:"return"},
+    {f:1,t:0, label:"redirect a detalle de expediente",kind:"return"},
+  ]
+},
+
+// ── CU-21 ──────────────────────────────────────────────────────────────────
+{ id:"CU-21", name:"Consultar expediente",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/expedientes/[id]/\npage.tsx\nExpedienteDetalle()",type:"boundary"},
+    {name:"expedientes_router.py\nGET /expedientes/{id}\nobtener_expediente()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nexpedientes · valoraciones",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"clic en expediente para ver detalle",kind:"sync"},
+    {f:1,t:2, label:"fetch GET /expedientes/{id}",    kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT expedientes\nJOIN nna JOIN valoraciones\nWHERE id = id)",kind:"sync"},
+    {f:3,t:2, label:"row Expediente completo",        kind:"return"},
+    {f:2,t:2, label:"construye ExpedienteResponse",   kind:"self"},
+    {f:2,t:1, label:"200 OK { ExpedienteResponse }",  kind:"return"},
+    {f:1,t:0, label:"render resumen y línea de tiempo",kind:"return"},
+  ]
+},
+
+// ── CU-22 ──────────────────────────────────────────────────────────────────
+{ id:"CU-22", name:"Registrar valoración multidisciplinaria",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/expedientes/[id]/valoraciones/nueva/\npage.tsx\nNuevaValoracion()",type:"boundary"},
+    {name:"expedientes_router.py\nPOST /expedientes/{id}/valoraciones\ncrear_valoracion()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nvaloraciones",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona área e ingresa diagnóstico → presiona Registrar",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /expedientes/{id}/valoraciones\n{ area, diagnostico }",kind:"sync"},
+    {f:2,t:2, label:"valida: ValoracionCreate",        kind:"self"},
+    {f:2,t:3, label:"session.add(Valoracion(…))\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"id valoracion",                  kind:"return"},
+    {f:2,t:1, label:"201 Created { ValoracionResponse }",kind:"return"},
+    {f:1,t:0, label:"actualiza línea de tiempo",      kind:"return"},
+  ]
+},
+
+// ── CU-23 ──────────────────────────────────────────────────────────────────
+{ id:"CU-23", name:"Modificar valoración multidisciplinaria",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/expedientes/[id]/valoraciones/[val_id]/\neditar/page.tsx",type:"boundary"},
+    {name:"expedientes_router.py\nGET /valoraciones/{val_id}\nPUT /valoraciones/{val_id}\nobtener_valoracion()\nactualizar_valoracion()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nvaloraciones",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona Editar en valoración",kind:"sync"},
+    {f:1,t:2, label:"fetch GET /valoraciones/{val_id}",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT valoraciones WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Valoracion",                  kind:"return"},
+    {f:2,t:1, label:"200 OK { ValoracionResponse }",  kind:"return"},
+    {f:1,t:1, label:"precarga formulario",             kind:"self"},
+    {f:0,t:1, label:"modifica hallazgos → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch PUT /valoraciones/{val_id}\n{ ValoracionUpdate }",kind:"sync"},
+    {f:2,t:2, label:"valida: ValoracionUpdate",        kind:"self"},
+    {f:2,t:3, label:"session.execute(\nUPDATE valoraciones SET … WHERE id)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                             kind:"return"},
+    {f:2,t:1, label:"200 OK { ValoracionResponse }",  kind:"return"},
+    {f:1,t:0, label:"redirect a detalle de expediente",kind:"return"},
+  ]
+},
+
+// ── CU-24 ──────────────────────────────────────────────────────────────────
+{ id:"CU-24", name:"Registrar derecho vulnerado",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/expedientes/[id]/derechos/nuevo/\npage.tsx\nNuevoDerechoVulnerado()",type:"boundary"},
+    {name:"expedientes_router.py\nPOST /expedientes/{id}/derechos-vulnerados\nregistrar_derecho_vulnerado()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\ndirechos_vulnerados",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona derecho LGDNNA y estatus → presiona Registrar",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /expedientes/{id}/derechos-vulnerados\n{ derecho_id, estatus, observaciones }",kind:"sync"},
+    {f:2,t:2, label:"valida: DerechoVulneradoCreate",  kind:"self"},
+    {f:2,t:3, label:"session.add(DerechoVulnerado(…))\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"id registro",                    kind:"return"},
+    {f:2,t:1, label:"201 Created { DerechoResponse }",kind:"return"},
+    {f:1,t:0, label:"muestra éxito y actualiza lista",kind:"return"},
+  ]
+},
+
+// ── CU-25 ──────────────────────────────────────────────────────────────────
+{ id:"CU-25", name:"Modificar derecho vulnerado",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/expedientes/[id]/derechos/[id]/\neditar/page.tsx",type:"boundary"},
+    {name:"expedientes_router.py\nGET /derechos-vulnerados/{id}\nPUT /derechos-vulnerados/{id}\nobtener_derecho_vulnerado()\nactualizar_derecho_vulnerado()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\ndirechos_vulnerados",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona Editar derecho registrado",kind:"sync"},
+    {f:1,t:2, label:"fetch GET /derechos-vulnerados/{id}",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT derechos_vulnerados WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row DerechoVulnerado",            kind:"return"},
+    {f:2,t:1, label:"200 OK { DerechoResponse }",      kind:"return"},
+    {f:1,t:1, label:"precarga formulario",             kind:"self"},
+    {f:0,t:1, label:"modifica estatus/observaciones → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch PUT /derechos-vulnerados/{id}\n{ DerechoUpdate }",kind:"sync"},
+    {f:2,t:2, label:"valida: DerechoUpdate",          kind:"self"},
+    {f:2,t:3, label:"session.execute(\nUPDATE derechos_vulnerados SET … WHERE id)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                             kind:"return"},
+    {f:2,t:1, label:"200 OK { DerechoResponse }",      kind:"return"},
+    {f:1,t:0, label:"redirect a lista de derechos",   kind:"return"},
+  ]
+},
+
+// ── CU-26 ──────────────────────────────────────────────────────────────────
+{ id:"CU-26", name:"Registrar actor en materia de derechos",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actores-derechos/nuevo/\npage.tsx\nNuevoActorDerechos()",type:"boundary"},
+    {name:"actores_router.py\nPOST /actores-derechos\ncrear_actor_derechos()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactores_derechos_materia",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"ingresa datos de la institución → presiona Registrar",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /actores-derechos\n{ nombre, tipo, ... }",kind:"sync"},
+    {f:2,t:2, label:"valida: ActorDerechosCreate",     kind:"self"},
+    {f:2,t:3, label:"session.add(ActorDerechos(…))\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"id actor",                       kind:"return"},
+    {f:2,t:1, label:"201 Created { ActorResponse }",  kind:"return"},
+    {f:1,t:0, label:"muestra éxito e integra al directorio",kind:"return"},
+  ]
+},
+
+// ── CU-27 ──────────────────────────────────────────────────────────────────
+{ id:"CU-27", name:"Consultar actor en materia de derechos",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actores-derechos/[id]/\npage.tsx\nActorDerechosDetalle()",type:"boundary"},
+    {name:"actores_router.py\nGET /actores-derechos/{id}\nobtener_actor_derechos()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactores_derechos_materia · servicios_actores_materia",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona actor del directorio",kind:"sync"},
+    {f:1,t:2, label:"fetch GET /actores-derechos/{id}",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT actores_derechos_materia\nJOIN servicios WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Actor completo",             kind:"return"},
+    {f:2,t:2, label:"construye ActorResponse",        kind:"self"},
+    {f:2,t:1, label:"200 OK { ActorResponse }",       kind:"return"},
+    {f:1,t:0, label:"render perfil y servicios",      kind:"return"},
+  ]
+},
+
+// ── CU-28 ──────────────────────────────────────────────────────────────────
+{ id:"CU-28", name:"Modificar actor en materia de derechos",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actores-derechos/[id]/editar/\npage.tsx\nEditarActorDerechos()",type:"boundary"},
+    {name:"actores_router.py\nGET /actores-derechos/{id}\nPUT /actores-derechos/{id}\nobtener_actor_derechos()\nactualizar_actor_derechos()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactores_derechos_materia",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona Editar en perfil",    kind:"sync"},
+    {f:1,t:2, label:"fetch GET /actores-derechos/{id}",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT actores_derechos WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Actor",                      kind:"return"},
+    {f:2,t:1, label:"200 OK { ActorResponse }",       kind:"return"},
+    {f:1,t:1, label:"precarga formulario",            kind:"self"},
+    {f:0,t:1, label:"modifica campos → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch PUT /actores-derechos/{id}\n{ ActorUpdate }",kind:"sync"},
+    {f:2,t:2, label:"valida: ActorUpdate",            kind:"self"},
+    {f:2,t:3, label:"session.execute(\nUPDATE actores_derechos_materia SET … WHERE id)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                             kind:"return"},
+    {f:2,t:1, label:"200 OK { ActorResponse }",       kind:"return"},
+    {f:1,t:0, label:"redirect + 'Actor actualizado'", kind:"return"},
+  ]
+},
+
+// ── CU-29 ──────────────────────────────────────────────────────────────────
+{ id:"CU-29", name:"Eliminar actor en materia de derechos",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actores-derechos/[id]/\npage.tsx\nActorDerechosDetalle()",type:"boundary"},
+    {name:"actores_router.py\nDELETE /actores-derechos/{id}\neliminar_actor_derechos()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactores_derechos_materia",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"presiona Eliminar → confirma",   kind:"sync"},
+    {f:1,t:2, label:"fetch DELETE /actores-derechos/{id}",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT actores WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Actor",                      kind:"return"},
+    {f:2,t:3, label:"session.delete(actor)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                             kind:"return"},
+    {f:2,t:1, label:"204 No Content",                 kind:"return"},
+    {f:1,t:0, label:"redirect a lista de actores",    kind:"return"},
+  ]
+},
+
+// ── CU-30 ──────────────────────────────────────────────────────────────────
+{ id:"CU-30", name:"Registrar servicio de actor",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actores-derechos/[id]/servicios/nuevo/\npage.tsx\nNuevoServicioActor()",type:"boundary"},
+    {name:"actores_router.py\nPOST /actores-derechos/{id}/servicios\ncrear_servicio_actor()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nservicios_actores_materia",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"ingresa datos del servicio → presiona Registrar",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /actores-derechos/{id}/servicios\n{ nombre_servicio, costo, ... }",kind:"sync"},
+    {f:2,t:2, label:"valida: ServicioMateriaCreate",   kind:"self"},
+    {f:2,t:3, label:"session.add(ServicioActor(…))\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"id servicio",                    kind:"return"},
+    {f:2,t:1, label:"201 Created { ServicioResponse }",kind:"return"},
+    {f:1,t:0, label:"redirect a perfil de actor",     kind:"return"},
+  ]
+},
+
+// ── CU-31 ──────────────────────────────────────────────────────────────────
+{ id:"CU-31", name:"Consultar actores por municipio y tipo de servicio",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/actores-derechos/buscar/\npage.tsx\nBuscarActoresServicios()",type:"boundary"},
+    {name:"actores_router.py\nGET /actores-derechos/buscar\nbuscar_actores_servicios()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nactores_derechos_materia · servicios_actores_materia",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona municipio y servicio → presiona Buscar",kind:"sync"},
+    {f:1,t:2, label:"fetch GET /actores-derechos/buscar\n?municipio_id=…&servicio_id=…",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT actores JOIN servicios\nWHERE municipio = m AND servicio = s)",kind:"sync"},
+    {f:3,t:2, label:"[rows Actor]",                   kind:"return"},
+    {f:2,t:1, label:"200 OK [ ActorResponse ]",       kind:"return"},
+    {f:1,t:0, label:"render tabla de resultados",     kind:"return"},
+  ]
+},
+
+// ── CU-35 ──────────────────────────────────────────────────────────────────
+{ id:"CU-35", name:"Modificar discapacidad de NNA o tutor",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/nnas/[id]/salud/discapacidades/[disp_id]/\neditar/page.tsx",type:"boundary"},
+    {name:"catalogos_router.py\nGET /nnas-discapacidades/{id}\nPUT /nnas-discapacidades/{id}\nobtener_nna_discapacidad()\nactualizar_nna_discapacidad()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nnna_discapacidades",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona Editar discapacidad", kind:"sync"},
+    {f:1,t:2, label:"fetch GET /nnas-discapacidades/{id}",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT nna_discapacidades WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row NNADiscapacidad",            kind:"return"},
+    {f:2,t:1, label:"200 OK { DiscapacidadOut }",     kind:"return"},
+    {f:1,t:1, label:"precarga observaciones",          kind:"self"},
+    {f:0,t:1, label:"modifica observaciones → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch PUT /nnas-discapacidades/{id}\n{ observaciones }",kind:"sync"},
+    {f:2,t:2, label:"valida: DiscapacidadUpdate",      kind:"self"},
+    {f:2,t:3, label:"session.execute(\nUPDATE nna_discapacidades SET … WHERE id)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                             kind:"return"},
+    {f:2,t:1, label:"200 OK",                         kind:"return"},
+    {f:1,t:0, label:"redirect a condiciones de salud",kind:"return"},
+  ]
+},
+
+// ── CU-37 ──────────────────────────────────────────────────────────────────
+{ id:"CU-37", name:"Modificar enfermedad de NNA o tutor",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/nnas/[id]/salud/enfermedades/[enf_id]/\neditar/page.tsx",type:"boundary"},
+    {name:"catalogos_router.py\nGET /nnas-enfermedades/{id}\nPUT /nnas-enfermedades/{id}\nobtener_nna_enfermedad()\nactualizar_nna_enfermedad()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\nnna_enfermedades",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona Editar enfermedad",   kind:"sync"},
+    {f:1,t:2, label:"fetch GET /nnas-enfermedades/{id}",kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT nna_enfermedades WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row NNAEnfermedad",              kind:"return"},
+    {f:2,t:1, label:"200 OK { EnfermedadOut }",       kind:"return"},
+    {f:1,t:1, label:"precarga observaciones",          kind:"self"},
+    {f:0,t:1, label:"modifica observaciones → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch PUT /nnas-enfermedades/{id}\n{ observaciones }",kind:"sync"},
+    {f:2,t:2, label:"valida: EnfermedadUpdate",        kind:"self"},
+    {f:2,t:3, label:"session.execute(\nUPDATE nna_enfermedades SET … WHERE id)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                             kind:"return"},
+    {f:2,t:1, label:"200 OK",                         kind:"return"},
+    {f:1,t:0, label:"redirect a condiciones de salud",kind:"return"},
+  ]
+},
+
+// ── CU-38 ──────────────────────────────────────────────────────────────────
+{ id:"CU-38", name:"Consultar calendario de expedientes",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/calendario/\npage.tsx\nCalendarioPage()",type:"boundary"},
+    {name:"calendario_router.py\nGET /eventos\nlistar_eventos()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\neventos_calendario",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"navega a módulo de Calendario",  kind:"sync"},
+    {f:1,t:2, label:"fetch GET /eventos",             kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT eventos_calendario)",kind:"sync"},
+    {f:3,t:2, label:"[rows Evento]",                  kind:"return"},
+    {f:2,t:2, label:"construye List[EventoOut]",      kind:"self"},
+    {f:2,t:1, label:"200 OK [ EventoOut ]",           kind:"return"},
+    {f:1,t:0, label:"renderiza calendario mensual",   kind:"return"},
+  ]
+},
+
+// ── CU-39 ──────────────────────────────────────────────────────────────────
+{ id:"CU-39", name:"Registrar evento en calendario",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/calendario/nuevo/\npage.tsx\nNuevoEvento()",type:"boundary"},
+    {name:"calendario_router.py\nPOST /eventos\ncrear_evento()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\neventos_calendario",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"ingresa datos del evento → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch POST /eventos\n{ titulo, fecha, tipo }",kind:"sync"},
+    {f:2,t:2, label:"valida: EventoCreate",            kind:"self"},
+    {f:2,t:3, label:"session.add(Evento(…))\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"id evento",                      kind:"return"},
+    {f:2,t:1, label:"201 Created { EventoOut }",       kind:"return"},
+    {f:1,t:0, label:"redirect a vista de calendario",  kind:"return"},
+  ]
+},
+
+// ── CU-40 ──────────────────────────────────────────────────────────────────
+{ id:"CU-40", name:"Modificar evento en calendario",
+  parts:[
+    {name:"Especialista",                     type:"actor"},
+    {name:"app/calendario/[id]/editar/\npage.tsx\nEditarEvento()",type:"boundary"},
+    {name:"calendario_router.py\nGET /eventos/{id}\nPUT /eventos/{id}\nobtener_evento()\nactualizar_evento()",type:"control"},
+    {name:"PostgreSQL\n(SQLAlchemy)\neventos_calendario",type:"database"},
+  ],
+  msgs:[
+    {f:0,t:1, label:"selecciona evento → presiona Editar",kind:"sync"},
+    {f:1,t:2, label:"fetch GET /eventos/{id}",         kind:"sync"},
+    {f:2,t:3, label:"session.execute(\nSELECT eventos WHERE id)",kind:"sync"},
+    {f:3,t:2, label:"row Evento",                      kind:"return"},
+    {f:2,t:1, label:"200 OK { EventoOut }",            kind:"return"},
+    {f:1,t:1, label:"precarga formulario",             kind:"self"},
+    {f:0,t:1, label:"modifica detalles → presiona Guardar",kind:"sync"},
+    {f:1,t:2, label:"fetch PUT /eventos/{id}\n{ EventoUpdate }",kind:"sync"},
+    {f:2,t:2, label:"valida: EventoUpdate",            kind:"self"},
+    {f:2,t:3, label:"session.execute(\nUPDATE eventos SET … WHERE id)\nsession.commit()",kind:"sync"},
+    {f:3,t:2, label:"ok",                              kind:"return"},
+    {f:2,t:1, label:"200 OK { EventoOut }",            kind:"return"},
+    {f:1,t:0, label:"redirect a vista de calendario",  kind:"return"},
+  ]
+}
+
+]; // fin CUS
+
+// ═══════════════════════════════════════════════════════════════════════════
+// CONSTANTES DE LAYOUT
+// ═══════════════════════════════════════════════════════════════════════════
+const COL   = 200;  // distancia entre lifelines
+const ROWH  = 42;   // alto entre mensajes
+const HEADH = 120;  // alto zona cabecera
+const PADL  = 40;   // margen izquierdo
+const AW    = 10;   // ancho caja activación
+const SW    = 34;   // ancho lazo self
+const SH    = 22;   // alto  lazo self
+
+// ═══════════════════════════════════════════════════════════════════════════
+// SÍMBOLOS UML  ─ exactamente como Visual Paradigm
+// ═══════════════════════════════════════════════════════════════════════════
+function sym(type, cx, y) {
+  switch(type) {
+    case "actor":
+      // stickman
+      return `<circle cx="${cx}" cy="${y+10}" r="8" fill="none" stroke="#333" stroke-width="1.2"/>
+              <line x1="${cx}" y1="${y+18}" x2="${cx}" y2="${y+37}" stroke="#333" stroke-width="1.1"/>
+              <line x1="${cx-10}" y1="${y+25}" x2="${cx+10}" y2="${y+25}" stroke="#333" stroke-width="1.1"/>
+              <line x1="${cx}" y1="${y+37}" x2="${cx-9}" y2="${y+50}" stroke="#333" stroke-width="1.1"/>
+              <line x1="${cx}" y1="${y+37}" x2="${cx+9}" y2="${y+50}" stroke="#333" stroke-width="1.1"/>`;
+    case "boundary":
+      // línea vertical izquierda + línea horizontal + círculo a la derecha
+      return `<line x1="${cx-16}" y1="${y+4}"  x2="${cx-16}" y2="${y+48}" stroke="#333" stroke-width="1.8"/>
+              <line x1="${cx-16}" y1="${y+26}" x2="${cx-4}"  y2="${y+26}" stroke="#333" stroke-width="1.1"/>
+              <circle cx="${cx+10}" cy="${y+26}" r="16" fill="white" stroke="#333" stroke-width="1.1"/>`;
+    case "control":
+      // círculo con flecha curvada en el borde superior derecho
+      return `<circle cx="${cx}" cy="${y+26}" r="19" fill="white" stroke="#333" stroke-width="1.1"/>
+              <path d="M${cx+8} ${y+7} Q${cx+22} ${y+2} ${cx+21} ${y+18}" fill="none" stroke="#333" stroke-width="1.3"/>
+              <polygon points="${cx+21},${y+18} ${cx+14},${y+13} ${cx+23},${y+11}" fill="#333"/>`;
+    case "database":
+      // cilindro (PostgreSQL / SQLAlchemy)
+      return `<rect x="${cx-18}" y="${y+12}" width="36" height="30" fill="white" stroke="#333" stroke-width="1.1"/>
+              <ellipse cx="${cx}" cy="${y+12}" rx="18" ry="6" fill="white" stroke="#333" stroke-width="1.1"/>
+              <ellipse cx="${cx}" cy="${y+42}" rx="18" ry="6" fill="white" stroke="#333" stroke-width="1.1"/>`;
+  }
+  return '';
+}
+
+// etiqueta multi-línea centrada bajo el símbolo
+function label(lines, cx, baseY) {
+  return lines.map((ln, i) =>
+    `<tspan x="${cx}" dy="${i===0?0:11}"
+       text-decoration="${i===0?'underline':'none'}"
+       font-weight="${i>0?'bold':'normal'}"
+       fill="${i>0?'#1b3a5c':'#111'}">${esc(ln)}</tspan>`
+  ).join('');
+}
+
+function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// ═══════════════════════════════════════════════════════════════════════════
+// CONSTRUYE EL SVG DEL DIAGRAMA
+// ═══════════════════════════════════════════════════════════════════════════
+function buildSVG(cu) {
+  const n    = cu.parts.length;
+  const msgs = cu.msgs;
+  const W    = PADL*2 + (n-1)*COL + 80;
+  const cx   = i => PADL + 34 + i*COL;
+  const uid  = cu.id.replace('-','');
+
+  // Precompute message coordinates dynamically to prevent overlaps
+  const ymsg = [];
+  let prev_bottom = HEADH;
+  const GAP = 15; // vertical space between message blocks
+  
+  msgs.forEach((m, mi) => {
+    const lines = m.label.split('\n');
+    if (m.kind === 'self') {
+      const h_below = Math.max(22, 18 + (lines.length - 1) * 10);
+      const y = prev_bottom + GAP;
+      ymsg.push(y);
+      prev_bottom = y + h_below;
+    } else {
+      const h_above = 12 + (lines.length - 1) * 10;
+      const y = prev_bottom + GAP + h_above;
+      ymsg.push(y);
+      prev_bottom = y;
+    }
+  });
+
+  const H = prev_bottom + 40;
+
+  // rangos activos por participante
+  const rng = cu.parts.map((_,i)=>{
+    let f=Infinity, l=-1;
+    msgs.forEach((m,mi)=>{ if(m.f===i||m.t===i){ if(mi<f)f=mi; if(mi>l)l=mi; }});
+    return f===Infinity ? null : {f,l};
+  });
+
+  // ── cabeceras ────────────────────────────────────────────────────────────
+  let svgH = '';
+  cu.parts.forEach((p,i)=>{
+    const x = cx(i);
+    const lines = p.name.split('\n');
+    const labY  = 82 - (lines.length - 1) * 5.5;
+    svgH += `<g>
+      ${sym(p.type, x, 2)}
+      <text text-anchor="middle" font-size="8.5" font-family="Arial,sans-serif" x="${x}" y="${labY}">
+        ${label(lines, x, labY)}
+      </text>
+      <line x1="${x}" y1="${HEADH}" x2="${x}" y2="${H-20}"
+            stroke="#bbb" stroke-width="0.8" stroke-dasharray="5,3"/>
+    </g>`;
+  });
+
+  // ── cajas de activación ──────────────────────────────────────────────────
+  let svgA = '';
+  rng.forEach((r,i)=>{
+    if(!r) return;
+    const x  = cx(i);
+    const y1 = ymsg[r.f] - 6;
+    let y2 = ymsg[r.l];
+    if (msgs[r.l].kind === 'self') {
+      const lines = msgs[r.l].label.split('\n');
+      y2 += Math.max(22, 18 + (lines.length - 1) * 10);
+    } else {
+      y2 += 8;
+    }
+    svgA += `<rect x="${x-AW/2}" y="${y1}" width="${AW}" height="${y2-y1}"
+                   fill="white" stroke="#6B9BD2" stroke-width="0.9"/>`;
+  });
+
+  // ── flechas ──────────────────────────────────────────────────────────────
+  const defs = `<defs>
+    <marker id="ms${uid}" viewBox="0 0 10 8" refX="9" refY="4"
+            markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 4L0 8Z" fill="#222"/>
+    </marker>
+    <marker id="mr${uid}" viewBox="0 0 10 8" refX="9" refY="4"
+            markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 4L0 8" fill="none" stroke="#666" stroke-width="1.3"/>
+    </marker>
+  </defs>`;
+
+  let svgM = '';
+  msgs.forEach((m,mi)=>{
+    const y    = ymsg[mi];
+    const x1   = cx(m.f);
+    const x2   = cx(m.t);
+    const isRet= m.kind==='return';
+    const col  = isRet ? '#555' : '#111';
+    const dash = isRet ? 'stroke-dasharray="5,3"' : '';
+    const mark = isRet ? `url(#mr${uid})` : `url(#ms${uid})`;
+    const lines= m.label.split('\n');
+
+    if(m.kind==='self'){
+      // lazo sobre mismo participante
+      const lx = x1 + AW/2;
+      const lblX = lx + SW + 4;
+      // texto: primera línea al nivel y, resto hacia arriba
+      let tspans = lines.map((ln,li)=>
+        `<tspan x="${lblX}" dy="${li===0?0:10}">${esc(ln)}</tspan>`
+      ).join('');
+      svgM += `
+      <polyline points="${lx},${y} ${lx+SW},${y} ${lx+SW},${y+SH} ${lx+2},${y+SH}"
+                fill="none" stroke="${col}" stroke-width="0.9" ${dash} marker-end="${mark}"/>
+      <text font-size="8" fill="${col}" font-family="Arial,sans-serif" y="${y+10}"
+            stroke="white" stroke-width="4" stroke-linejoin="round" paint-order="stroke fill">${tspans}</text>`;
+      return;
+    }
+
+    const dir  = x2>x1 ? 1 : -1;
+    const ex1  = x1 + dir*(AW/2);
+    const ex2  = x2 - dir*(AW/2+1);
+    const midX = (x1+x2)/2;
+
+    // etiqueta multi-línea: última línea a 4px sobre la flecha, resto apiladas hacia arriba
+    let tspans = '';
+    const rev = [...lines].reverse();
+    rev.forEach((ln,li)=>{
+      const ty = y - 4 - li*10;
+      tspans += `<tspan x="${midX}" y="${ty}">${esc(ln)}</tspan>`;
+    });
+
+    svgM += `
+    <line x1="${ex1}" y1="${y}" x2="${ex2}" y2="${y}"
+          stroke="${col}" stroke-width="0.9" ${dash} marker-end="${mark}"/>
+    <text text-anchor="middle" font-size="8" fill="${col}" font-family="Arial,sans-serif"
+          stroke="white" stroke-width="4" stroke-linejoin="round" paint-order="stroke fill">
+      ${tspans}
+    </text>`;
+  });
+
+  return `<svg width="100%" viewBox="0 0 ${W} ${H}"
+               xmlns="http://www.w3.org/2000/svg"
+               style="display:block;background:white;font-family:Arial,sans-serif">
+    ${defs}${svgH}${svgA}${svgM}
+  </svg>`;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// RENDER LEYENDA
+// ═══════════════════════════════════════════════════════════════════════════
+function buildLegend(){
+  const items = [
+    {type:"actor",    label:"Actor (usuario/rol)"},
+    {type:"boundary", label:"Boundary (page.tsx)"},
+    {type:"control",  label:"Control (router.py + SQLAlchemy)"},
+    {type:"database", label:"PostgreSQL (vía SQLAlchemy)"},
+  ];
+  let html = '';
+  items.forEach(it=>{
+    html += `<div class="leg-item">
+      <svg width="38" height="36" viewBox="0 0 38 36" style="overflow:visible;flex-shrink:0">
+        ${sym(it.type,19,0)}
+      </svg>
+      <span>${it.label}</span>
+    </div>`;
+  });
+  // flechas
+  html += `<div class="leg-item" style="margin-left:8px">
+    <svg width="48" height="12" viewBox="0 0 48 12">
+      <defs><marker id="lms" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M0 0L10 4L0 8Z" fill="#222"/></marker></defs>
+      <line x1="0" y1="6" x2="40" y2="6" stroke="#222" stroke-width="1" marker-end="url(#lms)"/>
+    </svg>
+    <span>Síncrono</span>
+  </div>
+  <div class="leg-item">
+    <svg width="48" height="12" viewBox="0 0 48 12">
+      <defs><marker id="lmr" viewBox="0 0 10 8" refX="9" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M0 0L10 4L0 8" fill="none" stroke="#666" stroke-width="1.3"/></marker></defs>
+      <line x1="0" y1="6" x2="40" y2="6" stroke="#666" stroke-width="1"
+            stroke-dasharray="5,3" marker-end="url(#lmr)"/>
+    </svg>
+    <span>Return (dashed)</span>
+  </div>`;
+  document.getElementById('legend').innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// RENDER MENÚ
+// ═══════════════════════════════════════════════════════════════════════════
+let current = 'CU-01';
+
+function buildMenu(filter=''){
+  const fl = filter.toLowerCase();
+  let html = '';
+  GROUPS.forEach(g=>{
+    const ids = g.ids.filter(id=>{
+      if(!fl) return true;
+      const cu = CUS.find(c=>c.id===id);
+      return id.toLowerCase().includes(fl)||(cu&&cu.name.toLowerCase().includes(fl));
+    });
+    if(!ids.length) return;
+    html += `<div class="sb-group">${g.label}</div>`;
+    ids.forEach(id=>{
+      const cu = CUS.find(c=>c.id===id);
+      if(!cu) return;
+      html += `<div class="sb-item${id===current?' active':''}" onclick="select('${id}')">
+        <span class="sb-badge">${id}</span>
+        <span class="sb-name">${cu.name}</span>
+      </div>`;
+    });
+  });
+  document.getElementById('menu').innerHTML = html;
+}
+
+function select(id){
+  current = id;
+  buildMenu(document.getElementById('srch').value);
+  const cu = CUS.find(c=>c.id===id);
+  if(!cu) return;
+  document.getElementById('tb-id').textContent   = cu.id;
+  document.getElementById('tb-name').textContent = cu.name;
+  document.getElementById('sd-lbl').textContent  = `${cu.id} — ${cu.name}`;
+  document.getElementById('svg-out').innerHTML   = buildSVG(cu);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// EXPORTAR IMAGEN
+// ═══════════════════════════════════════════════════════════════════════════
+function downloadSVG() {
+  const container = document.getElementById('svg-out');
+  const svgEl = container.querySelector('svg');
+  if (!svgEl) return;
+  
+  const clone = svgEl.cloneNode(true);
+  const viewBox = clone.getAttribute('viewBox').split(' ');
+  const w = viewBox[2];
+  const h = viewBox[3];
+  clone.setAttribute('width', w);
+  clone.setAttribute('height', h);
+  
+  const serializer = new XMLSerializer();
+  const source = serializer.serializeToString(clone);
+  const blob = new Blob([source], {type: "image/svg+xml;charset=utf-8"});
+  const url = URL.createObjectURL(blob);
+  
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${current}.svg`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function downloadPNG() {
+  const container = document.getElementById('svg-out');
+  const svgEl = container.querySelector('svg');
+  if (!svgEl) return;
+  
+  const clone = svgEl.cloneNode(true);
+  const viewBox = clone.getAttribute('viewBox').split(' ');
+  const w = parseFloat(viewBox[2]);
+  const h = parseFloat(viewBox[3]);
+  clone.setAttribute('width', w);
+  clone.setAttribute('height', h);
+  
+  const serializer = new XMLSerializer();
+  const source = serializer.serializeToString(clone);
+  
+  const img = new Image();
+  const blob = new Blob([source], {type: 'image/svg+xml;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  
+  img.onload = function() {
+    const canvas = document.createElement('canvas');
+    const scale = 2; // high resolution export for LaTeX
+    canvas.width = w * scale;
+    canvas.height = h * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.drawImage(img, 0, 0, w * scale, h * scale);
+    
+    if (canvas.toBlob) {
+      canvas.toBlob(function(pngBlob) {
+        const pngUrl = URL.createObjectURL(pngBlob);
+        const a = document.createElement('a');
+        a.href = pngUrl;
+        a.download = `${current}.png`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(pngUrl);
+      }, 'image/png');
+    } else {
+      const pngUrl = canvas.toDataURL('image/png');
+      const a = document.createElement('a');
+      a.href = pngUrl;
+      a.download = `${current}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+    URL.revokeObjectURL(url);
+  };
+  
+  img.src = url;
+}
+
+// INIT
+buildLegend();
+buildMenu();
+select('CU-01');
+</script>
+</body>
+</html>

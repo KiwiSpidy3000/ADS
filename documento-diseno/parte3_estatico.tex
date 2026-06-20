@@ -1,0 +1,382 @@
+\chapter{Diseño Estático}
+
+El diseño estático de SICORRE describe la estructura interna del código que da soporte a la arquitectura definida para el sistema, mostrando cómo se organizan los subsistemas, los módulos, los paquetes y las clases que implementan la funcionalidad descrita en la especificación de requisitos. Este capítulo presenta dicha organización mediante diagramas UML de clases y de paquetes, y detalla el propósito y las dependencias de cada elemento, de manera que sirva como referencia para la implementación y el mantenimiento del sistema a lo largo de las distintas iteraciones de desarrollo.
+
+\section{Descripción y Alcance del Diseño}
+
+En esta sección se detalla la estructura estática correspondiente a los módulos funcionales de SICORRE planificados para las iteraciones 1, 2 y 3, así como aquellos casos de uso que han quedado programados para iteraciones posteriores. El nivel de abstracción utilizado parte de los subsistemas que agrupan la funcionalidad del sistema, desciende a los módulos que los componen, continúa con los paquetes que organizan el código fuente de cada módulo y concluye con las clases que implementan la lógica de negocio, sus atributos, métodos y relaciones. De esta manera se ofrece una visión que va de lo general a lo particular, permitiendo ubicar cualquier elemento del código dentro de la estructura global del sistema.
+
+\section{Diseño de Subsistemas}
+
+La funcionalidad de SICORRE se organiza en nueve subsistemas, cada uno responsable de un conjunto cohesionado de casos de uso y expuesto al resto del sistema mediante interfaces bien definidas que evitan el acceso directo a los datos internos de otros subsistemas.
+
+\begin{itemize}
+	\item \textbf{Control de Acceso:} responsable de la autenticación de los usuarios del sistema, así como del cierre de sesión y la recuperación de contraseña. Expone una interfaz de autenticación que es consumida por el resto de los subsistemas para validar la identidad y los privilegios del usuario en cada operación.
+	\item \textbf{Gestión de Usuarios:} encargado del ciclo de vida de las cuentas de usuario, incluyendo su registro, consulta, modificación, revocación de acceso y eliminación. Provee la información de usuarios y roles que requiere el subsistema de Control de Acceso.
+	\item \textbf{Equipos Multidisciplinarios:} administra el registro, consulta y modificación de los equipos multidisciplinarios, así como la asignación de niñas, niños y adolescentes (NNA) a dichos equipos, sirviendo de enlace entre el subsistema de Gestión de Usuarios y el subsistema del NNA.
+	\item \textbf{NNA:} concentra el registro, consulta y modificación de los datos de las niñas, niños y adolescentes, el registro y modificación de su hecho victimal, y el registro y modificación de los datos de su tutor. Es consumido por los subsistemas de Equipos Multidisciplinarios y de Expedientes.
+	\item \textbf{Expedientes:} gestiona la apertura y consulta de expedientes, así como el registro y modificación de las valoraciones multidisciplinarias y de los derechos vulnerados asociados a cada NNA, integrando la información proveniente de los subsistemas del NNA y de Equipos Multidisciplinarios.
+	\item \textbf{Actores en Materia de Derechos:} permite el registro, consulta, modificación y eliminación de los actores en materia de derechos, el registro de los servicios que ofrecen y su consulta por municipio y tipo de servicio, exponiendo esta información al subsistema de Restitución de Derechos.
+	\item \textbf{Catálogos:} provee información de referencia compartida por el resto del sistema, como los catálogos de domicilios (SEPOMEX) e idiomas (INALI), así como el registro y modificación de discapacidades y enfermedades del NNA o de su tutor.
+	\item \textbf{Calendario:} administra la consulta del calendario de expedientes y el registro y modificación de eventos asociados, sirviendo de apoyo transversal a los subsistemas de Expedientes y de Equipos Multidisciplinarios.
+	\item \textbf{Restitución de Derechos -- Directorio de Actores:} concentra el registro, edición, consulta, búsqueda y filtrado de actores, sus contactos, ubicaciones, programas y enlaces de representantes, además de la consulta y búsqueda del catálogo de programas y la posibilidad de deshabilitar y reactivar tanto actores como programas.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{img/casosDeUso.png}
+	\caption{Diagrama de subsistemas y casos de uso.}
+	\label{fig:diagrama-subsistemas}
+\end{figure}
+
+\section{Diseño de Módulos}
+
+Cada subsistema descrito previamente se implementa mediante uno o varios módulos de software, cuya función y casos de uso asociados se resumen a continuación junto con el estado de planificación correspondiente.
+
+\subsection*{Módulo de Control de Acceso}
+Este módulo administra la autenticación de los usuarios dentro del sistema, permitiendo el inicio y cierre de sesión, así como los mecanismos de recuperación de acceso. Su función principal es garantizar que únicamente los usuarios autorizados puedan acceder a la información y funcionalidades de acuerdo con los permisos asignados.
+
+
+\begin{itemize}
+	\item CU-01 Iniciar sesión -- Iteración 1
+	\item CU-02 Cerrar sesión -- Iteración 1
+	\item CU-03 Recuperar contraseña -- Siguiente iteración
+\end{itemize}
+Depende del Módulo de Gestión de Usuarios para validar las credenciales y los privilegios de cada cuenta.
+
+\subsection*{Módulo de Gestión de Usuarios}
+
+Este módulo permite administrar las cuentas de los usuarios del sistema mediante operaciones de registro, consulta, modificación, revocación de acceso y eliminación. Su propósito es mantener actualizada la información de los usuarios y controlar los privilegios que poseen dentro de la plataforma.
+
+\begin{itemize}
+	\item CU-04 Registrar usuario -- Iteración 1
+	\item CU-05 Consultar usuario -- Iteración 1
+	\item CU-06 Modificar usuario -- Iteración 1
+	\item CU-07 Revocar acceso a usuario -- Iteración 1
+	\item CU-08 Eliminar usuario -- Iteración 1
+\end{itemize}
+No depende de otros módulos para su operación básica; es consumido por el Módulo de Control de Acceso.
+
+\subsection*{Módulo de Equipos Multidisciplinarios}
+Este módulo permite registrar y administrar los equipos multidisciplinarios encargados de la atención de niñas, niños y adolescentes. Además, facilita la asignación de casos a los equipos responsables, permitiendo una coordinación eficiente entre los distintos profesionales involucrados.
+
+
+\begin{itemize}
+	\item CU-09 Registrar equipo multidisciplinario -- Iteración 2
+	\item CU-10 Consultar equipo multidisciplinario -- Iteración 2
+	\item CU-11 Modificar equipo multidisciplinario -- Iteración 2
+	\item CU-12 Asignar NNA a equipo multidisciplinario -- Iteración 2
+\end{itemize}
+Depende del Módulo de Gestión de Usuarios y del Módulo del NNA.
+
+Este módulo concentra la información general de las niñas, niños y adolescentes atendidos por el sistema. Permite registrar y consultar sus datos personales, información de tutores, antecedentes relevantes y demás elementos necesarios para el seguimiento y protección de sus derechos.
+
+\subsection*{Módulo del NNA}
+\begin{itemize}
+	\item CU-13 Registrar NNA -- Iteración 2
+	\item CU-14 Consultar NNA -- Iteración 2
+	\item CU-15 Modificar datos del NNA -- Iteración 2
+	\item CU-16 Registrar hecho victimal -- Siguiente iteración
+	\item CU-17 Modificar hecho victimal -- Siguiente iteración
+	\item CU-18 Registrar tutor del NNA -- Iteración 2
+	\item CU-19 Modificar datos del tutor -- Iteración 2
+\end{itemize}
+Depende del Módulo de Catálogos para la captura de domicilios, idiomas, discapacidades y enfermedades.
+
+\subsection*{Módulo de Expedientes}
+Este módulo administra los expedientes asociados a cada NNA, integrando valoraciones, derechos vulnerados, observaciones y demás información relacionada con los procesos de atención. Su objetivo es centralizar la documentación necesaria para el seguimiento de cada caso.
+
+\begin{itemize}
+	\item CU-20 Abrir expediente -- Siguiente iteración
+	\item CU-21 Consultar expediente -- Siguiente iteración
+	\item CU-22 Registrar valoración multidisciplinaria -- Siguiente iteración
+	\item CU-23 Modificar valoración multidisciplinaria -- Siguiente iteración
+	\item CU-24 Registrar derecho vulnerado -- Siguiente iteración
+	\item CU-25 Modificar derecho vulnerado -- Siguiente iteración
+\end{itemize}
+Depende del Módulo del NNA y del Módulo de Equipos Multidisciplinarios.
+
+\subsection*{Módulo de Actores en Materia de Derechos}
+Este módulo permite gestionar la información de instituciones, organizaciones y dependencias que participan en la protección y restitución de derechos de los NNA. Facilita el registro, consulta y actualización de los servicios que ofrecen para apoyar los procesos de atención.
+
+\begin{itemize}
+	\item CU-26 Registrar actor en materia de derechos -- Siguiente iteración
+	\item CU-27 Consultar actor en materia de derechos -- Siguiente iteración
+	\item CU-28 Modificar actor en materia de derechos -- Siguiente iteración
+	\item CU-29 Eliminar actor en materia de derechos -- Siguiente iteración
+	\item CU-30 Registrar servicio de actor -- Siguiente iteración
+	\item CU-31 Consultar actores por municipio y tipo de servicio -- Siguiente iteración
+\end{itemize}
+Depende del Módulo de Catálogos para la captura de domicilios.
+
+\subsection*{Módulo de Catálogos}
+
+Este módulo proporciona información de referencia utilizada por los demás componentes del sistema, como domicilios, idiomas, discapacidades y enfermedades. Su finalidad es estandarizar los datos capturados y asegurar la consistencia de la información registrada.
+
+\begin{itemize}
+	\item CU-32 Consultar catálogo de domicilios (SEPOMEX) -- Iteración 2
+	\item CU-33 Consultar catálogo de idiomas (INALI) -- Iteración 2
+	\item CU-34 Registrar discapacidad de NNA o tutor -- Iteración 2
+	\item CU-35 Modificar discapacidad de NNA o tutor -- Siguiente iteración
+	\item CU-36 Registrar enfermedad de NNA o tutor -- Iteración 2
+	\item CU-37 Modificar enfermedad de NNA o tutor -- Siguiente iteración
+\end{itemize}
+No depende de otros módulos; es consumido de manera transversal por el resto del sistema.
+
+\subsection*{Módulo de Calendario}
+Este módulo permite gestionar eventos, actividades y fechas relevantes relacionadas con los expedientes. Facilita la programación y consulta de citas, seguimientos y acciones pendientes para mejorar la organización de las actividades institucionales.
+
+\begin{itemize}
+	\item CU-38 Consultar calendario de expedientes -- Siguiente iteración
+	\item CU-39 Registrar evento en calendario -- Siguiente iteración
+	\item CU-40 Modificar evento en calendario -- Siguiente iteración
+\end{itemize}
+Depende del Módulo de Expedientes para asociar eventos a un expediente determinado.
+
+\subsection*{Módulo de Restitución de Derechos -- Directorio de Actores}
+
+Este módulo administra un directorio especializado de actores que participan en los procesos de restitución de derechos. Permite registrar información detallada de instituciones, contactos, ubicaciones, programas y representantes, facilitando la búsqueda y localización de recursos disponibles para la atención integral de los NNA.
+
+
+\begin{itemize}
+	\item CU-41 Registrar actor -- Iteración 3
+	\item CU-42 Registrar contactos del actor -- Iteración 3
+	\item CU-43 Registrar ubicación del actor -- Iteración 3
+	\item CU-44 Registrar programas del actor -- Iteración 3
+	\item CU-45 Registrar enlaces representantes -- Iteración 3
+	\item CU-46 Buscar actores -- Iteración 3
+	\item CU-47 Filtrar actores por tipo -- Iteración 3
+	\item CU-48 Consultar actor -- Iteración 3
+	\item CU-49 Editar actor -- Iteración 3
+	\item CU-50 Editar contactos del actor -- Iteración 3
+	\item CU-51 Editar ubicación del actor -- Iteración 3
+	\item CU-52 Editar programas del actor -- Iteración 3
+	\item CU-53 Editar enlaces representantes -- Iteración 3
+	\item CU-54 Deshabilitar actor -- Iteración 3
+	\item CU-55 Reactivar actor -- Siguiente iteración
+	\item CU-56 Consultar catálogo de programas -- Iteración 3
+	\item CU-57 Buscar programas -- Siguiente iteración
+	\item CU-58 Deshabilitar programa -- Siguiente iteración
+	\item CU-59 Reactivar programa -- Siguiente iteración
+\end{itemize}
+Depende del Módulo de Catálogos para la captura de domicilios y de los catálogos de programas registrados internamente.
+
+\section{Diseño de Paquetes}
+
+El código fuente de SICORRE se organiza en paquetes que reflejan la separación por subsistemas descrita anteriormente, agrupando en cada paquete las clases de modelo, de lógica de negocio y de acceso a datos correspondientes a un mismo módulo. Esta organización busca minimizar el acoplamiento entre módulos, de forma que las dependencias señaladas en la sección anterior se reflejen como relaciones explícitas entre paquetes, facilitando la sustitución o evolución independiente de cada módulo conforme avancen las iteraciones del proyecto.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[
+		package/.style={draw, thick, fill=azulDoc!10, draw=azulDoc, minimum width=3.2cm, minimum height=0.8cm, align=center, rounded corners=2pt, font=\small},
+		container/.style={draw, dashed, gray, thick, rounded corners=5pt, inner sep=8pt},
+		arrow/.style={->, >=stealth, thick, color=azulDoc}
+	]
+		% Frontend (Stacked Vertically)
+		\node[package] (pages) {Pages (Vistas)};
+		\node[package, below=0.3cm of pages] (components) {Components (UI)};
+		\node[package, below=0.3cm of components] (context) {Context (Estado)};
+		\node[package, below=0.3cm of context] (servicesFE) {Services (API Client)};
+		\node[container, fit=(pages) (components) (context) (servicesFE), label=above:\textbf{Frontend (React SPA)}] (frontend) {};
+
+		% Backend (Stacked Vertically)
+		\node[package, right=2cm of pages] (routers) {Routers (Endpoints)};
+		\node[package, below=0.3cm of routers] (schemas) {Schemas (Pydantic)};
+		\node[package, below=0.3cm of schemas] (servicesBE) {Services (Lógica)};
+		\node[package, below=0.3cm of servicesBE] (models) {Models (SQLAlchemy)};
+		\node[container, fit=(routers) (schemas) (servicesBE) (models), label=above:\textbf{Backend (FastAPI)}] (backend) {};
+
+		% Database (Next to Backend)
+		\node[package, right=2cm of servicesBE] (db) {PostgreSQL 15 \\ (Persistencia)};
+
+		% Relaciones
+		\draw[arrow] (servicesFE) -- node[above, black, font=\small, sloped] {API REST} (routers);
+		\draw[arrow] (models) -- node[above, black, font=\small, sloped] {SQLAlchemy} (db);
+		
+	\end{tikzpicture}
+	\caption{Diagrama de paquetes y flujo de datos de la aplicación.}
+	\label{fig:diagrama-paquetes}
+\end{figure}
+
+\section{Diseño de Clases}
+
+Dentro de cada paquete se definen las clases que implementan los casos de uso correspondientes, especificando sus atributos y relaciones. A continuación se presenta el diagrama de clases principales del sistema (Modelo de Dominio Físico) implementado directamente a partir de los modelos de persistencia del backend.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[
+		classbox/.style={draw=azulDoc, thick, fill=azulDoc!5, rounded corners=2pt, text width=4.5cm, font=\scriptsize\sffamily, align=left},
+		link/.style={draw=azulDoc, thick, ->, >=stealth}
+	]
+		% Nodes layout
+		\node[classbox] (Usuarios) at (0,4.2) {
+			\textbf{Usuarios} \\
+			\rule{4.3cm}{0.4pt} \\
+			+ id: Integer \\
+			+ nombre: String \\
+			+ primer\_apellido: String \\
+			+ segundo\_apellido: String \\
+			+ curp: String(18) \\
+			+ correo: String(100) \\
+			+ password\_hash: String \\
+			+ activo: Boolean \\
+			+ rol\_id: Integer
+		};
+
+		\node[classbox] (Equipos) at (7,4.2) {
+			\textbf{EquiposMultidisciplinarios} \\
+			\rule{4.3cm}{0.4pt} \\
+			+ id: Integer \\
+			+ nombre\_equipo: String \\
+			+ activo: Boolean \\
+			+ fecha\_creacion: DateTime
+		};
+
+		\node[classbox] (NNA) at (7,0) {
+			\textbf{NNA} \\
+			\rule{4.3cm}{0.4pt} \\
+			+ id: Integer \\
+			+ nombre: String \\
+			+ primer\_apellido: String \\
+			+ segundo\_apellido: String \\
+			+ curp: String(18) \\
+			+ es\_migrante: Boolean \\
+			+ creado\_por: Integer \\
+			+ equipo\_asignado\_id: Integer
+		};
+
+		\node[classbox] (Tutores) at (13,0) {
+			\textbf{Tutores} \\
+			\rule{4.3cm}{0.4pt} \\
+			+ id: Integer \\
+			+ nombre: String \\
+			+ primer\_apellido: String \\
+			+ segundo\_apellido: String \\
+			+ curp: String(18) \\
+			+ es\_tutor\_legal: Boolean \\
+			+ tipo\_tutela\_id: Integer
+		};
+
+		\node[classbox] (Expedientes) at (0,0) {
+			\textbf{Expedientes} \\
+			\rule{4.3cm}{0.4pt} \\
+			+ id: Integer \\
+			+ folio\_fud: String \\
+			+ nna\_id: Integer \\
+			+ estatus\_proceso: String
+		};
+
+		\node[classbox] (Actores) at (0,-4.5) {
+			\textbf{ActoresDerechos} \\
+			\rule{4.3cm}{0.4pt} \\
+			+ id: Integer \\
+			+ nombre: String \\
+			+ tipo\_actor\_id: Integer \\
+			+ tiene\_registro\_oficial: Boolean \\
+			+ activo: Boolean
+		};
+
+		\node[classbox] (Servicios) at (7,-4.5) {
+			\textbf{ServiciosActores} \\
+			\rule{4.3cm}{0.4pt} \\
+			+ id: Integer \\
+			+ actor\_id: Integer \\
+			+ programa\_id: Integer \\
+			+ nombre\_servicio: String \\
+			+ es\_gratuito: Boolean
+		};
+
+		% Connections
+		\draw[link] (Usuarios) -- node[above, black, font=\tiny] {1..*} (Equipos);
+		\draw[link] (Equipos) -- node[left, black, font=\tiny] {1..*} (NNA);
+		\draw[link] (NNA) -- node[above, black, font=\tiny] {1..*} (Tutores);
+		\draw[link] (NNA) -- node[above, black, font=\tiny] {1..1} (Expedientes);
+		\draw[link] (Expedientes) -- node[left, black, font=\tiny] {1..*} (Servicios);
+		\draw[link] (Actores) -- node[above, black, font=\tiny] {1..*} (Servicios);
+	\end{tikzpicture}
+	\caption{Diagrama de clases físicas del núcleo del sistema.}
+	\label{fig:diagrama-clases-fisicas}
+\end{figure}
+
+\subsection{Descripción de las Clases del Dominio}
+
+A continuación se detallan las especificaciones físicas de las clases centrales del sistema, incluyendo sus atributos principales, tipos de datos y descripción de su función dentro de la aplicación.
+
+\subsubsection{Clase: Usuarios}
+Representa a los miembros del personal institucional que acceden y operan el sistema, organizados bajo roles específicos.
+\begin{itemize}
+	\item \textbf{id} (Integer, PK): Identificador único autoincremental.
+	\item \textbf{nombre} (String): Nombre de pila del usuario.
+	\item \textbf{primer\_apellido} (String): Primer apellido del usuario.
+	\item \textbf{segundo\_apellido} (String): Segundo apellido del usuario.
+	\item \textbf{curp} (String(18)): Clave Única de Registro de Población.
+	\item \textbf{rfc} (String(13)): Registro Federal de Contribuyentes.
+	\item \textbf{correo} (String(100)): Dirección de correo electrónico institucional (usado para login).
+	\item \textbf{password\_hash} (String(255)): Hash de la contraseña de acceso.
+	\item \textbf{activo} (Boolean): Indica si el usuario tiene permiso de ingreso activo.
+	\item \textbf{rol\_id} (Integer, FK): Relación con la clase \texttt{CatRoles}.
+\end{itemize}
+
+\subsubsection{Clase: EquiposMultidisciplinarios}
+Agrupa a los especialistas de distintas disciplinas para coordinar la atención y el seguimiento de los casos asignados.
+\begin{itemize}
+	\item \textbf{id} (Integer, PK): Identificador único autoincremental.
+	\item \textbf{nombre\_equipo} (String): Nombre descriptivo del equipo.
+	\item \textbf{activo} (Boolean): Estatus de operación del equipo.
+	\item \textbf{fecha\_creacion} (DateTime): Fecha y hora del registro inicial.
+\end{itemize}
+
+\subsubsection{Clase: NNA}
+Clase central que representa a la niña, niño o adolescente sujeto de atención por parte del sistema.
+\begin{itemize}
+	\item \textbf{id} (Integer, PK): Identificador único autoincremental.
+	\item \textbf{nombre} (String): Nombres del NNA.
+	\item \textbf{primer\_apellido} (String): Primer apellido.
+	\item \textbf{segundo\_apellido} (String): Segundo apellido.
+	\item \textbf{fecha\_nacimiento} (Date): Fecha de nacimiento del NNA.
+	\item \textbf{sexo} (String): Sexo biológico del NNA.
+	\item \textbf{curp} (String(18)): Clave Única de Registro de Población.
+	\item \textbf{es\_migrante} (Boolean): Bandera de condición migratoria.
+	\item \textbf{equipo\_asignado\_id} (Integer, FK): ID del equipo multidisciplinario asignado para su seguimiento.
+\end{itemize}
+
+\subsubsection{Clase: Tutores}
+Modela a las personas encargadas de la tutela, patria potestad o cuidado del NNA.
+\begin{itemize}
+	\item \textbf{id} (Integer, PK): Identificador único autoincremental.
+	\item \textbf{nombre} (String): Nombre del tutor.
+	\item \textbf{primer\_apellido} (String): Primer apellido.
+	\item \textbf{segundo\_apellido} (String): Segundo apellido.
+	\item \textbf{curp} (String(18)): CURP del tutor.
+	\item \textbf{es\_tutor\_legal} (Boolean): Indica si posee la representación jurídica formal.
+	\item \textbf{tipo\_tutela\_id} (Integer, FK): Referencia al catálogo de tipos de tutela.
+\end{itemize}
+
+\subsubsection{Clase: Expedientes}
+Expediente unificado del NNA que agrupa las valoraciones e intervenciones realizadas para la restitución de sus derechos.
+\begin{itemize}
+	\item \textbf{id} (Integer, PK): Identificador único autoincremental.
+	\item \textbf{folio\_fud} (String): Folio Único de Detección.
+	\item \textbf{nna\_id} (Integer, FK): Relación directa de uno a uno con el \texttt{NNA}.
+	\item \textbf{estatus\_proceso} (String): Fase actual de la ruta crítica del expediente (Detección, Valoración, Restitución, etc.).
+\end{itemize}
+
+\subsubsection{Clase: ActoresDerechos}
+Representa a las instituciones, organizaciones civiles o dependencias de gobierno vinculadas a los servicios de restitución de derechos.
+\begin{itemize}
+	\item \textbf{id} (Integer, PK): Identificador único autoincremental.
+	\item \textbf{nombre} (String): Nombre de la institución u organización.
+	\item \textbf{tipo\_actor\_id} (Integer, FK): Relación con el tipo de actor (Público, Privado, Asociación).
+	\item \textbf{tiene\_registro\_oficial} (Boolean): Estatus de acreditación oficial.
+	\item \textbf{activo} (Boolean): Estatus de vigencia en el directorio.
+\end{itemize}
+
+\subsubsection{Clase: ServiciosActores}
+Servicios asistenciales o especializados provistos por los actores para coadyuvar en la restitución de derechos vulnerados.
+\begin{itemize}
+	\item \textbf{id} (Integer, PK): Identificador único autoincremental.
+	\item \textbf{actor\_id} (Integer, FK): Actor que provee el servicio.
+	\item \textbf{programa\_id} (Integer, FK): Programa institucional asociado.
+	\item \textbf{nombre\_servicio} (String): Denominación del servicio ofrecido.
+	\item \textbf{es\_gratuito} (Boolean): Bandera de gratuidad.
+\end{itemize}

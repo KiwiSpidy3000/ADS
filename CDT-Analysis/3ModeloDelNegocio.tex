@@ -1,0 +1,897 @@
+% !TeX root = proyecto.tex
+
+%=========================================================
+\chapter{Modelo del Negocio}	
+\label{cap:reqSist}
+
+
+%----------------------------------------------------------
+Este capítulo describe a los actores que interactúan con el sistema SICORRE, detallando 
+sus responsabilidades, perfil profesional, procesos en los que participan y condiciones 
+de uso del sistema. Los actores identificados corresponden al equipo multidisciplinario 
+de la Fundación Futuro con Derecho y su personal directivo.
+
+%----------------------------------------------------------
+\hypertarget{Actor.Usuario}{}
+\section{Actores del sistema}
+
+%---------------------------------------------------------
+\begin{Usuario}{\hypertarget{A.Directora}{\hypertarget{Actor.Administrador}{\subsection{Directora}}}}{
+		Responsable de la supervisión general de la fundación y de la 
+		administración del acceso al sistema SICORRE. Actúa como administradora 
+		principal en colaboración con la coordinadora.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+		\item Supervisar la operación general de la Fundación Futuro con Derecho.
+		\item Autorizar el alta y baja de usuarios en el sistema en colaboración 
+		con la coordinadora.
+		\item Revisar y validar el estatus de los expedientes activos de NNA.
+		\item Tomar decisiones ejecutivas sobre los casos de restitución de 
+		derechos de mayor complejidad o prioridad.
+		\item Garantizar el cumplimiento de la normativa de protección de datos 
+		de menores (LGDNNA y LGPDPPSO) en el uso del sistema.
+		\item Supervisar el trabajo del equipo multidisciplinario y los avances 
+		en cada caso.
+	\end{itemize}
+	
+	\item[Perfil:] \cdtEmpty
+	\begin{itemize}
+		\item Licenciatura en Trabajo Social, Derecho, Psicología o área afín.
+		\item Experiencia mínima de 3 años en gestión de organizaciones sociales 
+		o fundaciones de atención a menores.
+		\item Conocimiento de la normativa mexicana de protección de derechos 
+		de niñas, niños y adolescentes (LGDNNA).
+		\item Habilidades de liderazgo, toma de decisiones y gestión de equipos 
+		multidisciplinarios.
+		\item Manejo básico de herramientas digitales y navegadores web.
+	\end{itemize}
+	
+	\item[Procesos en los que participa:] \cdtEmpty
+	\begin{itemize}
+		\item PR-01 Control de acceso y autenticación.
+		\item PR-02 Gestión de usuarios y roles.
+		\item PR-03 Gestión de equipos multidisciplinarios.
+		\item PR-12 Consulta y búsqueda de información.
+		\item PR-13 Control de fechas y calendario de expedientes.
+	\end{itemize}
+	
+	\item[Área:] Dirección General, Fundación Futuro con Derecho.
+	\item[Cantidad aproximada:] 1 persona.
+	\item[Horario de actividad:] Lunes a viernes de 9:00 a 18:00 horas.
+\end{Usuario}
+
+%---------------------------------------------------------
+\begin{Usuario}{\hypertarget{A.Coordinadora}{\subsection{Coordinadora}}}{
+		Colabora directamente con la directora en la administración del acceso 
+		al sistema y en la supervisión operativa del equipo multidisciplinario. 
+		Tiene permisos de administración compartidos con la directora.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+		\item Apoyar a la directora en el control de accesos del personal 
+		al sistema.
+		\item Coordinar las actividades del equipo multidisciplinario y el 
+		seguimiento de los casos activos.
+		\item Gestionar la asignación de NNA a los equipos 
+		multidisciplinarios correspondientes.
+		\item Supervisar el correcto registro de expedientes y valoraciones 
+		en el sistema.
+		\item Mantener actualizado el catálogo de actores en materia de 
+		derechos.
+		\item Apoyar en la generación de reportes de avance para la dirección.
+	\end{itemize}
+	
+	\item[Perfil:] \cdtEmpty
+	\begin{itemize}
+		\item Licenciatura en Trabajo Social, Administración o área afín.
+		\item Experiencia mínima de 2 años en coordinación de equipos en 
+		organizaciones sociales.
+		\item Conocimiento operativo de los procesos de restitución de 
+		derechos de NNA.
+		\item Habilidades organizativas, comunicación efectiva y manejo 
+		de equipos de trabajo.
+		\item Manejo intermedio de herramientas digitales y navegadores web.
+	\end{itemize}
+	
+	\item[Procesos en los que participa:] \cdtEmpty
+	\begin{itemize}
+		\item PR-01 Control de acceso y autenticación.
+		\item PR-02 Gestión de usuarios y roles.
+		\item PR-03 Gestión de equipos multidisciplinarios.
+		\item PR-11 Vinculación de NNA con equipo multidisciplinario.
+		\item PR-12 Consulta y búsqueda de información.
+		\item PR-13 Control de fechas y calendario de expedientes.
+		\item PR-14 Gestión del catálogo de actores en materia de derechos.
+	\end{itemize}
+	
+	\item[Área:] Coordinación Operativa, Fundación Futuro con Derecho.
+	\item[Cantidad aproximada:] 1 persona.
+	\item[Horario de actividad:] Lunes a viernes de 9:00 a 18:00 horas.
+\end{Usuario}
+
+%---------------------------------------------------------
+\begin{Usuario}{\hypertarget{A.TrabajadorSocial}{\hypertarget{Actor.Especialista}{\subsection{Trabajador(a) Social}}}}{
+		Especialista responsable del primer contacto con el NNA y su entorno 
+		familiar. Es el actor principal en el registro inicial de casos, 
+		captura de datos del NNA, hecho victimal y tutor, y elaboración 
+		de valoraciones sociales.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+		\item Registrar los datos personales, de ubicación y de 
+		vulnerabilidad del NNA conforme al FUD y la caja de herramientas.
+		\item Documentar los datos del hecho victimal asociado al caso.
+		\item Capturar y mantener actualizados los datos del tutor legal 
+		o responsable del NNA.
+		\item Abrir y gestionar los expedientes de seguimiento de cada caso.
+		\item Registrar sus valoraciones sociales sobre el expediente del NNA.
+		\item Identificar y documentar los derechos vulnerados del NNA.
+		\item Consultar el catálogo de actores en materia de derechos para 
+		articular apoyos disponibles en el municipio del NNA.
+		\item Dar seguimiento al calendario de actividades de sus casos activos.
+	\end{itemize}
+	
+	\item[Perfil:] \cdtEmpty
+	\begin{itemize}
+		\item Licenciatura en Trabajo Social.
+		\item Experiencia en atención a poblaciones vulnerables, 
+		preferentemente menores de edad.
+		\item Conocimiento del FUD y la caja de herramientas para la 
+		restitución de derechos de NNA.
+		\item Habilidades de empatía, comunicación asertiva y manejo 
+		de situaciones de crisis.
+		\item Manejo básico de herramientas digitales y formularios en 
+		línea.
+	\end{itemize}
+	
+	\item[Procesos en los que participa:] \cdtEmpty
+	\begin{itemize}
+		\item PR-01 Control de acceso y autenticación.
+		\item PR-04 Registro de datos del NNA.
+		\item PR-05 Registro del hecho victimal.
+		\item PR-06 Registro y gestión del tutor del NNA.
+		\item PR-07 Detección de duplicados.
+		\item PR-08 Apertura y gestión de expedientes.
+		\item PR-09 Registro de valoraciones multidisciplinarias.
+		\item PR-10 Registro de derechos vulnerados.
+		\item PR-11 Vinculación de NNA con equipo multidisciplinario.
+		\item PR-12 Consulta y búsqueda de información.
+		\item PR-13 Control de fechas y calendario de expedientes.
+		\item PR-15 Vinculación de actores con derechos vulnerados.
+	\end{itemize}
+	
+	\item[Área:] Área Social, Fundación Futuro con Derecho.
+	\item[Cantidad aproximada:] 1 persona.
+	\item[Horario de actividad:] Lunes a viernes de 9:00 a 18:00 horas, 
+	con posibilidad de registro en campo mediante dispositivo móvil 
+	con acceso a internet.
+\end{Usuario}
+
+%---------------------------------------------------------
+\begin{Usuario}{\hypertarget{A.Abogado}{\subsection{Abogado(a)}}}{
+		Especialista legal responsable de documentar el estatus jurídico 
+		de cada caso, registrar dictámenes legales y dar seguimiento a los 
+		derechos vulnerados desde el ámbito del derecho dentro del expediente 
+		compartido del equipo multidisciplinario.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+		\item Registrar valoraciones y dictámenes legales sobre el 
+		expediente del NNA.
+		\item Documentar las medidas jurídicas sugeridas para la 
+		restitución de derechos.
+		\item Identificar y registrar los derechos vulnerados desde 
+		la perspectiva legal.
+		\item Consultar el historial legal de los expedientes activos 
+		a su cargo.
+		\item Articular con actores en materia de derechos del ámbito 
+		jurídico (Procuraduría, DIF, etc.) para la atención de los casos.
+		\item Dar seguimiento a las fechas clave de los procesos legales 
+		de cada caso.
+	\end{itemize}
+	
+	\item[Perfil:] \cdtEmpty
+	\begin{itemize}
+		\item Licenciatura en Derecho, con cédula profesional.
+		\item Conocimiento de la LGDNNA, Ley General de Víctimas y 
+		normativa aplicable a menores de edad en México.
+		\item Experiencia en derecho familiar o derechos humanos.
+		\item Habilidades analíticas, redacción jurídica y atención 
+		al detalle.
+		\item Manejo básico de herramientas digitales y navegadores web.
+	\end{itemize}
+	
+	\item[Procesos en los que participa:] \cdtEmpty
+	\begin{itemize}
+		\item PR-01 Control de acceso y autenticación.
+		\item PR-08 Apertura y gestión de expedientes.
+		\item PR-09 Registro de valoraciones multidisciplinarias.
+		\item PR-10 Registro de derechos vulnerados.
+		\item PR-12 Consulta y búsqueda de información.
+		\item PR-13 Control de fechas y calendario de expedientes.
+		\item PR-15 Vinculación de actores con derechos vulnerados.
+	\end{itemize}
+	
+	\item[Área:] Área Legal, Fundación Futuro con Derecho.
+	\item[Cantidad aproximada:] 1 persona.
+	\item[Horario de actividad:] Lunes a viernes de 9:00 a 18:00 horas.
+\end{Usuario}
+
+%---------------------------------------------------------
+\begin{Usuario}{\hypertarget{A.Psicologo}{\subsection{Psicólogo(a)}}}{
+		Especialista en salud mental responsable de registrar diagnósticos 
+		psicológicos, hallazgos emocionales y medidas de intervención 
+		terapéutica para cada NNA dentro del expediente compartido del 
+		equipo multidisciplinario.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+		\item Registrar valoraciones psicológicas, diagnósticos y 
+		hallazgos emocionales sobre el expediente del NNA.
+		\item Documentar las medidas de intervención terapéutica 
+		sugeridas para cada caso.
+		\item Identificar y registrar los derechos vulnerados desde 
+		la perspectiva de la salud mental.
+		\item Consultar el historial psicológico de los expedientes 
+		activos a su cargo.
+		\item Articular con actores en materia de derechos del ámbito 
+		de salud mental disponibles en el municipio del NNA.
+		\item Dar seguimiento al calendario de sesiones y actividades 
+		terapéuticas programadas.
+	\end{itemize}
+	
+	\item[Perfil:] \cdtEmpty
+	\begin{itemize}
+		\item Licenciatura en Psicología, con cédula profesional.
+		\item Experiencia en psicología clínica infantil o atención 
+		a víctimas de violencia.
+		\item Conocimiento de técnicas de intervención en crisis y 
+		atención a menores en situación de vulnerabilidad.
+		\item Habilidades de empatía, escucha activa y redacción 
+		de informes clínicos.
+		\item Manejo básico de herramientas digitales y navegadores web.
+	\end{itemize}
+	
+	\item[Procesos en los que participa:] \cdtEmpty
+	\begin{itemize}
+		\item PR-01 Control de acceso y autenticación.
+		\item PR-08 Apertura y gestión de expedientes.
+		\item PR-09 Registro de valoraciones multidisciplinarias.
+		\item PR-10 Registro de derechos vulnerados.
+		\item PR-12 Consulta y búsqueda de información.
+		\item PR-13 Control de fechas y calendario de expedientes.
+		\item PR-15 Vinculación de actores con derechos vulnerados.
+	\end{itemize}
+	
+	\item[Área:] Área de Salud Mental, Fundación Futuro con Derecho.
+	\item[Cantidad aproximada:] 1 persona.
+	\item[Horario de actividad:] Lunes a viernes de 9:00 a 18:00 horas.
+\end{Usuario}
+
+%---------------------------------------------------------
+\begin{Usuario}{\hypertarget{A.Medico}{\subsection{Médico(a)}}}{
+		Especialista en salud física responsable de documentar el estado 
+		de salud del NNA, registrar diagnósticos médicos, enfermedades 
+		y actualizar la información de derecho a la salud dentro del 
+		expediente compartido del equipo multidisciplinario.
+	}
+	\item[Responsabilidades:] \cdtEmpty
+	\begin{itemize}
+		\item Registrar el estado de salud general, diagnósticos médicos 
+		y padecimientos del NNA en su expediente.
+		\item Documentar las enfermedades crónicas o agudas del NNA y 
+		su tutor, indicando si están controladas y el tratamiento en curso.
+		\item Registrar las medidas médicas sugeridas para la atención 
+		y seguimiento de la salud del NNA.
+		\item Identificar y documentar la vulneración del derecho a la 
+		salud en los casos que corresponda.
+		\item Articular con actores en materia de derechos del ámbito 
+		de salud (clínicas, hospitales, ópticas, etc.) disponibles en 
+		el municipio del NNA.
+		\item Dar seguimiento al calendario de citas y revisiones médicas 
+		programadas para cada caso.
+	\end{itemize}
+	
+	\item[Perfil:] \cdtEmpty
+	\begin{itemize}
+		\item Licenciatura en Medicina, con cédula profesional.
+		\item Experiencia en medicina general o pediatría.
+		\item Conocimiento de los catálogos de enfermedades (CIE-10 
+		o equivalente) y atención a población vulnerable.
+		\item Habilidades de diagnóstico clínico, redacción de informes 
+		médicos y trabajo interdisciplinario.
+		\item Manejo básico de herramientas digitales y navegadores web.
+	\end{itemize}
+	
+	\item[Procesos en los que participa:] \cdtEmpty
+	\begin{itemize}
+		\item PR-01 Control de acceso y autenticación.
+		\item PR-08 Apertura y gestión de expedientes.
+		\item PR-09 Registro de valoraciones multidisciplinarias.
+		\item PR-10 Registro de derechos vulnerados.
+		\item PR-12 Consulta y búsqueda de información.
+		\item PR-13 Control de fechas y calendario de expedientes.
+		\item PR-15 Vinculación de actores con derechos vulnerados.
+		\item PR-16 Gestión de catálogos del sistema.
+	\end{itemize}
+	
+	\item[Área:] Área Médica, Fundación Futuro con Derecho.
+	\item[Cantidad aproximada:] 1 persona.
+	\item[Horario de actividad:] Lunes a viernes de 9:00 a 18:00 horas.
+\end{Usuario}
+
+%---------------------------------------------------------
+\section{Términos del Negocio}
+\label{sec:terminosDeNegocio}
+
+\cdtInstrucciones{A continuación se definen los términos propios del dominio que aparecen en la especificación del sistema SICORRE.}
+
+\begin{description}
+	\item[\textbf{NNA.}]
+	Niña, Niño o Adolescente. Persona menor de 18 años beneficiaria
+	directa de los servicios de la fundación. Es la entidad central del
+	sistema y cada NNA posee un único expediente identificado por su
+	CURP.
+	
+	\item[\textbf{CURP.}]
+	Clave Única de Registro de Población. Identificador alfanumérico
+	de 18 caracteres asignado por el gobierno mexicano a cada persona.
+	Actúa como llave única para el registro de NNA y usuarios en
+	SICORRE, impidiendo la creación de expedientes duplicados.
+	
+	\item[\textbf{FUD (Formato Único de Declaración).}]
+	Formato oficial empleado por la Comisión Ejecutiva de Atención a
+	Víctimas para registrar a personas en situación de víctima. Sus
+	secciones (datos de la víctima, hecho victimizante, datos del tutor,
+	tipo de daño, etc.) definen la estructura del módulo de registro de
+	NNA en SICORRE.
+	
+	\item[\textbf{Caja de Herramientas.}]
+	Guía práctica para la restitución de derechos de niñas, niños y
+	adolescentes emitida por la autoridad competente. Complementa al
+	FUD y define los campos de vulnerabilidad, discapacidad, migración y
+	pertenencia a comunidades indígenas que el sistema debe capturar.
+	
+	\item[\textbf{Expediente.}]
+	Conjunto de información que documenta el historial completo de un
+	caso de restitución de derechos de un NNA. Incluye el folio FUD,
+	el estatus del proceso, la prioridad, las valoraciones
+	multidisciplinarias y los derechos vulnerados identificados.
+	
+	\item[\textbf{Hecho Victimal.}]
+	Evento delictivo (feminicidio) que origina el estado de orfandad
+	del NNA. El registro del hecho victimal incluye el nombre de la
+	víctima madre, la fecha del hecho, los datos del expediente jurídico
+	y la descripción del delito.
+	
+	\item[\textbf{Tutor.}]
+	Persona adulta — familiar o responsable designado — que tiene a su
+	cargo el cuidado y representación legal del NNA ante la fundación.
+	Sus datos, domicilio, idioma y padecimientos se registran en el
+	sistema.
+	
+	\item[\textbf{Equipo Multidisciplinario.}]
+	Grupo de especialistas (trabajador/a social, abogado/a, psicólogo/a
+	y médico/a) que atienden de forma coordinada un mismo conjunto de
+	casos. Un NNA se asigna a un equipo, y todos sus integrantes pueden
+	visualizar y actualizar el expediente compartido.
+	
+	\item[\textbf{Valoración.}]
+	Registro narrativo que un especialista elabora sobre el expediente
+	de un NNA, incluyendo el área de evaluación, los hallazgos y
+	dictámenes, las medidas sugeridas y la fecha de la valoración.
+	
+	\item[\textbf{Derecho Vulnerado.}]
+	Derecho específico (a la salud, a la educación, a la identidad,
+	etc.) que ha sido transgredido en el caso de un NNA. El sistema
+	permite registrar si cada derecho está activamente vulnerado y añadir
+	observaciones del equipo.
+	
+	\item[\textbf{Actor en Materia de Derechos.}]
+	Organización gubernamental, no gubernamental o persona física con
+	capacidad de participar en la restitución de derechos de los NNA.
+	El catálogo de actores se mantiene actualizado con datos de contacto,
+	servicios, costos, horarios y ubicación.
+	
+	\item[\textbf{SEPOMEX.}]
+	Servicio Postal Mexicano. Catálogo oficial de códigos postales
+	utilizado en SICORRE para normalizar los domicilios de NNA,
+	tutores, usuarios y actores, garantizando la correcta asociación de
+	colonia, municipio y entidad federativa.
+	
+	\item[\textbf{INALI.}]
+	Instituto Nacional de Lenguas Indígenas. Organismo cuyo catálogo
+	oficial de idiomas y variantes dialectales utiliza SICORRE para
+	registrar las lenguas maternas del NNA y su tutor.
+	
+	\item[\textbf{JWT (JSON Web Token).}]
+	Mecanismo de autenticación empleado por SICORRE para verificar la
+	identidad del usuario en cada petición al servidor, garantizando que
+	únicamente el personal autorizado acceda a la información sensible
+	de los NNA.
+	
+	\item[\textbf{Folio FUD.}]
+	Número de referencia único asignado a cada expediente dentro del
+	sistema, derivado del Formato Único de Declaración oficial. Permite
+	relacionar el expediente digital con el trámite físico o
+	institucional correspondiente.
+	
+	\item[\textbf{Rol.}]
+	Perfil de permisos asignado a cada usuario del sistema. SICORRE
+	define dos roles: \textit{Administrador} (directora y coordinadora,
+	con capacidad de gestionar usuarios, equipos y catálogos) y
+	\textit{Especialista} (trabajador/a social, abogado/a, psicólogo/a
+	y médico/a, con capacidad de registrar y consultar expedientes y
+	valoraciones).
+\end{description}
+
+%----------------------------------------------------------
+\section{Modelo del dominio del problema}
+\label{sec:hechosDeNegocio}
+
+El modelo del dominio de SICORRE representa las entidades del negocio y sus
+relaciones tal como existen en la operación de la Fundación Futuro con
+Derecho. La figura~\ref{fig:diagramaBD} muestra el diagrama entidad-relación
+del sistema.
+
+\begin{figure}[p]
+	\begin{center}
+		\includegraphics[angle=90,width=\textheight,height=\textwidth,keepaspectratio]{images/diagramaBD.png}
+		\caption{Modelo del dominio del problema}
+		\label{fig:diagramaBD}
+	\end{center}
+\end{figure}
+
+\clearpage
+
+\begin{cdtEntidad}{CatEstados}{cat\_estados}
+	\brAttr{id}{Id}{integer}{Identificador único del estado. Clave primaria autoincremental.}{Sí}
+	\brAttr{nombre}{Nombre}{varchar(100)}{Nombre del estado de la república mexicana.}{Sí}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{CatMunicipios}{cat\_municipios}
+	\brAttr{id}{Id}{integer}{Identificador único del municipio. Clave primaria autoincremental.}{Sí}
+	\brAttr{nombre}{Nombre}{varchar(100)}{Nombre del municipio.}{Sí}
+	\brAttr{estado_id}{Estado}{integer}{Identificador del estado al que pertenece el municipio.}{Sí}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{CatEstados}{Un \hyperlink{CatMunicipios}{Municipio} pertenece a un \hyperlink{CatEstados}{Estado}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{CatColonias}{cat\_colonias}
+	\brAttr{id}{Id}{integer}{Identificador único de la colonia. Clave primaria autoincremental.}{Sí}
+	\brAttr{nombre}{Nombre}{varchar(100)}{Nombre de la colonia.}{Sí}
+	\brAttr{codigo_postal}{Código Postal}{varchar(5)}{Código postal de la colonia conforme a SEPOMEX. Formato: 5 dígitos numéricos, ejemplo: 06600.}{Sí}
+	\brAttr{municipio_id}{Municipio}{integer}{Identificador del municipio al que pertenece la colonia.}{Sí}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{CatMunicipios}{Una \hyperlink{CatColonias}{Colonia} pertenece a un \hyperlink{CatMunicipios}{Municipio}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{CatTipoLugar}{cat\_tipo\_lugar}
+	\brAttr{id}{Id}{integer}{Identificador único del tipo de lugar. Clave primaria autoincremental.}{Sí}
+	\brAttr{descripcion}{Descripción}{varchar(100)}{Descripción del tipo de lugar (urbano, rural, comunidad indígena, etc.).}{Sí}
+	\brAttr{aplica_nna}{Aplica NNA}{boolean}{Indica si el tipo de lugar aplica para NNA. true = aplica.}{No}
+	\brAttr{aplica_persona}{Aplica Persona}{boolean}{Indica si el tipo de lugar aplica para personas. true = aplica.}{No}
+	\brAttr{aplica_actor}{Aplica Actor}{boolean}{Indica si el tipo de lugar aplica para actores en materia de derechos. true = aplica.}{No}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{CatPlataformaRedSocial}{cat\_plataforma\_red\_social}
+	\brAttr{id}{Id}{integer}{Identificador único de la plataforma. Clave primaria autoincremental.}{Sí}
+	\brAttr{nombre}{Nombre}{varchar(100)}{Nombre de la red social o plataforma digital (Facebook, Instagram, X, etc.).}{Sí}
+	\brAttr{url_base}{URL Base}{varchar(255)}{URL base de la plataforma. Ejemplo: https://www.facebook.com/}{No}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{CatRoles}{cat\_roles}
+	\brAttr{id}{Id}{integer}{Identificador único del rol. Clave primaria autoincremental.}{Sí}
+	\brAttr{nombre_rol}{Nombre del Rol}{varchar(100)}{Nombre del rol de usuario en el sistema. Valores: Administrador, Especialista.}{Sí}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{CatNacionalidades}{cat\_nacionalidades}
+	\brAttr{id}{Id}{integer}{Identificador único de la nacionalidad. Clave primaria autoincremental.}{Sí}
+	\brAttr{nombre}{Nombre}{varchar(100)}{Nombre de la nacionalidad.}{Sí}
+	\brAttr{codigo}{Código}{varchar(3)}{Código ISO 3166-1 alfa-3 de la nacionalidad. Ejemplo: MEX, USA, GTM.}{No}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{CatGradoEscolar}{cat\_grado\_escolar}
+	\brAttr{id}{Id}{integer}{Identificador único del grado escolar. Clave primaria autoincremental.}{Sí}
+	\brAttr{descripcion}{Descripción}{varchar(100)}{Descripción del grado escolar del NNA (sin escolaridad, preescolar, primaria, secundaria, bachillerato, etc.).}{Sí}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{CatIdiomas}{cat\_idiomas}
+	\brAttr{id}{Id}{integer}{Identificador único del idioma. Clave primaria autoincremental.}{Sí}
+	\brAttr{nombre}{Nombre}{varchar(100)}{Nombre del idioma o lengua conforme al catálogo INALI.}{Sí}
+	\brAttr{variante}{Variante}{varchar(100)}{Variante dialectal del idioma según catálogo INALI.}{No}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{CatNivelIdioma}{cat\_nivel\_idioma}
+	\brAttr{id}{Id}{integer}{Identificador único del nivel de idioma. Clave primaria autoincremental.}{Sí}
+	\brAttr{nivel}{Nivel}{varchar(100)}{Descripción del nivel de dominio del idioma (básico, intermedio, avanzado).}{Sí}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{CatEnfermedades}{cat\_enfermedades}
+	\brAttr{id}{Id}{integer}{Identificador único de la enfermedad. Clave primaria autoincremental.}{Sí}
+	\brAttr{nombre}{Nombre}{varchar(100)}{Nombre de la enfermedad conforme al catálogo CIE-10.}{Sí}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{CatTratamientos}{cat\_tratamientos}
+	\brAttr{id}{Id}{integer}{Identificador único del tratamiento. Clave primaria autoincremental.}{Sí}
+	\brAttr{nombre}{Nombre}{varchar(100)}{Nombre del tratamiento médico.}{Sí}
+	\brAttr{descripcion}{Descripción}{text}{Descripción detallada del tratamiento médico, indicaciones y observaciones.}{No}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{CatDiscapacidades}{cat\_discapacidades}
+	\brAttr{id}{Id}{integer}{Identificador único de la discapacidad. Clave primaria autoincremental.}{Sí}
+	\brAttr{nombre}{Nombre}{varchar(100)}{Nombre de la discapacidad.}{Sí}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{CatTipoActor}{cat\_tipo\_actor}
+	\brAttr{id}{Id}{integer}{Identificador único del tipo de actor. Clave primaria autoincremental.}{Sí}
+	\brAttr{nom_tipo}{Nombre Tipo}{varchar(100)}{Nombre del tipo de actor (gubernamental, no gubernamental, persona física).}{Sí}
+	\brAttr{descripcion}{Descripción}{varchar(100)}{Descripción del tipo de actor.}{No}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{CatCategoriaServicio}{cat\_categoria\_servicio}
+	\brAttr{id_cat_serv}{Id}{integer}{Identificador único de la categoría de servicio. Clave primaria autoincremental.}{Sí}
+	\brAttr{nom_categoria}{Nombre Categoría}{varchar(100)}{Nombre de la categoría de servicio.}{Sí}
+	\brAttr{descripcion}{Descripción}{varchar(255)}{Descripción de la categoría de servicio.}{No}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{CatDerechoLGDNNA}{cat\_derecho\_lgdnna}
+	\brAttr{id_derecho}{Id}{integer}{Identificador único del derecho. Clave primaria autoincremental.}{Sí}
+	\brAttr{fraccion_art13}{Fracción Art. 13}{varchar(100)}{Fracción del artículo 13 de la LGDNNA correspondiente al derecho.}{Sí}
+	\brAttr{nom_derecho}{Nombre Derecho}{varchar(100)}{Nombre del derecho conforme a la LGDNNA.}{Sí}
+	\brAttr{capitulo_lgdnna}{Capítulo}{varchar(100)}{Capítulo de la LGDNNA en que se enmarca el derecho.}{No}
+	\brAttr{articulo_ref}{Artículo Ref.}{varchar(100)}{Artículo de referencia de la LGDNNA.}{No}
+	\brAttr{descripcion}{Descripción}{text}{Descripción completa del derecho según la LGDNNA.}{No}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{CatTipoTutela}{cat\_tipo\_tutela}
+	\brAttr{id}{Id}{integer}{Identificador único del tipo de tutela. Clave primaria autoincremental.}{Sí}
+	\brAttr{descripcion}{Descripción}{varchar(100)}{Descripción del tipo de tutela (tutela legal, custodia, guardia y custodia provisional, etc.).}{Sí}
+	\brAttr{requiere_resolucion_judicial}{Requiere Resolución}{boolean}{Indica si el tipo de tutela requiere resolución judicial. true = requiere.}{No}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{Direcciones}{direcciones}
+	\brAttr{id}{Id}{integer}{Identificador único de la dirección. Clave primaria autoincremental.}{Sí}
+	\brAttr{calle}{Calle}{varchar(100)}{Nombre de la calle o vialidad.}{No}
+	\brAttr{no_exterior}{Número Exterior}{varchar(20)}{Número exterior del domicilio.}{No}
+	\brAttr{no_interior}{Número Interior}{varchar(20)}{Número interior del domicilio (departamento, piso, letra, etc.).}{No}
+	\brAttr{colonia_id}{Colonia}{integer}{Identificador de la colonia a la que pertenece la dirección.}{No}
+	\brAttr{tipo_lugar_id}{Tipo de Lugar}{integer}{Identificador del tipo de lugar de la dirección.}{No}
+	\brAttr{pueblo_comunidad}{Pueblo o Comunidad}{varchar(100)}{Nombre del pueblo o comunidad indígena, cuando aplique.}{No}
+	\brAttr{referencia_ubicacion}{Referencia}{text}{Referencia adicional de ubicación para facilitar la localización del domicilio.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{CatColonias}{Una \hyperlink{Direcciones}{Dirección} se ubica en una \hyperlink{CatColonias}{Colonia}}
+	\brRel{\brRelAgregation}{CatTipoLugar}{Una \hyperlink{Direcciones}{Dirección} tiene un \hyperlink{CatTipoLugar}{Tipo de Lugar}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{Contactos}{contactos}
+	\brAttr{id}{Id}{integer}{Identificador único del contacto. Clave primaria autoincremental.}{Sí}
+	\brAttr{tel_principal}{Teléfono Principal}{varchar(20)}{Número telefónico principal (fijo o celular, con lada).}{No}
+	\brAttr{tel_secundario}{Teléfono Secundario}{varchar(20)}{Número telefónico secundario o de emergencia.}{No}
+	\brAttr{correo}{Correo}{varchar(255)}{Correo electrónico. Debe contener el símbolo @. Formato: usuario@dominio.com}{No}
+	\brAttr{pagina_web}{Página Web}{varchar(255)}{URL de la página web. Ejemplo: https://www.ejemplo.com}{No}
+	\brAttr{red_social_id}{Red Social}{integer}{Identificador de la plataforma de red social asociada.}{No}
+	\brAttr{tutor_id}{Tutor}{integer}{Identificador del tutor al que pertenece este contacto.}{No}
+	\brAttr{actor_id}{Actor}{integer}{Identificador del actor en materia de derechos al que pertenece.}{No}
+	\brAttr{enlace_id}{Enlace}{integer}{Identificador del enlace institucional al que pertenece.}{No}
+	\brAttr{es_principal}{Es Principal}{boolean}{Indica si es el medio de contacto principal. true = principal.}{No}
+	\brAttr{observaciones}{Observaciones}{varchar(255)}{Observaciones adicionales sobre el medio de contacto.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{CatPlataformaRedSocial}{Un \hyperlink{Contactos}{Contacto} puede tener una \hyperlink{CatPlataformaRedSocial}{Red Social}}
+	\brRel{\brRelAgregation}{Tutores}{Un \hyperlink{Contactos}{Contacto} puede pertenecer a un \hyperlink{Tutores}{Tutor}}
+	\brRel{\brRelAgregation}{ActoresDerechos}{Un \hyperlink{Contactos}{Contacto} puede pertenecer a un \hyperlink{ActoresDerechos}{Actor}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{Usuarios}{usuarios}
+	\brAttr{id}{Id}{integer}{Identificador único del usuario. Clave primaria autoincremental.}{Sí}
+	\brAttr{nombre}{Nombre}{varchar(100)}{Nombre(s) del usuario del sistema.}{Sí}
+	\brAttr{primer_apellido}{Primer Apellido}{varchar(100)}{Primer apellido del usuario.}{Sí}
+	\brAttr{segundo_apellido}{Segundo Apellido}{varchar(100)}{Segundo apellido del usuario.}{Sí}
+	\brAttr{fecha_nacimiento}{Fecha de Nacimiento}{date}{Fecha de nacimiento del usuario. Formato: AAAA-MM-DD.}{Sí}
+	\brAttr{sexo}{Sexo}{varchar(20)}{Sexo del usuario (Masculino, Femenino).}{No}
+	\brAttr{curp}{CURP}{varchar(18)}{Clave Única de Registro de Población. Formato: 4 letras + 6 dígitos + 6 letras + 2 caracteres; 18 caracteres alfanuméricos en total. Ejemplo: GOMA850101HDFRRR02.}{Sí}
+	\brAttr{rfc}{RFC}{varchar(13)}{Registro Federal de Contribuyentes para persona física. Formato: 4 letras + 6 dígitos + 3 caracteres de homoclave; 13 caracteres en total. Ejemplo: GOMA850101AB2.}{Sí}
+	\brAttr{correo}{Correo}{varchar(255)}{Correo electrónico institucional. Debe contener el símbolo @. Formato: usuario@dominio.org}{Sí}
+	\brAttr{password_hash}{Contraseña}{varchar(255)}{Hash seguro de la contraseña generado con bcrypt. No se almacena la contraseña en texto plano.}{Sí}
+	\brAttr{tipo_personal}{Tipo Personal}{boolean}{Indica el tipo de personal. true = administrativo, false = especialista.}{No}
+	\brAttr{activo}{Activo}{boolean}{Indica si la cuenta está activa. true = activo.}{No}
+	\brAttr{fecha_registro}{Fecha Registro}{date}{Fecha de alta del usuario en el sistema. Formato: AAAA-MM-DD.}{No}
+	\brAttr{direccion_id}{Dirección}{integer}{Identificador de la dirección domiciliaria del usuario.}{No}
+	\brAttr{rol_id}{Rol}{integer}{Identificador del rol asignado al usuario en el sistema.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{Direcciones}{Un \hyperlink{Usuarios}{Usuario} tiene una \hyperlink{Direcciones}{Dirección}}
+	\brRel{\brRelAgregation}{CatRoles}{Un \hyperlink{Usuarios}{Usuario} tiene un \hyperlink{CatRoles}{Rol}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{EquiposMultidisciplinarios}{equipos\_multidisciplinarios}
+	\brAttr{id}{Id}{integer}{Identificador único del equipo. Clave primaria autoincremental.}{Sí}
+	\brAttr{nombre_equipo}{Nombre Equipo}{varchar(100)}{Nombre asignado al equipo multidisciplinario.}{Sí}
+	\brAttr{activo}{Activo}{boolean}{Indica si el equipo se encuentra activo. true = activo.}{No}
+	\brAttr{fecha_creacion}{Fecha Creación}{date}{Fecha de creación del equipo. Formato: AAAA-MM-DD.}{No}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{Tutores}{tutores}
+	\brAttr{id}{Id}{integer}{Identificador único del tutor. Clave primaria autoincremental.}{Sí}
+	\brAttr{nombre}{Nombre}{varchar(100)}{Nombre(s) del tutor o responsable del NNA.}{Sí}
+	\brAttr{primer_apellido}{Primer Apellido}{varchar(100)}{Primer apellido del tutor.}{Sí}
+	\brAttr{segundo_apellido}{Segundo Apellido}{varchar(100)}{Segundo apellido del tutor.}{Sí}
+	\brAttr{fecha_nacimiento}{Fecha de Nacimiento}{date}{Fecha de nacimiento del tutor. Formato: AAAA-MM-DD.}{Sí}
+	\brAttr{sexo}{Sexo}{varchar(20)}{Sexo del tutor (Masculino, Femenino).}{No}
+	\brAttr{curp}{CURP}{varchar(18)}{Clave Única de Registro de Población del tutor. Formato: 4 letras + 6 dígitos + 6 letras + 2 caracteres; 18 caracteres alfanuméricos.}{No}
+	\brAttr{nacionalidad_id}{Nacionalidad}{integer}{Identificador de la nacionalidad del tutor.}{No}
+	\brAttr{escolaridad}{Escolaridad}{varchar(100)}{Nivel de escolaridad alcanzado por el tutor.}{No}
+	\brAttr{ocupacion}{Ocupación}{varchar(100)}{Ocupación o actividad laboral del tutor.}{No}
+	\brAttr{es_tutor_legal}{Es Tutor Legal}{boolean}{Indica si el tutor cuenta con reconocimiento legal de tutela. true = tutor legal.}{No}
+	\brAttr{tipo_tutela_id}{Tipo Tutela}{integer}{Identificador del tipo de tutela que ejerce sobre el NNA.}{No}
+	\brAttr{resolucion_tutela}{Resolución}{varchar(100)}{Número o referencia de la resolución judicial de tutela, si aplica.}{No}
+	\brAttr{fecha_inicio_tutela}{Fecha Inicio}{date}{Fecha de inicio de la tutela. Formato: AAAA-MM-DD.}{No}
+	\brAttr{direccion_id}{Dirección}{integer}{Identificador de la dirección domiciliaria del tutor.}{No}
+	\brAttr{municipio_nacimiento_id}{Mun. Nacimiento}{integer}{Identificador del municipio de nacimiento del tutor.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{CatNacionalidades}{Un \hyperlink{Tutores}{Tutor} tiene una \hyperlink{CatNacionalidades}{Nacionalidad}}
+	\brRel{\brRelAgregation}{CatTipoTutela}{Un \hyperlink{Tutores}{Tutor} tiene un \hyperlink{CatTipoTutela}{Tipo de Tutela}}
+	\brRel{\brRelAgregation}{Direcciones}{Un \hyperlink{Tutores}{Tutor} tiene una \hyperlink{Direcciones}{Dirección}}
+	\brRel{\brRelAgregation}{CatMunicipios}{Un \hyperlink{Tutores}{Tutor} nació en un \hyperlink{CatMunicipios}{Municipio}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{NNA}{nna}
+	\brAttr{id}{Id}{integer}{Identificador único del NNA. Clave primaria autoincremental.}{Sí}
+	\brAttr{nombre}{Nombre}{varchar(100)}{Nombre(s) del NNA.}{Sí}
+	\brAttr{primer_apellido}{Primer Apellido}{varchar(100)}{Primer apellido del NNA.}{Sí}
+	\brAttr{segundo_apellido}{Segundo Apellido}{varchar(100)}{Segundo apellido del NNA.}{Sí}
+	\brAttr{fecha_nacimiento}{Fecha de Nacimiento}{date}{Fecha de nacimiento del NNA. Formato: AAAA-MM-DD.}{Sí}
+	\brAttr{sexo}{Sexo}{varchar(20)}{Sexo del NNA (Masculino, Femenino).}{No}
+	\brAttr{curp}{CURP}{varchar(18)}{Clave Única de Registro de Población del NNA. Formato: 4 letras + 6 dígitos + 6 letras + 2 caracteres; 18 caracteres. Actúa como identificador único del expediente e impide duplicados.}{No}
+	\brAttr{nacionalidad_id}{Nacionalidad}{integer}{Identificador de la nacionalidad del NNA.}{No}
+	\brAttr{municipio_nacimiento_id}{Mun. Nacimiento}{integer}{Identificador del municipio de nacimiento del NNA.}{No}
+	\brAttr{es_migrante}{Es Migrante}{boolean}{Indica si el NNA es migrante o proviene de otra entidad federativa. true = migrante.}{No}
+	\brAttr{creado_por}{Creado Por}{integer}{Identificador del usuario que realizó el registro inicial del NNA en el sistema.}{No}
+	\brAttr{activo}{Activo}{boolean}{Indica si el NNA está activo en el sistema. true = activo.}{No}
+	\brAttr{fecha_registro}{Fecha Registro}{date}{Fecha de registro del NNA en el sistema. Formato: AAAA-MM-DD.}{No}
+	\brAttr{grado_escolar_id}{Grado Escolar}{integer}{Identificador del grado escolar actual del NNA.}{No}
+	\brAttr{direccion_id}{Dirección}{integer}{Identificador de la dirección de residencia del NNA.}{No}
+	\brAttr{equipo_asignado_id}{Equipo Asignado}{integer}{Identificador del equipo multidisciplinario asignado para atender al NNA.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{CatNacionalidades}{Un \hyperlink{NNA}{NNA} tiene una \hyperlink{CatNacionalidades}{Nacionalidad}}
+	\brRel{\brRelAgregation}{Usuarios}{Un \hyperlink{NNA}{NNA} es registrado por un \hyperlink{Usuarios}{Usuario}}
+	\brRel{\brRelAgregation}{CatGradoEscolar}{Un \hyperlink{NNA}{NNA} tiene un \hyperlink{CatGradoEscolar}{Grado Escolar}}
+	\brRel{\brRelAgregation}{Direcciones}{Un \hyperlink{NNA}{NNA} tiene una \hyperlink{Direcciones}{Dirección}}
+	\brRel{\brRelAgregation}{EquiposMultidisciplinarios}{Un \hyperlink{NNA}{NNA} es asignado a un \hyperlink{EquiposMultidisciplinarios}{Equipo Multidisciplinario}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{VictimaDirecta}{victima\_directa}
+	\brAttr{id}{Id}{integer}{Identificador único de la víctima directa. Clave primaria autoincremental.}{Sí}
+	\brAttr{nombre}{Nombre}{varchar(100)}{Nombre(s) de la víctima directa (madre del NNA fallecida por feminicidio).}{Sí}
+	\brAttr{primer_apellido}{Primer Apellido}{varchar(100)}{Primer apellido de la víctima directa.}{Sí}
+	\brAttr{segundo_apellido}{Segundo Apellido}{varchar(100)}{Segundo apellido de la víctima directa.}{No}
+	\brAttr{curp}{CURP}{varchar(18)}{Clave Única de Registro de Población de la víctima. Formato: 4 letras + 6 dígitos + 6 letras + 2 caracteres; 18 caracteres alfanuméricos.}{No}
+	\brAttr{fecha_nacimiento}{Fecha Nacimiento}{date}{Fecha de nacimiento de la víctima directa. Formato: AAAA-MM-DD.}{No}
+	\brAttr{fecha_fallecimiento}{Fecha Fallecimiento}{date}{Fecha de fallecimiento de la víctima directa. Formato: AAAA-MM-DD.}{No}
+	\brAttr{modalidad_feminicidio}{Modalidad}{varchar(100)}{Modalidad del feminicidio conforme a la tipificación legal vigente.}{No}
+	\brAttr{causa_certificada_muerte}{Causa Muerte}{text}{Causa certificada de muerte conforme al acta o certificado médico oficial.}{No}
+	\brAttr{descripcion_hecho}{Descripción Hecho}{text}{Descripción narrativa del hecho victimal y circunstancias del feminicidio.}{No}
+	\brAttr{nna_id}{NNA}{integer}{Identificador del NNA que quedó en orfandad a causa del feminicidio.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{NNA}{Una \hyperlink{VictimaDirecta}{Víctima Directa} está asociada a un \hyperlink{NNA}{NNA}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{HechosVictimales}{hechos\_victimales}
+	\brAttr{id}{Id}{integer}{Identificador único del hecho victimal. Clave primaria autoincremental.}{Sí}
+	\brAttr{nna_id}{NNA}{integer}{Identificador del NNA al que corresponde el hecho victimal.}{No}
+	\brAttr{nombre_victima_directa}{Víctima Directa}{varchar(100)}{Nombre completo de la víctima directa del feminicidio (nombre de la madre).}{No}
+	\brAttr{fecha_hecho}{Fecha Hecho}{date}{Fecha en que ocurrió el hecho victimal. Formato: AAAA-MM-DD.}{No}
+	\brAttr{descripcion_delito}{Descripción Delito}{text}{Descripción narrativa del delito, circunstancias y datos del expediente jurídico.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{NNA}{Un \hyperlink{HechosVictimales}{Hecho Victimal} corresponde a un \hyperlink{NNA}{NNA}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{Expedientes}{expedientes}
+	\brAttr{id}{Id}{integer}{Identificador único del expediente. Clave primaria autoincremental.}{Sí}
+	\brAttr{folio_fud}{Folio FUD}{varchar(100)}{Folio único del expediente derivado del Formato Único de Declaración oficial. Relaciona el expediente digital con el trámite físico o institucional.}{Sí}
+	\brAttr{nna_id}{NNA}{integer}{Identificador del NNA al que pertenece el expediente.}{No}
+	\brAttr{estatus_proceso}{Estatus}{varchar(100)}{Estatus actual del proceso de restitución de derechos del NNA.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{NNA}{Un \hyperlink{Expedientes}{Expediente} pertenece a un \hyperlink{NNA}{NNA}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{Valoraciones}{valoraciones}
+	\brAttr{id}{Id}{integer}{Identificador único de la valoración. Clave primaria autoincremental.}{Sí}
+	\brAttr{expediente_id}{Expediente}{integer}{Identificador del expediente sobre el que se realiza la valoración.}{No}
+	\brAttr{especialista_id}{Especialista}{integer}{Identificador del usuario especialista que registra la valoración.}{No}
+	\brAttr{area_evaluacion}{Área}{varchar(100)}{Área disciplinaria de evaluación (social, legal, psicológica, médica).}{Sí}
+	\brAttr{hallazgos_dictamen}{Hallazgos}{text}{Hallazgos, diagnóstico y dictamen del especialista sobre el caso.}{Sí}
+	\brAttr{medidas_sugeridas}{Medidas}{text}{Medidas de intervención sugeridas por el especialista para el caso.}{No}
+	\brAttr{fecha_valoracion}{Fecha}{date}{Fecha en que se realizó la valoración. Formato: AAAA-MM-DD.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{Expedientes}{Una \hyperlink{Valoraciones}{Valoración} pertenece a un \hyperlink{Expedientes}{Expediente}}
+	\brRel{\brRelAgregation}{Usuarios}{Una \hyperlink{Valoraciones}{Valoración} es realizada por un \hyperlink{Usuarios}{Usuario}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{DerechosVulnerados}{derechos\_vulnerados}
+	\brAttr{id}{Id}{integer}{Identificador único del registro. Clave primaria autoincremental.}{Sí}
+	\brAttr{expediente_id}{Expediente}{integer}{Identificador del expediente al que corresponde el derecho vulnerado.}{No}
+	\brAttr{derecho_id}{Derecho}{integer}{Identificador del derecho de la LGDNNA que fue vulnerado.}{No}
+	\brAttr{esta_vulnerado}{Vulnerado}{boolean}{Indica si el derecho está actualmente vulnerado. true = vulnerado.}{No}
+	\brAttr{observaciones}{Observaciones}{text}{Observaciones del equipo multidisciplinario sobre el derecho vulnerado.}{No}
+	\brAttr{creado_por}{Creado Por}{integer}{Identificador del usuario que registró el derecho vulnerado.}{No}
+	\brAttr{fecha_registro}{Fecha Registro}{date}{Fecha de registro del derecho vulnerado. Formato: AAAA-MM-DD.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{Expedientes}{Un \hyperlink{DerechosVulnerados}{Derecho Vulnerado} corresponde a un \hyperlink{Expedientes}{Expediente}}
+	\brRel{\brRelAgregation}{CatDerechoLGDNNA}{Un \hyperlink{DerechosVulnerados}{Derecho Vulnerado} hace referencia a un \hyperlink{CatDerechoLGDNNA}{Derecho}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{ActoresDerechos}{actores\_derechos}
+	\brAttr{id}{Id}{integer}{Identificador único del actor en materia de derechos. Clave primaria autoincremental.}{Sí}
+	\brAttr{nombre}{Nombre}{varchar(100)}{Nombre del actor (institución, organización o persona).}{Sí}
+	\brAttr{tipo_actor_id}{Tipo Actor}{integer}{Identificador del tipo de actor en materia de derechos.}{No}
+	\brAttr{tiene_registro_oficial}{Registro Oficial}{boolean}{Indica si el actor cuenta con registro oficial ante autoridad competente. true = tiene registro.}{No}
+	\brAttr{registro_oficial_num}{Núm. Registro}{varchar(100)}{Número de registro oficial del actor ante la autoridad competente, si aplica.}{No}
+	\brAttr{horario_atencion}{Horario}{varchar(100)}{Horario de atención del actor para recibir casos.}{No}
+	\brAttr{observaciones}{Observaciones}{text}{Observaciones adicionales sobre el actor en materia de derechos.}{No}
+	\brAttr{activo}{Activo}{boolean}{Indica si el actor está activo en el catálogo del sistema. true = activo.}{No}
+	\brAttr{fecha_registro}{Fecha Registro}{date}{Fecha de alta del actor en el sistema. Formato: AAAA-MM-DD.}{No}
+	\brAttr{direccion_id}{Dirección}{integer}{Identificador de la dirección del actor.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{CatTipoActor}{Un \hyperlink{ActoresDerechos}{Actor} tiene un \hyperlink{CatTipoActor}{Tipo de Actor}}
+	\brRel{\brRelAgregation}{Direcciones}{Un \hyperlink{ActoresDerechos}{Actor} tiene una \hyperlink{Direcciones}{Dirección}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{ActorPersonaFisica}{actor\_persona\_fisica}
+	\brAttr{id_actor}{Id Actor}{integer}{Identificador del actor persona física. Clave primaria y foránea hacia \hyperlink{ActoresDerechos}{actores\_derechos}.}{Sí}
+	\brAttr{curp}{CURP}{varchar(18)}{Clave Única de Registro de Población del actor. Formato: 4 letras + 6 dígitos + 6 letras + 2 caracteres; 18 caracteres alfanuméricos.}{No}
+	\brAttr{rfc}{RFC}{varchar(13)}{Registro Federal de Contribuyentes. Formato: 4 letras + 6 dígitos + 3 caracteres de homoclave; 13 caracteres para persona física.}{No}
+	\brAttr{fecha_nacimiento}{Fecha Nacimiento}{date}{Fecha de nacimiento del actor persona física. Formato: AAAA-MM-DD.}{No}
+	\brAttr{sexo}{Sexo}{varchar(20)}{Sexo del actor persona física (Masculino, Femenino).}{No}
+	\brAttr{direccion_id}{Dirección}{integer}{Identificador de una dirección adicional del actor persona física.}{No}
+	\brAttr{escolaridad}{Escolaridad}{varchar(100)}{Nivel de escolaridad alcanzado por el actor persona física.}{No}
+	\brAttr{ocupacion_oficio}{Ocupación}{varchar(100)}{Ocupación u oficio del actor persona física.}{No}
+	\brAttr{descripcion_actividad}{Actividad}{text}{Descripción de la actividad que realiza en materia de derechos de NNA.}{No}
+	\brAttr{disponibilidad}{Disponibilidad}{varchar(100)}{Disponibilidad de tiempo del actor para atención de casos.}{No}
+	\brAttr{es_lider_comunitario}{Líder Comunitario}{boolean}{Indica si el actor es reconocido como líder comunitario. true = líder comunitario.}{No}
+	\brAttr{es_lider_religioso}{Líder Religioso}{boolean}{Indica si el actor es reconocido como líder religioso. true = líder religioso.}{No}
+	\brAttr{pertenece_grupo}{Pertenece Grupo}{varchar(100)}{Nombre del grupo o colectivo al que pertenece el actor.}{No}
+	\brAttr{como_contactar}{Cómo Contactar}{text}{Instrucciones o indicaciones para contactar al actor.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{ActoresDerechos}{Un \hyperlink{ActorPersonaFisica}{Actor Persona Física} es una especialización de \hyperlink{ActoresDerechos}{Actor}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{ActorEnlace}{actor\_enlace}
+	\brAttr{id_enlace}{Id Enlace}{integer}{Identificador único del enlace institucional. Clave primaria autoincremental.}{Sí}
+	\brAttr{actor_id}{Actor}{integer}{Identificador del actor al que pertenece la persona enlace.}{No}
+	\brAttr{nom_enlace}{Nombre Enlace}{varchar(100)}{Nombre completo de la persona enlace de la institución.}{Sí}
+	\brAttr{cargo_enlace}{Cargo}{varchar(100)}{Cargo o puesto de la persona enlace en la institución.}{No}
+	\brAttr{es_principal_contacto}{Principal}{boolean}{Indica si la persona enlace es el contacto principal del actor. true = principal.}{No}
+	\brAttr{notas_enlace}{Notas}{text}{Notas adicionales sobre la persona enlace y su disponibilidad.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{ActoresDerechos}{Un \hyperlink{ActorEnlace}{Enlace} pertenece a un \hyperlink{ActoresDerechos}{Actor}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{ActorPrograma}{actor\_programa}
+	\brAttr{id_programa}{Id Programa}{integer}{Identificador único del programa. Clave primaria autoincremental.}{Sí}
+	\brAttr{actor_id}{Actor}{integer}{Identificador del actor que ofrece el programa de apoyo.}{No}
+	\brAttr{nom_programa}{Nombre Programa}{varchar(100)}{Nombre del programa de apoyo o servicio.}{Sí}
+	\brAttr{descripcion}{Descripción}{text}{Descripción del programa: objetivos, beneficiarios y alcance.}{No}
+	\brAttr{fecha_inicio}{Fecha Inicio}{date}{Fecha de inicio del programa. Formato: AAAA-MM-DD.}{No}
+	\brAttr{fecha_fin}{Fecha Fin}{date}{Fecha de término del programa. Formato: AAAA-MM-DD.}{No}
+	\brAttr{activo_programa}{Activo}{boolean}{Indica si el programa está vigente y activo. true = activo.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{ActoresDerechos}{Un \hyperlink{ActorPrograma}{Programa} es ofrecido por un \hyperlink{ActoresDerechos}{Actor}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{ServiciosActores}{servicios\_actores}
+	\brAttr{id}{Id}{integer}{Identificador único del servicio. Clave primaria autoincremental.}{Sí}
+	\brAttr{actor_id}{Actor}{integer}{Identificador del actor que ofrece el servicio.}{No}
+	\brAttr{programa_id}{Programa}{integer}{Identificador del programa al que pertenece el servicio, si aplica.}{No}
+	\brAttr{categoria_id}{Categoría}{integer}{Identificador de la categoría del servicio.}{No}
+	\brAttr{nombre_servicio}{Nombre Servicio}{varchar(100)}{Nombre del servicio ofrecido por el actor.}{Sí}
+	\brAttr{descripcion_servicio}{Descripción}{text}{Descripción detallada del servicio, alcances y limitaciones.}{No}
+	\brAttr{modalidad}{Modalidad}{varchar(100)}{Modalidad de prestación del servicio (presencial, en línea, mixto).}{No}
+	\brAttr{es_gratuito}{Es Gratuito}{boolean}{Indica si el servicio es gratuito. true = gratuito.}{No}
+	\brAttr{costo}{Costo}{decimal(10,2)}{Costo del servicio en pesos mexicanos (MXN), si no es gratuito.}{No}
+	\brAttr{duracion}{Duración}{varchar(100)}{Duración estimada del servicio (horas, semanas, meses).}{No}
+	\brAttr{disponibilidad}{Disponibilidad}{varchar(100)}{Disponibilidad horaria y días de atención del servicio.}{No}
+	\brAttr{requisitos_tramites}{Requisitos}{text}{Requisitos y trámites necesarios para acceder al servicio.}{No}
+	\brAttr{poblacion_objetivo}{Población}{varchar(100)}{Descripción de la población objetivo del servicio.}{No}
+	\brAttr{cupos_disponibles}{Cupos}{integer}{Número de cupos disponibles para el servicio.}{No}
+	\brAttr{activo_servicio}{Activo}{boolean}{Indica si el servicio está activo y disponible. true = activo.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{ActoresDerechos}{Un \hyperlink{ServiciosActores}{Servicio} es ofrecido por un \hyperlink{ActoresDerechos}{Actor}}
+	\brRel{\brRelAgregation}{CatCategoriaServicio}{Un \hyperlink{ServiciosActores}{Servicio} tiene una \hyperlink{CatCategoriaServicio}{Categoría}}
+	\brRel{\brRelAgregation}{ActorPrograma}{Un \hyperlink{ServiciosActores}{Servicio} puede pertenecer a un \hyperlink{ActorPrograma}{Programa}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{ServicioDerecho}{servicio\_derecho}
+	\brAttr{servicio_id}{Servicio}{integer}{Identificador del servicio vinculado. Clave foránea hacia \hyperlink{ServiciosActores}{servicios\_actores}.}{Sí}
+	\brAttr{derecho_id}{Derecho}{integer}{Identificador del derecho vinculado. Clave foránea hacia \hyperlink{CatDerechoLGDNNA}{cat\_derecho\_lgdnna}.}{Sí}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{ServiciosActores}{Relaciona un \hyperlink{ServiciosActores}{Servicio}}
+	\brRel{\brRelAgregation}{CatDerechoLGDNNA}{Relaciona un \hyperlink{CatDerechoLGDNNA}{Derecho}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{ExpedienteVinculacionServicios}{expediente\_vinculacion\_servicios}
+	\brAttr{id}{Id}{integer}{Identificador único de la vinculación. Clave primaria autoincremental.}{Sí}
+	\brAttr{expediente_id}{Expediente}{integer}{Identificador del expediente vinculado al servicio.}{No}
+	\brAttr{servicio_actor_id}{Servicio}{integer}{Identificador del servicio del actor vinculado al expediente.}{No}
+	\brAttr{fecha_vinculacion}{Fecha}{date}{Fecha en que se realizó la vinculación servicio-expediente. Formato: AAAA-MM-DD.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{Expedientes}{Vincula un \hyperlink{Expedientes}{Expediente}}
+	\brRel{\brRelAgregation}{ServiciosActores}{Vincula un \hyperlink{ServiciosActores}{Servicio}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{NNATutores}{nna\_tutores}
+	\brAttr{id}{Id}{integer}{Identificador único de la relación NNA-Tutor. Clave primaria autoincremental.}{Sí}
+	\brAttr{nna_id}{NNA}{integer}{Identificador del NNA en la relación.}{No}
+	\brAttr{tutor_id}{Tutor}{integer}{Identificador del tutor en la relación.}{No}
+	\brAttr{parentesco}{Parentesco}{varchar(100)}{Parentesco o relación del tutor con el NNA (padre, madre, abuelo, tío, hermano, etc.).}{Sí}
+	\brAttr{es_principal}{Principal}{boolean}{Indica si es el tutor principal del NNA. true = tutor principal.}{No}
+	\brAttr{fecha_inicio}{Fecha Inicio}{date}{Fecha de inicio de la relación tutor-NNA. Formato: AAAA-MM-DD.}{No}
+	\brAttr{fecha_fin}{Fecha Fin}{date}{Fecha de término de la relación tutor-NNA. Formato: AAAA-MM-DD.}{No}
+	\brAttr{observaciones}{Observaciones}{text}{Observaciones adicionales sobre la relación NNA-Tutor.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{NNA}{La relación pertenece a un \hyperlink{NNA}{NNA}}
+	\brRel{\brRelAgregation}{Tutores}{La relación pertenece a un \hyperlink{Tutores}{Tutor}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{IntegrantesEquipo}{integrantes\_equipo}
+	\brAttr{id}{Id}{integer}{Identificador único del registro de integrante. Clave primaria autoincremental.}{Sí}
+	\brAttr{equipo_id}{Equipo}{integer}{Identificador del equipo multidisciplinario.}{No}
+	\brAttr{usuario_id}{Usuario}{integer}{Identificador del usuario especialista integrante del equipo.}{No}
+	\brAttr{fecha_ingreso}{Fecha Ingreso}{date}{Fecha de ingreso del usuario al equipo. Formato: AAAA-MM-DD.}{No}
+	\brAttr{fecha_salida}{Fecha Salida}{date}{Fecha de salida del usuario del equipo. Formato: AAAA-MM-DD.}{No}
+	\brAttr{motivo_cambio}{Motivo}{text}{Motivo del cambio o salida del integrante del equipo.}{No}
+	\brAttr{estatus_integrante}{Estatus}{varchar(100)}{Estatus actual del integrante en el equipo (activo, inactivo).}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{EquiposMultidisciplinarios}{Un \hyperlink{IntegrantesEquipo}{Integrante} pertenece a un \hyperlink{EquiposMultidisciplinarios}{Equipo}}
+	\brRel{\brRelAgregation}{Usuarios}{Un \hyperlink{IntegrantesEquipo}{Integrante} es un \hyperlink{Usuarios}{Usuario}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{PersonasEnfermedades}{personas\_enfermedades}
+	\brAttr{id}{Id}{integer}{Identificador único del registro de padecimiento. Clave primaria autoincremental.}{Sí}
+	\brAttr{nna_id}{NNA}{integer}{Identificador del NNA al que corresponde el padecimiento, si aplica.}{No}
+	\brAttr{tutor_id}{Tutor}{integer}{Identificador del tutor al que corresponde el padecimiento, si aplica.}{No}
+	\brAttr{enfermedad_id}{Enfermedad}{integer}{Identificador de la enfermedad registrada conforme al catálogo CIE-10.}{No}
+	\brAttr{tratamiento_id}{Tratamiento}{integer}{Identificador del tratamiento médico asociado al padecimiento.}{No}
+	\brAttr{es_cronica}{Crónica}{boolean}{Indica si la enfermedad es de carácter crónico. true = crónica.}{No}
+	\brAttr{esta_controlada}{Controlada}{boolean}{Indica si la enfermedad está controlada con tratamiento. true = controlada.}{No}
+	\brAttr{requiere_medicamento}{Medicamento}{boolean}{Indica si el padecimiento requiere medicamento continuo. true = requiere medicamento.}{No}
+	\brAttr{nombre_medicamento}{Nombre Med.}{varchar(100)}{Nombre del medicamento requerido de forma continua, si aplica.}{No}
+	\brAttr{observaciones}{Observaciones}{text}{Observaciones clínicas adicionales sobre el padecimiento.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{CatEnfermedades}{Hace referencia a una \hyperlink{CatEnfermedades}{Enfermedad}}
+	\brRel{\brRelAgregation}{CatTratamientos}{Hace referencia a un \hyperlink{CatTratamientos}{Tratamiento}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{PersonasIdiomas}{personas\_idiomas}
+	\brAttr{id}{Id}{integer}{Identificador único del registro de idioma. Clave primaria autoincremental.}{Sí}
+	\brAttr{nna_id}{NNA}{integer}{Identificador del NNA al que corresponde el idioma, si aplica.}{No}
+	\brAttr{tutor_id}{Tutor}{integer}{Identificador del tutor al que corresponde el idioma, si aplica.}{No}
+	\brAttr{idioma_id}{Idioma}{integer}{Identificador del idioma o lengua registrada conforme al catálogo INALI.}{No}
+	\brAttr{nivel_habla_id}{Nivel Habla}{integer}{Identificador del nivel de dominio al hablar el idioma.}{No}
+	\brAttr{nivel_comprension_id}{Nivel Comp.}{integer}{Identificador del nivel de comprensión auditiva del idioma.}{No}
+	\brAttr{nivel_escritura_id}{Nivel Escritura}{integer}{Identificador del nivel de dominio en escritura del idioma.}{No}
+	\brAttr{requiere_traductor}{Traductor}{boolean}{Indica si la persona requiere intérprete o traductor. true = requiere traductor.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{CatIdiomas}{Hace referencia a un \hyperlink{CatIdiomas}{Idioma}}
+	\brRel{\brRelAgregation}{CatNivelIdioma}{Hace referencia a un \hyperlink{CatNivelIdioma}{Nivel de Idioma}}
+\end{cdtEntidad}
+
+\begin{cdtEntidad}{NNADiscapacidades}{nna\_discapacidades}
+	\brAttr{id}{Id}{integer}{Identificador único del registro de discapacidad. Clave primaria autoincremental.}{Sí}
+	\brAttr{nna_id}{NNA}{integer}{Identificador del NNA al que pertenece el registro de discapacidad.}{No}
+	\brAttr{discapacidad_id}{Discapacidad}{integer}{Identificador de la discapacidad registrada.}{No}
+	\brAttr{tipo_discapacidad}{Tipo}{varchar(100)}{Tipo de discapacidad del NNA (motriz, intelectual, auditiva, visual, psicosocial).}{No}
+	\brAttr{grado_dependencia}{Grado}{varchar(100)}{Grado de dependencia derivado de la discapacidad (leve, moderado, severo).}{No}
+	\brAttr{observaciones}{Observaciones}{text}{Observaciones adicionales sobre la discapacidad del NNA.}{No}
+	\cdtEntityRelSection
+	\brRel{\brRelAgregation}{NNA}{Pertenece a un \hyperlink{NNA}{NNA}}
+	\brRel{\brRelAgregation}{CatDiscapacidades}{Hace referencia a una \hyperlink{CatDiscapacidades}{Discapacidad}}
+\end{cdtEntidad}
+
+%----------------------------------------------------------
+\section{Reglas de negocio}
+\label{sec:reglasDeNegocio}
+
+En esta sección se describen las reglas de negocio (restricciones y derivaciones) identificadas para el sistema SICORRE. Siguiendo el marco metodológico del curso, estas reglas se definen de manera declarativa y formal tras haber establecido los términos del negocio y el modelo de datos (hechos base) sobre los cuales se construyen.
+
+\input{3-1-reglas}

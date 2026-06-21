@@ -88,12 +88,19 @@ que gestiona.
 
 \subsection*{Metodología de diseño}
 
-El diseño de SICORRE adopta un enfoque de \textbf{arquitectura Cliente-Servidor Web}, el cual organiza los componentes de software de acuerdo con la separación física y lógica que imponen las tecnologías utilizadas:
+El diseño de SICORRE adopta un enfoque de \textbf{arquitectura Cliente-Servidor Web}, el cual
+organiza los componentes de software de acuerdo con la separación física y lógica que imponen
+las tecnologías utilizadas:
 
 \begin{itemize}
-	\item \textbf{Capa de Presentación:} implementada en el frontend utilizando una Single Page Application (SPA) con \textit{React} (Next.js), encargada de la interfaz de usuario y la interacción directa con los operadores.
-	\item \textbf{Capa de Lógica de Negocio:} materializada en el backend mediante servicios y endpoints REST desarrollados con \textit{FastAPI} (Python), encargados de validar las reglas de negocio y orquestar el acceso a los datos.
-	\item \textbf{Capa de Persistencia:} representada por la base de datos relacional \textit{PostgreSQL}, que almacena la información estructurada de manera segura e íntegra.
+	\item \textbf{Capa de Presentación:} implementada en el frontend utilizando una Single
+	Page Application (SPA) con \textit{React} (Next.js), encargada de la interfaz de usuario
+	y la interacción directa con los operadores.
+	\item \textbf{Capa de Lógica de Negocio:} materializada en el backend mediante servicios
+	y endpoints REST desarrollados con \textit{FastAPI} (Python), encargados de validar las
+	reglas de negocio y orquestar el acceso a los datos.
+	\item \textbf{Capa de Persistencia:} representada por la base de datos relacional
+	\textit{PostgreSQL}, que almacena la información estructurada de manera segura e íntegra.
 \end{itemize}
 
 El proceso de diseño sigue un ciclo iterativo-incremental, en el cual cada módulo
@@ -114,7 +121,8 @@ prototipado, revisado y refinado antes de pasar a la fase de construcción.
 	críticos, como el registro de un nuevo expediente o la actualización de un
 	diagnóstico.
 	\item \textbf{Wireframes y prototipos de baja fidelidad} para validar la experiencia
-	de usuario antes de la implementación de la interfaz en React o mediante prototipos HTML previos para su desarrollo y aprobación.
+	de usuario antes de la implementación de la interfaz en React o mediante prototipos
+	HTML previos para su desarrollo y aprobación.
 \end{itemize}
 
 \subsection*{Herramientas}

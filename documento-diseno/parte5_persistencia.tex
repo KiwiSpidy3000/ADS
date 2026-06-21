@@ -11,25 +11,26 @@ El diseño de la base de datos relacional de SICORRE está estructurado para gar
 	\item \textbf{Directorio de Actores:} Controla dependencias e instituciones externas de apoyo en materia de restitución mediante las tablas \texttt{actores\_derechos}, \texttt{servicios\_actores} y \texttt{contactos}.
 \end{itemize}
 
-A continuación, la Figura~\ref{fig:modelo-relacional} ilustra el diagrama entidad-relación físico con sus correspondientes claves primarias, foráneas y cardinalidades de asociación.
+A continuación se muestra el diagrama entidad-relación del modelo de base de datos de SICORRE:
 
-\begin{figure}[H]
+\begin{figure}[p]
 	\centering
-	\includegraphics[angle=90,width=0.92\textwidth,height=0.82\textheight,keepaspectratio]{img/diagramaBD.png}
-	\caption{Modelo relacional de la base de datos (PostgreSQL).}
-	\label{fig:modelo-relacional}
+	\includegraphics[angle=90,width=\textheight,height=\textwidth,keepaspectratio]{img/bdproyecto.png}
+	\caption{Modelo relacional completo de la base de datos (PostgreSQL).}
+	\label{fig:modelo-relacional-completo}
 \end{figure}
+
+\clearpage
 
 \section{Diccionario de Datos}
 
 La siguiente sección presenta detalladamente el diccionario de datos de la base de datos de SICORRE, estructurado a partir del modelo conceptual y físico. Para cada tabla, se detallan los nombres de los atributos físicos, su tipo de dato, longitud máxima, obligatoriedad y una breve descripción explicativa. Todas las tablas se configuran con anchos de columna fijos y tamaño de fuente compacto para garantizar un ajuste perfecto en los márgenes de página.
-
 \begin{table}[H]
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{cat\_estados} (CatEstados)}
 	\label{tab:data-dict-cat_estados}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -43,8 +44,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{cat\_municipios} (CatMunicipios)}
 	\label{tab:data-dict-cat_municipios}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -59,8 +60,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{cat\_colonias} (CatColonias)}
 	\label{tab:data-dict-cat_colonias}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -76,8 +77,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{cat\_tipo\_lugar} (CatTipoLugar)}
 	\label{tab:data-dict-cat_tipo_lugar}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -94,8 +95,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{cat\_plataforma\_red\_social} (CatPlataformaRedSocial)}
 	\label{tab:data-dict-cat_plataforma_red_social}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -110,8 +111,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{cat\_roles} (CatRoles)}
 	\label{tab:data-dict-cat_roles}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -125,8 +126,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{cat\_nacionalidades} (CatNacionalidades)}
 	\label{tab:data-dict-cat_nacionalidades}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -141,8 +142,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{cat\_grado\_escolar} (CatGradoEscolar)}
 	\label{tab:data-dict-cat_grado_escolar}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -156,8 +157,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{cat\_idiomas} (CatIdiomas)}
 	\label{tab:data-dict-cat_idiomas}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -172,8 +173,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{cat\_nivel\_idioma} (CatNivelIdioma)}
 	\label{tab:data-dict-cat_nivel_idioma}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -187,8 +188,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{cat\_enfermedades} (CatEnfermedades)}
 	\label{tab:data-dict-cat_enfermedades}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -202,8 +203,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{cat\_tratamientos} (CatTratamientos)}
 	\label{tab:data-dict-cat_tratamientos}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -218,8 +219,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{cat\_discapacidades} (CatDiscapacidades)}
 	\label{tab:data-dict-cat_discapacidades}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -233,8 +234,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{cat\_tipo\_actor} (CatTipoActor)}
 	\label{tab:data-dict-cat_tipo_actor}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -249,8 +250,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{cat\_categoria\_servicio} (CatCategoriaServicio)}
 	\label{tab:data-dict-cat_categoria_servicio}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -265,8 +266,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{cat\_derecho\_lgdnna} (CatDerechoLGDNNA)}
 	\label{tab:data-dict-cat_derecho_lgdnna}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -284,14 +285,14 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{cat\_tipo\_tutela} (CatTipoTutela)}
 	\label{tab:data-dict-cat_tipo_tutela}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
 		id & INTEGER & -- & NO & Identificador único del tipo de tutela. Clave primaria autoincremental. \\
 		descripcion & VARCHAR & 100 & NO & Descripción del tipo de tutela (tutela legal, custodia, guardia y custodia provisional, etc.). \\
-		requiere\_resolucion\_judicial & BOOLEAN & -- & SÍ & Indica si el tipo de tutela requiere resolución judicial. true = requiere. \\
+		requiere\_res\_judicial & BOOLEAN & -- & SÍ & Indica si el tipo de tutela requiere resolución judicial. true = requiere. \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -300,8 +301,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{direcciones} (Direcciones)}
 	\label{tab:data-dict-direcciones}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -321,8 +322,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{contactos} (Contactos)}
 	\label{tab:data-dict-contactos}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -345,8 +346,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{usuarios} (Usuarios)}
 	\label{tab:data-dict-usuarios}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -373,8 +374,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{equipos\_multidisciplinarios} (EquiposMultidisciplinarios)}
 	\label{tab:data-dict-equipos_multidisciplinarios}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -390,8 +391,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{tutores} (Tutores)}
 	\label{tab:data-dict-tutores}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -419,8 +420,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{nna} (NNA)}
 	\label{tab:data-dict-nna}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -448,8 +449,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{victima\_directa} (VictimaDirecta)}
 	\label{tab:data-dict-victima_directa}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -472,8 +473,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{hechos\_victimales} (HechosVictimales)}
 	\label{tab:data-dict-hechos_victimales}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -490,8 +491,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{expedientes} (Expedientes)}
 	\label{tab:data-dict-expedientes}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -507,8 +508,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{valoraciones} (Valoraciones)}
 	\label{tab:data-dict-valoraciones}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -527,8 +528,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{derechos\_vulnerados} (DerechosVulnerados)}
 	\label{tab:data-dict-derechos_vulnerados}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -547,8 +548,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{actores\_derechos} (ActoresDerechos)}
 	\label{tab:data-dict-actores_derechos}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -570,8 +571,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{actor\_persona\_fisica} (ActorPersonaFisica)}
 	\label{tab:data-dict-actor_persona_fisica}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -597,8 +598,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{actor\_enlace} (ActorEnlace)}
 	\label{tab:data-dict-actor_enlace}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -616,8 +617,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{actor\_programa} (ActorPrograma)}
 	\label{tab:data-dict-actor_programa}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -636,8 +637,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{servicios\_actores} (ServiciosActores)}
 	\label{tab:data-dict-servicios_actores}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -664,8 +665,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{servicio\_derecho} (ServicioDerecho)}
 	\label{tab:data-dict-servicio_derecho}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -679,8 +680,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{expediente\_vinculacion\_servicios} (ExpedienteVinculacionServicios)}
 	\label{tab:data-dict-expediente_vinculacion_servicios}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -696,8 +697,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{nna\_tutores} (NNATutores)}
 	\label{tab:data-dict-nna_tutores}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -717,8 +718,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{integrantes\_equipo} (IntegrantesEquipo)}
 	\label{tab:data-dict-integrantes_equipo}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -737,8 +738,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{personas\_enfermedades} (PersonasEnfermedades)}
 	\label{tab:data-dict-personas_enfermedades}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -760,8 +761,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{personas\_idiomas} (PersonasIdiomas)}
 	\label{tab:data-dict-personas_idiomas}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -781,8 +782,8 @@ La siguiente sección presenta detalladamente el diccionario de datos de la base
 	\centering
 	\caption{Diccionario de datos --- Tabla \texttt{nna\_discapacidades} (NNADiscapacidades)}
 	\label{tab:data-dict-nna_discapacidades}
-	\footnotesize
-	\begin{tabular}{>{\ttfamily}p{3.2cm} l l l p{6.8cm}}
+	\scriptsize
+	\begin{tabular}{>{\ttfamily\raggedright\arraybackslash}p{3.6cm} p{1.6cm} p{1.3cm} p{0.7cm} p{5.6cm}}
 		\toprule
 		\textbf{Campo} & \textbf{Tipo} & \textbf{Longitud} & \textbf{Nulo} & \textbf{Descripción} \\
 		\midrule
@@ -883,13 +884,13 @@ El sistema SICORRE utiliza consultas SQL parametrizadas a través del ORM de SQL
 		\textbf{ID} & \textbf{Descripción} & \textbf{Sentencia SQL} \\
 		\midrule
 		Q-015 & Registrar un niño, niña o adolescente en el sistema. & 
-		\texttt{INSERT INTO nna (nombre, primer\_apellido, segundo\_apellido, fecha\_nacimiento, sexo, curp, nacionalidad\_id, municipio\_nacimiento\_id, es\_migrante, creado\_por, activo, fecha\_registro, grado\_escolar\_id, direccion\_id, equipo\_asignado\_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, true, ?, ?, ?, ?);} \\
+		\texttt{INSERT INTO nna (nombre, primer\_apellido, segundo\_apellido, fecha\_nacimiento, sexo, curp, nacionalidad\_id, municipio\_nacimiento\_id, es\_migrante, creado\_por, activo, fecha\_registro, estatus\_escolar\_id, direccion\_id, equipo\_asignado\_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, true, ?, ?, ?, ?);} \\
 		\addlinespace
 		Q-016 & Buscar un NNA en el sistema por nombre o CURP. & 
 		\texttt{SELECT * FROM nna WHERE (nombre LIKE ? OR curp = ?) AND activo = true;} \\
 		\addlinespace
 		Q-017 & Actualizar la ficha de identidad e información escolar de NNA. & 
-		\texttt{UPDATE nna SET nombre=?, primer\_apellido=?, segundo\_apellido=?, fecha\_nacimiento=?, sexo=?, curp=?, nacionalidad\_id=?, municipio\_nacimiento\_id=?, es\_migrante=?, grado\_escolar\_id=?, direccion\_id=? WHERE id=?;} \\
+		\texttt{UPDATE nna SET nombre=?, primer\_apellido=?, segundo\_apellido=?, fecha\_nacimiento=?, sexo=?, curp=?, nacionalidad\_id=?, municipio\_nacimiento\_id=?, es\_migrante=?, estatus\_escolar\_id=?, direccion\_id=? WHERE id=?;} \\
 		\addlinespace
 		Q-018 & Registrar un hecho victimal asociado al NNA. & 
 		\texttt{INSERT INTO hechos\_victimales (nna\_id, nombre\_victima\_directa, fecha\_hecho, descripcion\_delito) VALUES (?, ?, ?, ?);} \\
@@ -1038,3 +1039,4 @@ El sistema SICORRE utiliza consultas SQL parametrizadas a través del ORM de SQL
 		\bottomrule
 	\end{tabular}
 \end{table}
+

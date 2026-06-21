@@ -407,7 +407,7 @@ latex_out.append("A continuación, la Figura~\\ref{fig:modelo-relacional} ilustr
 latex_out.append("")
 latex_out.append("\\begin{figure}[H]")
 latex_out.append("\t\\centering")
-latex_out.append("\t\\includegraphics[angle=90,width=0.92\\textwidth,height=0.82\\textheight,keepaspectratio]{img/diagramaBD.png}")
+latex_out.append("\t\\includegraphics[angle=90,width=0.92\\textwidth,height=0.82\\textheight,keepaspectratio]{img/bdproyecto.png}")
 latex_out.append("\t\\caption{Modelo relacional de la base de datos (PostgreSQL).}")
 latex_out.append("\t\\label{fig:modelo-relacional}")
 latex_out.append("\\end{figure}")

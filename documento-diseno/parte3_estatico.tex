@@ -1,10 +1,23 @@
 \chapter{Diseño Estático}
 
-El diseño estático de SICORRE describe la estructura interna del código que da soporte a la arquitectura definida para el sistema, mostrando cómo se organizan los subsistemas, los módulos, los paquetes y las clases que implementan la funcionalidad descrita en la especificación de requisitos. Este capítulo presenta dicha organización mediante diagramas UML de clases y de paquetes, y detalla el propósito y las dependencias de cada elemento, de manera que sirva como referencia para la implementación y el mantenimiento del sistema a lo largo de las distintas iteraciones de desarrollo.
+El diseño estático de SICORRE describe la estructura interna del código que da soporte a la
+arquitectura definida para el sistema, mostrando cómo se organizan los subsistemas, los
+módulos, los paquetes y las clases que implementan la funcionalidad descrita en la
+especificación de requisitos. Este capítulo presenta dicha organización mediante diagramas
+UML de clases y de paquetes, y detalla el propósito y las dependencias de cada elemento,
+de manera que sirva como referencia para la implementación y el mantenimiento del sistema
+a lo largo de las distintas iteraciones de desarrollo.
 
 \section{Descripción y Alcance del Diseño}
 
-En esta sección se detalla la estructura estática correspondiente a los módulos funcionales de SICORRE planificados para las iteraciones 1, 2 y 3, así como aquellos casos de uso que han quedado programados para iteraciones posteriores. El nivel de abstracción utilizado parte de los subsistemas que agrupan la funcionalidad del sistema, desciende a los módulos que los componen, continúa con los paquetes que organizan el código fuente de cada módulo y concluye con las clases que implementan la lógica de negocio, sus atributos, métodos y relaciones. De esta manera se ofrece una visión que va de lo general a lo particular, permitiendo ubicar cualquier elemento del código dentro de la estructura global del sistema.
+En esta sección se detalla la estructura estática correspondiente a los módulos funcionales
+de SICORRE planificados para las iteraciones 1, 2 y 3, así como aquellos casos de uso que
+han quedado programados para iteraciones posteriores. El nivel de abstracción utilizado
+parte de los subsistemas que agrupan la funcionalidad del sistema, desciende a los módulos
+que los componen, continúa con los paquetes que organizan el código fuente de cada módulo
+y concluye con las clases que implementan la lógica de negocio, sus atributos, métodos y
+relaciones. De esta manera se ofrece una visión que va de lo general a lo particular,
+permitiendo ubicar cualquier elemento del código dentro de la estructura global del sistema.
 
 \section{Diseño de Subsistemas}
 
@@ -200,11 +213,15 @@ El código fuente de SICORRE se organiza en paquetes que reflejan la separación
 
 \section{Diseño de Clases}
 
-Dentro de cada paquete se definen las clases que implementan los casos de uso correspondientes, especificando sus atributos y relaciones. A continuación se presenta el diagrama de clases principales del sistema (Modelo de Dominio Físico) implementado directamente a partir de los modelos de persistencia del backend.
+Dentro de cada paquete se definen las clases que implementan los casos de uso
+correspondientes, especificando sus atributos y relaciones. A continuación se presenta
+el diagrama de clases principales del sistema (Modelo de Dominio Físico) implementado
+directamente a partir de los modelos de persistencia del backend.
 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[
+		scale=0.82, every node/.append style={transform shape},
 		classbox/.style={draw=azulDoc, thick, fill=azulDoc!5, rounded corners=2pt, text width=4.5cm, font=\scriptsize\sffamily, align=left},
 		link/.style={draw=azulDoc, thick, ->, >=stealth}
 	]

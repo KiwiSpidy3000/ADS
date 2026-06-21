@@ -56,7 +56,10 @@ de calidad del sistema, tomando como referencia el modelo \textbf{ISO/IEC 25010}
 \section{Diagrama Arquitectónico}
 % ------------------------------------------------------------
 
-La arquitectura de SICORRE sigue el patrón \textbf{Cliente-Servidor Web}, con una separación física clara entre la capa de presentación (frontend), la capa de lógica de negocio (backend) y la capa de persistencia de datos (base de datos). La Figura~\ref{fig:arq-general} ilustra esta estructura.
+La arquitectura de SICORRE sigue el patrón \textbf{Cliente-Servidor Web}, con una separación
+física clara entre la capa de presentación (frontend), la capa de lógica de negocio (backend)
+y la capa de persistencia de datos (base de datos). La Figura~\ref{fig:arq-general} ilustra
+esta estructura.
 
 \begin{figure}[htbp]
 	\centering
@@ -269,7 +272,7 @@ se documentan las limitaciones identificadas y las estrategias de mitigación pr
 	\centering
 	\caption{Limitaciones de la arquitectura y estrategias de mitigación}
 	\renewcommand{\arraystretch}{1.4}
-	\begin{tabular}{|p{3.2cm}|p{5.5cm}|p{4.3cm}|}
+	\begin{tabular}{|p{3cm}|p{5.8cm}|p{4.2cm}|}
 		\hline
 		\textbf{Limitación}             & \textbf{Descripción}                                                                  & \textbf{Mitigación}                              \\ \hline
 		\textbf{Punto único de falla}   & Si el servidor donde reside el backend cae, toda la aplicación deja de operar.

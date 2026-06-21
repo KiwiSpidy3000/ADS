@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.6.16)  20 JUN 2026 17:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.6.16)  20 JUN 2026 21:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -708,8 +708,8 @@ File: tikzlibrarycalc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 kz/libraries\tikzlibrarybabel.code.tex
 File: tikzlibrarybabel.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 57.
-Package hyperref Info: Option `hypertexnames' set `false' on input line 57.
+Package hyperref Info: Option `colorlinks' set `true' on input line 60.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 60.
 
 (C:\Users\Alison\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pd
 ftex.def
@@ -724,26 +724,26 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 (parte3_estatico.aux) (parte4_dinamico.aux) (parte5_persistencia.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Info: Redefining \. on input line 59.
-LaTeX Info: Redefining \% on input line 59.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Info: Redefining \. on input line 62.
+LaTeX Info: Redefining \% on input line 62.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -779,7 +779,7 @@ LaTeX Info: Redefining \% on input line 59.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 59.
+Package hyperref Info: Link coloring ON on input line 62.
 (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
@@ -836,8 +836,8 @@ Package babel Info: 'spanish' activates 'spanish' shorthands.
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
-LaTeX Info: Redefining \. on input line 82.
-LaTeX Info: Redefining \% on input line 82.
+LaTeX Info: Redefining \. on input line 85.
+LaTeX Info: Redefining \% on input line 85.
  [3]
 \openout2 = `parte1_organizacion.aux'.
 
@@ -848,51 +848,51 @@ Cap\'{\i }tulo 1.
 
 
 ]
-LaTeX Info: Redefining \. on input line 96.
-LaTeX Info: Redefining \% on input line 96.
+LaTeX Info: Redefining \. on input line 102.
+LaTeX Info: Redefining \% on input line 102.
  [5]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 3769) in paragraph at lines 153--153
+Underfull \hbox (badness 3769) in paragraph at lines 161--161
 []|\T1/cmr/m/n/12 Actor, ca-so de uso
  []
 
 
-Underfull \hbox (badness 2205) in paragraph at lines 153--153
+Underfull \hbox (badness 2205) in paragraph at lines 161--161
 []|\T1/cmr/m/n/12 Describir in-ter-ac-cio-nes en-tre
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--158
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
 []|\T1/cmr/m/n/12 Entidad-Relación
  []
 
 
-Underfull \hbox (badness 3118) in paragraph at lines 158--158
+Underfull \hbox (badness 3118) in paragraph at lines 166--166
 []|\T1/cmr/m/n/12 Entidades, atri-bu-tos,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--158
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
 \T1/cmr/m/n/12 re-la-cio-nes (crow's
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Info: Redefining \. on input line 179.
-LaTeX Info: Redefining \% on input line 179.
+LaTeX Info: Redefining \. on input line 187.
+LaTeX Info: Redefining \% on input line 187.
 [6]
-LaTeX Info: Redefining \. on input line 184.
-LaTeX Info: Redefining \% on input line 184.
+LaTeX Info: Redefining \. on input line 192.
+LaTeX Info: Redefining \% on input line 192.
  [7]
-LaTeX Info: Redefining \. on input line 224.
-LaTeX Info: Redefining \% on input line 224.
+LaTeX Info: Redefining \. on input line 232.
+LaTeX Info: Redefining \% on input line 232.
  [8])
-LaTeX Info: Redefining \. on input line 85.
-LaTeX Info: Redefining \% on input line 85.
+LaTeX Info: Redefining \. on input line 88.
+LaTeX Info: Redefining \% on input line 88.
  [9]
 \openout2 = `parte2_arquitectura.aux'.
 
@@ -904,7 +904,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <img/arquitectura.png, id=534, 563.10374pt x 458.71375pt>
 File: img/arquitectura.png Graphic file (type png)
 <use img/arquitectura.png>
-Package pdftex.def Info: img/arquitectura.png  used on input line 63.
+Package pdftex.def Info: img/arquitectura.png  used on input line 66.
 (pdftex.def)             Requested size: 274.6857pt x 223.7638pt.
 [10
 
@@ -912,149 +912,131 @@ Package pdftex.def Info: img/arquitectura.png  used on input line 63.
 
 
 ]
-Overfull \hbox (15.48003pt too wide) in paragraph at lines 87--89
+Underfull \hbox (badness 3849) in paragraph at lines 90--92
 []\T1/cmr/m/it/12 React Rou-ter: \T1/cmr/m/n/12 ma-ne-jo de ru-tas del la-do de
-l clien-te (\T1/cmtt/m/n/12 /expedientes\T1/cmr/m/n/12 , \T1/cmtt/m/n/12 /diagn
-osticos\T1/cmr/m/n/12 ,
+l clien-te (\T1/cmtt/m/n/12 /expedientes\T1/cmr/m/n/12 ,
  []
 
-LaTeX Info: Redefining \. on input line 99.
-LaTeX Info: Redefining \% on input line 99.
+LaTeX Info: Redefining \. on input line 102.
+LaTeX Info: Redefining \% on input line 102.
 [11]
-Overfull \hbox (37.5842pt too wide) in paragraph at lines 111--114
+Underfull \hbox (badness 2376) in paragraph at lines 114--117
 []\T1/cmr/m/it/12 Routers: \T1/cmr/m/n/12 agru-pan los end-points por do-mi-nio
- fun-cio-nal (\T1/cmtt/m/n/12 /expedientes\T1/cmr/m/n/12 , \T1/cmtt/m/n/12 /dia
-gnosticos\T1/cmr/m/n/12 ,
+ fun-cio-nal (\T1/cmtt/m/n/12 /expedientes\T1/cmr/m/n/12 ,
  []
 
-
-Overfull \hbox (8.66783pt too wide) in paragraph at lines 121--123
-[]\T1/cmr/m/it/12 SQLAlchemy ORM: \T1/cmr/m/n/12 abs-trae el ac-ce-so a Post-gr
-eSQL me-dian-te mo-de-los de Python,
- []
-
-LaTeX Info: Redefining \. on input line 130.
-LaTeX Info: Redefining \% on input line 130.
+LaTeX Info: Redefining \. on input line 133.
+LaTeX Info: Redefining \% on input line 133.
 [12 <./img/arquitectura.png>]
-LaTeX Info: Redefining \. on input line 181.
-LaTeX Info: Redefining \% on input line 181.
+LaTeX Info: Redefining \. on input line 184.
+LaTeX Info: Redefining \% on input line 184.
  [13]
-Overfull \hbox (21.1364pt too wide) in paragraph at lines 210--213
+Underfull \hbox (badness 1502) in paragraph at lines 213--216
 []\T1/cmr/bx/n/12 Autenticación obli-ga-to-ria: \T1/cmr/m/n/12 to-dos los end-p
-oints de la API, ex-cep-to \T1/cmtt/m/n/12 POST /auth/login\T1/cmr/m/n/12 ,
+oints de la API, ex-cep-to \T1/cmtt/m/n/12 POST
  []
 
-LaTeX Info: Redefining \. on input line 261.
-LaTeX Info: Redefining \% on input line 261.
+LaTeX Info: Redefining \. on input line 264.
+LaTeX Info: Redefining \% on input line 264.
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 276--278
-[]|\T1/cmr/m/n/12 Implementar res-pal-
+Underfull \hbox (badness 10000) in paragraph at lines 278--278
+[]|\T1/cmr/bx/n/12 Punto úni-co
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 276--278
-\T1/cmr/m/n/12 dos au-to-má-ti-cos y
+Underfull \hbox (badness 5637) in paragraph at lines 279--281
+\T1/cmr/m/n/12 au-to-má-ti-cos y do-cu-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 276--278
-\T1/cmr/m/n/12 do-cu-men-tar un plan
+Underfull \hbox (badness 10000) in paragraph at lines 282--282
+[]|\T1/cmr/bx/n/12 Latencia de
  []
 
 
-Underfull \hbox (badness 6775) in paragraph at lines 276--278
-\T1/cmr/m/n/12 de re-cu-pe-ra-ción an-te
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 276--278
-\T1/cmr/m/n/12 de-sas-tres (RTO/RPO
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 280--282
+Underfull \hbox (badness 10000) in paragraph at lines 283--285
 []|\T1/cmr/m/n/12 Aplicar \T1/cmr/m/it/12 co-de split-
  []
 
 
-Underfull \hbox (badness 2689) in paragraph at lines 280--282
+Underfull \hbox (badness 1584) in paragraph at lines 283--285
 \T1/cmr/m/it/12 ting \T1/cmr/m/n/12 y car-ga di-fe-ri-da
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 280--282
+Underfull \hbox (badness 10000) in paragraph at lines 283--285
 \T1/cmr/m/n/12 (\T1/cmtt/m/n/12 React.lazy\T1/cmr/m/n/12 ) pa-ra
  []
 
 
-Underfull \hbox (badness 1009) in paragraph at lines 280--282
-\T1/cmr/m/n/12 re-du-cir el ta-ma-ño del
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 283--283
+Underfull \hbox (badness 10000) in paragraph at lines 286--286
 []|\T1/cmr/bx/n/12 Complejidad
  []
 
 
-Underfull \hbox (badness 2495) in paragraph at lines 283--284
-\T1/cmr/m/n/12 greSQL) re-quie-re com-pe-ten-
+Underfull \hbox (badness 1997) in paragraph at lines 286--287
+[]|\T1/cmr/m/n/12 Gestionar tres ca-pas tec-no-ló-
  []
 
 
-Underfull \hbox (badness 5460) in paragraph at lines 284--286
+Underfull \hbox (badness 3039) in paragraph at lines 286--287
+\T1/cmr/m/n/12 gi-cas (React, Fas-tA-PI, Post-
+ []
+
+
+Underfull \hbox (badness 2103) in paragraph at lines 286--287
+\T1/cmr/m/n/12 en múl-ti-ples len-gua-jes y he-
+ []
+
+
+Underfull \hbox (badness 2884) in paragraph at lines 287--289
 \T1/cmr/m/n/12 di-mien-tos de des-plie-
  []
 
 
-Underfull \hbox (badness 5787) in paragraph at lines 288--289
+Underfull \hbox (badness 3098) in paragraph at lines 291--292
 []|\T1/cmr/m/n/12 Definir co-mo tra-ba-jo
  []
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 288--289
+Underfull \hbox (badness 1112) in paragraph at lines 291--292
 \T1/cmr/m/n/12 fu-tu-ro un mó-du-lo de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 288--289
+Underfull \hbox (badness 10000) in paragraph at lines 291--292
 \T1/cmr/m/n/12 sin-cro-ni-za-ción of-fli-ne
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 290--290
+Underfull \hbox (badness 10000) in paragraph at lines 293--293
 []|\T1/cmr/bx/n/12 Escalabilidad
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 291--293
+Underfull \hbox (badness 1292) in paragraph at lines 293--294
+[]|\T1/cmr/m/n/12 PostgreSQL en un so-lo no-do
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 294--296
 []|\T1/cmr/m/n/12 Planificar par-ti-cio-na-
  []
 
 
-Underfull \hbox (badness 1127) in paragraph at lines 291--293
-\T1/cmr/m/n/12 lar-go pla-zo, mi-gra-ción
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 291--293
+Underfull \hbox (badness 6944) in paragraph at lines 294--296
 \T1/cmr/m/n/12 a una so-lu-ción con
- []
-
-
-Underfull \hbox (badness 1107) in paragraph at lines 295--296
-[]|\T1/cmr/m/n/12 Implementar una lis-ta
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 )
-LaTeX Info: Redefining \. on input line 88.
-LaTeX Info: Redefining \% on input line 88.
+LaTeX Info: Redefining \. on input line 91.
+LaTeX Info: Redefining \% on input line 91.
  [15]
-LaTeX Info: Redefining \. on input line 88.
-LaTeX Info: Redefining \% on input line 88.
+LaTeX Info: Redefining \. on input line 91.
+LaTeX Info: Redefining \% on input line 91.
  [16]
 \openout2 = `parte3_estatico.aux'.
 
@@ -1069,55 +1051,49 @@ Cap\'{\i }tulo 3.
 <img/casosDeUso.png, id=591, 726.5544pt x 370.0224pt>
 File: img/casosDeUso.png Graphic file (type png)
 <use img/casosDeUso.png>
-Package pdftex.def Info: img/casosDeUso.png  used on input line 27.
+Package pdftex.def Info: img/casosDeUso.png  used on input line 40.
 (pdftex.def)             Requested size: 457.80486pt x 233.15486pt.
-LaTeX Info: Redefining \. on input line 31.
-LaTeX Info: Redefining \% on input line 31.
+LaTeX Info: Redefining \. on input line 44.
+LaTeX Info: Redefining \% on input line 44.
  [18]
-LaTeX Info: Redefining \. on input line 50.
-LaTeX Info: Redefining \% on input line 50.
+LaTeX Info: Redefining \. on input line 63.
+LaTeX Info: Redefining \% on input line 63.
  [19 <./img/casosDeUso.png>]
-LaTeX Info: Redefining \. on input line 82.
-LaTeX Info: Redefining \% on input line 82.
+LaTeX Info: Redefining \. on input line 95.
+LaTeX Info: Redefining \% on input line 95.
  [20]
-LaTeX Info: Redefining \. on input line 115.
-LaTeX Info: Redefining \% on input line 115.
+LaTeX Info: Redefining \. on input line 128.
+LaTeX Info: Redefining \% on input line 128.
  [21]
-LaTeX Info: Redefining \. on input line 150.
-LaTeX Info: Redefining \% on input line 150.
+LaTeX Info: Redefining \. on input line 163.
+LaTeX Info: Redefining \% on input line 163.
  [22]
-LaTeX Info: Redefining \. on input line 200.
-LaTeX Info: Redefining \% on input line 200.
+LaTeX Info: Redefining \. on input line 213.
+LaTeX Info: Redefining \% on input line 213.
  [23]
-Overfull \hbox (48.74875pt too wide) in paragraph at lines 296--297
- [][] 
- []
-
-LaTeX Info: Redefining \. on input line 300.
-LaTeX Info: Redefining \% on input line 300.
-[24]
-LaTeX Info: Redefining \. on input line 313.
-LaTeX Info: Redefining \% on input line 313.
+LaTeX Info: Redefining \. on input line 321.
+LaTeX Info: Redefining \% on input line 321.
+ [24]
+LaTeX Info: Redefining \. on input line 352.
+LaTeX Info: Redefining \% on input line 352.
  [25]
-LaTeX Info: Redefining \. on input line 347.
-LaTeX Info: Redefining \% on input line 347.
- [26]
-LaTeX Info: Redefining \. on input line 379.
-LaTeX Info: Redefining \% on input line 379.
- [27])
-LaTeX Info: Redefining \. on input line 91.
-LaTeX Info: Redefining \% on input line 91.
- [28]
+LaTeX Info: Redefining \. on input line 384.
+LaTeX Info: Redefining \% on input line 384.
+ [26])
+LaTeX Info: Redefining \. on input line 94.
+LaTeX Info: Redefining \% on input line 94.
+
+[27]
 \openout2 = `parte4_dinamico.aux'.
 
  (parte4_dinamico.tex
 Cap\'{\i }tulo 4.
-<img/CU01.png, id=655, 776.9025pt x 545.6385pt>
+<img/CU01.png, id=651, 776.9025pt x 545.6385pt>
 File: img/CU01.png Graphic file (type png)
 <use img/CU01.png>
 Package pdftex.def Info: img/CU01.png  used on input line 14.
 (pdftex.def)             Requested size: 366.24527pt x 257.22443pt.
-[29
+[28
 
 
 
@@ -1125,111 +1101,111 @@ Package pdftex.def Info: img/CU01.png  used on input line 14.
 ]
 LaTeX Info: Redefining \. on input line 36.
 LaTeX Info: Redefining \% on input line 36.
- [30 <./img/CU01.png>]
-<img/CU02.png, id=668, 576.35326pt x 280.6485pt>
+ [29 <./img/CU01.png>]
+<img/CU02.png, id=663, 576.35326pt x 280.6485pt>
 File: img/CU02.png Graphic file (type png)
 <use img/CU02.png>
 Package pdftex.def Info: img/CU02.png  used on input line 39.
 (pdftex.def)             Requested size: 366.24527pt x 178.33829pt.
-<img/CU03.png, id=669, 783.52725pt x 479.99326pt>
+<img/CU03.png, id=664, 783.52725pt x 479.99326pt>
 File: img/CU03.png Graphic file (type png)
 <use img/CU03.png>
 Package pdftex.def Info: img/CU03.png  used on input line 62.
 (pdftex.def)             Requested size: 366.24527pt x 224.36641pt.
 LaTeX Info: Redefining \. on input line 66.
 LaTeX Info: Redefining \% on input line 66.
- [31 <./img/CU02.png>]
+ [30 <./img/CU02.png>]
 LaTeX Info: Redefining \. on input line 83.
 LaTeX Info: Redefining \% on input line 83.
- [32 <./img/CU03.png>]
-<img/CU-04.png, id=684, 1525.7pt x 1720.4275pt>
+ [31 <./img/CU03.png>]
+<img/CU-04.png, id=680, 1525.7pt x 1720.4275pt>
 File: img/CU-04.png Graphic file (type png)
 <use img/CU-04.png>
 Package pdftex.def Info: img/CU-04.png  used on input line 86.
 (pdftex.def)             Requested size: 366.24527pt x 412.98979pt.
 LaTeX Info: Redefining \. on input line 95.
 LaTeX Info: Redefining \% on input line 95.
- [33 <./img/CU-04.png>]
-<img/CU05.png, id=692, 796.1745pt x 476.37975pt>
+ [32 <./img/CU-04.png>]
+<img/CU05.png, id=688, 796.1745pt x 476.37975pt>
 File: img/CU05.png Graphic file (type png)
 <use img/CU05.png>
 Package pdftex.def Info: img/CU05.png  used on input line 111.
 (pdftex.def)             Requested size: 366.24527pt x 219.13733pt.
 LaTeX Info: Redefining \. on input line 124.
 LaTeX Info: Redefining \% on input line 124.
- [34 <./img/CU05.png>]
-<img/CU-06.png, id=700, 1525.7pt x 1294.8375pt>
+ [33 <./img/CU05.png>]
+<img/CU-06.png, id=696, 1525.7pt x 1294.8375pt>
 File: img/CU-06.png Graphic file (type png)
 <use img/CU-06.png>
 Package pdftex.def Info: img/CU-06.png  used on input line 134.
 (pdftex.def)             Requested size: 366.24527pt x 310.82661pt.
 LaTeX Info: Redefining \. on input line 142.
 LaTeX Info: Redefining \% on input line 142.
- [35 <./img/CU-06.png>]
-<img/CU07.png, id=708, 796.1745pt x 509.5035pt>
+ [34 <./img/CU-06.png>]
+<img/CU07.png, id=704, 796.1745pt x 509.5035pt>
 File: img/CU07.png Graphic file (type png)
 <use img/CU07.png>
 Package pdftex.def Info: img/CU07.png  used on input line 159.
 (pdftex.def)             Requested size: 366.24527pt x 234.37445pt.
 LaTeX Info: Redefining \. on input line 167.
 LaTeX Info: Redefining \% on input line 167.
- [36 <./img/CU07.png>]
-<img/CU08.png, id=717, 796.1745pt x 476.982pt>
+ [35 <./img/CU07.png>]
+<img/CU08.png, id=712, 796.1745pt x 476.982pt>
 File: img/CU08.png Graphic file (type png)
 <use img/CU08.png>
 Package pdftex.def Info: img/CU08.png  used on input line 183.
 (pdftex.def)             Requested size: 366.24527pt x 219.41437pt.
 LaTeX Info: Redefining \. on input line 191.
 LaTeX Info: Redefining \% on input line 191.
- [37 <./img/CU08.png>]
-<img/CU09.png, id=725, 802.197pt x 473.3685pt>
+ [36 <./img/CU08.png>]
+<img/CU09.png, id=721, 802.197pt x 473.3685pt>
 File: img/CU09.png Graphic file (type png)
 <use img/CU09.png>
 Package pdftex.def Info: img/CU09.png  used on input line 207.
 (pdftex.def)             Requested size: 366.24527pt x 216.11252pt.
 LaTeX Info: Redefining \. on input line 215.
 LaTeX Info: Redefining \% on input line 215.
- [38 <./img/CU09.png>]
-<img/CU10.png, id=733, 797.98125pt x 473.97075pt>
+ [37 <./img/CU09.png>]
+<img/CU10.png, id=729, 797.98125pt x 473.97075pt>
 File: img/CU10.png Graphic file (type png)
 <use img/CU10.png>
 Package pdftex.def Info: img/CU10.png  used on input line 231.
 (pdftex.def)             Requested size: 366.24527pt x 217.5374pt.
 LaTeX Info: Redefining \. on input line 239.
 LaTeX Info: Redefining \% on input line 239.
- [39 <./img/CU10.png>]
-<img/CU-11.png, id=741, 1525.7pt x 1294.8375pt>
+ [38 <./img/CU10.png>]
+<img/CU-11.png, id=737, 1525.7pt x 1294.8375pt>
 File: img/CU-11.png Graphic file (type png)
 <use img/CU-11.png>
 Package pdftex.def Info: img/CU-11.png  used on input line 254.
 (pdftex.def)             Requested size: 366.24527pt x 310.82661pt.
 LaTeX Info: Redefining \. on input line 258.
 LaTeX Info: Redefining \% on input line 258.
- [40]
+ [39]
 LaTeX Info: Redefining \. on input line 275.
 LaTeX Info: Redefining \% on input line 275.
 
-[41 <./img/CU-11.png>]
-<img/CU-12.png, id=753, 1525.7pt x 1146.2825pt>
+[40 <./img/CU-11.png>]
+<img/CU-12.png, id=749, 1525.7pt x 1146.2825pt>
 File: img/CU-12.png Graphic file (type png)
 <use img/CU-12.png>
 Package pdftex.def Info: img/CU-12.png  used on input line 278.
 (pdftex.def)             Requested size: 366.24527pt x 275.1659pt.
 LaTeX Info: Redefining \. on input line 287.
 LaTeX Info: Redefining \% on input line 287.
- [42 <./img/CU-12.png>]
-<img/CU-13.png, id=762, 1525.7pt x 1706.375pt>
+ [41 <./img/CU-12.png>]
+<img/CU-13.png, id=757, 1525.7pt x 1706.375pt>
 File: img/CU-13.png Graphic file (type png)
 <use img/CU-13.png>
 Package pdftex.def Info: img/CU-13.png  used on input line 302.
 (pdftex.def)             Requested size: 366.24527pt x 409.61649pt.
 LaTeX Info: Redefining \. on input line 306.
 LaTeX Info: Redefining \% on input line 306.
- [43]
+ [42]
 LaTeX Info: Redefining \. on input line 317.
 LaTeX Info: Redefining \% on input line 317.
- [44 <./img/CU-13.png>]
-<img/CU14.png, id=774, 790.152pt x 505.89pt>
+ [43 <./img/CU-13.png>]
+<img/CU14.png, id=770, 790.152pt x 505.89pt>
 File: img/CU14.png Graphic file (type png)
 <use img/CU14.png>
 Package pdftex.def Info: img/CU14.png  used on input line 327.
@@ -1237,56 +1213,56 @@ Package pdftex.def Info: img/CU14.png  used on input line 327.
 LaTeX Info: Redefining \. on input line 347.
 LaTeX Info: Redefining \% on input line 347.
 
-[45 <./img/CU14.png>]
-<img/CU-15.png, id=782, 1525.7pt x 1294.8375pt>
+[44 <./img/CU14.png>]
+<img/CU-15.png, id=778, 1525.7pt x 1294.8375pt>
 File: img/CU-15.png Graphic file (type png)
 <use img/CU-15.png>
 Package pdftex.def Info: img/CU-15.png  used on input line 350.
 (pdftex.def)             Requested size: 366.24527pt x 310.82661pt.
 LaTeX Info: Redefining \. on input line 359.
 LaTeX Info: Redefining \% on input line 359.
- [46 <./img/CU-15.png>]
-<img/CU16.png, id=790, 808.2195pt x 428.802pt>
+ [45 <./img/CU-15.png>]
+<img/CU16.png, id=786, 808.2195pt x 428.802pt>
 File: img/CU16.png Graphic file (type png)
 <use img/CU16.png>
 Package pdftex.def Info: img/CU16.png  used on input line 374.
 (pdftex.def)             Requested size: 366.24527pt x 194.3135pt.
 LaTeX Info: Redefining \. on input line 388.
 LaTeX Info: Redefining \% on input line 388.
- [47 <./img/CU16.png>]
-<img/CU-17.png, id=798, 1525.7pt x 1146.2825pt>
+ [46 <./img/CU16.png>]
+<img/CU-17.png, id=794, 1525.7pt x 1146.2825pt>
 File: img/CU-17.png Graphic file (type png)
 <use img/CU-17.png>
 Package pdftex.def Info: img/CU-17.png  used on input line 398.
 (pdftex.def)             Requested size: 366.24527pt x 275.1659pt.
 LaTeX Info: Redefining \. on input line 412.
 LaTeX Info: Redefining \% on input line 412.
- [48 <./img/CU-17.png>]
-<img/CU18.png, id=807, 792.561pt x 508.90125pt>
+ [47 <./img/CU-17.png>]
+<img/CU18.png, id=802, 792.561pt x 508.90125pt>
 File: img/CU18.png Graphic file (type png)
 <use img/CU18.png>
 Package pdftex.def Info: img/CU18.png  used on input line 422.
 (pdftex.def)             Requested size: 366.24527pt x 235.169pt.
 LaTeX Info: Redefining \. on input line 436.
 LaTeX Info: Redefining \% on input line 436.
- [49 <./img/CU18.png>]
-<img/CU-19.png, id=815, 1525.7pt x 1146.2825pt>
+ [48 <./img/CU18.png>]
+<img/CU-19.png, id=811, 1525.7pt x 1146.2825pt>
 File: img/CU-19.png Graphic file (type png)
 <use img/CU-19.png>
 Package pdftex.def Info: img/CU-19.png  used on input line 446.
 (pdftex.def)             Requested size: 366.24527pt x 275.1659pt.
 LaTeX Info: Redefining \. on input line 460.
 LaTeX Info: Redefining \% on input line 460.
- [50 <./img/CU-19.png>]
-<img/CU20.png, id=823, 796.1745pt x 508.90125pt>
+ [49 <./img/CU-19.png>]
+<img/CU20.png, id=819, 796.1745pt x 508.90125pt>
 File: img/CU20.png Graphic file (type png)
 <use img/CU20.png>
 Package pdftex.def Info: img/CU20.png  used on input line 470.
 (pdftex.def)             Requested size: 366.24527pt x 234.09741pt.
 LaTeX Info: Redefining \. on input line 490.
 LaTeX Info: Redefining \% on input line 490.
- [51 <./img/CU20.png>]
-<img/CU21.png, id=831, 814.242pt x 442.65375pt>
+ [50 <./img/CU20.png>]
+<img/CU21.png, id=827, 814.242pt x 442.65375pt>
 File: img/CU21.png Graphic file (type png)
 <use img/CU21.png>
 Package pdftex.def Info: img/CU21.png  used on input line 493.
@@ -1294,56 +1270,56 @@ Package pdftex.def Info: img/CU21.png  used on input line 493.
 LaTeX Info: Redefining \. on input line 514.
 LaTeX Info: Redefining \% on input line 514.
 
-[52 <./img/CU21.png>]
-<img/CU22.png, id=839, 793.16325pt x 431.81325pt>
+[51 <./img/CU21.png>]
+<img/CU22.png, id=835, 793.16325pt x 431.81325pt>
 File: img/CU22.png Graphic file (type png)
 <use img/CU22.png>
 Package pdftex.def Info: img/CU22.png  used on input line 517.
 (pdftex.def)             Requested size: 366.24527pt x 199.38763pt.
 LaTeX Info: Redefining \. on input line 538.
 LaTeX Info: Redefining \% on input line 538.
- [53 <./img/CU22.png>]
-<img/CU-23.png, id=847, 1525.7pt x 1146.2825pt>
+ [52 <./img/CU22.png>]
+<img/CU-23.png, id=843, 1525.7pt x 1146.2825pt>
 File: img/CU-23.png Graphic file (type png)
 <use img/CU-23.png>
 Package pdftex.def Info: img/CU-23.png  used on input line 541.
 (pdftex.def)             Requested size: 366.24527pt x 275.1659pt.
 LaTeX Info: Redefining \. on input line 562.
 LaTeX Info: Redefining \% on input line 562.
- [54 <./img/CU-23.png>]
-<img/CU24.png, id=856, 808.2195pt x 431.81325pt>
+ [53 <./img/CU-23.png>]
+<img/CU24.png, id=851, 808.2195pt x 431.81325pt>
 File: img/CU24.png Graphic file (type png)
 <use img/CU24.png>
 Package pdftex.def Info: img/CU24.png  used on input line 565.
 (pdftex.def)             Requested size: 366.24527pt x 195.67807pt.
 LaTeX Info: Redefining \. on input line 585.
 LaTeX Info: Redefining \% on input line 585.
- [55 <./img/CU24.png>]
-<img/CU-25.png, id=864, 1525.7pt x 1146.2825pt>
+ [54 <./img/CU24.png>]
+<img/CU-25.png, id=860, 1525.7pt x 1146.2825pt>
 File: img/CU-25.png Graphic file (type png)
 <use img/CU-25.png>
 Package pdftex.def Info: img/CU-25.png  used on input line 588.
 (pdftex.def)             Requested size: 366.24527pt x 275.1659pt.
 LaTeX Info: Redefining \. on input line 602.
 LaTeX Info: Redefining \% on input line 602.
- [56 <./img/CU-25.png>]
-<img/CU26.png, id=872, 816.04875pt x 428.802pt>
+ [55 <./img/CU-25.png>]
+<img/CU26.png, id=868, 816.04875pt x 428.802pt>
 File: img/CU26.png Graphic file (type png)
 <use img/CU26.png>
 Package pdftex.def Info: img/CU26.png  used on input line 612.
 (pdftex.def)             Requested size: 366.24527pt x 192.44876pt.
 LaTeX Info: Redefining \. on input line 633.
 LaTeX Info: Redefining \% on input line 633.
- [57 <./img/CU26.png>]
-<img/CU-27.png, id=880, 1525.7pt x 760.8425pt>
+ [56 <./img/CU26.png>]
+<img/CU-27.png, id=876, 1525.7pt x 760.8425pt>
 File: img/CU-27.png Graphic file (type png)
 <use img/CU-27.png>
 Package pdftex.def Info: img/CU-27.png  used on input line 636.
 (pdftex.def)             Requested size: 366.24527pt x 182.64075pt.
 LaTeX Info: Redefining \. on input line 656.
 LaTeX Info: Redefining \% on input line 656.
- [58 <./img/CU-27.png>]
-<img/CU-28.png, id=888, 1525.7pt x 1146.2825pt>
+ [57 <./img/CU-27.png>]
+<img/CU-28.png, id=884, 1525.7pt x 1146.2825pt>
 File: img/CU-28.png Graphic file (type png)
 <use img/CU-28.png>
 Package pdftex.def Info: img/CU-28.png  used on input line 659.
@@ -1351,1560 +1327,1586 @@ Package pdftex.def Info: img/CU-28.png  used on input line 659.
 LaTeX Info: Redefining \. on input line 680.
 LaTeX Info: Redefining \% on input line 680.
 
-[59 <./img/CU-28.png>]
-<img/CU29.png, id=896, 825.0825pt x 455.301pt>
+[58 <./img/CU-28.png>]
+<img/CU29.png, id=892, 825.0825pt x 455.301pt>
 File: img/CU29.png Graphic file (type png)
 <use img/CU29.png>
 Package pdftex.def Info: img/CU29.png  used on input line 683.
 (pdftex.def)             Requested size: 366.24527pt x 202.10461pt.
 LaTeX Info: Redefining \. on input line 704.
 LaTeX Info: Redefining \% on input line 704.
- [60 <./img/CU29.png>]
-<img/CU30.png, id=905, 816.04875pt x 428.802pt>
+ [59 <./img/CU29.png>]
+<img/CU30.png, id=900, 816.04875pt x 428.802pt>
 File: img/CU30.png Graphic file (type png)
 <use img/CU30.png>
 Package pdftex.def Info: img/CU30.png  used on input line 707.
 (pdftex.def)             Requested size: 366.24527pt x 192.44876pt.
 LaTeX Info: Redefining \. on input line 728.
 LaTeX Info: Redefining \% on input line 728.
- [61 <./img/CU30.png>]
-<img/CU-31.png, id=913, 1525.7pt x 706.64pt>
+ [60 <./img/CU30.png>]
+<img/CU-31.png, id=909, 1525.7pt x 706.64pt>
 File: img/CU-31.png Graphic file (type png)
 <use img/CU-31.png>
 Package pdftex.def Info: img/CU-31.png  used on input line 731.
 (pdftex.def)             Requested size: 366.24527pt x 169.62941pt.
 LaTeX Info: Redefining \. on input line 751.
 LaTeX Info: Redefining \% on input line 751.
- [62 <./img/CU-31.png>]
-<img/CU32.png, id=921, 813.63976pt x 506.49225pt>
+ [61 <./img/CU-31.png>]
+<img/CU32.png, id=917, 813.63976pt x 506.49225pt>
 File: img/CU32.png Graphic file (type png)
 <use img/CU32.png>
 Package pdftex.def Info: img/CU32.png  used on input line 754.
 (pdftex.def)             Requested size: 366.24527pt x 227.98895pt.
-
-Overfull \hbox (19.39015pt too wide) in paragraph at lines 769--769
-|\T1/cmr/bx/n/14.4 4.33 Di-se-ño Di-ná-mi-co del CU: Con-sul-tar ca-tá-lo-go de
- idio-mas (INALI)
- []
-
 LaTeX Info: Redefining \. on input line 774.
 LaTeX Info: Redefining \% on input line 774.
-[63 <./img/CU32.png>]
-<img/CU33.png, id=929, 790.152pt x 461.92575pt>
+ [62 <./img/CU32.png>]
+<img/CU33.png, id=925, 790.152pt x 461.92575pt>
 File: img/CU33.png Graphic file (type png)
 <use img/CU33.png>
 Package pdftex.def Info: img/CU33.png  used on input line 777.
 (pdftex.def)             Requested size: 366.24527pt x 214.10956pt.
-<img/CU-34.png, id=930, 1525.7pt x 1126.2075pt>
+<img/CU-34.png, id=926, 1525.7pt x 1126.2075pt>
 File: img/CU-34.png Graphic file (type png)
 <use img/CU-34.png>
 Package pdftex.def Info: img/CU-34.png  used on input line 800.
 (pdftex.def)             Requested size: 366.24527pt x 270.34688pt.
 LaTeX Info: Redefining \. on input line 804.
 LaTeX Info: Redefining \% on input line 804.
- [64 <./img/CU33.png>]
+ [63 <./img/CU33.png>]
 LaTeX Info: Redefining \. on input line 821.
 LaTeX Info: Redefining \% on input line 821.
- [65 <./img/CU-34.png>]
-<img/CU-35.png, id=945, 1525.7pt x 1146.2825pt>
+ [64 <./img/CU-34.png>]
+<img/CU-35.png, id=941, 1525.7pt x 1146.2825pt>
 File: img/CU-35.png Graphic file (type png)
 <use img/CU-35.png>
 Package pdftex.def Info: img/CU-35.png  used on input line 824.
 (pdftex.def)             Requested size: 366.24527pt x 275.1659pt.
-<img/CU-36.png, id=946, 1525.7pt x 1126.2075pt>
+<img/CU-36.png, id=942, 1525.7pt x 1126.2075pt>
 File: img/CU-36.png Graphic file (type png)
 <use img/CU-36.png>
 Package pdftex.def Info: img/CU-36.png  used on input line 847.
 (pdftex.def)             Requested size: 366.24527pt x 270.34688pt.
 LaTeX Info: Redefining \. on input line 850.
 LaTeX Info: Redefining \% on input line 850.
- [66 <./img/CU-35.png>]
+
+[65 <./img/CU-35.png>]
 LaTeX Info: Redefining \. on input line 868.
 LaTeX Info: Redefining \% on input line 868.
- [67 <./img/CU-36.png>]
-<img/CU-37.png, id=962, 1525.7pt x 1146.2825pt>
+ [66 <./img/CU-36.png>]
+<img/CU-37.png, id=958, 1525.7pt x 1146.2825pt>
 File: img/CU-37.png Graphic file (type png)
 <use img/CU-37.png>
 Package pdftex.def Info: img/CU-37.png  used on input line 871.
 (pdftex.def)             Requested size: 366.24527pt x 275.1659pt.
-<img/CU38.png, id=963, 810.02625pt x 422.17725pt>
+<img/CU38.png, id=959, 810.02625pt x 422.17725pt>
 File: img/CU38.png Graphic file (type png)
 <use img/CU38.png>
 Package pdftex.def Info: img/CU38.png  used on input line 894.
 (pdftex.def)             Requested size: 366.24527pt x 190.8863pt.
 LaTeX Info: Redefining \. on input line 897.
 LaTeX Info: Redefining \% on input line 897.
- [68 <./img/CU-37.png>]
-<img/CU39.png, id=971, 805.20825pt x 428.802pt>
+ [67 <./img/CU-37.png>]
+<img/CU39.png, id=967, 805.20825pt x 428.802pt>
 File: img/CU39.png Graphic file (type png)
 <use img/CU39.png>
 Package pdftex.def Info: img/CU39.png  used on input line 917.
 (pdftex.def)             Requested size: 366.24527pt x 195.03978pt.
 LaTeX Info: Redefining \. on input line 921.
 LaTeX Info: Redefining \% on input line 921.
- [69 <./img/CU38.png>]
-Overfull \hbox (0.76918pt too wide) in paragraph at lines 933--933
-|\T1/cmr/bx/n/14.4 4.40 Di-se-ño Di-ná-mi-co del CU: Mo-di-fi-car even-to en ca
--len-da-rio (CU-
- []
-
-<img/CU-40.png, id=979, 1525.7pt x 1146.2825pt>
+ [68 <./img/CU38.png>]
+<img/CU-40.png, id=975, 1525.7pt x 1146.2825pt>
 File: img/CU-40.png Graphic file (type png)
 <use img/CU-40.png>
 Package pdftex.def Info: img/CU-40.png  used on input line 941.
 (pdftex.def)             Requested size: 366.24527pt x 275.1659pt.
 LaTeX Info: Redefining \. on input line 945.
 LaTeX Info: Redefining \% on input line 945.
-[70 <./img/CU39.png>]
+ [69 <./img/CU39.png>]
 LaTeX Info: Redefining \. on input line 962.
 LaTeX Info: Redefining \% on input line 962.
- [71 <./img/CU-40.png>]
-<img/CU-41.png, id=994, 1525.7pt x 1622.06pt>
+ [70 <./img/CU-40.png>]
+<img/CU-41.png, id=990, 1525.7pt x 1622.06pt>
 File: img/CU-41.png Graphic file (type png)
 <use img/CU-41.png>
 Package pdftex.def Info: img/CU-41.png  used on input line 965.
 (pdftex.def)             Requested size: 366.24527pt x 389.3766pt.
 LaTeX Info: Redefining \. on input line 975.
 LaTeX Info: Redefining \% on input line 975.
- [72 <./img/CU-41.png>]
-<img/CU42.png, id=1003, 783.52725pt x 516.12825pt>
+ [71 <./img/CU-41.png>]
+<img/CU42.png, id=998, 783.52725pt x 516.12825pt>
 File: img/CU42.png Graphic file (type png)
 <use img/CU42.png>
 Package pdftex.def Info: img/CU42.png  used on input line 990.
 (pdftex.def)             Requested size: 366.24527pt x 241.25723pt.
 LaTeX Info: Redefining \. on input line 999.
 LaTeX Info: Redefining \% on input line 999.
- [73 <./img/CU42.png>]
-<img/CU-43.png, id=1011, 1525.7pt x 1511.6475pt>
+[72 <./img/CU42.png>]
+<img/CU-43.png, id=1007, 1525.7pt x 1511.6475pt>
 File: img/CU-43.png Graphic file (type png)
 <use img/CU-43.png>
 Package pdftex.def Info: img/CU-43.png  used on input line 1014.
 (pdftex.def)             Requested size: 366.24527pt x 362.87201pt.
 LaTeX Info: Redefining \. on input line 1018.
 LaTeX Info: Redefining \% on input line 1018.
- [74]
+ [73]
 LaTeX Info: Redefining \. on input line 1035.
 LaTeX Info: Redefining \% on input line 1035.
- [75 <./img/CU-43.png>]
-<img/CU-44.png, id=1023, 1525.7pt x 1092.08pt>
+ [74 <./img/CU-43.png>]
+<img/CU-44.png, id=1019, 1525.7pt x 1092.08pt>
 File: img/CU-44.png Graphic file (type png)
 <use img/CU-44.png>
 Package pdftex.def Info: img/CU-44.png  used on input line 1038.
 (pdftex.def)             Requested size: 366.24527pt x 262.15454pt.
 LaTeX Info: Redefining \. on input line 1054.
 LaTeX Info: Redefining \% on input line 1054.
- [76 <./img/CU-44.png>]
-<img/CU45.png, id=1031, 777.50475pt x 515.526pt>
+ [75 <./img/CU-44.png>]
+<img/CU45.png, id=1027, 777.50475pt x 515.526pt>
 File: img/CU45.png Graphic file (type png)
 <use img/CU45.png>
 Package pdftex.def Info: img/CU45.png  used on input line 1062.
 (pdftex.def)             Requested size: 366.24527pt x 242.84003pt.
 LaTeX Info: Redefining \. on input line 1083.
 LaTeX Info: Redefining \% on input line 1083.
- [77 <./img/CU45.png>]
-<img/CU-46.png, id=1039, 1525.7pt x 1110.1475pt>
+
+[76 <./img/CU45.png>]
+<img/CU-46.png, id=1035, 1525.7pt x 1110.1475pt>
 File: img/CU-46.png Graphic file (type png)
 <use img/CU-46.png>
 Package pdftex.def Info: img/CU-46.png  used on input line 1086.
 (pdftex.def)             Requested size: 366.24527pt x 266.49165pt.
 LaTeX Info: Redefining \. on input line 1106.
 LaTeX Info: Redefining \% on input line 1106.
- [78 <./img/CU-46.png>]
-<img/CU47.png, id=1048, 797.98125pt x 389.65575pt>
+ [77 <./img/CU-46.png>]
+<img/CU47.png, id=1043, 797.98125pt x 389.65575pt>
 File: img/CU47.png Graphic file (type png)
 <use img/CU47.png>
 Package pdftex.def Info: img/CU47.png  used on input line 1109.
 (pdftex.def)             Requested size: 366.24527pt x 178.83951pt.
 LaTeX Info: Redefining \. on input line 1129.
 LaTeX Info: Redefining \% on input line 1129.
- [79 <./img/CU47.png>]
-<img/CU48.png, id=1056, 800.9925pt x 473.97075pt>
+ [78 <./img/CU47.png>]
+<img/CU48.png, id=1052, 800.9925pt x 473.97075pt>
 File: img/CU48.png Graphic file (type png)
 <use img/CU48.png>
 Package pdftex.def Info: img/CU48.png  used on input line 1132.
 (pdftex.def)             Requested size: 366.24527pt x 216.72015pt.
-<img/CU-49.png, id=1057, 1525.7pt x 1314.9125pt>
+<img/CU-49.png, id=1053, 1525.7pt x 1314.9125pt>
 File: img/CU-49.png Graphic file (type png)
 <use img/CU-49.png>
 Package pdftex.def Info: img/CU-49.png  used on input line 1155.
 (pdftex.def)             Requested size: 366.24527pt x 315.64565pt.
 LaTeX Info: Redefining \. on input line 1159.
 LaTeX Info: Redefining \% on input line 1159.
- [80 <./img/CU48.png>]
+ [79 <./img/CU48.png>]
 LaTeX Info: Redefining \. on input line 1176.
 LaTeX Info: Redefining \% on input line 1176.
-
-[81 <./img/CU-49.png>]
-<img/CU-50.png, id=1072, 1525.7pt x 1146.2825pt>
+ [80 <./img/CU-49.png>]
+<img/CU-50.png, id=1068, 1525.7pt x 1146.2825pt>
 File: img/CU-50.png Graphic file (type png)
 <use img/CU-50.png>
 Package pdftex.def Info: img/CU-50.png  used on input line 1179.
 (pdftex.def)             Requested size: 366.24527pt x 275.1659pt.
-<img/CU-51.png, id=1073, 1525.7pt x 1457.445pt>
+<img/CU-51.png, id=1069, 1525.7pt x 1457.445pt>
 File: img/CU-51.png Graphic file (type png)
 <use img/CU-51.png>
 Package pdftex.def Info: img/CU-51.png  used on input line 1202.
 (pdftex.def)             Requested size: 366.24527pt x 349.86066pt.
 LaTeX Info: Redefining \. on input line 1206.
 LaTeX Info: Redefining \% on input line 1206.
- [82 <./img/CU-50.png>]
+ [81 <./img/CU-50.png>]
 LaTeX Info: Redefining \. on input line 1222.
 LaTeX Info: Redefining \% on input line 1222.
- [83 <./img/CU-51.png>]
-<img/CU-52.png, id=1088, 1525.7pt x 1186.4325pt>
+ [82 <./img/CU-51.png>]
+<img/CU-52.png, id=1084, 1525.7pt x 1186.4325pt>
 File: img/CU-52.png Graphic file (type png)
 <use img/CU-52.png>
 Package pdftex.def Info: img/CU-52.png  used on input line 1225.
 (pdftex.def)             Requested size: 366.24527pt x 284.80392pt.
 LaTeX Info: Redefining \. on input line 1246.
 LaTeX Info: Redefining \% on input line 1246.
- [84 <./img/CU-52.png>]
-<img/CU-53.png, id=1097, 1525.7pt x 1146.2825pt>
+
+[83 <./img/CU-52.png>]
+<img/CU-53.png, id=1092, 1525.7pt x 1146.2825pt>
 File: img/CU-53.png Graphic file (type png)
 <use img/CU-53.png>
 Package pdftex.def Info: img/CU-53.png  used on input line 1249.
 (pdftex.def)             Requested size: 366.24527pt x 275.1659pt.
 LaTeX Info: Redefining \. on input line 1270.
 LaTeX Info: Redefining \% on input line 1270.
- [85 <./img/CU-53.png>]
-<img/CU54.png, id=1105, 799.18575pt x 479.99326pt>
+ [84 <./img/CU-53.png>]
+<img/CU54.png, id=1101, 799.18575pt x 479.99326pt>
 File: img/CU54.png Graphic file (type png)
 <use img/CU54.png>
 Package pdftex.def Info: img/CU54.png  used on input line 1273.
 (pdftex.def)             Requested size: 366.24527pt x 219.97195pt.
-<img/CU-55.png, id=1106, 1525.7pt x 855.195pt>
+<img/CU-55.png, id=1102, 1525.7pt x 855.195pt>
 File: img/CU-55.png Graphic file (type png)
 <use img/CU-55.png>
 Package pdftex.def Info: img/CU-55.png  used on input line 1296.
 (pdftex.def)             Requested size: 366.24527pt x 205.29015pt.
 LaTeX Info: Redefining \. on input line 1300.
 LaTeX Info: Redefining \% on input line 1300.
- [86 <./img/CU54.png>]
-<img/CU56.png, id=1114, 799.18575pt x 449.88075pt>
+ [85 <./img/CU54.png>]
+<img/CU56.png, id=1110, 799.18575pt x 449.88075pt>
 File: img/CU56.png Graphic file (type png)
 <use img/CU56.png>
 Package pdftex.def Info: img/CU56.png  used on input line 1319.
 (pdftex.def)             Requested size: 366.24527pt x 206.17195pt.
 LaTeX Info: Redefining \. on input line 1323.
 LaTeX Info: Redefining \% on input line 1323.
- [87 <./img/CU-55.png>]
-<img/CU-57.png, id=1122, 1525.7pt x 760.8425pt>
+ [86 <./img/CU-55.png>]
+<img/CU-57.png, id=1118, 1525.7pt x 760.8425pt>
 File: img/CU-57.png Graphic file (type png)
 <use img/CU-57.png>
 Package pdftex.def Info: img/CU-57.png  used on input line 1342.
 (pdftex.def)             Requested size: 366.24527pt x 182.64075pt.
 LaTeX Info: Redefining \. on input line 1346.
 LaTeX Info: Redefining \% on input line 1346.
- [88 <./img/CU56.png>]
-<img/CU-58.png, id=1130, 1525.7pt x 835.12pt>
+ [87 <./img/CU56.png>]
+<img/CU-58.png, id=1126, 1525.7pt x 835.12pt>
 File: img/CU-58.png Graphic file (type png)
 <use img/CU-58.png>
 Package pdftex.def Info: img/CU-58.png  used on input line 1365.
 (pdftex.def)             Requested size: 366.24527pt x 200.47112pt.
 LaTeX Info: Redefining \. on input line 1369.
 LaTeX Info: Redefining \% on input line 1369.
- [89 <./img/CU-57.png>]
-<img/CU-59.png, id=1138, 1525.7pt x 835.12pt>
+ [88 <./img/CU-57.png>]
+<img/CU-59.png, id=1134, 1525.7pt x 835.12pt>
 File: img/CU-59.png Graphic file (type png)
 <use img/CU-59.png>
 Package pdftex.def Info: img/CU-59.png  used on input line 1388.
 (pdftex.def)             Requested size: 366.24527pt x 200.47112pt.
 LaTeX Info: Redefining \. on input line 1392.
 LaTeX Info: Redefining \% on input line 1392.
- [90 <./img/CU-58.png>])
-LaTeX Info: Redefining \. on input line 94.
-LaTeX Info: Redefining \% on input line 94.
- [91 <./img/CU-59.png>]
+ [89 <./img/CU-58.png>])
+LaTeX Info: Redefining \. on input line 97.
+LaTeX Info: Redefining \% on input line 97.
+ [90 <./img/CU-59.png>]
 \openout2 = `parte5_persistencia.aux'.
 
  (parte5_persistencia.tex
 Cap\'{\i }tulo 5.
-
-Overfull \hbox (17.92397pt too wide) in paragraph at lines 8--9
-[]\T1/cmr/bx/n/12 Control de Ac-ce-so: \T1/cmr/m/n/12 Ad-mi-nis-tra el per-so-n
-al me-dian-te las ta-blas \T1/cmtt/m/n/12 usuarios \T1/cmr/m/n/12 y \T1/cmtt/m/
-n/12 cat_roles\T1/cmr/m/n/12 . 
- []
-
-<img/diagramaBD.png, id=1155, 5600.925pt x 3123.67pt>
-File: img/diagramaBD.png Graphic file (type png)
-<use img/diagramaBD.png>
-Package pdftex.def Info: img/diagramaBD.png  used on input line 18.
+<img/bdproyecto.png, id=1150, 5600.925pt x 3123.67pt>
+File: img/bdproyecto.png Graphic file (type png)
+<use img/bdproyecto.png>
+Package pdftex.def Info: img/bdproyecto.png  used on input line 18.
 (pdftex.def)             Requested size: 5600.91142pt x 3123.66241pt.
-[92
+[91
 
 
 
 
 ]
-LaTeX Info: Redefining \. on input line 26.
-LaTeX Info: Redefining \% on input line 26.
- [93 <./img/diagramaBD.png>]
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 34.
+LaTeX Info: Redefining \. on input line 23.
+LaTeX Info: Redefining \% on input line 23.
+ [92 <./img/bdproyecto.png>]
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <8> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 35.
 
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 32--40
- [][] 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 35--35
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 47--56
- [][] 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 35--35
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
 
-Underfull \hbox (badness 1237) in paragraph at lines 69--70
-[]|\T1/cmr/m/n/10 Código pos-tal de la co-lo-nia con-for-me a
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 50--50
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 63--73
- [][] 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 50--50
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
 
-Overfull \hbox (6.97115pt too wide) in paragraph at lines 80--91
- [][] 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 66--66
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Underfull \hbox (badness 4647) in paragraph at lines 104--105
-[]|\T1/cmr/m/n/10 URL ba-se de la pla-ta-for-ma. Ejem-plo:
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 66--66
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
 
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 98--107
- [][] 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 83--83
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
-LaTeX Info: Redefining \. on input line 108.
-LaTeX Info: Redefining \% on input line 108.
+
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 83--83
+[]|\T1/cmr/bx/n/8 Nulo| 
+ []
+
+
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 101--101
+[]|\T1/cmr/bx/n/8 Longitud| 
+ []
+
+
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 101--101
+[]|\T1/cmr/bx/n/8 Nulo| 
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 105--106
+[]|\T1/cmr/m/n/8 URL ba-se de la pla-ta-for-ma. Ejem-plo:
+ []
+
+LaTeX Info: Redefining \. on input line 109.
+LaTeX Info: Redefining \% on input line 109.
+[93
+
+]
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 117--117
+[]|\T1/cmr/bx/n/8 Longitud| 
+ []
+
+
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 117--117
+[]|\T1/cmr/bx/n/8 Nulo| 
+ []
+
+
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 132--132
+[]|\T1/cmr/bx/n/8 Longitud| 
+ []
+
+
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 132--132
+[]|\T1/cmr/bx/n/8 Nulo| 
+ []
+
+
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 148--148
+[]|\T1/cmr/bx/n/8 Longitud| 
+ []
+
+
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 148--148
+[]|\T1/cmr/bx/n/8 Nulo| 
+ []
+
+
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 163--163
+[]|\T1/cmr/bx/n/8 Longitud| 
+ []
+
+
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 163--163
+[]|\T1/cmr/bx/n/8 Nulo| 
+ []
+
+
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 179--179
+[]|\T1/cmr/bx/n/8 Longitud| 
+ []
+
+
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 179--179
+[]|\T1/cmr/bx/n/8 Nulo| 
+ []
+
+LaTeX Info: Redefining \. on input line 186.
+LaTeX Info: Redefining \% on input line 186.
 [94]
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 114--122
- [][] 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 194--194
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 129--138
- [][] 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 194--194
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
 
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 145--153
- [][] 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 209--209
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 160--169
- [][] 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 209--209
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
-LaTeX Info: Redefining \. on input line 170.
-LaTeX Info: Redefining \% on input line 170.
+
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 225--225
+[]|\T1/cmr/bx/n/8 Longitud| 
+ []
+
+
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 225--225
+[]|\T1/cmr/bx/n/8 Nulo| 
+ []
+
+
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 240--240
+[]|\T1/cmr/bx/n/8 Longitud| 
+ []
+
+
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 240--240
+[]|\T1/cmr/bx/n/8 Nulo| 
+ []
+
+
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 256--256
+[]|\T1/cmr/bx/n/8 Longitud| 
+ []
+
+
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 256--256
+[]|\T1/cmr/bx/n/8 Nulo| 
+ []
+
+
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 272--272
+[]|\T1/cmr/bx/n/8 Longitud| 
+ []
+
+
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 272--272
+[]|\T1/cmr/bx/n/8 Nulo| 
+ []
+
+LaTeX Info: Redefining \. on input line 283.
+LaTeX Info: Redefining \% on input line 283.
 [95]
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 176--184
- [][] 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 291--291
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 191--199
- [][] 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 291--291
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
 
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 206--215
- [][] 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 307--307
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 222--230
- [][] 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 307--307
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
 
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 237--246
- [][] 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 328--328
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
-LaTeX Info: Redefining \. on input line 247.
-LaTeX Info: Redefining \% on input line 247.
+
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 328--328
+[]|\T1/cmr/bx/n/8 Nulo| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 334--335
+[]|\T1/cmr/m/n/8 URL de la pá-gi-na web. Ejem-plo:
+ []
+
+LaTeX Info: Redefining \. on input line 344.
+LaTeX Info: Redefining \% on input line 344.
 [96]
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 253--262
- [][] 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 352--352
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 269--281
- [][] 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 352--352
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
 
-Overfull \hbox (55.91539pt too wide) in paragraph at lines 294--294
-[]|\T1/cmtt/m/n/10 requiere_resolucion_judicial| 
+Underfull \hbox (badness 7064) in paragraph at lines 362--363
+\T1/cmr/m/n/8 te-ner el sím-bo-lo @. For-ma-to: usua-
  []
 
 
-Overfull \hbox (6.97115pt too wide) in paragraph at lines 288--297
- [][] 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 380--380
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (13.92564pt too wide) in paragraph at lines 315--315
-[]|\T1/cmtt/m/n/10 referencia_ubicacion| 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 380--380
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
-
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 304--318
- [][] 
- []
-
-LaTeX Info: Redefining \. on input line 319.
-LaTeX Info: Redefining \% on input line 319.
+LaTeX Info: Redefining \. on input line 389.
+LaTeX Info: Redefining \% on input line 389.
 [97]
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
-[]|\T1/cmr/m/n/10 URL de la pá-gi-na web. Ejem-plo:
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 397--397
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (6.97115pt too wide) in paragraph at lines 325--342
- [][] 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 397--397
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 361--362
-[]|\T1/cmr/m/n/10 Correo elec-tró-ni-co ins-ti-tu-cio-nal. De-be
+Underfull \hbox (badness 1708) in paragraph at lines 400--401
+[]|\T1/cmr/m/n/8 Nombre(s) del tu-tor o res-pon-sa-ble del
  []
 
 
-Underfull \hbox (badness 2932) in paragraph at lines 361--362
-\T1/cmr/m/n/10 con-te-ner el sím-bo-lo @. For-ma-to: usua-
+Underfull \hbox (badness 1314) in paragraph at lines 412--413
+[]|\T1/cmr/m/n/8 Fecha de ini-cio de la tu-te-la. For-ma-to:
  []
 
 
-Overfull \hbox (6.97115pt too wide) in paragraph at lines 349--370
- [][] 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 426--426
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
-LaTeX Info: Redefining \. on input line 371.
-LaTeX Info: Redefining \% on input line 371.
+
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 426--426
+[]|\T1/cmr/bx/n/8 Nulo| 
+ []
+
+LaTeX Info: Redefining \. on input line 447.
+LaTeX Info: Redefining \% on input line 447.
 [98]
-Underfull \hbox (badness 1924) in paragraph at lines 384--385
-[]|\T1/cmr/m/n/10 Fecha de crea-ción del equi-po. For-ma-to:
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 455--455
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (6.97115pt too wide) in paragraph at lines 377--387
- [][] 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 455--455
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
 
-Overfull \hbox (8.67693pt too wide) in paragraph at lines 411--411
-[]|\T1/cmtt/m/n/10 fecha_inicio_tutela| 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 479--479
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (29.6718pt too wide) in paragraph at lines 413--413
-[]|\T1/cmtt/m/n/10 municipio_nacimiento_id| 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 479--479
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
-
-Overfull \hbox (6.97115pt too wide) in paragraph at lines 394--416
- [][] 
- []
-
-LaTeX Info: Redefining \. on input line 417.
-LaTeX Info: Redefining \% on input line 417.
+LaTeX Info: Redefining \. on input line 489.
+LaTeX Info: Redefining \% on input line 489.
 [99]
-Overfull \hbox (29.6718pt too wide) in paragraph at lines 435--435
-[]|\T1/cmtt/m/n/10 municipio_nacimiento_id| 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 497--497
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (3.4282pt too wide) in paragraph at lines 442--442
-[]|\T1/cmtt/m/n/10 equipo_asignado_id| 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 497--497
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
 
-Underfull \hbox (badness 1038) in paragraph at lines 442--443
-[]|\T1/cmr/m/n/10 Identificador del equi-po mul-ti-dis-ci-pli-na-rio
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 514--514
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (6.97115pt too wide) in paragraph at lines 423--445
- [][] 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 514--514
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
-LaTeX Info: Redefining \. on input line 446.
-LaTeX Info: Redefining \% on input line 446.
+
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 534--534
+[]|\T1/cmr/bx/n/8 Longitud| 
+ []
+
+
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 534--534
+[]|\T1/cmr/bx/n/8 Nulo| 
+ []
+
+LaTeX Info: Redefining \. on input line 546.
+LaTeX Info: Redefining \% on input line 546.
 [100]
-Overfull \hbox (8.67693pt too wide) in paragraph at lines 462--462
-[]|\T1/cmtt/m/n/10 fecha_fallecimiento| 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 554--554
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (19.17436pt too wide) in paragraph at lines 463--463
-[]|\T1/cmtt/m/n/10 modalidad_feminicidio| 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 554--554
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
 
-Overfull \hbox (34.92052pt too wide) in paragraph at lines 464--464
-[]|\T1/cmtt/m/n/10 causa_certificada_muerte| 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 577--577
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 452--469
- [][] 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 577--577
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
-LaTeX Info: Redefining \. on input line 470.
-LaTeX Info: Redefining \% on input line 470.
+LaTeX Info: Redefining \. on input line 596.
+LaTeX Info: Redefining \% on input line 596.
 [101]
-Overfull \hbox (24.42308pt too wide) in paragraph at lines 482--482
-[]|\T1/cmtt/m/n/10 nombre_victima_directa| 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 604--604
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (3.4282pt too wide) in paragraph at lines 484--484
-[]|\T1/cmtt/m/n/10 descripcion_delito| 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 604--604
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
 
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 476--487
- [][] 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 623--623
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 494--504
- [][] 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 623--623
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
-LaTeX Info: Redefining \. on input line 505.
-LaTeX Info: Redefining \% on input line 505.
+LaTeX Info: Redefining \. on input line 635.
+LaTeX Info: Redefining \% on input line 635.
 [102]
-Overfull \hbox (3.4282pt too wide) in paragraph at lines 519--519
-[]|\T1/cmtt/m/n/10 hallazgos_dictamen| 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 643--643
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 511--524
- [][] 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 643--643
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
 
-Overfull \hbox (6.97115pt too wide) in paragraph at lines 531--544
- [][] 
+Underfull \hbox (badness 1960) in paragraph at lines 653--654
+[]|\T1/cmr/m/n/8 Costo del ser-vi-cio en pe-sos me-xi-ca-nos
  []
 
-LaTeX Info: Redefining \. on input line 545.
-LaTeX Info: Redefining \% on input line 545.
+
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 671--671
+[]|\T1/cmr/bx/n/8 Longitud| 
+ []
+
+
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 671--671
+[]|\T1/cmr/bx/n/8 Nulo| 
+ []
+
+
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 686--686
+[]|\T1/cmr/bx/n/8 Longitud| 
+ []
+
+
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 686--686
+[]|\T1/cmr/bx/n/8 Nulo| 
+ []
+
+
+Underfull \hbox (badness 1325) in paragraph at lines 691--692
+[]|\T1/cmr/m/n/8 Fecha en que se reali-zó la vin-cu-la-ción
+ []
+
+LaTeX Info: Redefining \. on input line 695.
+LaTeX Info: Redefining \% on input line 695.
 [103]
-Overfull \hbox (24.42308pt too wide) in paragraph at lines 558--558
-[]|\T1/cmtt/m/n/10 tiene_registro_oficial| 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 703--703
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (13.92564pt too wide) in paragraph at lines 559--559
-[]|\T1/cmtt/m/n/10 registro_oficial_num| 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 703--703
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
 
-Overfull \hbox (6.97115pt too wide) in paragraph at lines 551--567
- [][] 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 724--724
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (19.17436pt too wide) in paragraph at lines 586--586
-[]|\T1/cmtt/m/n/10 descripcion_actividad| 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 724--724
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
 
-Underfull \hbox (badness 1102) in paragraph at lines 587--588
-[]|\T1/cmr/m/n/10 Disponibilidad de tiem-po del ac-tor pa-ra
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 744--744
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (13.92564pt too wide) in paragraph at lines 588--588
-[]|\T1/cmtt/m/n/10 es_lider_comunitario| 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 744--744
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
-
-Overfull \hbox (3.4282pt too wide) in paragraph at lines 589--589
-[]|\T1/cmtt/m/n/10 es_lider_religioso| 
- []
-
-
-Overfull \hbox (6.97115pt too wide) in paragraph at lines 574--594
- [][] 
- []
-
-LaTeX Info: Redefining \. on input line 595.
-LaTeX Info: Redefining \% on input line 595.
+LaTeX Info: Redefining \. on input line 759.
+LaTeX Info: Redefining \% on input line 759.
 [104]
-Overfull \hbox (19.17436pt too wide) in paragraph at lines 609--609
-[]|\T1/cmtt/m/n/10 es_principal_contacto| 
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 767--767
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (6.97115pt too wide) in paragraph at lines 601--613
- [][] 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 767--767
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
 
-Underfull \hbox (badness 1783) in paragraph at lines 628--629
-[]|\T1/cmr/m/n/10 Fecha de ini-cio del pro-gra-ma. For-ma-to:
+Overfull \hbox (1.54637pt too wide) in paragraph at lines 788--788
+[]|\T1/cmr/bx/n/8 Longitud| 
  []
 
 
-Overfull \hbox (6.97115pt too wide) in paragraph at lines 620--633
- [][] 
+Overfull \hbox (0.78366pt too wide) in paragraph at lines 788--788
+[]|\T1/cmr/bx/n/8 Nulo| 
  []
 
-LaTeX Info: Redefining \. on input line 634.
-LaTeX Info: Redefining \% on input line 634.
+LaTeX Info: Redefining \. on input line 799.
+LaTeX Info: Redefining \% on input line 799.
 [105]
-Overfull \hbox (13.92564pt too wide) in paragraph at lines 649--649
-[]|\T1/cmtt/m/n/10 descripcion_servicio| 
- []
-
-
-Underfull \hbox (badness 3989) in paragraph at lines 652--653
-[]|\T1/cmr/m/n/10 Costo del ser-vi-cio en pe-sos me-xi-ca-nos
- []
-
-
-Overfull \hbox (8.67693pt too wide) in paragraph at lines 655--655
-[]|\T1/cmtt/m/n/10 requisitos_tramites| 
- []
-
-
-Overfull \hbox (3.4282pt too wide) in paragraph at lines 656--656
-[]|\T1/cmtt/m/n/10 poblacion_objetivo| 
- []
-
-
-Overfull \hbox (6.97115pt too wide) in paragraph at lines 640--661
- [][] 
- []
-
-
-Overfull \hbox (3.43034pt too wide) in paragraph at lines 668--676
- [][] 
- []
-
-LaTeX Info: Redefining \. on input line 677.
-LaTeX Info: Redefining \% on input line 677.
-[106]
-Underfull \hbox (badness 2608) in paragraph at lines 690--691
-[]|\T1/cmr/m/n/10 Fecha en que se reali-zó la vin-cu-la-ción
- []
-
-
-Overfull \hbox (3.43034pt too wide) in paragraph at lines 683--693
- [][] 
- []
-
-
-Underfull \hbox (badness 1590) in paragraph at lines 704--705
-[]|\T1/cmr/m/n/10 Identificador úni-co de la re-la-ción NNA-
- []
-
-
-Overfull \hbox (6.97115pt too wide) in paragraph at lines 700--714
- [][] 
- []
-
-
-Overfull \hbox (3.4282pt too wide) in paragraph at lines 731--731
-[]|\T1/cmtt/m/n/10 estatus_integrante| 
- []
-
-
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 721--734
- [][] 
- []
-
-LaTeX Info: Redefining \. on input line 735.
-LaTeX Info: Redefining \% on input line 735.
-[107]
-Overfull \hbox (13.92564pt too wide) in paragraph at lines 752--752
-[]|\T1/cmtt/m/n/10 requiere_medicamento| 
- []
-
-
-Overfull \hbox (3.4282pt too wide) in paragraph at lines 753--753
-[]|\T1/cmtt/m/n/10 nombre_medicamento| 
- []
-
-
-Overfull \hbox (6.97115pt too wide) in paragraph at lines 741--757
- [][] 
- []
-
-
-Overfull \hbox (13.92564pt too wide) in paragraph at lines 773--773
-[]|\T1/cmtt/m/n/10 nivel_comprension_id| 
- []
-
-
-Overfull \hbox (3.4282pt too wide) in paragraph at lines 774--774
-[]|\T1/cmtt/m/n/10 nivel_escritura_id| 
- []
-
-
-Overfull \hbox (3.4282pt too wide) in paragraph at lines 775--775
-[]|\T1/cmtt/m/n/10 requiere_traductor| 
- []
-
-
-Overfull \hbox (6.97115pt too wide) in paragraph at lines 764--778
- [][] 
- []
-
-LaTeX Info: Redefining \. on input line 779.
-LaTeX Info: Redefining \% on input line 779.
-[108]
-Overfull \hbox (6.83229pt too wide) in paragraph at lines 785--797
- [][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 816--817
+Underfull \hbox (badness 10000) in paragraph at lines 817--818
 []|\T1/cmtt/m/n/10 SELECT * FROM usuarios WHERE correo = ? AND
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 819--820
+Underfull \hbox (badness 10000) in paragraph at lines 820--821
 []|\T1/cmtt/m/n/10 SELECT id, nombre, primer_apellido, correo,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 822--823
+Underfull \hbox (badness 10000) in paragraph at lines 823--824
 []|\T1/cmtt/m/n/10 INSERT INTO usuarios (nombre, primer_apellido,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 822--823
+Underfull \hbox (badness 10000) in paragraph at lines 823--824
 \T1/cmtt/m/n/10 segundo_apellido, fecha_nacimiento,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 822--823
+Underfull \hbox (badness 10000) in paragraph at lines 823--824
 \T1/cmtt/m/n/10 sexo, curp, rfc, correo, password_hash,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 822--823
+Underfull \hbox (badness 10000) in paragraph at lines 823--824
 \T1/cmtt/m/n/10 tipo_personal, activo, direccion_id, rol_id)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 822--823
+Underfull \hbox (badness 10000) in paragraph at lines 823--824
 \T1/cmtt/m/n/10 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, true, ?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 825--826
+Underfull \hbox (badness 10000) in paragraph at lines 826--827
 []|\T1/cmtt/m/n/10 SELECT u.*, r.nombre_rol FROM usuarios u JOIN
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 825--826
+Underfull \hbox (badness 10000) in paragraph at lines 826--827
 \T1/cmtt/m/n/10 cat_roles r ON u.rol_id = r.id WHERE u.activo
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 828--829
+Underfull \hbox (badness 10000) in paragraph at lines 829--830
 []|\T1/cmtt/m/n/10 UPDATE usuarios SET nombre=?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 828--829
+Underfull \hbox (badness 10000) in paragraph at lines 829--830
 \T1/cmtt/m/n/10 primer_apellido=?, segundo_apellido=?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 828--829
+Underfull \hbox (badness 10000) in paragraph at lines 829--830
 \T1/cmtt/m/n/10 fecha_nacimiento=?, sexo=?, curp=?, rfc=?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 831--832
+Underfull \hbox (badness 10000) in paragraph at lines 832--833
 []|\T1/cmtt/m/n/10 UPDATE usuarios SET activo = false WHERE id =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 837--838
+Underfull \hbox (badness 10000) in paragraph at lines 838--839
 []|\T1/cmtt/m/n/10 SELECT id FROM usuarios WHERE curp = ? OR
  []
 
-LaTeX Info: Redefining \. on input line 841.
-LaTeX Info: Redefining \% on input line 841.
-[109]
-Underfull \hbox (badness 1571) in paragraph at lines 853--853
+LaTeX Info: Redefining \. on input line 842.
+LaTeX Info: Redefining \% on input line 842.
+[106]
+Underfull \hbox (badness 1571) in paragraph at lines 854--854
 []|\T1/cmr/m/n/10 Registrar un nue-vo equi-po
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 854--855
+Underfull \hbox (badness 10000) in paragraph at lines 855--856
 []|\T1/cmtt/m/n/10 INSERT INTO equipos_multidisciplinarios
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 854--855
+Underfull \hbox (badness 10000) in paragraph at lines 855--856
 \T1/cmtt/m/n/10 (nombre_equipo, activo, fecha_creacion) VALUES
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 857--858
+Underfull \hbox (badness 10000) in paragraph at lines 858--859
 []|\T1/cmtt/m/n/10 SELECT * FROM equipos_multidisciplinarios
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 860--861
+Underfull \hbox (badness 10000) in paragraph at lines 861--862
 []|\T1/cmtt/m/n/10 SELECT ie.*, u.nombre, u.primer_apellido,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 860--861
+Underfull \hbox (badness 10000) in paragraph at lines 861--862
 \T1/cmtt/m/n/10 r.nombre_rol FROM integrantes_equipo ie
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 860--861
+Underfull \hbox (badness 10000) in paragraph at lines 861--862
 \T1/cmtt/m/n/10 JOIN usuarios u ON ie.usuario_id = u.id
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 860--861
+Underfull \hbox (badness 10000) in paragraph at lines 861--862
 \T1/cmtt/m/n/10 JOIN cat_roles r ON u.rol_id = r.id WHERE
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 860--861
+Underfull \hbox (badness 10000) in paragraph at lines 861--862
 \T1/cmtt/m/n/10 ie.equipo_id = ? AND ie.estatus_integrante =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 863--864
+Underfull \hbox (badness 10000) in paragraph at lines 864--865
 []|\T1/cmtt/m/n/10 INSERT INTO integrantes_equipo (equipo_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 863--864
+Underfull \hbox (badness 10000) in paragraph at lines 864--865
 \T1/cmtt/m/n/10 usuario_id, fecha_ingreso, estatus_integrante)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 866--867
+Underfull \hbox (badness 10000) in paragraph at lines 867--868
 []|\T1/cmtt/m/n/10 UPDATE integrantes_equipo SET
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 866--867
+Underfull \hbox (badness 10000) in paragraph at lines 867--868
 \T1/cmtt/m/n/10 estatus_integrante = 'Inactivo', fecha_salida
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 866--867
+Underfull \hbox (badness 10000) in paragraph at lines 867--868
 \T1/cmtt/m/n/10 = ?, motivo_cambio = ? WHERE equipo_id = ? AND
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 869--870
+Underfull \hbox (badness 10000) in paragraph at lines 870--871
 []|\T1/cmtt/m/n/10 UPDATE nna SET equipo_asignado_id = ? WHERE id
  []
 
-LaTeX Info: Redefining \. on input line 873.
-LaTeX Info: Redefining \% on input line 873.
-[110]
-Underfull \hbox (badness 10000) in paragraph at lines 886--887
+LaTeX Info: Redefining \. on input line 874.
+LaTeX Info: Redefining \% on input line 874.
+[107]
+Underfull \hbox (badness 10000) in paragraph at lines 887--888
 []|\T1/cmtt/m/n/10 INSERT INTO nna (nombre, primer_apellido,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 886--887
+Underfull \hbox (badness 10000) in paragraph at lines 887--888
 \T1/cmtt/m/n/10 segundo_apellido, fecha_nacimiento,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 886--887
+Underfull \hbox (badness 10000) in paragraph at lines 887--888
 \T1/cmtt/m/n/10 sexo, curp, nacionalidad_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 886--887
+Underfull \hbox (badness 10000) in paragraph at lines 887--888
 \T1/cmtt/m/n/10 municipio_nacimiento_id, es_migrante,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 886--887
+Underfull \hbox (badness 10000) in paragraph at lines 887--888
 \T1/cmtt/m/n/10 creado_por, activo, fecha_registro,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 886--887
-\T1/cmtt/m/n/10 grado_escolar_id, direccion_id,
+Underfull \hbox (badness 10000) in paragraph at lines 887--888
+\T1/cmtt/m/n/10 estatus_escolar_id, direccion_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 886--887
+Underfull \hbox (badness 10000) in paragraph at lines 887--888
 \T1/cmtt/m/n/10 equipo_asignado_id) VALUES (?, ?, ?, ?, ?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 889--890
+Underfull \hbox (badness 10000) in paragraph at lines 890--891
 []|\T1/cmtt/m/n/10 SELECT * FROM nna WHERE (nombre LIKE ? OR curp
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 892--893
+Underfull \hbox (badness 10000) in paragraph at lines 893--894
 []|\T1/cmtt/m/n/10 UPDATE nna SET nombre=?, primer_apellido=?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 892--893
+Underfull \hbox (badness 10000) in paragraph at lines 893--894
 \T1/cmtt/m/n/10 segundo_apellido=?, fecha_nacimiento=?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 892--893
+Underfull \hbox (badness 10000) in paragraph at lines 893--894
 \T1/cmtt/m/n/10 sexo=?, curp=?, nacionalidad_id=?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 892--893
+Underfull \hbox (badness 10000) in paragraph at lines 893--894
 \T1/cmtt/m/n/10 municipio_nacimiento_id=?, es_migrante=?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 895--896
+Underfull \hbox (badness 10000) in paragraph at lines 893--894
+\T1/cmtt/m/n/10 estatus_escolar_id=?, direccion_id=? WHERE
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 896--897
 []|\T1/cmtt/m/n/10 INSERT INTO hechos_victimales (nna_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 895--896
+Underfull \hbox (badness 10000) in paragraph at lines 896--897
 \T1/cmtt/m/n/10 nombre_victima_directa, fecha_hecho,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 898--899
+Underfull \hbox (badness 10000) in paragraph at lines 899--900
 []|\T1/cmtt/m/n/10 INSERT INTO tutores (nombre, primer_apellido,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 898--899
+Underfull \hbox (badness 10000) in paragraph at lines 899--900
 \T1/cmtt/m/n/10 segundo_apellido, fecha_nacimiento,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 898--899
+Underfull \hbox (badness 10000) in paragraph at lines 899--900
 \T1/cmtt/m/n/10 sexo, curp, nacionalidad_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 898--899
+Underfull \hbox (badness 10000) in paragraph at lines 899--900
 \T1/cmtt/m/n/10 municipio_nacimiento_id, escolaridad,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 898--899
+Underfull \hbox (badness 10000) in paragraph at lines 899--900
 \T1/cmtt/m/n/10 ocupacion, es_tutor_legal, tipo_tutela_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 898--899
+Underfull \hbox (badness 10000) in paragraph at lines 899--900
 \T1/cmtt/m/n/10 resolucion_tutela, fecha_inicio_tutela,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 898--899
+Underfull \hbox (badness 10000) in paragraph at lines 899--900
 \T1/cmtt/m/n/10 direccion_id) VALUES (?, ?, ?, ?, ?, ?, ?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 901--902
+Underfull \hbox (badness 10000) in paragraph at lines 902--903
 []|\T1/cmtt/m/n/10 INSERT INTO nna_tutores (nna_id, tutor_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 901--902
+Underfull \hbox (badness 10000) in paragraph at lines 902--903
 \T1/cmtt/m/n/10 parentesco, es_principal, fecha_inicio) VALUES
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 904--905
+Underfull \hbox (badness 10000) in paragraph at lines 905--906
 []|\T1/cmtt/m/n/10 UPDATE tutores SET nombre=?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 904--905
+Underfull \hbox (badness 10000) in paragraph at lines 905--906
 \T1/cmtt/m/n/10 primer_apellido=?, segundo_apellido=?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 904--905
+Underfull \hbox (badness 10000) in paragraph at lines 905--906
 \T1/cmtt/m/n/10 fecha_nacimiento=?, sexo=?, curp=?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 904--905
+Underfull \hbox (badness 10000) in paragraph at lines 905--906
 \T1/cmtt/m/n/10 nacionalidad_id=?, municipio_nacimiento_id=?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 904--905
+Underfull \hbox (badness 10000) in paragraph at lines 905--906
 \T1/cmtt/m/n/10 escolaridad=?, ocupacion=?, es_tutor_legal=?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 904--905
+Underfull \hbox (badness 10000) in paragraph at lines 905--906
 \T1/cmtt/m/n/10 tipo_tutela_id=?, resolucion_tutela=?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 904--905
+Underfull \hbox (badness 10000) in paragraph at lines 905--906
 \T1/cmtt/m/n/10 fecha_inicio_tutela=?, direccion_id=? WHERE
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 907--908
+Underfull \hbox (badness 10000) in paragraph at lines 908--909
 []|\T1/cmtt/m/n/10 INSERT INTO nna_idiomas (nna_id, idioma_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 907--908
+Underfull \hbox (badness 10000) in paragraph at lines 908--909
 \T1/cmtt/m/n/10 nivel_habla_id, nivel_comprension_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 907--908
+Underfull \hbox (badness 10000) in paragraph at lines 908--909
 \T1/cmtt/m/n/10 nivel_escritura_id, requiere_traductor) VALUES
  []
 
 
-Underfull \hbox (badness 1917) in paragraph at lines 909--909
+Underfull \hbox (badness 1917) in paragraph at lines 910--910
 []|\T1/cmr/m/n/10 Consultar idio-mas re-gis-tra-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 910--911
+Underfull \hbox (badness 10000) in paragraph at lines 911--912
 []|\T1/cmtt/m/n/10 SELECT ni.*, i.nombre FROM nna_idiomas ni JOIN
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 910--911
+Underfull \hbox (badness 10000) in paragraph at lines 911--912
 \T1/cmtt/m/n/10 cat_idiomas i ON ni.idioma_id = i.id WHERE
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 913--914
+Underfull \hbox (badness 10000) in paragraph at lines 914--915
 []|\T1/cmtt/m/n/10 INSERT INTO tutor_idiomas (tutor_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 913--914
+Underfull \hbox (badness 10000) in paragraph at lines 914--915
 \T1/cmtt/m/n/10 idioma_id, nivel_habla_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 913--914
+Underfull \hbox (badness 10000) in paragraph at lines 914--915
 \T1/cmtt/m/n/10 nivel_comprension_id, nivel_escritura_id,
  []
 
 
-Underfull \hbox (badness 1917) in paragraph at lines 915--915
+Underfull \hbox (badness 1917) in paragraph at lines 916--916
 []|\T1/cmr/m/n/10 Consultar idio-mas re-gis-tra-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 916--917
+Underfull \hbox (badness 10000) in paragraph at lines 917--918
 []|\T1/cmtt/m/n/10 SELECT ti.*, i.nombre FROM tutor_idiomas ti
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 916--917
+Underfull \hbox (badness 10000) in paragraph at lines 917--918
 \T1/cmtt/m/n/10 JOIN cat_idiomas i ON ti.idioma_id = i.id
  []
 
 
-Underfull \hbox (badness 2261) in paragraph at lines 918--918
+Underfull \hbox (badness 2261) in paragraph at lines 919--919
 []|\T1/cmr/m/n/10 Registrar una dis-ca-pa-ci-dad
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 919--920
+Underfull \hbox (badness 10000) in paragraph at lines 920--921
 []|\T1/cmtt/m/n/10 INSERT INTO nna_discapacidades (nna_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 919--920
+Underfull \hbox (badness 10000) in paragraph at lines 920--921
 \T1/cmtt/m/n/10 discapacidad_id, tipo_discapacidad,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 919--920
+Underfull \hbox (badness 10000) in paragraph at lines 920--921
 \T1/cmtt/m/n/10 grado_dependencia, observaciones) VALUES (?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--923
+Underfull \hbox (badness 10000) in paragraph at lines 923--924
 []|\T1/cmtt/m/n/10 SELECT nd.*, d.nombre FROM nna_discapacidades
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--923
+Underfull \hbox (badness 10000) in paragraph at lines 923--924
 \T1/cmtt/m/n/10 nd JOIN cat_discapacidades d ON
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 922--923
+Underfull \hbox (badness 10000) in paragraph at lines 923--924
 \T1/cmtt/m/n/10 nd.discapacidad_id = d.id WHERE nd.nna_id =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 924--924
+Underfull \hbox (badness 10000) in paragraph at lines 925--925
 []|\T1/cmr/m/n/10 Registrar una en-fer-me-dad
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 924--924
+Underfull \hbox (badness 10000) in paragraph at lines 925--925
 \T1/cmr/m/n/10 cró-ni-ca o pa-de-ci-mien-to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 925--926
+Underfull \hbox (badness 10000) in paragraph at lines 926--927
 []|\T1/cmtt/m/n/10 INSERT INTO personas_enfermedades
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 925--926
+Underfull \hbox (badness 10000) in paragraph at lines 926--927
 \T1/cmtt/m/n/10 (nna_id, tutor_id, enfermedad_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 925--926
+Underfull \hbox (badness 10000) in paragraph at lines 926--927
 \T1/cmtt/m/n/10 tratamiento_id, es_cronica, esta_controlada,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 925--926
+Underfull \hbox (badness 10000) in paragraph at lines 926--927
 \T1/cmtt/m/n/10 requiere_medicamento, nombre_medicamento,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 925--926
+Underfull \hbox (badness 10000) in paragraph at lines 926--927
 \T1/cmtt/m/n/10 observaciones) VALUES (?, ?, ?, ?, ?, ?, ?, ?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 928--929
+Underfull \hbox (badness 10000) in paragraph at lines 929--930
 []|\T1/cmtt/m/n/10 SELECT pe.*, e.nombre FROM
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 928--929
+Underfull \hbox (badness 10000) in paragraph at lines 929--930
 \T1/cmtt/m/n/10 personas_enfermedades pe JOIN cat_enfermedades
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 928--929
+Underfull \hbox (badness 10000) in paragraph at lines 929--930
 \T1/cmtt/m/n/10 e ON pe.enfermedad_id = e.id WHERE pe.nna_id =
  []
 
-LaTeX Info: Redefining \. on input line 932.
-LaTeX Info: Redefining \% on input line 932.
-[111]
-LaTeX Info: Redefining \. on input line 932.
-LaTeX Info: Redefining \% on input line 932.
- [112]
-Overfull \vbox (355.15942pt too high) has occurred while \output is active []
+LaTeX Info: Redefining \. on input line 933.
+LaTeX Info: Redefining \% on input line 933.
+[108]
+LaTeX Info: Redefining \. on input line 933.
+LaTeX Info: Redefining \% on input line 933.
+ [109]
+Overfull \vbox (367.15942pt too high) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 932.
-LaTeX Info: Redefining \% on input line 932.
+LaTeX Info: Redefining \. on input line 933.
+LaTeX Info: Redefining \% on input line 933.
 
-[113]
-Underfull \hbox (badness 10000) in paragraph at lines 945--946
+[110]
+Underfull \hbox (badness 10000) in paragraph at lines 946--947
 []|\T1/cmtt/m/n/10 INSERT INTO expedientes (folio_fud, nna_id,
  []
 
 
-Underfull \hbox (badness 2057) in paragraph at lines 947--947
+Underfull \hbox (badness 2057) in paragraph at lines 948--948
 \T1/cmr/m/n/10 si-ca del ex-pe-dien-te de un
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 948--949
+Underfull \hbox (badness 10000) in paragraph at lines 949--950
 []|\T1/cmtt/m/n/10 SELECT * FROM expedientes WHERE id = ? OR
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 951--952
+Underfull \hbox (badness 10000) in paragraph at lines 952--953
 []|\T1/cmtt/m/n/10 INSERT INTO valoraciones (expediente_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 951--952
+Underfull \hbox (badness 10000) in paragraph at lines 952--953
 \T1/cmtt/m/n/10 especialista_id, area_evaluacion,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 951--952
+Underfull \hbox (badness 10000) in paragraph at lines 952--953
 \T1/cmtt/m/n/10 hallazgos_dictamen, medidas_sugeridas,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 954--955
+Underfull \hbox (badness 10000) in paragraph at lines 955--956
 []|\T1/cmtt/m/n/10 INSERT INTO derechos_vulnerados
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 954--955
+Underfull \hbox (badness 10000) in paragraph at lines 955--956
 \T1/cmtt/m/n/10 (expediente_id, derecho_id, esta_vulnerado,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 954--955
+Underfull \hbox (badness 10000) in paragraph at lines 955--956
 \T1/cmtt/m/n/10 observaciones, creado_por, fecha_registro)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 957--958
+Underfull \hbox (badness 10000) in paragraph at lines 958--959
 []|\T1/cmtt/m/n/10 UPDATE derechos_vulnerados SET esta_vulnerado
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 960--961
+Underfull \hbox (badness 10000) in paragraph at lines 961--962
 []|\T1/cmtt/m/n/10 SELECT v.*, u.nombre FROM valoraciones v
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 960--961
+Underfull \hbox (badness 10000) in paragraph at lines 961--962
 \T1/cmtt/m/n/10 JOIN usuarios u ON v.especialista_id =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 960--961
+Underfull \hbox (badness 10000) in paragraph at lines 961--962
 \T1/cmtt/m/n/10 u.id WHERE v.expediente_id = ? ORDER BY
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 963--964
+Underfull \hbox (badness 10000) in paragraph at lines 964--965
 []|\T1/cmtt/m/n/10 SELECT dv.*, d.nom_derecho FROM
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 963--964
+Underfull \hbox (badness 10000) in paragraph at lines 964--965
 \T1/cmtt/m/n/10 derechos_vulnerados dv JOIN cat_derecho_lgdnna
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 963--964
+Underfull \hbox (badness 10000) in paragraph at lines 964--965
 \T1/cmtt/m/n/10 d ON dv.derecho_id = d.id_derecho WHERE
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 963--964
+Underfull \hbox (badness 10000) in paragraph at lines 964--965
 \T1/cmtt/m/n/10 dv.expediente_id = ? AND dv.esta_vulnerado
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 980--981
+Underfull \hbox (badness 10000) in paragraph at lines 981--982
 []|\T1/cmtt/m/n/10 INSERT INTO actores_derechos (nombre,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 980--981
+Underfull \hbox (badness 10000) in paragraph at lines 981--982
 \T1/cmtt/m/n/10 tipo_actor_id, tiene_registro_oficial,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 980--981
+Underfull \hbox (badness 10000) in paragraph at lines 981--982
 \T1/cmtt/m/n/10 registro_oficial_num, horario_atencion,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 980--981
+Underfull \hbox (badness 10000) in paragraph at lines 981--982
 \T1/cmtt/m/n/10 observaciones, activo, fecha_registro,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 980--981
+Underfull \hbox (badness 10000) in paragraph at lines 981--982
 \T1/cmtt/m/n/10 direccion_id) VALUES (?, ?, ?, ?, ?, ?, true,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 983--984
+Underfull \hbox (badness 10000) in paragraph at lines 984--985
 []|\T1/cmtt/m/n/10 INSERT INTO contactos (tel_principal,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 983--984
+Underfull \hbox (badness 10000) in paragraph at lines 984--985
 \T1/cmtt/m/n/10 tel_secundario, correo, pagina_web,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 983--984
+Underfull \hbox (badness 10000) in paragraph at lines 984--985
 \T1/cmtt/m/n/10 red_social_id, red_social_usuario, actor_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 986--987
+Underfull \hbox (badness 10000) in paragraph at lines 987--988
 []|\T1/cmtt/m/n/10 INSERT INTO direcciones (calle, no_exterior,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 986--987
+Underfull \hbox (badness 10000) in paragraph at lines 987--988
 \T1/cmtt/m/n/10 no_interior, colonia_id, tipo_lugar_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 986--987
+Underfull \hbox (badness 10000) in paragraph at lines 987--988
 \T1/cmtt/m/n/10 pueblo_comunidad, referencia_ubicacion) VALUES
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 989--990
+Underfull \hbox (badness 10000) in paragraph at lines 990--991
 []|\T1/cmtt/m/n/10 INSERT INTO actor_persona_fisica (id_actor,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 989--990
+Underfull \hbox (badness 10000) in paragraph at lines 990--991
 \T1/cmtt/m/n/10 curp, rfc, fecha_nacimiento, sexo,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 989--990
+Underfull \hbox (badness 10000) in paragraph at lines 990--991
 \T1/cmtt/m/n/10 municipio_id, escolaridad, ocupacion_oficio,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 989--990
+Underfull \hbox (badness 10000) in paragraph at lines 990--991
 \T1/cmtt/m/n/10 descripcion_actividad, disponibilidad,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 989--990
+Underfull \hbox (badness 10000) in paragraph at lines 990--991
 \T1/cmtt/m/n/10 es_lider_comunitario, es_lider_religioso,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 989--990
+Underfull \hbox (badness 10000) in paragraph at lines 990--991
 \T1/cmtt/m/n/10 pertenece_grupo, como_contactar) VALUES (?, ?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 992--993
+Underfull \hbox (badness 10000) in paragraph at lines 993--994
 []|\T1/cmtt/m/n/10 INSERT INTO actor_enlace (actor_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 992--993
+Underfull \hbox (badness 10000) in paragraph at lines 993--994
 \T1/cmtt/m/n/10 nom_enlace, cargo_enlace,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 992--993
+Underfull \hbox (badness 10000) in paragraph at lines 993--994
 \T1/cmtt/m/n/10 es_principal_contacto, notas_enlace) VALUES
  []
 
 
-Underfull \hbox (badness 2689) in paragraph at lines 997--997
+Underfull \hbox (badness 2689) in paragraph at lines 998--998
 []|\T1/cmr/m/n/10 Registrar un pro-gra-ma de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 998--999
+Underfull \hbox (badness 10000) in paragraph at lines 999--1000
 []|\T1/cmtt/m/n/10 INSERT INTO actor_programa (actor_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 998--999
+Underfull \hbox (badness 10000) in paragraph at lines 999--1000
 \T1/cmtt/m/n/10 nom_programa, descripcion, fecha_inicio,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1001--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1002--1003
 []|\T1/cmtt/m/n/10 INSERT INTO servicios_actores (actor_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1001--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1002--1003
 \T1/cmtt/m/n/10 programa_id, categoria_id, nombre_servicio,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1001--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1002--1003
 \T1/cmtt/m/n/10 descripcion_servicio, modalidad, es_gratuito,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1001--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1002--1003
 \T1/cmtt/m/n/10 costo, duracion, disponibilidad,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1001--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1002--1003
 \T1/cmtt/m/n/10 requisitos_tramites, poblacion_objetivo,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1001--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1002--1003
 \T1/cmtt/m/n/10 activo_servicio) VALUES (?, ?, ?, ?, ?, ?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1003--1003
+Underfull \hbox (badness 10000) in paragraph at lines 1004--1004
 []|\T1/cmr/m/n/10 Vincular un de-re-cho de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1004--1005
+Underfull \hbox (badness 10000) in paragraph at lines 1005--1006
 []|\T1/cmtt/m/n/10 INSERT INTO servicio_derecho (servicio_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1007--1008
+Underfull \hbox (badness 10000) in paragraph at lines 1008--1009
 []|\T1/cmtt/m/n/10 INSERT INTO expediente_vinculacion_servicios
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1007--1008
+Underfull \hbox (badness 10000) in paragraph at lines 1008--1009
 \T1/cmtt/m/n/10 (expediente_id, servicio_actor_id,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1010--1011
+Underfull \hbox (badness 10000) in paragraph at lines 1011--1012
 []|\T1/cmtt/m/n/10 SELECT evs.*, sa.nombre_servicio, ad.nombre
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1010--1011
+Underfull \hbox (badness 10000) in paragraph at lines 1011--1012
 \T1/cmtt/m/n/10 FROM expediente_vinculacion_servicios evs JOIN
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1010--1011
+Underfull \hbox (badness 10000) in paragraph at lines 1011--1012
 \T1/cmtt/m/n/10 servicios_actores sa ON evs.servicio_actor_id
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1010--1011
+Underfull \hbox (badness 10000) in paragraph at lines 1011--1012
 \T1/cmtt/m/n/10 = sa.id JOIN actores_derechos ad ON
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1010--1011
+Underfull \hbox (badness 10000) in paragraph at lines 1011--1012
 \T1/cmtt/m/n/10 sa.actor_id = ad.id WHERE evs.expediente_id
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1013--1014
+Underfull \hbox (badness 10000) in paragraph at lines 1014--1015
 []|\T1/cmtt/m/n/10 SELECT a.*, sa.nombre_servicio FROM
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1013--1014
+Underfull \hbox (badness 10000) in paragraph at lines 1014--1015
 \T1/cmtt/m/n/10 actores_derechos a JOIN direcciones d ON
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1013--1014
+Underfull \hbox (badness 10000) in paragraph at lines 1014--1015
 \T1/cmtt/m/n/10 a.direccion_id = d.id JOIN cat_colonias c ON
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1013--1014
+Underfull \hbox (badness 10000) in paragraph at lines 1014--1015
 \T1/cmtt/m/n/10 d.colonia_id = c.id JOIN cat_municipios m ON
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1013--1014
+Underfull \hbox (badness 10000) in paragraph at lines 1014--1015
 \T1/cmtt/m/n/10 c.municipio_id = m.id JOIN servicios_actores
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1013--1014
+Underfull \hbox (badness 10000) in paragraph at lines 1014--1015
 \T1/cmtt/m/n/10 sa ON sa.actor_id = a.id WHERE m.id = ? AND
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1016--1017
+Underfull \hbox (badness 10000) in paragraph at lines 1017--1018
 []|\T1/cmtt/m/n/10 UPDATE actores_derechos SET activo = false
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1019--1020
+Underfull \hbox (badness 10000) in paragraph at lines 1020--1021
 []|\T1/cmtt/m/n/10 UPDATE actores_derechos SET activo = true
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1022--1023
+Underfull \hbox (badness 10000) in paragraph at lines 1023--1024
 []|\T1/cmtt/m/n/10 UPDATE actor_programa SET activo_programa =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1025--1026
+Underfull \hbox (badness 10000) in paragraph at lines 1026--1027
 []|\T1/cmtt/m/n/10 SELECT col.id, col.nombre, mun.id, mun.nombre,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1025--1026
+Underfull \hbox (badness 10000) in paragraph at lines 1026--1027
 \T1/cmtt/m/n/10 est.id, est.nombre FROM cat_colonias col
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1025--1026
+Underfull \hbox (badness 10000) in paragraph at lines 1026--1027
 \T1/cmtt/m/n/10 JOIN cat_municipios mun ON col.municipio_id
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1025--1026
+Underfull \hbox (badness 10000) in paragraph at lines 1026--1027
 \T1/cmtt/m/n/10 = mun.id JOIN cat_estados est ON mun.estado_id
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1028--1029
+Underfull \hbox (badness 10000) in paragraph at lines 1029--1030
 []|\T1/cmtt/m/n/10 SELECT id, nombre, variante FROM cat_idiomas
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1031--1032
+Underfull \hbox (badness 10000) in paragraph at lines 1032--1033
 []|\T1/cmtt/m/n/10 SELECT * FROM eventos_calendario WHERE
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1034--1035
+Underfull \hbox (badness 10000) in paragraph at lines 1035--1036
 []|\T1/cmtt/m/n/10 INSERT INTO eventos_calendario (titulo,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1034--1035
+Underfull \hbox (badness 10000) in paragraph at lines 1035--1036
 \T1/cmtt/m/n/10 descripcion, fecha_inicio, fecha_fin,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1037--1038
+Underfull \hbox (badness 10000) in paragraph at lines 1038--1039
 []|\T1/cmtt/m/n/10 UPDATE eventos_calendario SET titulo=?,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1037--1038
+Underfull \hbox (badness 10000) in paragraph at lines 1038--1039
 \T1/cmtt/m/n/10 descripcion=?, fecha_inicio=?, fecha_fin=?
  []
 
-)
-LaTeX Info: Redefining \. on input line 97.
-LaTeX Info: Redefining \% on input line 97.
- [114]
-LaTeX Info: Redefining \. on input line 97.
-LaTeX Info: Redefining \% on input line 97.
- [115]
+LaTeX Info: Redefining \. on input line 1042.
+LaTeX Info: Redefining \% on input line 1042.
+[111]
+LaTeX Info: Redefining \. on input line 1042.
+LaTeX Info: Redefining \% on input line 1042.
+ [112]
 Overfull \vbox (479.1276pt too high) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 97.
-LaTeX Info: Redefining \% on input line 97.
+LaTeX Info: Redefining \. on input line 1042.
+LaTeX Info: Redefining \% on input line 1042.
 
-[116] (main.aux
+[113]) (main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
  (parte1_organizacion.aux) (parte2_arquitectura.aux)
@@ -2917,13 +2919,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 44A1AA55E360F4C649ACBE3FC215D2BD;28817.
  ) 
 Here is how much of TeX's memory you used:
- 24623 strings out of 467509
- 456699 string characters out of 5408294
- 867791 words of memory out of 5000000
- 52964 multiletter control sequences out of 15000+600000
- 647635 words of font info for 86 fonts, out of 8000000 for 9000
+ 24627 strings out of 467509
+ 456789 string characters out of 5408294
+ 878921 words of memory out of 5000000
+ 52969 multiletter control sequences out of 15000+600000
+ 648724 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,13n,94p,1010b,880s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,94p,1010b,878s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{CatDerechoLGDNNA} has been referenced but does not 
 exist, replaced by a fixed one
@@ -2936,31 +2938,34 @@ exist, replaced by a fixed one
 pdfTeX warning (dest): name{ActoresDerechos} has been referenced but does not e
 xist, replaced by a fixed one
 
- <C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1
+ <C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1
 000.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ecbx1000.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
-c/dpi600\ectt1000.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
-appen/ec/dpi600\ecrm0600.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljf
-our/jknappen/ec/dpi600\ecss0800.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts
-/pk/ljfour/jknappen/ec/dpi600\ecsx0800.pk> <C:\Users\Alison\AppData\Local\MiKTe
-X\fonts/pk/ljfour/jknappen/ec/dpi600\tcti1200.pk> <C:\Users\Alison\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\Alison\AppDa
-ta\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\Aliso
-n\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\User
-s\Alison\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <
-C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx144
+0\ecrm1000.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
+c/dpi600\ecbx1000.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
+appen/ec/dpi600\ecbx0800.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljf
+our/jknappen/ec/dpi600\ectt0800.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts
+/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\Alison\AppData\Local\MiKTe
+X\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0800.pk> <C:\Users\Alison\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx0800.pk> <C:\Users\Alison\AppDa
+ta\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcti1200.pk> <C:\Users\Aliso
+n\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\User
+s\Alison\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <
+C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm080
 0.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
-ecrm1095.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
-dpi600\ecbx1200.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecbx1728.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljfou
-r/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts/p
-k/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\Alison\AppData\Local\MiKTeX\
-fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk><C:/Users/Alison/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Alison/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (117 pages, 3831996 bytes).
+ecti1200.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
+dpi600\ecbx1440.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecrm1095.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts/pk/ljfou
+r/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Alison\AppData\Local\MiKTeX\fonts/p
+k/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\Alison\AppData\Local\MiKTeX\
+fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Alison\AppData\Local\
+MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\Alison\AppData
+\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk><C:/Users/Alison/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/User
+s/Alison/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam
+10.pfb>
+Output written on main.pdf (114 pages, 3857530 bytes).
 PDF statistics:
- 2210 PDF objects out of 2487 (max. 8388607)
- 469 named destinations out of 1000 (max. 500000)
+ 2296 PDF objects out of 2487 (max. 8388607)
+ 466 named destinations out of 1000 (max. 500000)
  1051 words of extra memory for PDF output out of 10000 (max. 10000000)
 

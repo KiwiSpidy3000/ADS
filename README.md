@@ -27,8 +27,9 @@ Asegúrate de tener instalado:
 
 ```bash
 git clone https://github.com/KiwiSpidy3000/ADS.git
+git branch recuperacion 
 ```
-
+La ultima rama funcional es la de recuperacion
 ---
 
 ##  Backend — FastAPI

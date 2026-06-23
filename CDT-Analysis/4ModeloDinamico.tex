@@ -154,6 +154,125 @@ la documentación necesaria para las iteraciones 1 y 2.
 \end{center}
 
 
+%-------------------------------------- COMIENZA CU-EXT-01
+\begin{UseCase}{CU-EXT-01}{Buscar dirección por código postal}{
+		El sistema consulta el catálogo de SEPOMEX para obtener la información de una dirección a partir de un código postal proporcionado, devolviendo el estado, municipio y colonia correspondientes.
+	}
+	\UCitem{Versión}{1.0}
+	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
+	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
+	\UCitem{Actor}{Sistema (SEPOMEX)}
+	\UCitem{Propósito}{\begin{Titemize}
+			\Titem Autocompletar los campos de dirección a partir de un código postal, reduciendo errores de captura y agilizando el registro de información geográfica.
+		\end{Titemize}
+	}\UCitem{Entradas}{\begin{Titemize}
+			\Titem Código postal (5 dígitos).
+		\end{Titemize}
+	}\UCitem{Origen}{\begin{Titemize}
+			\Titem Introducido desde el teclado en el campo de código postal de la interfaz correspondiente al caso de uso que lo invoca.
+		\end{Titemize}
+	}\UCitem{Salidas}{\begin{Titemize}
+			\Titem Estado.
+			\Titem Municipio.
+			\Titem Colonia(s) disponible(s) para el código postal indicado.
+		\end{Titemize}
+	}\UCitem{Destino}{\begin{Titemize}
+			\Titem Campos de dirección en la interfaz del caso de uso que lo invoca.
+			\Titem Pantalla \IUref{IU-EXT-01}{Auxiliar Direccion}.
+		\end{Titemize}
+	}\UCitem{Precondiciones}{\begin{Titemize}
+			\Titem El usuario ha ingresado un código postal en el campo correspondiente.
+			\Titem El catálogo de SEPOMEX se encuentra disponible en el sistema.
+		\end{Titemize}
+	}\UCitem{Postcondiciones}{\begin{Titemize}
+			\Titem Los campos de estado, municipio y colonia quedan autocompletados con la información recuperada del catálogo de SEPOMEX.
+		\end{Titemize}
+	}\UCitem{Errores}{\begin{Titemize}
+			\Titem {\bf \hypertarget{CU-EXT-01.E1}{E1}}: Código postal no encontrado en el catálogo; el sistema muestra ``No se encontraron resultados para el código postal ingresado'' y limpia los campos de estado, municipio y colonia.
+			\Titem {\bf \hypertarget{CU-EXT-01.E2}{E2}}: Código postal con formato inválido (diferente a 5 dígitos numéricos); el sistema muestra ``El código postal debe contener exactamente 5 dígitos'' y no realiza la consulta.
+		\end{Titemize}
+	}\UCitem{Tipo}{
+		Caso de uso extendido. Es utilizado por:
+		\begin{Titemize}
+			\Titem \UCref{CU-04}{Registrar usuario}
+			\Titem \UCref{CU-06}{Modificar usuario}
+			\Titem \UCref{CU-13}{Registrar NNA}
+			\Titem \UCref{CU-18}{Registrar tutor del NNA}
+			\Titem \UCref{CU-26}{Registrar actor en materia de derechos}
+			\Titem \UCref{CU-28}{Modificar actor en materia de derechos}
+			\Titem \UCref{CU-43}{Registrar ubicación del actor}
+			\Titem \UCref{CU-49}{Editar actor}
+		\end{Titemize}
+	}\UCitem{Observaciones}{
+		Este caso de uso es invocado automáticamente cada vez que el usuario termina de introducir un código postal válido (5 dígitos) en cualquiera de los casos de uso que lo incluyen. La selección de colonia permanece habilitada para el usuario en caso de que el código postal corresponda a múltiples colonias.
+	}
+\end{UseCase}
+\begin{UCtrayectoria}
+	\UCpaso[\UCactor] Introduce un código postal de 5 dígitos en el campo correspondiente de la interfaz activa. \ErrorRef{CU-EXT-01}{E2}{Formato de código postal inválido}
+	\UCpaso Valida que el código postal tenga el formato correcto (5 dígitos numéricos).
+	\UCpaso \label{CU-EXT-01.consultaCatalogo} Consulta el catálogo de SEPOMEX con el código postal proporcionado. \ErrorRef{CU-EXT-01}{E1}{Código postal no encontrado}
+	\UCpaso Recupera el estado, municipio y colonia(s) asociados al código postal.
+	\UCpaso Autocompleta los campos de estado y municipio en la interfaz del caso de uso que lo invoca.
+	\UCpaso Presenta las colonias disponibles en una lista desplegable para que el usuario seleccione la correspondiente.
+	\UCpaso[\UCactor] Selecciona la colonia de la lista desplegable.
+	\UCpaso Registra la colonia seleccionada y devuelve el control al caso de uso que invocó este proceso.
+\end{UCtrayectoria}
+%-------------------------------------- TERMINA CU-EXT-01
+
+
+%-------------------------------------- COMIENZA CU-01
+\begin{UseCase}{CU-01}{Iniciar sesión}{
+		El usuario del sistema proporciona sus credenciales de acceso para autenticarse e ingresar a los módulos de SICORRE según el rol que tiene asignado.
+	}
+	\UCitem{Versión}{1.0}
+	\UCitem{Autor}{Estévez Pérez Alison Beatriz}
+	\UCitem{Supervisa}{Pulido Robles Daniel Alfonso}
+	\UCitem{Actor}{\hyperlink{Actor.Usuario}{Usuario (Administrador / Especialista)}}
+	\UCitem{Propósito}{\begin{Titemize}
+			\Titem Controlar el acceso al sistema para proteger la información confidencial de los NNA.
+		\end{Titemize}
+	}\UCitem{Entradas}{\begin{Titemize}
+			\Titem \hyperlink{Usuarios.correo}{Correo electrónico}.
+			\Titem \hyperlink{Usuarios.password_hash}{Contraseña}.
+		\end{Titemize}
+	}\UCitem{Origen}{\begin{Titemize}
+			\Titem Se introducen desde el teclado en la pantalla de inicio de sesión.
+		\end{Titemize}
+	}\UCitem{Salidas}{\begin{Titemize}
+			\Titem Redirección al panel principal correspondiente a su rol.
+			\Titem Mensajes de error en caso de credenciales inválidas.
+		\end{Titemize}
+	}\UCitem{Destino}{\begin{Titemize}
+			\Titem Pantalla \IUref{IU01}{Iniciar sesión}.
+		\end{Titemize}
+	}\UCitem{Precondiciones}{\begin{Titemize}
+			\Titem El usuario debe estar registrado y activo en el sistema.
+		\end{Titemize}
+	}\UCitem{Postcondiciones}{\begin{Titemize}
+			\Titem Se inicia una sesión activa para el usuario en el sistema.
+		\end{Titemize}
+	}\UCitem{Errores}{\begin{Titemize}
+			\Titem {\bf \hypertarget{CU-01.E1}{E1}}: Credenciales incorrectas; el sistema muestra ``Correo o contraseña inválidos'' y regresa al paso \ref{CU-01.ingresaCredenciales}.
+		\end{Titemize}
+	}\UCitem{Tipo}{
+		Caso de uso primario.
+	}\UCitem{Observaciones}{
+		Ninguna.
+	}
+\end{UseCase}
+
+\begin{UCtrayectoria}
+	\UCpaso[\UCactor] Accede a la URL del sistema.
+	\UCpaso Muestra la pantalla \IUref{IU01}{Inicio de sesión}.
+	\UCpaso[\UCactor] \label{CU-01.ingresaCredenciales} Introduce su correo electrónico y contraseña, y presiona \IUbutton{Ingresar}.
+	\UCpaso Valida las credenciales ingresadas contra la base de datos. \ErrorRef{CU-01}{E1}{Credenciales incorrectas}
+	\UCpaso Verifica el rol asignado al usuario y establece la sesión activa.
+	\UCpaso Redirige al panel principal correspondiente a su rol y muestra el mensaje \MSGref{MSG01}{Bienvenida al usuario}.
+\end{UCtrayectoria}
+%-------------------------------------- TERMINA CU-01
+
+
+
 %-------------------------------------- COMIENZA CU-01
 \begin{UseCase}{CU-01}{Iniciar sesión}{
 		El usuario del sistema proporciona sus credenciales de acceso para autenticarse e ingresar a los módulos de SICORRE según el rol que tiene asignado.

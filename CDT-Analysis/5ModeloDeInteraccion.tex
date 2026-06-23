@@ -2143,4 +2143,78 @@ correspondiente.
 	administración sin realizar ningún cambio.
 \end{itemize}
 
+
+\section{IU-EXT-01 Pantalla de Búsqueda de Dirección por Código Postal}
+\subsection{Objetivo}
+Permitir al usuario autocompletar los campos de dirección a partir de un código 
+postal válido, consultando el catálogo de SEPOMEX para obtener el estado, 
+municipio y colonia correspondientes, reduciendo errores de captura en los 
+formularios del sistema.
+
+\subsection{Diseño}
+Esta pantalla \IUref{IU-EXT-01}{Pantalla de Búsqueda de Dirección por Código 
+	Postal} se presenta como un bloque de campos integrado dentro de los formularios 
+que requieren el registro de una dirección.
+
+El bloque inicia con el grupo de campos de calle y número, compuesto por tres 
+entradas de texto: \textbf{Calle}, \textbf{Número Exterior} y 
+\textbf{Número Interior (opcional)}, siendo este último de carácter no 
+obligatorio.
+
+A continuación se presenta la sección de \textbf{Código Postal}, compuesta por 
+un campo de texto numérico de cinco dígitos acompañado del botón 
+\IUbutton{Buscar}, el cual realiza la consulta al catálogo de SEPOMEX con el 
+valor ingresado.
+
+Una vez ejecutada la búsqueda exitosamente, los campos \textbf{Estado} y 
+\textbf{Municipio / Alcaldía} se autocompletan de forma automática y se 
+presentan como campos de solo lectura con la información recuperada del 
+catálogo. En el ejemplo de la figura se puede observar que para el código postal 
+\textit{05400} el sistema recupera \textit{Ciudad de México} como estado y 
+\textit{Cuajimalpa de Morelos} como municipio/alcaldía.
+
+Debajo de los campos autocompletados se encuentra el selector desplegable 
+\textbf{Colonia}, que presenta las colonias disponibles asociadas al código 
+postal consultado para que el usuario seleccione la correspondiente. Por último, 
+se muestra el selector desplegable \textbf{Tipo de Vivienda}, que permite 
+clasificar el tipo de inmueble del domicilio registrado.
+
+\IUfig[.9]{BuscarDireccion}{IU-EXT-01}{Pantalla de Búsqueda de Dirección por Código Postal.}
+
+\subsection{Salidas}
+\begin{itemize}
+	\item Campo \textbf{Estado} autocompletado con el nombre del estado 
+	correspondiente al código postal consultado.
+	\item Campo \textbf{Municipio / Alcaldía} autocompletado con el nombre del 
+	municipio o alcaldía correspondiente al código postal consultado.
+	\item Lista desplegable \textbf{Colonia} poblada con las colonias disponibles 
+	para el código postal ingresado.
+\end{itemize}
+
+\subsection{Entradas}
+\begin{itemize}
+	\item \textbf{Calle:} Campo de texto libre para ingresar el nombre de la 
+	calle del domicilio.
+	\item \textbf{Número Exterior:} Campo de texto para ingresar el número 
+	exterior del inmueble.
+	\item \textbf{Número Interior (opcional):} Campo de texto para ingresar el 
+	número interior del inmueble; su captura no es obligatoria.
+	\item \textbf{Código Postal:} Campo numérico de cinco dígitos utilizado como 
+	criterio de búsqueda en el catálogo de SEPOMEX.
+	\item \textbf{Colonia:} Selector desplegable que presenta las opciones 
+	recuperadas tras la consulta por código postal. El usuario debe seleccionar 
+	la colonia que corresponde a su domicilio.
+	\item \textbf{Tipo de Vivienda:} Selector desplegable para clasificar el 
+	tipo de inmueble del domicilio registrado.
+\end{itemize}
+
+\subsection{Comandos}
+\begin{itemize}
+	\item \IUbutton{Buscar}: Ejecuta la consulta al catálogo de SEPOMEX con el 
+	código postal ingresado en el campo correspondiente y, de encontrarse 
+	resultados, autocompleta los campos \textbf{Estado} y 
+	\textbf{Municipio / Alcaldía}, y puebla el selector desplegable 
+	\textbf{Colonia} con las opciones disponibles.
+\end{itemize}
+
 \input{5-1-Mensajes}
